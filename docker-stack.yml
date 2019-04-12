@@ -1,9 +1,69 @@
 version: '3.4'
 
 x-include:
+  commanderserver: &commanderserver
+    image: kin3303/commanderserver:${TAG}
+    ports:
+      - 8000
+    volumes:
+      - my-plugins:/opt/electriccloud/electriccommander/plugins
+      - my-workspace:/opt/electriccloud/electriccommander/workspace
+      - my-conf:/opt/electriccloud/electriccommander/conf
+      - my-scripts:/tmp/scripts
+
+  commanderapache: &commanderapache
+    image: kin3303/commanderapache:${TAG}
+    volumes:
+      - my-plugins:/opt/electriccloud/electriccommander/plugins
+      - my-workspace:/opt/electriccloud/electriccommander/workspace
+
+  commanderagent: &commanderagent
+    image: kin3303/commanderagent:${TAG}
+    volumes:
+      - my-plugins:/opt/electriccloud/electriccommander/plugins
+      - my-workspace:/opt/electriccloud/electriccommander/workspace
+
+  commanderrepository: &commanderrepository
+    image: kin3303/commanderrepository:${TAG}
+    volumes:
+      - my-plugins:/opt/electriccloud/electriccommander/plugins
+      - my-workspace:/opt/electriccloud/electriccommander/workspace
+      - my-repository:/opt/electriccloud/electriccommander/repository-data
+
+  mysql: &mysql
+     image: mysql:5.7
+     volumes:
+       - my-db:/var/lib/mysql
+       - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
+     environment:
+       MYSQL_ROOT_PASSWORD: ecdb
+       MYSQL_DATABASE: ecdb
+       MYSQL_USER: ecdb
+       MYSQL_PASSWORD: ecdb
+     hostname: db
+
   zookeeper: &zookeeper
     image: zookeeper
-      
+
+  haproxy: &haproxy
+    image: haproxy
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    volumes:
+      - my-haproxy:/usr/local/etc/haproxy/
+
+  interlock: &interlock
+    image: ehazlett/interlock:master
+    command: run -c /etc/interlock/config.toml
+    volumes:
+        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
+        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
+        - "/var/run/docker.sock:/var/run/docker.sock"
+
 services:
   visualizer:
     image: dockersamples/visualizer:stable
@@ -14,64 +74,66 @@ services:
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-    networks:
-      - efnetwork
-      
-  db:
-    image: kin3303/commanderdb
+
+  commanderserver:
+    << : *commanderserver
+    depends_on:
+      - db
+      - zookeeper1
     environment:
-      MYSQL_ROOT_PASSWORD: ecdb
-      MYSQL_DATABASE: ecdb
-      MYSQL_USER: ecdb
-      MYSQL_PASSWORD: ecdb
-    hostname: db
-    networks:
-      - efnetwork
-    volumes:
-      - my-db:/var/lib/mysql/
-    deploy:
-      placement:
-        constraints: [node.role == worker]   
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180
+    labels:
+        - "interlock.hostname=commanderserver"
+        - "interlock.domain=local"
 
-  zookeeper1: &zookeeper
-    image: kin3303/commanderzoo
-    deploy:
-      replicas: 3
-      update_config:
-        parallelism: 2
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "2181:2181"
-    networks:
-      - efnetwork
-      
-  #zookeeper1:
-  #  <<: *zookeeper
-  #  environment:
-  #    ZOO_MY_ID: 1
-  #    ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-  #  volumes:
-  #    - my-zoo1:/data
+  commanderapache:
+    <<: *commanderapache
+    depends_on:
+      - commanderserver
 
-  #zookeeper2:
-  #  <<: *zookeeper
-  #  environment:
-  #    ZOO_MY_ID: 2
-  #    ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-  #  volumes:
-  #    - my-zoo2:/data
+  localagent:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
 
-  #zookeeper3:
-  #  <<: *zookeeper
-  #  environment:
-  #    ZOO_MY_ID: 3
-  #    ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-  #  volumes:
-  #    - my-zoo3:/data
-      
-networks:
-  efnetwork: 
+  repository:
+    <<: *commanderrepository
+
+  db:
+    << : *mysql
+
+  zookeeper1:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper1
+
+  zookeeper2:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper2
+    
+  zookeeper3:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper3
+    
+  interlock:
+    <<: *interlock
+
+  haproxy:
+    <<: *haproxy
+    labels:
+        - "interlock.ext.name=haproxy"
+    depends_on:
+        - interlock
+        - commanderserver
 
 volumes:
   my-db:
@@ -80,21 +142,39 @@ volumes:
       o: bind
       type: none
       device: $PWD/data/db-data/
-  #my-zoo1:
-  #  driver: local
-  #  driver_opts:
-  #    o: bind
-  #    type: none
-  #    device: $PWD/data/zoo/zookeeper1/
-  #my-zoo2:
-  #  driver: local
-  #  driver_opts:
-  #    o: bind
-  #    type: none
-  #    device: $PWD/data/zoo/zookeeper2/
-  #my-zoo3:
-  #  driver: local
-  #  driver_opts:
-  #    o: bind
-  #    type: none
-  #    device: $PWD/data/zoo/zookeeper3/
+  my-plugins:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/data/plugins/
+  my-workspace:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/data/workspace/
+  my-conf:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/data/conf/
+  my-scripts:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/scripts/
+  my-repository:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/data/repository-data/
+  my-haproxy:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/data/haproxy/
