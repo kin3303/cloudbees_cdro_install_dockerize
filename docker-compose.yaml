@@ -99,6 +99,7 @@ services:
 
   repository:
     <<: *commanderrepository
+    
   db:
     << : *mysql
 
