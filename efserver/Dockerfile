@@ -20,4 +20,9 @@ EXPOSE 8443 61613 8000 5445-5449
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
 RUN chmod +x /wait
  
-CMD /wait && chmod +x /tmp/scripts/*.sh && /tmp/scripts/initiate_zoo.sh && /etc/init.d/commanderServer start && sleep 5 && tail -F /opt/electriccloud/electriccommander/logs/commander-`hostname`.log
+CMD /wait && \
+chmod +x /tmp/scripts/*.sh && \
+/tmp/scripts/initiate_zoo.sh && \
+/etc/init.d/commanderServer start && \
+sleep 5 && \
+tail -F /opt/electriccloud/electriccommander/logs/commander-`hostname`.log
