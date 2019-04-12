@@ -11,6 +11,7 @@ x-include:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/conf:/opt/electriccloud/electriccommander/conf
       - ${PWD}/scripts:/tmp/scripts
+      
 
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
@@ -77,6 +78,9 @@ services:
     depends_on:
       - db
       - zookeeper1
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180
     labels:
         - "interlock.hostname=commanderserver"
         - "interlock.domain=local"
