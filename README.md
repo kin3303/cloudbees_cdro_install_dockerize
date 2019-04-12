@@ -63,7 +63,7 @@
 
 ```console
  $ make clean
- $ TAG=9.0.1 docker stack deploy -c docker-stack-test2.yml EF
+ $ TAG=9.0.1 docker stack deploy -c docker-stack.yml EF
  $ docker service ls
  $ docker stack rm EF
  $ docker service logs -f EF_commanderserver
