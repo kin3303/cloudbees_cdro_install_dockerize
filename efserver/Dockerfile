@@ -21,6 +21,7 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait
 RUN chmod +x /wait
  
 CMD /wait && \
+. /opt/electriccloud/electriccommander/bash.profile && \
 chmod +x /tmp/scripts/*.sh && \
 /tmp/scripts/initiate_zoo.sh && \
 /etc/init.d/commanderServer start && \
