@@ -1,0 +1,50 @@
+SAN=""
+
+[ ca ]
+default_ca = CA_default
+[ CA_default ]
+default_md      = sha1
+dir             = /opt/electriccloud/electriccommander/conf/security
+RANDFILE        = $dir/rand
+crl             = $dir/crl.pem
+database        = $dir/index.txt
+new_certs_dir   = $dir/certs
+private_key     = $dir/ca_pk.pem
+certificate     = $dir/ca.pem
+serial          = $dir/serial
+preserve        = yes
+policy          = policy_any
+email_in_dn     = no
+x509_extensions = v3_req
+copy_extensions = copy
+default_days    = 3650
+default_crl_days = 3650
+unique_subject = no
+
+[ policy_any ]
+emailAddress            = optional
+commonName              = supplied
+organizationalUnitName  = optional
+organizationName        = optional
+stateOrProvinceName     = optional
+countryName             = optional
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectKeyIdentifier=hash
+
+[ v3_ca ]
+basicConstraints = CA:TRUE
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid:always,issuer:always
+
+[ req ]
+default_bits = 2048
+req_extensions = v3_req
+x509_extensions = v3_ca
+distinguished_name = req_dn
+attributes = req_attr
+
+[ req_dn ]
+[ req_attr ]

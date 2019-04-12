@@ -1,0 +1,37 @@
+[mysqld]
+init_connect='SET collation_connection = utf8_general_ci'
+
+init_connect='SET NAMES utf8'
+
+character-set-server=utf8
+
+collation-server=utf8_general_ci
+
+skip-character-set-client-handshake
+
+port = 3306
+
+transaction-isolation=REPEATABLE-READ
+
+table_open_cache=1024
+
+query_cache_size=32M
+
+sort_buffer_size=6M
+
+tmp_table_size=64M
+
+max_heap_table_size=32M
+
+read_rnd_buffer_size=256K
+
+#innodb_additional_mem_pool_size=2M
+
+innodb_buffer_pool_size=512M
+
+#innodb_file_per_table connect_timeout=14400
+
+max_allowed_packet=1024M
+
+max_connections=500
+

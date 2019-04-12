@@ -1,0 +1,100 @@
+version: '3.4'
+
+x-include:
+  zookeeper: &zookeeper
+    image: zookeeper
+      
+services:
+  visualizer:
+    image: dockersamples/visualizer:stable
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - efnetwork
+      
+  db:
+    image: kin3303/commanderdb
+    environment:
+      MYSQL_ROOT_PASSWORD: ecdb
+      MYSQL_DATABASE: ecdb
+      MYSQL_USER: ecdb
+      MYSQL_PASSWORD: ecdb
+    hostname: db
+    networks:
+      - efnetwork
+    volumes:
+      - my-db:/var/lib/mysql/
+    deploy:
+      placement:
+        constraints: [node.role == worker]   
+
+  zookeeper1: &zookeeper
+    image: kin3303/commanderzoo
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "2181:2181"
+    networks:
+      - efnetwork
+      
+  #zookeeper1:
+  #  <<: *zookeeper
+  #  environment:
+  #    ZOO_MY_ID: 1
+  #    ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+  #  volumes:
+  #    - my-zoo1:/data
+
+  #zookeeper2:
+  #  <<: *zookeeper
+  #  environment:
+  #    ZOO_MY_ID: 2
+  #    ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+  #  volumes:
+  #    - my-zoo2:/data
+
+  #zookeeper3:
+  #  <<: *zookeeper
+  #  environment:
+  #    ZOO_MY_ID: 3
+  #    ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+  #  volumes:
+  #    - my-zoo3:/data
+      
+networks:
+  efnetwork: 
+
+volumes:
+  my-db:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/data/db-data/
+  #my-zoo1:
+  #  driver: local
+  #  driver_opts:
+  #    o: bind
+  #    type: none
+  #    device: $PWD/data/zoo/zookeeper1/
+  #my-zoo2:
+  #  driver: local
+  #  driver_opts:
+  #    o: bind
+  #    type: none
+  #    device: $PWD/data/zoo/zookeeper2/
+  #my-zoo3:
+  #  driver: local
+  #  driver_opts:
+  #    o: bind
+  #    type: none
+  #    device: $PWD/data/zoo/zookeeper3/

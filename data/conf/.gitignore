@@ -1,0 +1,7 @@
+license.xml
+tmp/*
+*.orig
+*_ready
+logs/*
+# Except this file
+!.gitignore
