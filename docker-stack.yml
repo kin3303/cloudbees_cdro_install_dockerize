@@ -81,12 +81,12 @@ services:
       - db
       - zookeeper1
     environment:
-      WAIT_HOSTS: db:3306 zookeeper1:2181
+      WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
-    #labels:
-        #- "interlock.hostname=commanderserver"
-        #- "interlock.domain=local"
-    hostname: haproxy
+    labels:
+        - "interlock.hostname=commanderserver"
+        - "interlock.domain=local"
+    hostname: commanderserver
 
   commanderapache:
     <<: *commanderapache
@@ -113,8 +113,6 @@ services:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper1
-    ports:
-      - 2181:2181
       
   zookeeper2:
     <<: *zookeeper
@@ -122,8 +120,6 @@ services:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper2
-    ports:
-     - 2182:2181
      
   zookeeper3:
     <<: *zookeeper
@@ -131,8 +127,6 @@ services:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
-    ports:
-     - 2183:2181
      
   interlock:
     <<: *interlock
