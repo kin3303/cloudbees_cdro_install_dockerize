@@ -8,7 +8,7 @@ x-include:
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
-      #- my-conf:/opt/electriccloud/electriccommander/conf
+      - my-conf:/opt/electriccloud/electriccommander/conf
       - my-scripts:/tmp/scripts
 
   commanderapache: &commanderapache
@@ -16,7 +16,7 @@ x-include:
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
-      
+
   commanderagent: &commanderagent
     image: kin3303/commanderagent:${TAG}
     volumes:
@@ -40,8 +40,30 @@ x-include:
        MYSQL_DATABASE: ecdb
        MYSQL_USER: ecdb
        MYSQL_PASSWORD: ecdb
-     hostname: db 
- 
+     hostname: db
+
+  zookeeper: &zookeeper
+    image: zookeeper
+      
+  haproxy: &haproxy
+    image: haproxy
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    volumes:
+      - my-haproxy:/usr/local/etc/haproxy/
+
+  interlock: &interlock
+    image: ehazlett/interlock:master
+    command: run -c /etc/interlock/config.toml
+    volumes:
+        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
+        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
+        - "/var/run/docker.sock:/var/run/docker.sock"
+
 services:
   visualizer:
     image: dockersamples/visualizer:stable
@@ -53,15 +75,17 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
-  commanderserver:
-    << : *commanderserver
-    depends_on:
-      - db
-      - zookeeper1
-    environment:
-      WAIT_HOSTS: db:3306
-      WAIT_HOSTS_TIMEOUT: 180 
-      SERVICE_PORTS: 8000
+  #commanderserver:
+  #  << : *commanderserver
+  #  depends_on:
+  #    - db
+  #    - zookeeper1
+  #  environment:
+  #    WAIT_HOSTS: db:3306
+  #    WAIT_HOSTS_TIMEOUT: 180
+  #  labels:
+  #      - "interlock.hostname=commanderserver"
+  #      - "interlock.domain=local"
 
   commanderapache:
     <<: *commanderapache
@@ -79,7 +103,39 @@ services:
 
   db:
     << : *mysql
- 
+
+  zookeeper1:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper1
+      
+  zookeeper2:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper2
+     
+  zookeeper3:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper3
+     
+  #interlock:
+  #  <<: *interlock
+
+  #haproxy:
+  #  <<: *haproxy
+  #  labels:
+  #      - "interlock.ext.name=haproxy"
+  #  depends_on:
+  #      - interlock
+  #      - commanderserver
+
   haproxy:
     image: dockercloud/haproxy 
     depends_on:
@@ -98,6 +154,16 @@ services:
       placement:
         constraints: [node.role == manager]
 
+  commanderserver:
+    << : *commanderserver
+    depends_on:
+      - db
+      - zookeeper1
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180 
+      SERVICE_PORTS: 8000
+      
 volumes:
   my-db:
     driver: local
