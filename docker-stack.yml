@@ -91,7 +91,7 @@ services:
     <<: *commanderapache
     depends_on:
       - commanderserver
-     hostname: commanderapache
+    hostname: commanderapache
      
   localagent:
     <<: *commanderagent
