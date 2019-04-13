@@ -16,7 +16,7 @@ x-include:
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
-
+      
   commanderagent: &commanderagent
     image: kin3303/commanderagent:${TAG}
     volumes:
@@ -42,28 +42,7 @@ x-include:
        MYSQL_PASSWORD: ecdb
      hostname: db
 
-  zookeeper: &zookeeper
-    image: zookeeper
-      
-  haproxy: &haproxy
-    image: haproxy
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    volumes:
-      - my-haproxy:/usr/local/etc/haproxy/
-
-  interlock: &interlock
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
-        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
-        - "/var/run/docker.sock:/var/run/docker.sock"
-
+ 
 services:
   visualizer:
     image: dockersamples/visualizer:stable
@@ -81,11 +60,9 @@ services:
       - db
       - zookeeper1
     environment:
-      WAIT_HOSTS: db:3306
-      WAIT_HOSTS_TIMEOUT: 180
-    labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"
+      - WAIT_HOSTS: db:3306
+      - WAIT_HOSTS_TIMEOUT: 180 
+      - SERVICE_PORTS=8000
 
   commanderapache:
     <<: *commanderapache
@@ -108,33 +85,49 @@ services:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+      ZOO_SERVERS: server.1=0.0.0.0::2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper1
       
   zookeeper2:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=0.0.0.0::2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper2
      
   zookeeper3:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper3
-     
-  interlock:
-    <<: *interlock
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=0.0.0.0::2888:3888
+    hostname: zookeeper3 
+
+#  haproxy:
+#    <<: *haproxy
+#    labels:
+#        - "interlock.ext.name=haproxy"
+#    depends_on:
+#        - interlock
+#        - commanderserver
 
   haproxy:
-    <<: *haproxy
-    labels:
-        - "interlock.ext.name=haproxy"
+    image: dockercloud/haproxy 
     depends_on:
-        - interlock
-        - commanderserver
+      - commanderserver
+    environment:
+      - BALANCE=leastconn
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
 
 volumes:
   my-db:
