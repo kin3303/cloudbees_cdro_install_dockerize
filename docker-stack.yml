@@ -125,8 +125,8 @@ services:
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
      
-  #interlock:
-  #  <<: *interlock
+  interlock:
+    <<: *interlock
 
   #haproxy:
   #  <<: *haproxy
@@ -140,6 +140,9 @@ services:
     image: dockercloud/haproxy 
     depends_on:
       - commanderserver
+      - interlock
+    labels:
+        - "interlock.ext.name=haproxy"
     environment:
       - BALANCE=leastconn
     volumes:
