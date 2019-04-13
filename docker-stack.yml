@@ -86,7 +86,8 @@ services:
     labels:
         - "interlock.hostname=commanderserver"
         - "interlock.domain=local"
-
+    hostname: commanderserver
+    
   commanderapache:
     <<: *commanderapache
     depends_on:
