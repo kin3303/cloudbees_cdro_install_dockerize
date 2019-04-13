@@ -83,7 +83,7 @@ services:
       - db
       - zookeeper1
     environment:
-      WAIT_HOSTS: db:3306 zookeeper1:2888
+      WAIT_HOSTS: db:3306 zookeeper1:2181
       WAIT_HOSTS_TIMEOUT: 180
     #labels:
         #- "interlock.hostname=commanderserver"
