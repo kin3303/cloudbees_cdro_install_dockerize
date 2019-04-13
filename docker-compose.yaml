@@ -79,7 +79,7 @@ services:
       - db
       - zookeeper1
     environment:
-      WAIT_HOSTS: db:3306
+      WAIT_HOSTS: db:3306 zookeeper1:2181 
       WAIT_HOSTS_TIMEOUT: 180
     labels:
         - "interlock.hostname=commanderserver"
@@ -110,6 +110,7 @@ services:
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     volumes:
       - ${PWD}/data/zoo/zookeeper1:/data
+    hostname: zookeeper1
 
   zookeeper2:
     <<: *zookeeper
@@ -118,7 +119,8 @@ services:
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     volumes:
       - ${PWD}/data/zoo/zookeeper2:/data
-
+    hostname: zookeeper2
+    
   zookeeper3:
     <<: *zookeeper
     environment:
@@ -126,7 +128,8 @@ services:
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     volumes:
       - ${PWD}/data/zoo/zookeeper3:/data
-
+    hostname: zookeeper3
+    
   interlock:
     <<: *interlock
 
