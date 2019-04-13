@@ -41,7 +41,9 @@ x-include:
        MYSQL_USER: ecdb
        MYSQL_PASSWORD: ecdb
      hostname: db
-
+     
+  zookeeper: &zookeeper
+    image: zookeeper
  
 services:
   visualizer:
