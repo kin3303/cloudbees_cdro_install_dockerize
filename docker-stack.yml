@@ -64,7 +64,7 @@ services:
     environment:
       - WAIT_HOSTS: db:3306
       - WAIT_HOSTS_TIMEOUT: 180 
-      - SERVICE_PORTS=8000
+      - SERVICE_PORTS: 8000
 
   commanderapache:
     <<: *commanderapache
