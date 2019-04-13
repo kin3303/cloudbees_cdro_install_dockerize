@@ -44,8 +44,6 @@ x-include:
 
   zookeeper: &zookeeper
     image: zookeeper
-    #ports:
-    #  - 2181
       
   haproxy: &haproxy
     image: haproxy
@@ -115,21 +113,27 @@ services:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper1
-
+    ports:
+      - 2181:2181
+      
   zookeeper2:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper2
-    
+    ports:
+     - 2182:2181
+     
   zookeeper3:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
-    
+    ports:
+     - 2183:2181
+     
   interlock:
     <<: *interlock
 
