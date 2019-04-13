@@ -40,10 +40,7 @@ x-include:
        MYSQL_DATABASE: ecdb
        MYSQL_USER: ecdb
        MYSQL_PASSWORD: ecdb
-     hostname: db
-     
-  zookeeper: &zookeeper
-    image: zookeeper
+     hostname: db 
  
 services:
   visualizer:
@@ -82,36 +79,7 @@ services:
 
   db:
     << : *mysql
-
-  zookeeper1:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zookeeper1::2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper1
-      
-  zookeeper2:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2::2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper2
-     
-  zookeeper3:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3::2888:3888
-    hostname: zookeeper3 
-
-#  haproxy:
-#    <<: *haproxy
-#    labels:
-#        - "interlock.ext.name=haproxy"
-#    depends_on:
-#        - interlock
-#        - commanderserver
-
+ 
   haproxy:
     image: dockercloud/haproxy 
     depends_on:
@@ -129,7 +97,6 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
-
 
 volumes:
   my-db:
