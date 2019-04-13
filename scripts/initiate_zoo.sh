@@ -8,7 +8,7 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
  
   echo "sleep 5 senconds to wait zookeeper start"
-  sleep 5
+  sleep 20
   
   cd /opt/electriccloud/electriccommander/conf
   
