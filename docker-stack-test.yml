@@ -1,162 +1,27 @@
 version: '3.4'
 
 x-include:
-  zookeeper: &zookeeper
-    image: zookeeper
-      
-services:
-  visualizer:
-    image: dockersamples/visualizer:stable
-    deploy:
-      placement:
-        constraints: [node.role == manager]
-    ports:
-      - "8080:8080"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-
-  db:
-     image: mysql:5.7
-     volumes:
-       - "$PWD/data/db-data:/var/lib/mysql"
-       - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
-     environment:
-       MYSQL_ROOT_PASSWORD: ecdb
-       MYSQL_DATABASE: ecdb
-       MYSQL_USER: ecdb
-       MYSQL_PASSWORD: ecdb
-     hostname: db
-     deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]    
-#  db:
-#    image: kin3303/commanderdb
-#    environment:
-#      MYSQL_ROOT_PASSWORD: ecdb
-#      MYSQL_DATABASE: ecdb
-#      MYSQL_USER: ecdb
-#      MYSQL_PASSWORD: ecdb
-#    hostname: db
-#    networks:
-#      - efnetwork
-#    volumes:
-#      - my-db:/var/lib/mysql/
-#    deploy:
-#      placement:
-#        constraints: [node.role == manager]   
-
- # zookeeper1: &zookeeper
- #   image: kin3303/commanderzoo
- #   deploy:
- #     replicas: 3
- #     update_config:
- #       parallelism: 2
- #     restart_policy:
- #       condition: on-failure
- #     placement:
- #       constraints: [node.role == worker]
- #   ports:
- #     - "2181:2181"
- #   networks:
- #     - efnetwork
-
-  interlock: &interlock
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
-        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
-        - "/var/run/docker.sock:/var/run/docker.sock"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
-        
-  #interlock: &interlock
-  #  image: kin3303/commanderinterlock
-  #  command: run -c /etc/interlock/config.toml
-  #  volumes:
-  #    - "/var/run/docker.sock:/var/run/docker.sock"
-
-  zookeeper1:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-        
-  zookeeper2:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-        
-  zookeeper3:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-        
-  commanderserver:
+  commanderserver: &commanderserver
     image: kin3303/commanderserver:${TAG}
     ports:
-      - "8000"
+      - 8000
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
       - my-conf:/opt/electriccloud/electriccommander/conf
       - my-scripts:/tmp/scripts
-    depends_on:
-      - db
-      - zookeeper1
-    labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"
-    deploy:
-      replicas: 1
-      #restart_policy:
-      #  condition: on-failure
-      placement:
-        constraints: [node.role == manager]
-      
-  commanderapache: 
+
+  commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
-    depends_on:
-      - commanderserver
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-      restart_policy:
-        condition: on-failure
 
   commanderagent: &commanderagent
     image: kin3303/commanderagent:${TAG}
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
-    depends_on:
-      - commanderserver
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-      restart_policy:
-        condition: on-failure
 
   commanderrepository: &commanderrepository
     image: kin3303/commanderrepository:${TAG}
@@ -164,18 +29,24 @@ services:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
       - my-repository:/opt/electriccloud/electriccommander/repository-data
-    depends_on:
-      - commanderserver
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-      restart_policy:
-        condition: on-failure
-        
-  haproxy:
+
+  mysql: &mysql
+     image: mysql:5.7
+     volumes:
+       - my-db:/var/lib/mysql
+       - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
+     environment:
+       MYSQL_ROOT_PASSWORD: ecdb
+       MYSQL_DATABASE: ecdb
+       MYSQL_USER: ecdb
+       MYSQL_PASSWORD: ecdb
+     hostname: db
+
+  zookeeper: &zookeeper
+    image: zookeeper
+      
+  haproxy: &haproxy
     image: haproxy
-    hostname: haproxy
     ports:
       - 80:80
       - 443:443
@@ -184,15 +55,86 @@ services:
       - 1936:1936
     volumes:
       - my-haproxy:/usr/local/etc/haproxy/
+
+  interlock: &interlock
+    image: ehazlett/interlock:master
+    command: run -c /etc/interlock/config.toml
+    volumes:
+        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
+        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
+        - "/var/run/docker.sock:/var/run/docker.sock"
+
+services:
+  visualizer:
+    image: dockersamples/visualizer:stable
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "8081:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  commanderserver:
+    << : *commanderserver
+    depends_on:
+      - db
+      - zookeeper1
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180
+    labels:
+        - "interlock.hostname=commanderserver"
+        - "interlock.domain=local"
+
+  commanderapache:
+    <<: *commanderapache
+    depends_on:
+      - commanderserver
+    hostname: commanderapache
+     
+  localagent:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
+    
+  repository:
+    <<: *commanderrepository
+
+  db:
+    << : *mysql
+
+  zookeeper1:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper1
+      
+  zookeeper2:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper2
+     
+  zookeeper3:
+    <<: *zookeeper
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper3
+     
+  interlock:
+    <<: *interlock
+
+  haproxy:
+    <<: *haproxy
     labels:
         - "interlock.ext.name=haproxy"
     depends_on:
         - interlock
         - commanderserver
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
 
 volumes:
   my-db:
