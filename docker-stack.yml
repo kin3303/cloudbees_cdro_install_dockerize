@@ -86,23 +86,19 @@ services:
     labels:
         - "interlock.hostname=commanderserver"
         - "interlock.domain=local"
-    hostname: commanderserver
 
   commanderapache:
     <<: *commanderapache
     depends_on:
       - commanderserver
-    hostname: commanderapache
 
   localagent:
     <<: *commanderagent
     depends_on:
       - commanderserver
-    hostname: localagent
     
   repository:
     <<: *commanderrepository
-    hostname: repository
 
   db:
     << : *mysql
