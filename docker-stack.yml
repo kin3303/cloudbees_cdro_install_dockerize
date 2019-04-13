@@ -83,9 +83,10 @@ services:
     environment:
       WAIT_HOSTS: db:3306 zookeeper1:2181
       WAIT_HOSTS_TIMEOUT: 180
-    labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"
+    #labels:
+        #- "interlock.hostname=commanderserver"
+        #- "interlock.domain=local"
+    hostname: haproxy
 
   commanderapache:
     <<: *commanderapache
@@ -137,7 +138,6 @@ services:
     depends_on:
         - interlock
         - commanderserver
-    hostname: haproxy
 
 volumes:
   my-db:
