@@ -75,17 +75,17 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
-  #commanderserver:
-  #  << : *commanderserver
-  #  depends_on:
-  #    - db
-  #    - zookeeper1
-  #  environment:
-  #    WAIT_HOSTS: db:3306
-  #    WAIT_HOSTS_TIMEOUT: 180
-  #  labels:
-  #      - "interlock.hostname=commanderserver"
-  #      - "interlock.domain=local"
+  commanderserver:
+    << : *commanderserver
+    depends_on:
+      - db
+      - zookeeper1
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180
+    labels:
+        - "interlock.hostname=commanderserver"
+        - "interlock.domain=local"
 
   commanderapache:
     <<: *commanderapache
@@ -128,34 +128,13 @@ services:
   interlock:
     <<: *interlock
 
-  #haproxy:
-  #  <<: *haproxy
-  #  labels:
-  #      - "interlock.ext.name=haproxy"
-  #  depends_on:
-  #      - interlock
-  #      - commanderserver
-
   haproxy:
-    image: dockercloud/haproxy 
-    depends_on:
-      - commanderserver
-      - interlock
+    <<: *haproxy
     labels:
         - "interlock.ext.name=haproxy"
-    environment:
-      - BALANCE=leastconn
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+    depends_on:
+        - interlock
+        - commanderserver
 
   commanderserver:
     << : *commanderserver
