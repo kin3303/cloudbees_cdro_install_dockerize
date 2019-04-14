@@ -86,7 +86,8 @@ services:
     labels:
         - "interlock.hostname=commanderserver"
         - "interlock.domain=local"
-
+    hostname: commanderserver
+    
   commanderapache:
     <<: *commanderapache
     depends_on:
@@ -136,6 +137,16 @@ services:
         - interlock
         - commanderserver
 
+  commanderserver:
+    << : *commanderserver
+    depends_on:
+      - db
+      - zookeeper1
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180 
+      SERVICE_PORTS: 8000
+      
 volumes:
   my-db:
     driver: local
