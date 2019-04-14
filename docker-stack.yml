@@ -94,7 +94,7 @@ services:
     hostname: commanderserver
     networks:
       - web
-	  
+
   commanderapache:
     <<: *commanderapache
     environment: 
@@ -104,24 +104,24 @@ services:
     hostname: commanderapache
     networks:
       - web
-	  
+
   localagent:
     <<: *commanderagent
     depends_on:
       - commanderserver
     networks:
       - web
-	  
+
   repository:
     <<: *commanderrepository
     networks:
       - web
-	  
+
   db:
     << : *mysql
     networks:
       - web
-	  
+
   zookeeper1:
     <<: *zookeeper
     environment:
@@ -130,7 +130,7 @@ services:
     hostname: zookeeper1
     networks:
       - web
-      
+
   zookeeper2:
     <<: *zookeeper
     environment:
@@ -139,7 +139,7 @@ services:
     hostname: zookeeper2
     networks:
       - web
-	  
+
   zookeeper3:
     <<: *zookeeper
     environment:
@@ -148,7 +148,7 @@ services:
     hostname: zookeeper3
     networks:
       - web
-	  
+
   #interlock:
   #  <<: *interlock
 
@@ -176,7 +176,7 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
-		
+
 volumes:
   my-db:
     driver: local
