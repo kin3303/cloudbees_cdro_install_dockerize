@@ -164,7 +164,7 @@ services:
     image: dockercloud/haproxy
     depends_on:
       - commanderserver
-	  - commanderapache
+      - commanderapache
     environment:
       - BALANCE=leastconn
     volumes:
