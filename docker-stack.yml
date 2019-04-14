@@ -149,33 +149,16 @@ services:
     networks:
       - web
 
-  #interlock:
-  #  <<: *interlock
-
-  #haproxy:
-  #  <<: *haproxy
-  #  labels:
-  #      - "interlock.ext.name=haproxy"
-  #  depends_on:
-  #      - interlock
-  #      - commanderserver
+  interlock:
+    <<: *interlock
 
   haproxy:
-    image: dockercloud/haproxy
+    <<: *haproxy
+    labels:
+        - "interlock.ext.name=haproxy"
     depends_on:
-      - commanderserver
-      - commanderapache
-    environment:
-      - BALANCE=leastconn
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    ports:
-      - 9200:80
-    networks:
-      - web
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+        - interlock
+        - commanderserver
 
 volumes:
   my-db:
