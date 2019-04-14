@@ -78,7 +78,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - web
-	  
+
   commanderserver:
     << : *commanderserver
     depends_on:
