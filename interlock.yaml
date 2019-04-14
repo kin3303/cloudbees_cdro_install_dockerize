@@ -24,7 +24,7 @@ services:
     volumes:
       - my-haproxy:/usr/local/etc/haproxy/
 
-  interlock: &interlock
+  interlock:
     image: ehazlett/interlock:master
     command: run -c /etc/interlock/config.toml
     volumes:
