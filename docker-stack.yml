@@ -220,7 +220,7 @@ volumes:
       o: bind
       type: none
       device: $PWD/data/haproxy/
-	  
+
 networks:
   web:
     driver: overlay
