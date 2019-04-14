@@ -32,40 +32,6 @@ x-include:
       - my-workspace:/opt/electriccloud/electriccommander/workspace
       - my-repository:/opt/electriccloud/electriccommander/repository-data
 
-  mysql: &mysql
-     image: mysql:5.7
-     volumes:
-       - my-db:/var/lib/mysql
-       - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
-     environment:
-       MYSQL_ROOT_PASSWORD: ecdb
-       MYSQL_DATABASE: ecdb
-       MYSQL_USER: ecdb
-       MYSQL_PASSWORD: ecdb
-     hostname: db
-
-  zookeeper: &zookeeper
-    image: zookeeper
-      
-  haproxy: &haproxy
-    image: haproxy
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    volumes:
-      - my-haproxy:/usr/local/etc/haproxy/
-
-  interlock: &interlock
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
-        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
-        - "/var/run/docker.sock:/var/run/docker.sock"
-
 services:
   visualizer:
     image: dockersamples/visualizer:stable
@@ -76,89 +42,90 @@ services:
       - "8081:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-    networks:
-      - web
+
+  haproxy:
+    image: haproxy
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    labels:
+      - "interlock.ext.name=haproxy"
+    depends_on:
+        - interlock
+    volumes:
+      - my-haproxy:/usr/local/etc/haproxy/
+
+  interlock:
+    image: ehazlett/interlock:master
+    command: run -c /etc/interlock/config.toml
+    volumes:
+        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
+        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
+        - "/var/run/docker.sock:/var/run/docker.sock"
+
+  zookeeper1:
+    image: zookeeper
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper1 
+
+  zookeeper2:
+    image: zookeeper
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper2 
+
+  zookeeper3:
+    image: zookeeper
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    hostname: zookeeper3
 
   commanderserver:
     << : *commanderserver
     depends_on:
       - db
       - zookeeper1
+      - haproxy
     environment:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
-      SERVICE_PORTS: 9200
     labels:
-        - "interlock.hostname=commanderserver"
+        - "interlock.hostname=test"
         - "interlock.domain=local"
     hostname: commanderserver
-    networks:
-      - web
 
   commanderapache:
-    <<: *commanderapache
-    environment: 
-      SERVICE_PORTS: 9200
+    <<: *commanderapache 
     depends_on:
       - commanderserver
     hostname: commanderapache
-    networks:
-      - web
-
+ 
   localagent:
     <<: *commanderagent
     depends_on:
       - commanderserver
-    networks:
-      - web
-
+ 
   repository:
     <<: *commanderrepository
-    networks:
-      - web
-
+ 
   db:
-    << : *mysql
-    networks:
-      - web
-
-  zookeeper1:
-    <<: *zookeeper
+    image: mysql:5.7
+    volumes:
+      - my-db:/var/lib/mysql
+      - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
     environment:
-      ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper1
-    networks:
-      - web
-
-  zookeeper2:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper2
-    networks:
-      - web
-
-  zookeeper3:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper3
-    networks:
-      - web
-
-  interlock:
-    <<: *interlock
-
-  haproxy:
-    <<: *haproxy
-    labels:
-        - "interlock.ext.name=haproxy"
-    depends_on:
-        - interlock
-        - commanderserver
+      MYSQL_ROOT_PASSWORD: ecdb
+      MYSQL_DATABASE: ecdb
+      MYSQL_USER: ecdb
+      MYSQL_PASSWORD: ecdb
+    hostname: db
 
 volumes:
   my-db:
