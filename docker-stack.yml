@@ -13,6 +13,8 @@ x-include:
 
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
+    ports:
+      - 80
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
@@ -74,7 +76,9 @@ services:
       - "8081:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-
+    networks:
+      - web
+	  
   commanderserver:
     << : *commanderserver
     depends_on:
@@ -83,34 +87,49 @@ services:
     environment:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
+      SERVICE_PORTS: 9200
     labels:
         - "interlock.hostname=commanderserver"
         - "interlock.domain=local"
     hostname: commanderserver
-    
+    networks:
+      - web
+	  
   commanderapache:
     <<: *commanderapache
+    environment: 
+      SERVICE_PORTS: 9200
     depends_on:
       - commanderserver
     hostname: commanderapache
-     
+    networks:
+      - web
+	  
   localagent:
     <<: *commanderagent
     depends_on:
       - commanderserver
-    
+    networks:
+      - web
+	  
   repository:
     <<: *commanderrepository
-
+    networks:
+      - web
+	  
   db:
     << : *mysql
-
+    networks:
+      - web
+	  
   zookeeper1:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper1
+    networks:
+      - web
       
   zookeeper2:
     <<: *zookeeper
@@ -118,35 +137,46 @@ services:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper2
-     
+    networks:
+      - web
+	  
   zookeeper3:
     <<: *zookeeper
     environment:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
-     
-  interlock:
-    <<: *interlock
+    networks:
+      - web
+	  
+  #interlock:
+  #  <<: *interlock
+
+  #haproxy:
+  #  <<: *haproxy
+  #  labels:
+  #      - "interlock.ext.name=haproxy"
+  #  depends_on:
+  #      - interlock
+  #      - commanderserver
 
   haproxy:
-    <<: *haproxy
-    labels:
-        - "interlock.ext.name=haproxy"
+    image: dockercloud/haproxy
     depends_on:
-        - interlock
-        - commanderserver
-
-  commanderserver:
-    << : *commanderserver
-    depends_on:
-      - db
-      - zookeeper1
+      - commanderserver
+	  - commanderapache
     environment:
-      WAIT_HOSTS: db:3306
-      WAIT_HOSTS_TIMEOUT: 180 
-      SERVICE_PORTS: 8000
-      
+      - BALANCE=leastconn
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - 9200:80
+    networks:
+      - web
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+		
 volumes:
   my-db:
     driver: local
@@ -190,3 +220,7 @@ volumes:
       o: bind
       type: none
       device: $PWD/data/haproxy/
+	  
+networks:
+  web:
+    driver: overlay
