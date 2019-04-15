@@ -42,7 +42,7 @@ frontend commander-web-frontend-secure
   default_backend commander-web-backend
 backend commander-web-backend
   mode http
-  server commanderapache commanderapache:80 check
+  server commanderapache commanderapache:80 check resolvers docker resolve-prefer ipv4
   
 # load balance ports 8000 and 8443 across Flow servers, with HAProxy acting as the SSL endpoint for port 8443
 frontend commander-server-frontend-insecure
@@ -58,7 +58,7 @@ backend commander-server-backend
     mode http
 {{ range $host := .Hosts }}
     {{ range $i,$up := $host.Upstreams }}
-    server {{ $up.Container }} {{ $up.Container }}:8000 check 
+    server {{ $up.Container }} {{ $up.Container }}:8000 check resolvers docker resolve-prefer ipv4  
     {{ end }}
 {{ end }}
     option httpchk GET /commanderRequest/health
@@ -75,7 +75,7 @@ backend commander-stomp-backend
     mode tcp
 {{ range $host := .Hosts }}
     {{ range $i,$up := $host.Upstreams }}
-    server {{ $up.Container }} {{ $up.Container }}:61613 check 
+    server {{ $up.Container }} {{ $up.Container }}:61613 check resolvers docker resolve-prefer ipv4 
     {{ end }}
 {{ end }}
     option tcplog
