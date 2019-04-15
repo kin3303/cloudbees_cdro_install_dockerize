@@ -106,7 +106,9 @@ services:
     depends_on:
       - commanderserver
     hostname: commanderapache
- 
+    depends_on:
+      - haproxy
+      
   localagent:
     <<: *commanderagent
     depends_on:
