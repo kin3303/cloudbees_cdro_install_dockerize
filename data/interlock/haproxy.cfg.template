@@ -1,13 +1,31 @@
- 
+#---------------------------------------------------------------------
+# Example configuration for a possible web application.  See the
+# full configuration options online.
+#
+#   http://haproxy.1wt.eu/download/1.4/doc/configuration.txt
+#
+#---------------------------------------------------------------------
+
+#---------------------------------------------------------------------
+# Global settings
+#---------------------------------------------------------------------
 global
+    # to have these messages end up in /var/log/haproxy.log you will
+    # need to:
+    #
+    # 1) configure syslog to accept network log events.  This is done
+    #    by adding the '-r' option to the SYSLOGD_OPTIONS in
+    #    /etc/sysconfig/syslog
+    #
+    # 2) configure local2 events to go to the /var/log/haproxy.log
+    #   file. A line like the following can be added to
+    #   /etc/sysconfig/syslog
+    #
+    #    local2.*                       /var/log/haproxy.log
+    #
     log         127.0.0.1 local2
     maxconn     4000
     tune.ssl.default-dh-param 2048
-    pidfile /var/run/haproxy.pid 
-    stats   socket /var/run/haproxy.sock mode 777
-
-resolvers dockerdns
-  nameserver dockerowned 127.0.0.11:53
 
 #---------------------------------------------------------------------
 # common defaults that all the 'listen' and 'backend' sections will
@@ -42,7 +60,7 @@ frontend commander-web-frontend-secure
   default_backend commander-web-backend
 backend commander-web-backend
   mode http
-  server commanderapache commanderapache:80 check resolvers docker resolve-prefer ipv4
+  server commanderapache commanderapache:80 check
   
 # load balance ports 8000 and 8443 across Flow servers, with HAProxy acting as the SSL endpoint for port 8443
 frontend commander-server-frontend-insecure
@@ -58,7 +76,7 @@ backend commander-server-backend
     mode http
 {{ range $host := .Hosts }}
     {{ range $i,$up := $host.Upstreams }}
-    server {{ $up.Container }} {{ $up.Container }}:8000 check resolvers docker resolve-prefer ipv4  
+    server {{ $up.Container }} {{ $up.Container }}:8000 check 
     {{ end }}
 {{ end }}
     option httpchk GET /commanderRequest/health
@@ -75,7 +93,7 @@ backend commander-stomp-backend
     mode tcp
 {{ range $host := .Hosts }}
     {{ range $i,$up := $host.Upstreams }}
-    server {{ $up.Container }} {{ $up.Container }}:61613 check resolvers docker resolve-prefer ipv4 
+    server {{ $up.Container }} {{ $up.Container }}:61613 check 
     {{ end }}
 {{ end }}
     option tcplog
