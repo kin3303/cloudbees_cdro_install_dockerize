@@ -36,7 +36,7 @@ RUN rm -f /tmp/${EFLOW_DEV_INSTALLER}
 #RUN echo "set.default.COMMANDER_IGNORE_SERVER_MISMATCH=1" >> /opt/electriccloud/electriccommander/conf/wrapper.conf
 #RUN echo "set.default.COMMANDER_IGNORE_PASSKEY_MISMATCH=1" >> /opt/electriccloud/electriccommander/conf/wrapper.conf
 
-EXPOSE 8443 61613 8000 5445-5449
+EXPOSE 9200 9300 9500 9600 
 
 ## Add the wait script to the image
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
