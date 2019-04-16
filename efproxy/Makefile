@@ -1,4 +1,4 @@
-nclude ../settings.mk
+include ../settings.mk
 
 MODULE_NAME = commanderproxy
 
