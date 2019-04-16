@@ -25,24 +25,24 @@
 
 ## 세부설정
 
-1. HaProxy 작동확인
+### 1. HaProxy 작동확인
 ```
    http://YOUR_IP_ADDRESS:1936/haproxy?stats
 ```   
 
-2. License 임포트
+### 2. License 임포트
 - 서버 활성화 후 사용가능
 - conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
 ```console
   $ sudo ./setup/importLicense.sh
 ```
 
-3. 모든 데이터 
+### 3. 데이터 삭제
 ```console
  $  make clean
 ```
 
-4. 이미지 추가
+### 4. 이미지 추가
 
 - 준비사항 : Flow , Devops Installer 를 /tmp 폴더에 저장
 
