@@ -11,7 +11,12 @@ x-include:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/conf:/opt/electriccloud/electriccommander/conf
       - ${PWD}/scripts:/tmp/scripts
-      
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180
+    labels:
+        - "interlock.hostname=commanderserver"
+        - "interlock.domain=local"      
 
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
@@ -35,7 +40,8 @@ x-include:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
 
-  mysql: &mysql
+services:
+  db:
      image: mysql:5.7
      volumes:
        - ${PWD}/data/db-data:/var/lib/mysql
@@ -48,11 +54,45 @@ x-include:
        MYSQL_PASSWORD: ecdb
      hostname: db
 
-  zookeeper: &zookeeper
+  zookeeper1:
     image: zookeeper
     restart: always
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    #volumes:
+    #  - ${PWD}/data/zoo/zookeeper1:/data
+    hostname: zookeeper1
 
-  haproxy: &haproxy
+  zookeeper2:
+    image: zookeeper
+    restart: always
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    #volumes:
+    #  - ${PWD}/data/zoo/zookeeper2:/data
+    hostname: zookeeper2
+    
+  zookeeper3:
+    image: zookeeper
+    restart: always
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
+    #volumes:
+    #  - ${PWD}/data/zoo/zookeeper3:/data
+    hostname: zookeeper3
+    
+  interlock:
+    image: ehazlett/interlock:master
+    command: run -c /etc/interlock/config.toml
+    volumes:
+        - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
+        - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
+        - /var/run/docker.sock:/var/run/docker.sock
+
+  haproxy:
     image: haproxy
     restart: always
     ports:
@@ -63,27 +103,19 @@ x-include:
       - 1936:1936
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
+    labels:
+        - "interlock.ext.name=haproxy"
+    links:
+        - interlock:interlock
+    depends_on:
+        - interlock
+        - commanderserver
 
-  interlock: &interlock
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
-        - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
-        - /var/run/docker.sock:/var/run/docker.sock
-
-services:
   commanderserver:
     << : *commanderserver
     depends_on:
       - db
       - zookeeper1
-    environment:
-      WAIT_HOSTS: db:3306
-      WAIT_HOSTS_TIMEOUT: 180
-    labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"
     links:
       - db
 
@@ -99,46 +131,6 @@ services:
 
   repository:
     <<: *commanderrepository
-    
-  db:
-    << : *mysql
-
-  zookeeper1:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    volumes:
-      - ${PWD}/data/zoo/zookeeper1:/data
-    hostname: zookeeper1
-
-  zookeeper2:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    volumes:
-      - ${PWD}/data/zoo/zookeeper2:/data
-    hostname: zookeeper2
-    
-  zookeeper3:
-    <<: *zookeeper
-    environment:
-      ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    volumes:
-      - ${PWD}/data/zoo/zookeeper3:/data
-    hostname: zookeeper3
-    
-  interlock:
-    <<: *interlock
-
-  haproxy:
-    <<: *haproxy
-    labels:
-        - "interlock.ext.name=haproxy"
-    links:
-        - interlock:interlock
     depends_on:
-        - interlock
-        - commanderserver
+      - commanderserver    
+
