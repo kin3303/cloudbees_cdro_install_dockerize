@@ -30,7 +30,7 @@
 ```   
 
 2. License 임포트
-- conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
+-- conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
 ```console
   $ sudo ./setup/importLicense.sh
 ```
