@@ -4,8 +4,8 @@ x-include:
   commanderserver: &commanderserver
     image: kin3303/commanderserver:${TAG}
     restart: always
-    #ports:
-    #  - 8000
+    ports:
+      - 8000
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
@@ -39,7 +39,7 @@ x-include:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
-      
+
   commanderinsight: &commanderinsight
     image: kin3303/commanderinsight:${TAG}
     restart: always
@@ -136,7 +136,7 @@ services:
   repository:
     <<: *commanderrepository
     depends_on:
-      - commanderserver
+      - commanderserver    
 
   insight:
     <<: *commanderinsight
