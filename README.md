@@ -6,8 +6,11 @@
 
 ## 실행환경 설치
 
+./setup/download.sh 파일을 로컬pc 에 저장
+
 ```console
- $ sudo ./setup/install.sh 
+ $ sudo ./download.sh
+ $ sudo <SourceDirctory>/setup/install.sh 
 ```
 
 ## 구동
