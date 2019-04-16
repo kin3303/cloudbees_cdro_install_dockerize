@@ -71,7 +71,6 @@ services:
     depends_on:
       - db
       - zookeeper1
-      - haproxy
     environment:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
@@ -82,8 +81,6 @@ services:
     depends_on:
       - commanderserver
     hostname: commanderapache
-    depends_on:
-      - haproxy
       
   localagent:
     <<: *commanderagent
