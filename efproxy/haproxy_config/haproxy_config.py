@@ -47,47 +47,24 @@ def write_config():
     if not vhost:
       vhost = environment.get('VIRTUAL_HOST')
 
-    ssl = environment.get("SSL")
-    if ssl:
-      certificates[ssl] = ssl
-    redirects = environment.get("REDIRECT_FROM")
-    if redirects:
-      redirects = redirects.split(' ')
-    ssh = environment.get("SSH")
-
     if not vhost:
         continue
-    port = environment.get("VPORT")
-    if not port:
-      port = environment.get('VIRTUAL_PORT')
-    if not port:
-        port = 80
-
-    vhosts = vhost.split(' ')
 
     logging.info('found {name} with ip {ip}, using {vhost}:{port} as hostname.'.format(name=name, ip=ip, vhost=vhost, port=port))
 
     entry = {
       'name': name,
       'ip': ip,
-      'ssh': ssh,
-      'port': port,
-      'ssl': ssl,
-      'redirects': redirects or [],
-      'vhosts': vhosts,
-      'vhost_regex': environment.get('VHOST_REGEX'),
-      'https_only': environment.get('HTTPS_ONLY')
     }
     data.append(entry)
 
-  rendered = jinja2.Environment(
-        loader=jinja2.FileSystemLoader('./')
-  ).get_template('haproxy_config.tmpl').render({
+  rendered = jinja2.Environment(loader=jinja2.FileSystemLoader('./')).get_template('haproxy_config.tmpl').render({
     'containers': data,
     'certs': certificates.values()
   })
 
   logging.info('Writing new config')
+
   with open('/usr/local/etc/haproxy/haproxy.cfg', 'w+') as out:
     out.write(rendered)
 
