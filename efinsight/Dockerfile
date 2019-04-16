@@ -1,30 +1,22 @@
 FROM kin3303/commanderbase
 LABEL maintainer="dkim"
  
+RUN mkdir -p /tmp/elkdata
+RUN mkdir -p /tmp/elktemp
+
 ARG EFLOW_DEV_INSTALLER
 
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
-RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
---dataDirectory /opt/electriccloud/electriccommander \
+RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \ 
 --disableSSL \
---elasticsearchDataDirectory /opt/electriccloud/electriccommander \
---elasticsearchIndexNumberOfShards 2 \
---elasticsearchInternalPort 9300 \
---elasticsearchMemoryMB 2048 \
---elasticsearchPort 9200 \
+--elasticsearchDataDirectory /tmp/elkdata \
 -- elasticsearchRegenerateCertificates \
---elasticsearchUserPassword changeme \
---hostName efinsightserver \
---installDirectory /opt/electriccloud/electriccommander \
---logstashInitMemoryMB 256 \
---logstashInternalPort 9600 \
---logstashMaxMemoryMB 1024 \
---logstashPort 9500 \
+--hostName localhost \ 
 --remoteServer haproxy \
 --remoteServerPassword changeme \
 --remoteServerUser admin \
---temp /tmp \
+--temp /tmp/elktemp \
 --unixServerGroup ubuntu \
 --unixServerUser ubuntu
  
