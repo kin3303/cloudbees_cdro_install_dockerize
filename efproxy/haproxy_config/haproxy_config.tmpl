@@ -60,7 +60,10 @@ frontend commander-web-frontend-secure
   default_backend commander-web-backend
 backend commander-web-backend
   mode http
-  server commanderapache commanderapache:80 check
+  #server commanderapache commanderapache:80 check
+{% for container_apache in container_apaches %}
+   server  {{container_apache.name}} {{container_apache.ip}}:80 check
+{% endfor %}
   
 # load balance ports 8000 and 8443 across Flow servers, with HAProxy acting as the SSL endpoint for port 8443
 frontend commander-server-frontend-insecure
@@ -91,7 +94,6 @@ frontend commander-stomp-frontend
 backend commander-stomp-backend
     mode tcp
 {% for container in containers %}
-    mode http
     server  {{container.name}} {{container.ip}}:61613 check
 {% endfor %}
     option tcplog
