@@ -12,7 +12,7 @@
 ## ElectricFlow 데모 프로젝트 설치
 
 ```console
- $ sudo ./start.sh
+ $ sudo ./start.sh <TAG>
 ```
 
 ## EFServer HAProxy Scaling 
