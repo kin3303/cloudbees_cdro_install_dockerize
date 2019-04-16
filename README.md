@@ -12,14 +12,13 @@
 ## ElectricFlow 데모 프로젝트 설치
 
 ```console
- $ sudo ./start.sh <TAG>
+ $ sudo ./setup/start.sh <TAG>
 ```
 
 ## EFServer HAProxy Scaling 
 
 ```console
- $ docker-compose scale commanderserver=n
- $ docker-compose logs -f
+ $ sudo ./setup/scale.sh <size>
 ```
 
 ## 서버 구동 확인 및 정지
