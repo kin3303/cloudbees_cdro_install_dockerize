@@ -8,10 +8,8 @@ import time
 import json
 import jinja2
 
-
 def get_docker_client():
     return docker.Client(base_url='unix://var/run/docker.sock', version='auto')
-
 
 def write_config():
   data = []
@@ -61,7 +59,7 @@ def write_config():
   rendered = jinja2.Environment(loader=jinja2.FileSystemLoader('./')).get_template('haproxy_config.tmpl').render({
     'containers': data,
     'certs': certificates.values()
-  })
+  }).encode( "utf-8" )
 
   logging.info('Writing new config')
 
