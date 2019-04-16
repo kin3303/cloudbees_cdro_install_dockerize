@@ -7,7 +7,7 @@ if [ -z "${tag}" ]; then
     exit 1
 fi
 
-export TAG= "${tag}"
+#export TAG="${tag}"
 make cleankeepdata
-docker-compose up -d
+TAG="${tag}" docker-compose up -d
 docker-compose logs -f
