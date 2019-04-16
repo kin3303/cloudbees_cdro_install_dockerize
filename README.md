@@ -3,15 +3,16 @@
 - 권장사양 16GB 메모리 , 8 코어 이상
 - 사용 가능 Tag 는 https://cloud.docker.com/u/kin3303/repository/docker/kin3303/commanderserver 에서 확인
 
+## ElectricFlow 데모 실행환경 설치
+
+```console
+ $ sudo ./setup/install.sh 
+```
+
 ## ElectricFlow 데모 프로젝트 설치
 
 ```console
- $ sudo ./setup/install.sh
- $ export TAG=<latest, 9.0.1 가능>
- $ license.xml 파일을 ./data/conf 폴더에 저장
- $ make clean
- $ docker-compose up -d
- $ docker-compose logs -f
+ $ sudo ./start.sh
 ```
 
 ## EFServer HAProxy Scaling 
