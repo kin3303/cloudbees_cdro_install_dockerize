@@ -43,9 +43,10 @@
 
 4. 이미지 추가
 ```console
- $ Installer 를 ./ 폴더에 저장
- $ export EFLOW_INSTALLER=ElectricFlow-xxxx
- $ export TAG=xxxx
+ $ Installer 를 /tmp 폴더에 저장
+ $ export EFLOW_DEV_INSTALLER =<인스톨러명>
+ $ export EFLOW_INSTALLER=<인스톨러명>
+ $ export TAG=<인스톨러버전명>
  $ make
 ``` 
 
