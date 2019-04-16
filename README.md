@@ -1,6 +1,6 @@
 # EF 데모 프로젝트
 
-- 권장사양 16GB 메모리 , 8 코어 이상
+- 권장사양 16GB 메모리 , 8 코어 이상 , Ubuntu 16.04 이상
 - EFServer Scaling 1개 올릴시 Memory 3GB 메모리 , 2 코어 추가 필요함 
 - 사용 가능 Tag 는 https://cloud.docker.com/u/kin3303/repository/docker/kin3303/commanderserver 에서 확인
 
