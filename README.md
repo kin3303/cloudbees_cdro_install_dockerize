@@ -30,8 +30,9 @@
 ```   
 
 2. License 임포트
+- conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
 ```console
-  $ docker exec $(docker ps |grep commanderserver_1|awk '{print $1}')   /tmp/scripts/import_license_and_create_resource.sh
+  $ sudo ./setup/importLicense.sh
 ```
 
 3. 모든 데이터 
