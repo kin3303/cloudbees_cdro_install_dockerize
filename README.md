@@ -17,32 +17,22 @@
  $ sudo ./setup/start.sh <TAG>
 ```
 
+## Licnese 임포트 + 리소스 자동설정
+
+####서버 활성화 후 사용가능 (http://YOUR_IP_ADDRESS:1936/haproxy?stats)
+####License 파일이 있어야 사용가능
+####conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
+```console
+  $ sudo ./setup/autoConfig.sh
+```
+
 ## 서버 스캐일링 
 
 ```console
  $ sudo ./setup/scale.sh <size>
 ```
 
-## 세부설정
-
-### 1. HaProxy 작동확인
-```
-   http://YOUR_IP_ADDRESS:1936/haproxy?stats
-```   
-
-### 2. License 임포트
-- 서버 활성화 후 사용가능
-- conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
-```console
-  $ sudo ./setup/importLicense.sh
-```
-
-### 3. 데이터 삭제
-```console
- $  make clean
-```
-
-### 4. 이미지 추가
+## 이미지 추가
 
 - 준비사항 : Flow , Devops Installer 를 /tmp 폴더에 저장
 
