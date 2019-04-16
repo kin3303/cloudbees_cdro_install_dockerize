@@ -1,9 +1,6 @@
 FROM kin3303/commanderbase
 LABEL maintainer="dkim"
  
-RUN mkdir -p /tmp/elkdata
-RUN mkdir -p /tmp/elktemp
-
 ARG EFLOW_DEV_INSTALLER
 
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
@@ -11,9 +8,10 @@ RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
 RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \ 
 --disableSSL \
 --elasticsearchDataDirectory /opt/electriccloud/electriccommander/data/reporting/elasticsearch \
--- elasticsearchRegenerateCertificates \
+--elasticsearchRegenerateCertificates \
+--remoteServer haproxy \
 --hostName localhost \   
---temp /tmp/elktemp \
+--temp /tmp \
 --unixServerGroup ubuntu \
 --unixServerUser ubuntu
  
