@@ -122,7 +122,6 @@ services:
       - zookeeper1
     links:
       - db
-      - insight
 
   commanderapache:
     <<: *commanderapache
