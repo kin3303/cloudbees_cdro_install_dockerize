@@ -4,25 +4,25 @@
 - EFServer Scaling 1개 올릴시 Memory 3GB 메모리 , 2 코어 추가 필요함 
 - 사용 가능 Tag 는 https://cloud.docker.com/u/kin3303/repository/docker/kin3303/commanderserver 에서 확인
 
-## EF 데모 실행환경 설치
+## 실행환경 설치
 
 ```console
  $ sudo ./setup/install.sh 
 ```
 
-## EF 데모 구동
+## 구동
 
 ```console
  $ sudo ./setup/start.sh <TAG>
 ```
 
-## EFServer 스캐일링 
+## 서버 스캐일링 
 
 ```console
  $ sudo ./setup/scale.sh <size>
 ```
 
-## EF 세부설정
+## 세부설정
 
 1. HaProxy 작동확인
 ```
