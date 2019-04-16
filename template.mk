@@ -3,7 +3,7 @@
 all: build push pull
 
 build:
-	cp -f ../$(EFLOW_INSTALLER) ./$(EFLOW_INSTALLER)
+	cp -f /tmp/$(EFLOW_INSTALLER) ./$(EFLOW_INSTALLER)
 	docker build -t kin3303/$(MODULE_NAME):$(TAG) --build-arg EFLOW_INSTALLER=$(EFLOW_INSTALLER) .
 	rm -f ./$(EFLOW_INSTALLER)
 
