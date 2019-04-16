@@ -13,12 +13,6 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/license_ready
 fi
 
-if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
-  ectool setDevOpsInsightServerConfiguration --userName reportuser --password changeme --enabled 1 \
-  --logStashUrl  https://insight:9500  --elasticSearchUrl https://insight:9200 --testConnection 1
-  touch /opt/electriccloud/electriccommander/conf/insight_ready
-fi
-
 if [ ! -f /opt/electriccloud/electriccommander/conf/agents_ready ]; then
   ectool createResource local --hostName localagent --pools default
   ectool pingResource local
@@ -34,5 +28,9 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/repository_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/repository_ready
 fi
 
-
+if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
+  ectool setDevOpsInsightServerConfiguration --userName reportuser --password changeme --enabled 1 \
+  --logStashUrl  https://insight:9500  --elasticSearchUrl https://insight:9200 --testConnection 1
+  touch /opt/electriccloud/electriccommander/conf/insight_ready
+fi
 
