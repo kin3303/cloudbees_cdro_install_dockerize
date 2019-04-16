@@ -5,12 +5,10 @@ RUN touch /run/haproxy.pid
 
 #install requirements
 #RUN apt-get update && apt-get install -y python-virtualenv virtualenv  python-pip --no-install-recommends && rm -rf /var/lib/apt/lists/*
-#RUN apt-get update && apt-get install -y python-virtualenv virtualenv   python-pip --no-install-recommends 
+RUN apt-get update && apt-get install -y python-virtualenv virtualenv   python-pip --no-install-recommends 
 
 RUN apt-get update && \
-apt-get dist-upgrade && \
-apt-get autoremove && \
-apt-get install -y python-virtualenv virtualenv python3 python3-pip --no-install-recommends && \
+apt-get install -y python3 python3-pip --no-install-recommends && \
 rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --upgrade pip
