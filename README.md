@@ -9,7 +9,7 @@
 ./setup/download.sh 파일을 로컬pc 에 저장
 
 ```console
- $ wget https://github.com/kin3303/efdemo/blob/master/setup/download.sh
+ $ wget -O install.sh  https://github.com/kin3303/efdemo/blob/master/install.sh?raw=true
  $ sudo ./download.sh
  $ sudo <SourceDirctory>/setup/install.sh 
 ```
