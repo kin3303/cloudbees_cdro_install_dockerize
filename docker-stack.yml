@@ -45,6 +45,9 @@ services:
 
   haproxy:
     image: kin3303/commanderproxy
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     ports:
       - 80:80
       - 1936:1936
