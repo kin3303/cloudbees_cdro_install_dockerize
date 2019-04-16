@@ -44,27 +44,13 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   haproxy:
-    image: haproxy
+    image: kin3303/commanderproxy
     ports:
       - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
       - 1936:1936
-    labels:
-      - "interlock.ext.name=haproxy"
-    depends_on:
-        - interlock
     volumes:
       - my-haproxy:/usr/local/etc/haproxy/
-
-  interlock:
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
-        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
-        - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/run/docker.sock:/var/run/docker.sock"
 
   zookeeper1:
     image: zookeeper
@@ -96,9 +82,7 @@ services:
     environment:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
-    labels:
-        - "interlock.hostname=test"
-        - "interlock.domain=local"
+      VHOST: commanderserver
     hostname: commanderserver
 
   commanderapache:
