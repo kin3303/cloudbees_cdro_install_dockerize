@@ -57,13 +57,12 @@ def write_config():
 
   rendered = jinja2.Environment(loader=jinja2.FileSystemLoader('./')).get_template('haproxy_config.tmpl').render({
     'containers': data
-  }).encode( "utf-8" )
+  })
 
   logging.info('Writing new config')
 
-  with open('/usr/local/etc/haproxy/haproxy.cfg', 'w+') as out:
-    out.write(rendered)
-
+  with open('/usr/local/etc/haproxy/haproxy.cfg', 'w+', encoding='utf8') as f:
+    f.write(rendered)
 
 def restart_haproxy():
   logging.info('Restarting haproxy container')
