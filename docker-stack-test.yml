@@ -7,14 +7,16 @@ x-include:
       - 8000
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
-      - my-workspace:/opt/electriccloud/electriccommander/workspace
-      - my-conf:/opt/electriccloud/electriccommander/conf
+      - my-workspace:/opt/electriccloud/electriccommander/workspace 
       - my-scripts:/tmp/scripts
 
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
     ports:
-      - 80
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
@@ -42,29 +44,6 @@ services:
       - "8081:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-
-  haproxy:
-    image: haproxy
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    labels:
-      - "interlock.ext.name=haproxy"
-    depends_on:
-        - interlock
-    volumes:
-      - my-haproxy:/usr/local/etc/haproxy/
-
-  interlock:
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
-        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
-        - "/var/run/docker.sock:/var/run/docker.sock"
 
   zookeeper1:
     image: zookeeper
@@ -96,9 +75,6 @@ services:
     environment:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
-    labels:
-        - "interlock.hostname=test"
-        - "interlock.domain=local"
     hostname: commanderserver
 
   commanderapache:
@@ -172,7 +148,3 @@ volumes:
       o: bind
       type: none
       device: $PWD/data/haproxy/
-
-networks:
-  web:
-    driver: overlay
