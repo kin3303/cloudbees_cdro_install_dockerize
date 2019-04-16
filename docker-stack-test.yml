@@ -13,6 +13,8 @@ x-include:
 
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
+    ports:
+      - 80
     volumes:
       - my-plugins:/opt/electriccloud/electriccommander/plugins
       - my-workspace:/opt/electriccloud/electriccommander/workspace
@@ -30,40 +32,6 @@ x-include:
       - my-workspace:/opt/electriccloud/electriccommander/workspace
       - my-repository:/opt/electriccloud/electriccommander/repository-data
 
-  mysql: &mysql
-     image: mysql:5.7
-     volumes:
-       - my-db:/var/lib/mysql
-       - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
-     environment:
-       MYSQL_ROOT_PASSWORD: ecdb
-       MYSQL_DATABASE: ecdb
-       MYSQL_USER: ecdb
-       MYSQL_PASSWORD: ecdb
-     hostname: db
-
-  zookeeper: &zookeeper
-    image: zookeeper
-      
-  haproxy: &haproxy
-    image: haproxy
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    volumes:
-      - my-haproxy:/usr/local/etc/haproxy/
-
-  interlock: &interlock
-    image: ehazlett/interlock:master
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
-        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
-        - "/var/run/docker.sock:/var/run/docker.sock"
-
 services:
   visualizer:
     image: dockersamples/visualizer:stable
@@ -75,78 +43,92 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
-  commanderserver:
-    << : *commanderserver
-    depends_on:
-      - db
-      - zookeeper1
-    environment:
-      WAIT_HOSTS: db:3306
-      WAIT_HOSTS_TIMEOUT: 180
+  haproxy:
+    image: haproxy
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
     labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"
-    hostname: commanderserver
-    
-  commanderapache:
-    <<: *commanderapache
+      - "interlock.ext.name=haproxy"
     depends_on:
-      - commanderserver
-    hostname: commanderapache
-     
-  localagent:
-    <<: *commanderagent
-    depends_on:
-      - commanderserver
-    
-  repository:
-    <<: *commanderrepository
+        - interlock
+    volumes:
+      - my-haproxy:/usr/local/etc/haproxy/
 
-  db:
-    << : *mysql
+  interlock:
+    image: ehazlett/interlock:master
+    command: run -c /etc/interlock/config.toml
+    volumes:
+        - "$PWD/data/interlock/config.toml:/etc/interlock/config.toml"
+        - "$PWD/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template"
+        - "/var/run/docker.sock:/var/run/docker.sock"
 
   zookeeper1:
-    <<: *zookeeper
+    image: zookeeper
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper1
-      
+    hostname: zookeeper1 
+
   zookeeper2:
-    <<: *zookeeper
+    image: zookeeper
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    hostname: zookeeper2
-     
+    hostname: zookeeper2 
+
   zookeeper3:
-    <<: *zookeeper
+    image: zookeeper
     environment:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
-     
-  interlock:
-    <<: *interlock
-
-  haproxy:
-    <<: *haproxy
-    labels:
-        - "interlock.ext.name=haproxy"
-    depends_on:
-        - interlock
-        - commanderserver
 
   commanderserver:
     << : *commanderserver
     depends_on:
       - db
       - zookeeper1
+      - haproxy
     environment:
       WAIT_HOSTS: db:3306
-      WAIT_HOSTS_TIMEOUT: 180 
-      SERVICE_PORTS: 8000
+      WAIT_HOSTS_TIMEOUT: 180
+    labels:
+        - "interlock.hostname=test"
+        - "interlock.domain=local"
+    hostname: commanderserver
+
+  commanderapache:
+    <<: *commanderapache 
+    depends_on:
+      - commanderserver
+    hostname: commanderapache
+    depends_on:
+      - haproxy
       
+  localagent:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
+ 
+  repository:
+    <<: *commanderrepository
+ 
+  db:
+    image: mysql:5.7
+    volumes:
+      - my-db:/var/lib/mysql
+      - "$PWD/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
+    environment:
+      MYSQL_ROOT_PASSWORD: ecdb
+      MYSQL_DATABASE: ecdb
+      MYSQL_USER: ecdb
+      MYSQL_PASSWORD: ecdb
+    hostname: db
+
 volumes:
   my-db:
     driver: local
@@ -190,3 +172,7 @@ volumes:
       o: bind
       type: none
       device: $PWD/data/haproxy/
+
+networks:
+  web:
+    driver: overlay
