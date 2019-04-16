@@ -16,7 +16,7 @@ RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
 --elasticsearchPort 9200 \
 -- elasticsearchRegenerateCertificates \
 --elasticsearchUserPassword changeme \
---hostName commanderinsight \
+--hostName efinsightserver \
 --installDirectory /opt/electriccloud/electriccommander \
 --logstashInitMemoryMB 256 \
 --logstashInternalPort 9600 \
