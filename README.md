@@ -57,15 +57,5 @@
  $ export EFLOW_INSTALLER=ElectricFlow-xxxx
  $ export TAG=xxxx
  $ make
-```
-
-## Docker Stack 개발중
-
-```console
- $ make clean
- $ TAG=9.0.1 docker stack deploy -c docker-stack.yml EF
- $ docker service ls
- $ docker stack rm EF
- $ docker service logs -f EF_commanderserver
-```
+``` 
 
