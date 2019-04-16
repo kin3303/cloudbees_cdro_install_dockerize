@@ -51,7 +51,7 @@ def write_config():
     if not vhost:
         continue
 
-    logging.info('found {name} with ip {ip}, using {vhost}:{port} as hostname.'.format(name=name, ip=ip, vhost=vhost, port=port))
+    logging.info('found {name} with ip {ip}, using {vhost} as hostname.'.format(name=name, ip=ip, vhost=vhost))
 
     entry = {
       'name': name,
