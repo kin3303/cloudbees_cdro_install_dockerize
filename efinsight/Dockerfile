@@ -1,4 +1,4 @@
-FROM kin3303/commanderinsight
+FROM kin3303/commanderbase
 LABEL maintainer="dkim"
  
 ARG EFLOW_DEV_INSTALLER
