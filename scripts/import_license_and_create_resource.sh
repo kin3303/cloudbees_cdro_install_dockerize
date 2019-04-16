@@ -15,7 +15,7 @@ fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
   ectool setDevOpsInsightServerConfiguration --userName reportuser --password changeme --enabled 1 \
-  --logStashUrl  https://commanderinsight:9500  --elasticSearchUrl https://commanderinsight:9200 --testConnection 1
+  --logStashUrl  https://insight:9500  --elasticSearchUrl https://insight:9200 --testConnection 1
   touch /opt/electriccloud/electriccommander/conf/insight_ready
 fi
 
