@@ -1,0 +1,117 @@
+#---------------------------------------------------------------------
+# Example configuration for a possible web application.  See the
+# full configuration options online.
+#
+#   http://haproxy.1wt.eu/download/1.4/doc/configuration.txt
+#
+#---------------------------------------------------------------------
+
+#---------------------------------------------------------------------
+# Global settings
+#---------------------------------------------------------------------
+global
+    # to have these messages end up in /var/log/haproxy.log you will
+    # need to:
+    #
+    # 1) configure syslog to accept network log events.  This is done
+    #    by adding the '-r' option to the SYSLOGD_OPTIONS in
+    #    /etc/sysconfig/syslog
+    #
+    # 2) configure local2 events to go to the /var/log/haproxy.log
+    #   file. A line like the following can be added to
+    #   /etc/sysconfig/syslog
+    #
+    #    local2.*                       /var/log/haproxy.log
+    #
+    log         127.0.0.1 local2
+    maxconn     4000
+    tune.ssl.default-dh-param 2048
+
+#---------------------------------------------------------------------
+# common defaults that all the 'listen' and 'backend' sections will
+# use if not designated in their block
+#---------------------------------------------------------------------
+defaults
+    mode                    http
+    log                     global
+    option                  dontlognull
+#    option http-server-close
+#    option forwardfor       except 127.0.0.0/8
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 3000
+
+# redirect port 80 to port 443
+frontend commander-web-frontend-insecure
+  mode http
+  bind 0.0.0.0:80
+  redirect scheme https code 301 if !{ ssl_fc }
+# load balance port 443 across web servers, with HAProxy acting as the SSL endpoint
+frontend commander-web-frontend-secure
+  mode tcp
+  bind 0.0.0.0:443 ssl crt /usr/local/etc/haproxy/server.pem
+  default_backend commander-web-backend
+backend commander-web-backend
+  mode http
+  server commanderapache commanderapache:80 check
+  
+# load balance ports 8000 and 8443 across Flow servers, with HAProxy acting as the SSL endpoint for port 8443
+frontend commander-server-frontend-insecure
+    mode http
+    bind 0.0.0.0:8000
+    default_backend commander-server-backend
+frontend commander-server-frontend-secure
+    mode tcp
+    bind 0.0.0.0:8443 ssl crt /usr/local/etc/haproxy/server.pem
+    default_backend commander-server-backend
+    
+backend commander-server-backend
+    mode http
+{% for container in containers %}
+    mode http
+    server  {{container.name}} {{container.ip}}:8000 check
+{% endfor %}
+    option httpchk GET /commanderRequest/health
+    #http-check expect status 200
+
+# load balance port 61613 across Flow servers, with HAProxy acting as the SSL endpoint
+frontend commander-stomp-frontend
+    mode tcp
+    bind 0.0.0.0:61613 ssl crt /usr/local/etc/haproxy/server.pem
+    default_backend commander-stomp-backend
+    option tcplog
+    log global
+backend commander-stomp-backend
+    mode tcp
+{% for container in containers %}
+    mode http
+    server  {{container.name}} {{container.ip}}:61613 check
+{% endfor %}
+    option tcplog
+    log global
+
+listen  stats 
+        bind :1936
+        mode            http
+        log             global
+
+        maxconn 10
+
+        timeout connect 100s
+        timeout client 100s
+        timeout server 100s
+        timeout queue   100s
+
+        stats enable
+        stats hide-version
+        stats refresh 30s
+        stats show-node
+        stats uri  /haproxy?stats
+
