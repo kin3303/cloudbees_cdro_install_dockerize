@@ -9,7 +9,6 @@ RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
 --disableSSL \
 --elasticsearchDataDirectory /opt/electriccloud/electriccommander/data/reporting/elasticsearch \
 --elasticsearchRegenerateCertificates \
---remoteServer haproxy \
 --hostName localhost \   
 --temp /tmp \
 --unixServerGroup ubuntu \
