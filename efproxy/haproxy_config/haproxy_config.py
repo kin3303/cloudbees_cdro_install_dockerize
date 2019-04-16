@@ -13,7 +13,6 @@ def get_docker_client():
 
 def write_config():
   data = []
-  certificates = {}
   dockerclient = get_docker_client()
   pattern = re.compile('[\W]+')
 
@@ -57,8 +56,7 @@ def write_config():
     data.append(entry)
 
   rendered = jinja2.Environment(loader=jinja2.FileSystemLoader('./')).get_template('haproxy_config.tmpl').render({
-    'containers': data,
-    'certs': certificates.values()
+    'containers': data
   }).encode( "utf-8" )
 
   logging.info('Writing new config')
