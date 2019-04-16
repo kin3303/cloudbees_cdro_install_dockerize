@@ -1,7 +1,7 @@
 FROM kin3303/commanderinsight
 LABEL maintainer="dkim"
  
-ARG EFLOW_INSTALLER
+ARG EFLOW_DEV_INSTALLER
 
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
