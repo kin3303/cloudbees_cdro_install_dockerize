@@ -43,11 +43,20 @@
 ```
 
 4. 이미지 추가
+
+- 준비사항 : Flow , Devops Installer 를 /tmp 폴더에 저장
+
 ```console
- $ Installer 를 /tmp 폴더에 저장
  $ export EFLOW_DEV_INSTALLER =<인스톨러명>
  $ export EFLOW_INSTALLER=<인스톨러명>
  $ export TAG=<인스톨러버전명>
+ $ make
+``` 
+i.e.
+```console
+ $ export EFLOW_DEV_INSTALLER=ElectricFlowDevOpsInsightServer-x64-9.0.1.136311
+ $ export EFLOW_INSTALLER=ElectricFlow-x64-9.0.1.136311
+ $ export TAG=9.0.1
  $ make
 ``` 
 
