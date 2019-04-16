@@ -26,7 +26,7 @@
 
 1. HaProxy 작동확인
 ```
-   http://****IP****:1936/haproxy?stats
+   http://YOUR_IP_ADDRESS:1936/haproxy?stats
 ```   
 
 2. License 임포트
