@@ -122,6 +122,7 @@ services:
       - zookeeper1
     links:
       - db
+      - insight
 
   commanderapache:
     <<: *commanderapache
@@ -140,5 +141,3 @@ services:
 
   insight:
     <<: *commanderinsight
-    depends_on:
-      - commanderserver
