@@ -7,6 +7,10 @@ import os
 import time
 import json
 import jinja2
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 def get_docker_client():
     return docker.Client(base_url='unix://var/run/docker.sock', version='auto')
@@ -61,7 +65,7 @@ def write_config():
 
   logging.info('Writing new config')
 
-  with open('/usr/local/etc/haproxy/haproxy.cfg', 'w+', encoding='utf8') as f:
+  with open('/usr/local/etc/haproxy/haproxy.cfg', 'w+') as f:
     f.write(rendered)
 
 def restart_haproxy():
