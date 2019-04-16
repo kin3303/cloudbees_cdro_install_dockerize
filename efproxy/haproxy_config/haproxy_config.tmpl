@@ -9,27 +9,25 @@
 #---------------------------------------------------------------------
 # Global settings
 #---------------------------------------------------------------------
-global
-    # to have these messages end up in /var/log/haproxy.log you will
-    # need to:
-    #
-    # 1) configure syslog to accept network log events.  This is done
-    #    by adding the '-r' option to the SYSLOGD_OPTIONS in
-    #    /etc/sysconfig/syslog
-    #
-    # 2) configure local2 events to go to the /var/log/haproxy.log
-    #   file. A line like the following can be added to
-    #   /etc/sysconfig/syslog
-    #
-    #    local2.*                       /var/log/haproxy.log
-    #
- 
-    maxconn     4000
-	log /dev/log	local0
-	log /dev/log	local1 notice
-	stats socket /run/haproxy/admin.sock mode 660 level admin
-    ssl-default-bind-ciphers kEECDH+aRSA+AES:kRSA+AES:+AES256:RC4-SHA:!kEDH:!LOW:!EXP:!MD5:!aNULL:!eNULL
+#global
+# 
+#    maxconn     4000
+#	log /dev/log	local0
+#	log /dev/log	local1 notice
+#	stats socket /run/haproxy/admin.sock mode 660 level admin
+#    ssl-default-bind-ciphers kEECDH+aRSA+AES:kRSA+AES:+AES256:RC4-SHA:!kEDH:!LOW:!EXP:!MD5:!aNULL:!eNULL
 
+global
+    maxconn 4000
+    pidfile /var/run/haproxy.pid
+    log     127.0.0.1 local0
+    log     127.0.0.1 local1 notice
+    #stats   socket /run/haproxy/admin.sock mode 660 level admin	
+    stats   socket /var/run/haproxy.sock mode 777
+
+resolvers docker
+  nameserver dns "127.0.0.11:53"
+  
 #---------------------------------------------------------------------
 # common defaults that all the 'listen' and 'backend' sections will
 # use if not designated in their block
