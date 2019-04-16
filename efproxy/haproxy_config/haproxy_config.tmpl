@@ -23,9 +23,12 @@ global
     #
     #    local2.*                       /var/log/haproxy.log
     #
-    log         127.0.0.1 local2
+ 
     maxconn     4000
-    tune.ssl.default-dh-param 2048
+	log /dev/log	local0
+	log /dev/log	local1 notice
+	stats socket /run/haproxy/admin.sock mode 660 level admin
+    ssl-default-bind-ciphers kEECDH+aRSA+AES:kRSA+AES:+AES256:RC4-SHA:!kEDH:!LOW:!EXP:!MD5:!aNULL:!eNULL
 
 #---------------------------------------------------------------------
 # common defaults that all the 'listen' and 'backend' sections will
@@ -60,10 +63,7 @@ frontend commander-web-frontend-secure
   default_backend commander-web-backend
 backend commander-web-backend
   mode http
-  #server commanderapache commanderapache:80 check
-{% for container_apache in container_apaches %}
-   server  {{container_apache.name}} {{container_apache.ip}}:80 check
-{% endfor %}
+  server commanderapache commanderapache:80 check
   
 # load balance ports 8000 and 8443 across Flow servers, with HAProxy acting as the SSL endpoint for port 8443
 frontend commander-server-frontend-insecure
