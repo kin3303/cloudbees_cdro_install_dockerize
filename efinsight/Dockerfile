@@ -6,7 +6,6 @@ ARG EFLOW_DEV_INSTALLER
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
 RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
---mode silent \
 --dataDirectory /opt/electriccloud/electriccommander \
 --disableSSL \
 --elasticsearchDataDirectory /opt/electriccloud/electriccommander \
