@@ -15,7 +15,6 @@ x-include:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
  
-
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
     restart: always
@@ -47,10 +46,10 @@ x-include:
 services:
   db:
      image: mysql:5.7
+     restart: always
      volumes:
        - ${PWD}/data/db-data:/var/lib/mysql
        - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
-     restart: always
      environment:
        MYSQL_ROOT_PASSWORD: ecdb
        MYSQL_DATABASE: ecdb
@@ -84,6 +83,7 @@ services:
     
   interlock:
     image: ehazlett/interlock:master
+    restart: always
     command: run -c /etc/interlock/config.toml
     volumes:
         - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
@@ -93,14 +93,14 @@ services:
   haproxy:
     image: haproxy
     restart: always
+    volumes:
+      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
     ports:
       - 80:80
       - 443:443
       - 8000:8000
       - 8443:8443
       - 1936:1936
-    volumes:
-      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
     labels:
         - "interlock.ext.name=haproxy"
     links:
@@ -113,13 +113,13 @@ services:
     << : *commanderserver
     labels:
         - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"     
-    depends_on:
-      - db
-      - zookeeper1
+        - "interlock.domain=local"
     links:
       - db
       - insight
+    depends_on:
+      - db
+      - zookeeper1
 
   commanderapache:
     <<: *commanderapache
