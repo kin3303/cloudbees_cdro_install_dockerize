@@ -8,7 +8,7 @@
 - Checkout Sources
 - Create Alias
 ```console
-  $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/download.sh?raw=true && chmod 777 ./init.sh
+  $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && chmod 777 ./init.sh
   $ sudo ./init.sh
 ```
 
