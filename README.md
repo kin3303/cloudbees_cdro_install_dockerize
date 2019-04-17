@@ -21,7 +21,7 @@
 ## Auto Configuration
 
 - Requrement 1 : This is available after server activation (http://YOUR_IP_ADDRESS:1936/haproxy?stats)
-- Requrement 2 : License file must be in */tmp/license.xml*
+- Requrement 2 : License file must be in **/tmp/license.xml**
 ```console
   $ cd <SourceRoot>
   $ sudo ./setup/config.sh
@@ -35,7 +35,7 @@
 
 ## Upload EF Docker Images
 
-- Requrement : Save Flow, Devops Installer in / tmp folder
+- Requrement : Save Flow, Devops Installer in **/tmp** folder
 
 ```console
  $ cd <SourceRoot>
