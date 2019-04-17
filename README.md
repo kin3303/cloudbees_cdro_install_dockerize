@@ -5,25 +5,26 @@
 - Available tags is in https://cloud.docker.com/u/kin3303/repository/docker/kin3303/
 
 ## Initialize
-- Checkout Sources
-- Create Alias
+
 ```console
+  $ sudo su
   $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && chmod 777 ./init.sh
-  $ sudo ./init.sh
+  $ ./init.sh
+  $ source ~/.bashrc
 ```
 
 ## Install Environment
 
 ```console
   $ cd <SourceRoot>
-  $ sudo ./setup/install.sh
+  $ efinstall
 ```
 
 ## Install EF Packages
 
 ```console
   $ cd <SourceRoot>
-  $ sudo ./setup/start.sh
+  $ efstart
 ```
 
 ## Auto Configuration
@@ -32,7 +33,7 @@
 - Requrement 2 : License file must be in **/tmp/license.xml**
 ```console
   $ cd <SourceRoot>
-  $ sudo ./setup/config.sh
+  $ efconfig
 ```
 
 ## Scaling EF Server
