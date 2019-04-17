@@ -15,7 +15,7 @@ RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
 --unixServerUser ubuntu
  
 RUN rm -f /tmp/${EFLOW_DEV_INSTALLER}
-RUN cp -r /opt/electriccloud/electriccommander/data/reporting/elasticsearch
+RUN mkdir -p /opt/electriccloud/electriccommander/data/reporting/elasticsearch
  
 EXPOSE 9200 9300 9500 9600 
 
