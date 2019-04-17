@@ -19,4 +19,3 @@ echo -e "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
 echo -e "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
 echo -e "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
 echo -e "alias efupload='bash ./upload.sh'" >> ~/.bashrc
-source ~/.bashrc
