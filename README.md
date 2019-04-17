@@ -7,7 +7,7 @@
 ## Install the execution environment
 
 ```console
-  $ wget -O setup.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true
+  $ wget -O setup.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true && chmod 777 ./setup.sh
   $ sudo ./setup.sh
 ```
 
