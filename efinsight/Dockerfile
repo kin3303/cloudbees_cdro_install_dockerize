@@ -3,11 +3,13 @@ LABEL maintainer="dkim"
  
 ARG EFLOW_DEV_INSTALLER
 
+RUN mkdir -p /usr/share/elasticsearch/data
+
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
 RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \ 
 --disableSSL \
---elasticsearchDataDirectory /opt/electriccloud/electriccommander/data/reporting/elasticsearch \
+--elasticsearchDataDirectory /usr/share/elasticsearch/data \
 --elasticsearchRegenerateCertificates \
 --hostName localhost \   
 --temp /tmp \
@@ -15,7 +17,6 @@ RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
 --unixServerUser ubuntu
  
 RUN rm -f /tmp/${EFLOW_DEV_INSTALLER}
-RUN mkdir -p /opt/electriccloud/electriccommander/data/reporting/elasticsearch
  
 EXPOSE 9200 9300 9500 9600 
 
