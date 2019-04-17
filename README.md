@@ -23,7 +23,7 @@
 - License 파일이 있어야 사용가능
 - temp 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
 ```console
-  $ sudo ./setup/autoConfig.sh
+  $ sudo ./setup/config.sh
 ```
 
 ## 서버 스캐일링 
