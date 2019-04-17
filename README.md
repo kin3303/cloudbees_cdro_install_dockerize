@@ -11,19 +11,18 @@
   $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && chmod 777 ./init.sh
   $ ./init.sh
   $ source ~/.bashrc
+  $ cd master
 ```
 
 ## Install Environment
 
 ```console
-  $ cd <SourceRoot>
   $ efinstall
 ```
 
 ## Install EF Packages
 
 ```console
-  $ cd <SourceRoot>
   $ efstart
 ```
 
@@ -32,14 +31,13 @@
 - Requrement 1 : This is available after server activation (**http://YOUR_IP_ADDRESS:1936/haproxy?stats**)
 - Requrement 2 : License file must be in **/tmp/license.xml**
 ```console
-  $ cd <SourceRoot>
   $ efconfig
 ```
 
 ## Scaling EF Server
 
 ```console
- $ sudo ./setup/scale.sh <size>
+ $ efscale <size>
 ```
 
 ## Upload EF Docker Images
