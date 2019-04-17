@@ -18,5 +18,6 @@ echo "alias efsetenv='bash ./setup/install.sh'" >> ~/.bashrc
 echo "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
 echo "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
 echo "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
+echo "alias efupload='bash ./setup/stop.sh'" >> ~/.bashrc
 
  
