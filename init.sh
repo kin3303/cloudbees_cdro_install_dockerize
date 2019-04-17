@@ -16,9 +16,9 @@ git checkout $BRANCH
 # MAKE ALIAS
 shopt -s expand_aliases
 alias efsetenv='bash ./setup/install.sh'
-alias efstart='bash ./setup/start.sh'" 
+alias efstart='bash ./setup/start.sh'
 alias efconfig='bash ./setup/config.sh'
-alias efstop='bash ./setup/stop.sh'" 
-alias efupload='bash ./upload.sh'"
+alias efstop='bash ./setup/stop.sh'
+alias efupload='bash ./upload.sh'
 
  
