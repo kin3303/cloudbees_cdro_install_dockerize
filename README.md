@@ -31,7 +31,7 @@
  $ sudo ./setup/scale.sh <size>
 ```
 
-## 이미지 추가
+## Upload EF Docker Images
 
 - Requrement : Save Flow, Devops Installer in / tmp folder
 
