@@ -11,6 +11,13 @@
   $ sudo ./setup.sh
 ```
 
+## Install Environment
+
+```console
+  $ cd <SourceRoot>
+  $ sudo ./setup/install.sh
+```
+
 ## Install EF Packages
 
 ```console
