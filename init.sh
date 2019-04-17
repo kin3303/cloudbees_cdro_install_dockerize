@@ -20,5 +20,6 @@ alias efstart='bash ./setup/start.sh'
 alias efconfig='bash ./setup/config.sh'
 alias efstop='bash ./setup/stop.sh'
 alias efupload='bash ./upload.sh'
+source ~/.bash_aliases
 
  
