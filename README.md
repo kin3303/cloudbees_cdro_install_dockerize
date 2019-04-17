@@ -14,7 +14,7 @@
 ## 구동
 
 ```console
- $ sudo ./setup/start.sh <TAG>
+ $ sudo ./setup/start.sh
 ```
 
 ## Licnese 임포트 + 리소스 자동설정
