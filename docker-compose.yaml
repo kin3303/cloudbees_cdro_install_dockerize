@@ -66,8 +66,6 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    #volumes:
-    #  - ${PWD}/data/zoo/zookeeper1:/data
     hostname: zookeeper1
 
   zookeeper2:
@@ -76,8 +74,6 @@ services:
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    #volumes:
-    #  - ${PWD}/data/zoo/zookeeper2:/data
     hostname: zookeeper2
     
   zookeeper3:
@@ -86,8 +82,6 @@ services:
     environment:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    #volumes:
-    #  - ${PWD}/data/zoo/zookeeper3:/data
     hostname: zookeeper3
     
   interlock:
