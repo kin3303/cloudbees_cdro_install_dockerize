@@ -36,6 +36,7 @@ cleandata:
 	rm -rf $(PWD)/data/logs/*
 	rm -rf $(PWD)/data/conf/tmp*
 	rm -rf $(PWD)/data/haproxy/haproxy.cfg
+	rm -rf $(PWD)/data/insight/*
 
 cleankeepdata:
 	rm -rf $(PWD)/data/zoo/*
