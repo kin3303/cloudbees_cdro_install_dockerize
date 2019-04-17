@@ -4,11 +4,12 @@
 - Additional 3GB memory, 2 cores required when adding 1 more EFserver
 - Available tags is in https://cloud.docker.com/u/kin3303/repository/docker/kin3303/
 
-## Checkout sources
-
+## Initialize
+- Checkout Sources
+- Create Alias
 ```console
-  $ wget -O download.sh  https://github.com/kin3303/efdemo/blob/master/download.sh?raw=true && chmod 777 ./setup.sh
-  $ sudo ./download.sh <branchName>
+  $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/download.sh?raw=true && chmod 777 ./init.sh
+  $ sudo ./init.sh
 ```
 
 ## Install Environment
