@@ -4,19 +4,17 @@ x-include:
   commanderserver: &commanderserver
     image: kin3303/commanderserver:${TAG}
     restart: always
-    ports:
-      - 8000
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/conf:/opt/electriccloud/electriccommander/conf
       - ${PWD}/scripts:/tmp/scripts
+    ports:
+      - 8000
     environment:
       WAIT_HOSTS: db:3306
       WAIT_HOSTS_TIMEOUT: 180
-    labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"      
+ 
 
   commanderapache: &commanderapache
     image: kin3303/commanderapache:${TAG}
@@ -113,6 +111,9 @@ services:
 
   commanderserver:
     << : *commanderserver
+    labels:
+        - "interlock.hostname=commanderserver"
+        - "interlock.domain=local"     
     depends_on:
       - db
       - zookeeper1
