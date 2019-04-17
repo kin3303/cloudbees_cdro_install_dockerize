@@ -2,7 +2,7 @@
 
 - Recommended 16GB memory, 8 cores or more, Ubuntu 16.04 or later
 - Additional 3GB memory, 2 cores required when adding 1 more EFserver
-- Available tags is in https://cloud.docker.com/u/kin3303/repository/docker/kin3303/
+- Available EF tags : 9.0.1 , latest
 
 ## Initialize
 
