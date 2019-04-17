@@ -14,12 +14,9 @@ git remote add -t $BRANCH -f origin $REMOTE_REPO
 git checkout $BRANCH 
 
 # MAKE ALIAS
-shopt -s expand_aliases
-alias efsetenv='bash ./setup/install.sh'
-alias efstart='bash ./setup/start.sh'
-alias efconfig='bash ./setup/config.sh'
-alias efstop='bash ./setup/stop.sh'
-alias efupload='bash ./upload.sh'
-source ~/.bash_aliases
-
- 
+echo -e "alias efsetenv='bash ./setup/install.sh'" >> ~/.bashrc
+echo -e "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
+echo -e "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
+echo -e "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
+echo -e "alias efupload='bash ./upload.sh'" >> ~/.bashrc
+source ~/.bashrc
