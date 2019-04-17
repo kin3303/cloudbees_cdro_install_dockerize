@@ -21,7 +21,7 @@
 
 - 서버 활성화 후 사용가능 (http://YOUR_IP_ADDRESS:1936/haproxy?stats)
 - License 파일이 있어야 사용가능
-- conf 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
+- temp 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
 ```console
   $ sudo ./setup/autoConfig.sh
 ```
