@@ -1,32 +1,31 @@
-# EF 데모 프로젝트
+# EF Demo Project
 
-- 권장사양 16GB 메모리 , 8 코어 이상 , Ubuntu 16.04 이상
-- EFServer Scaling 1개 올릴시 Memory 3GB 메모리 , 2 코어 추가 필요함 
-- 사용 가능 Tag 는 https://cloud.docker.com/u/kin3303/repository/docker/kin3303/commanderserver 에서 확인
+- Recommended 16GB memory, 8 cores or more, Ubuntu 16.04 or later
+- Additional 3GB memory, 2 cores required when adding 1 more EFserver
+- Available tags is in https://cloud.docker.com/u/kin3303/repository/docker/kin3303/commanderserver
 
-## 실행환경 설치
+## Install the execution environment
 
 ```console
  $ wget -O install.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true
  $ sudo ./setup.sh
 ```
 
-## 구동
+## Install EF Packages
 
 ```console
  $ sudo ./setup/start.sh
 ```
 
-## Licnese 임포트 + 리소스 자동설정
+## Auto Configuration
 
-- 서버 활성화 후 사용가능 (http://YOUR_IP_ADDRESS:1936/haproxy?stats)
-- License 파일이 있어야 사용가능
-- temp 폴더에 license.xml 파일을 넣어놓은 후 아래 명령 실행
+- Requrement 1 : This is available after server activation (http://YOUR_IP_ADDRESS:1936/haproxy?stats)
+- Requrement 2 : License file must be in */tmp/license.xml*
 ```console
   $ sudo ./setup/config.sh
 ```
 
-## 서버 스캐일링 
+## Scaling EF Server
 
 ```console
  $ sudo ./setup/scale.sh <size>
@@ -34,7 +33,7 @@
 
 ## 이미지 추가
 
-- 준비사항 : Flow , Devops Installer 를 /tmp 폴더에 저장
+- Requrement : Save Flow, Devops Installer in / tmp folder
 
 ```console
  $ export EFLOW_DEV_INSTALLER=ElectricFlowDevOpsInsightServer-x64-9.0.1.136311
