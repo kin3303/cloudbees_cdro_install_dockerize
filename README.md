@@ -7,8 +7,8 @@
 ## Install the execution environment
 
 ```console
-  $ wget -O setup.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true && chmod 777 ./setup.sh
-  $ sudo ./setup.sh
+  $ wget -O download.sh  https://github.com/kin3303/efdemo/blob/master/download.sh?raw=true && chmod 777 ./setup.sh
+  $ sudo ./download.sh
 ```
 
 ## Install Environment
