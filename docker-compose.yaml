@@ -41,7 +41,7 @@ x-include:
     image: kin3303/commanderinsight:${TAG}
     restart: always
     volumes:
-    -  ${PWD}/data/insight:/opt/electriccloud/electriccommander/data/reporting/elasticsearch
+      - ${PWD}/data/insight:/opt/electriccloud/electriccommander/data/reporting/elasticsearch
     
 services:
   db:
