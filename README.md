@@ -7,8 +7,8 @@
 ## 실행환경 설치
 
 ```console
- $ wget -O install.sh  https://github.com/kin3303/efdemo/blob/master/install.sh?raw=true
- $ sudo ./install.sh
+ $ wget -O install.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true
+ $ sudo ./setup.sh
 ```
 
 ## 구동
