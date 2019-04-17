@@ -7,14 +7,15 @@
 ## Install the execution environment
 
 ```console
- $ wget -O install.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true
- $ sudo ./setup.sh
+  $ wget -O install.sh  https://github.com/kin3303/efdemo/blob/master/setup.sh?raw=true
+  $ sudo ./setup.sh
 ```
 
 ## Install EF Packages
 
 ```console
- $ sudo ./setup/start.sh
+  $ cd <SourceRoot>
+  $ sudo ./setup/start.sh
 ```
 
 ## Auto Configuration
@@ -22,6 +23,7 @@
 - Requrement 1 : This is available after server activation (http://YOUR_IP_ADDRESS:1936/haproxy?stats)
 - Requrement 2 : License file must be in */tmp/license.xml*
 ```console
+  $ cd <SourceRoot>
   $ sudo ./setup/config.sh
 ```
 
@@ -36,6 +38,7 @@
 - Requrement : Save Flow, Devops Installer in / tmp folder
 
 ```console
+ $ cd <SourceRoot>
  $ export EFLOW_DEV_INSTALLER=ElectricFlowDevOpsInsightServer-x64-9.0.1.136311
  $ export EFLOW_INSTALLER=ElectricFlow-x64-9.0.1.136311
  $ export TAG=9.0.1
