@@ -1,12 +1,15 @@
 #!/bin/bash
 
-#mysql db backup
+#mysql
 docker exec $(docker ps |grep db_1|awk '{print $1}')  /tmp/scripts/backupdb.sh
 
-#plugin directory backup
+#plugin
 
-#logs backup
+#logs
 
+#repository-data
 
-#repository-data backup
+#workspace
+
+#elasticSearch
  
