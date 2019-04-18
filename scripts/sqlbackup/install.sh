@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-
+chmod 755 mysqlbkup.sh 
 cp mysqlbkup.sh /usr/local/bin
 chmod 755 /usr/local/bin/mysqlbkup.sh
 
