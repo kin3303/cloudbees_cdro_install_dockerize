@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #mysql
-docker exec $(docker ps |grep db|awk '{print $1}')  /tmp/scripts/backupdb.sh
+docker exec $(docker ps |grep db|awk '{print $1}') /bin/bash /tmp/scripts/backupdb.sh
 
 #plugin
 
