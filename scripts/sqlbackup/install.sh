@@ -12,5 +12,9 @@ chmod 600 /etc/mysqlbkup.cnf
 
 # Create the backup directory
 . /etc/mysqlbkup.config
-mkdir "$BACKUP_DIR"
+
+if [ ! -d "$BACKUP_DIR" ]; then
+   echo "Creating directory $backupDir"
+   mkdir -p "$BACKUP_DIR"
+fi    
 chmod 600 "$BACKUP_DIR"
