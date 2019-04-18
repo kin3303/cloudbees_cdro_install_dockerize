@@ -5,21 +5,25 @@
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
 
-restoreDir=data/db-data/backup/ecdb
+restoreDir=data/db-data/restore/
+ 
 
 rm -rf $restoreDir/*
 
+count=`ls -1 *.flac 2>/dev/null | wc -l`
+if [ $count != 0 ]
+then 
+echo true
+fi 
 
+backup-$date.tar.xz
 unzip 'abc*.zip'
 if [ !-d "backup.tar.xz" ]; then
    echo "Restore Failed - There is no backup.tar.xz";
    exit 1;
 fi
 
-if [ !-d "$restoreDir" ]; then
-    echo "Backup Failed - There is no backup directory made by DB backup process";
-    exit 1;
-fi
+
 
 ###################################################################################################
 # Data Restore
