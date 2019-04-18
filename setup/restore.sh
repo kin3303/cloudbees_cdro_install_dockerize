@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #mysql
-docker exec $(docker ps |grep db_1|awk '{print $1}')  /tmp/scripts/restoredb.sh
+docker exec $(docker ps |grep db|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
 
 #plugin
 
