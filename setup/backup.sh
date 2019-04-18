@@ -34,5 +34,6 @@ cp -r data/repository-data $backupDir
 ###################################################################################################
 # Packaging
 ###################################################################################################
-tar cvfj backup.tar.xz  $backupDir
+ 
+tar -zcvf backup.tar.gz $backupDir
 rm -rf $backupRoot
