@@ -5,19 +5,31 @@
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
 
-restoreDir=data/db-data/restore/
+restoreDir=data/restoreData/
+if [ ! -d "$restoreDir" ]; then 
+    echo "Creating directory $restoreDir"
+    mkdir -p "$restoreDir"
+fi
+
  
+count=`ls -1 *.xz 2>/dev/null | wc -l`
+if [ $count != 1 ]; then 
+  echo "Please check only one backup file located in the source root."
+  exit 1;
+fi 
+
+backupfile=$(basename $(find . -maxdepth 1 -name 'backup*.xz'))
+backupfile=${backupfile%.*}
+ 
+tar xvfJ $backupfile
+unzip 'abc*.zip'
 
 rm -rf $restoreDir/*
 
-count=`ls -1 *.flac 2>/dev/null | wc -l`
-if [ $count != 0 ]
-then 
-echo true
-fi 
+
 
 backup-$date.tar.xz
-unzip 'abc*.zip'
+
 if [ !-d "backup.tar.xz" ]; then
    echo "Restore Failed - There is no backup.tar.xz";
    exit 1;
