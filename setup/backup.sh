@@ -4,7 +4,9 @@
 # DB Backup
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/backupdb.sh
-backupDir=data/db-data/backup/ecdb
+
+backupRoot=data/db-data/backup
+backupDir=$backupRoot/ecdb
 if [ !-d "$backupDir" ]; then
     echo "Backup Failed - There is no backup directory made by DB backup process";
     exit 1;
@@ -34,4 +36,4 @@ cp -r data/repository-data $backupDir
 ###################################################################################################
 date=$(date +%F)
 tar cvfj backup-$date.tar.xz  $backupDir
- 
+rm -rf $backupRoot
