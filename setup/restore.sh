@@ -1,39 +1,23 @@
 #!/bin/bash
 
+backupFile= backup.tar.gz 
+if [ ! -f "$backupFile" ]; then 
+    echo "Please check $backupFile file located in the source root."
+    exit 1;
+fi
+
+restoreDir=data/db-data/backup/ecdb
+rm -rf $restoreDir/*
+
 ###################################################################################################
 # DB Restore
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
 
-backupFile= backup.tar.xz
-restoreFile=backup.tar.zx
-restoreDir=data/restoreData/
-if [ ! -d "$restoreDir" ]; then 
-    echo "Creating directory $restoreDir"
-    mkdir -p "$restoreDir"
-fi
-
-if [ ! -f "$backupFile" ]; then 
-    echo "Please check $backupFile file located in the source root."
-    exit 1;
-fi
- 
- 
-tar xvfJ $restoreFile
-unzip 'abc*.zip'
-
-rm -rf $restoreDir/*
-
-
-
-backup-$date.tar.xz
-
-if [ !-d "backup.tar.xz" ]; then
-   echo "Restore Failed - There is no backup.tar.xz";
-   exit 1;
-fi
-
-
+###################################################################################################
+# Stop server to restore data
+###################################################################################################
+./setup/stop.sh
 
 ###################################################################################################
 # Data Restore
@@ -48,16 +32,21 @@ fi
 #    Artifact
 #       <DATADIR>/repository-data
 ###################################################################################################
-cp -r data/conf $backupDir
-cp -r data/mysql  $backupDir
-cp -r data/workspace $backupDir
-cp -r data/plugins $backupDir
-cp -r data/repository-data $backupDir
+tar -zxvf $backupFile
+
+rm -rf data/conf
+rm -rf data/mysql
+rm -rf data/workspace
+rm -rf data/plugins
+rm -rf data/repository-data
+
+cp -r $restoreDir/conf data/conf
+cp -r $restoreDir/mysql data/mysql  
+cp -r $restoreDir/workspace data/workspace 
+cp -r $restoreDir/plugins data/plugins 
+cp -r $restoreDir/repository-data data/repository-data 
  
 ###################################################################################################
-# Packaging
+# Start server
 ###################################################################################################
-date=$(date +%F)
-
-tar cvfj backup.tar.xz  $backupDir
-tar tvf backup.tar.xz
+./setup/start.sh
