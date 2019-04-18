@@ -18,3 +18,8 @@ if [ ! -d "$BACKUP_DIR" ]; then
    mkdir -p "$BACKUP_DIR"
 fi    
 chmod 600 "$BACKUP_DIR"
+
+# Inform 
+echo "mysqlbkup is installed"
+echo "Make sure to edit /etc/mysqlbkup.cnf and /etc/mysqlbkup.config for your needs"
+echo "/usr/local/bin/mysqlbkup.sh 1>> /var/log/mysqlbkup.log 2>>/var/log/mysqlbkup-err.log"
