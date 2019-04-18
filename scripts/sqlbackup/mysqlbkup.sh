@@ -40,7 +40,7 @@ if [ ! -d "$backupDir" ]; then
 fi
 
 echo "Running: mysqldump .. | $BKUP_BIN > $backupDir/$backupFile"
-
-mysqldump -u ecdb -pecdb -h db "ecdb" 
+mysqldump -u ecdb -pecdb -h db "ecdb" | $BKUP_BIN > "$backupDir/$backupFile"
+echo
 
 echo "Finished running - $date"; echo
