@@ -19,6 +19,7 @@ echo -e "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
 echo -e "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
 echo -e "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
 echo -e "alias efscale='bash ./setup/scale.sh'" >> ~/.bashrc
+echo -e "alias efbackup='bash ./setup/backup.sh'" >> ~/.bashrc
+echo -e "alias efrestore='bash ./setup/restore.sh'" >> ~/.bashrc
 echo -e "alias efupload='bash ./upload.sh'" >> ~/.bashrc
-echo -e "alias efbackup='bash ./backup.sh'" >> ~/.bashrc
-echo -e "alias efrestore='bash ./restore.sh'" >> ~/.bashrc
+
