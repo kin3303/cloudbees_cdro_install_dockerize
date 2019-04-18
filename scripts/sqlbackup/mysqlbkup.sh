@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ -e /etc/mysqlbkup.config ]; then
     . /etc/mysqlbkup.config
