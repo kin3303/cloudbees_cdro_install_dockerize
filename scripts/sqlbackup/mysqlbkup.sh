@@ -137,8 +137,9 @@ do
         continue;
     fi
 
-    mysqldump --defaults-file=$DEFAULTS_FILE "$db" | $BKUP_BIN > "$backupDir/$backupFile"
+    mysqldump --defaults-file=$DEFAULTS_FILE "$db" | $BKUP_BIN > "data/db-data/backup/$db/$backupFile"
     echo
 done
 
 echo "Finished running - $date"; echo
+
