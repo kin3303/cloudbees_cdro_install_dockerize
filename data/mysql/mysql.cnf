@@ -34,18 +34,3 @@ innodb_buffer_pool_size=512M
 max_allowed_packet=1024M
 
 max_connections=500
-
-[mysql]
-host=db
-user=ecdb
-password=ecdb
-
-[mysqldump]
-host=db
-user=ecdb
-password=ecdb
-force
-opt
-routines
-triggers
-max_allowed_packet=250M 
