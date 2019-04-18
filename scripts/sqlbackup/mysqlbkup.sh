@@ -130,14 +130,14 @@ do
     fi
 
     # create the backup for $db
-    echo "Running: mysqldump --defaults-file=$DEFAULTS_FILE $db | $BKUP_BIN > $backupDir/$backupFile"
+    echo "Running: mysqldump --defaults-file=$DEFAULTS_FILE $db | $BKUP_BIN > data/db-data/backup/$db/$backupFile"
 
     # Skip actual call to mysqldump in DRY mode
     if [ $DRY_MODE -eq 1 ]; then
         continue;
     fi
-
-    mysqldump --defaults-file=$DEFAULTS_FILE "$db" | $BKUP_BIN > "data/db-data/backup/$db/$backupFile"
+ 
+    mysqldump --defaults-file=$DEFAULTS_FILE "$db" | $BKUP_BIN > "$backupDir/$backupFile"
     echo
 done
 
