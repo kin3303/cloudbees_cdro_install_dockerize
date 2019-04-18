@@ -40,9 +40,8 @@ if [ ! -d "$backupDir" ]; then
    mkdir -p "$backupDir" 
 fi
 
-mysql.server stop
-mysql_upgrade -u ecdb -pecdb -h db
-mysql.server restart
+mysql_upgrade -u root -p --force
+systemctl restart mysqld
 
 echo "Running: mysqldump .. | $BKUP_BIN > $backupDir/$backupFile"
 mysqldump -u ecdb -pecdb -h db "ecdb" | $BKUP_BIN > "$backupDir/$backupFile"
