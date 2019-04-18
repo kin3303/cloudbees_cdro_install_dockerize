@@ -20,3 +20,4 @@ echo -e "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
 echo -e "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
 echo -e "alias efscale='bash ./setup/scale.sh'" >> ~/.bashrc
 echo -e "alias efupload='bash ./upload.sh'" >> ~/.bashrc
+echo -e "alias efbackup='bash ./backupdb.sh'" >> ~/.bashrc
