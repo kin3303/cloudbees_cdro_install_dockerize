@@ -32,6 +32,18 @@
   $ efconfig
 ```
 
+## Backup
+
+```console
+ $ efbackup
+```
+
+## Restore
+
+```console
+ $ efrestore
+```
+
 ## Scaling EF Server
 
 ```console
