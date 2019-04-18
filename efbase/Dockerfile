@@ -33,6 +33,7 @@ rm -rf /var/lib/apt/lists/*
 
 RUN addgroup ubuntu
 RUN useradd -m -g ubuntu ubuntu
+RUN echo "ubuntu ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 CMD ["/bin/bash"]
 
