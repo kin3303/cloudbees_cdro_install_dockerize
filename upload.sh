@@ -4,3 +4,4 @@ git add .
 git status
 git commit -a -m 'update sources'
 git push origin master
+git pull origin master
