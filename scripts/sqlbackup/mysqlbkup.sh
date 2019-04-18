@@ -29,35 +29,18 @@ do
 done
 
 date=$(date +%F)
-dbs=$(echo 'show databases' | mysql --defaults-file=$DEFAULTS_FILE )
+backupDir="$BACKUP_DIR/ecdb"
+backupFile="ecdb.sql.$BKUP_EXT"
 
-for db in $dbs
-do
-    backupDir="$BACKUP_DIR/$db"
-    backupFile="$date-$db.sql.$BKUP_EXT"
-    echo "Backing up $db into $backupDir"
+echo "Backing up ecdb into $backupDir"
 
-    if [ ! -d "$backupDir" ]; then
-        echo "Creating directory $backupDir"
-        mkdir -p "$backupDir"
-    else
-        numBackups=$(ls -1lt "$backupDir"/*."$BKUP_EXT" 2>/dev/null | wc -l) 
-        if [ -z "$numBackups" ]; then numBackups=0; fi
+if [ ! -d "$backupDir" ]; then
+   echo "Creating directory $backupDir"
+   mkdir -p "$backupDir" 
+fi
 
-        if [ "$numBackups" -ge "$MAX_BACKUPS" ]; then
-            # how many files to nuke
-            ((numFilesToNuke = "$numBackups - $MAX_BACKUPS + 1"))
-            # actual files to nuke
-            filesToNuke=$(ls -1rt "$backupDir"/*."$BKUP_EXT" | head -n "$numFilesToNuke" | tr '\n' ' ')
+echo "Running: mysqldump .. | $BKUP_BIN > $backupDir/$backupFile"
 
-            echo "Nuking files $filesToNuke"
-            rm $filesToNuke
-        fi
-    fi
-
-    echo "Running: mysqldump .. | $BKUP_BIN > $backupDir/$backupFile"
-    mysqldump -uecdb -pecdb "ecdb" | $BKUP_BIN > "$backupDir/$backupFile"
-    echo
-done
+mysqldump -u ecdb -pecdb -h db "ecdb" 
 
 echo "Finished running - $date"; echo
