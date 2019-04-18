@@ -9,4 +9,5 @@ cp mysqlbkup.config /etc/mysqlbkup.config
 chmod 600 /etc/mysqlbkup.config
  
 . /etc/mysqlbkup.config
+mkdir "$BACKUP_DIR"
 chmod 600 "$BACKUP_DIR"
