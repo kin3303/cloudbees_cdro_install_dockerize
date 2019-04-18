@@ -40,6 +40,7 @@ if [ ! -d "$backupDir" ]; then
    mkdir -p "$backupDir" 
 fi
 
+mysqld --skip-grant-tables &
 mysql_upgrade -u ecdb -pecdb -h db
 mysql.server restart
 
