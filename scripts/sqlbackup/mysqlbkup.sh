@@ -40,7 +40,7 @@ if [ ! -d "$backupDir" ]; then
    mkdir -p "$backupDir" 
 fi
 
-mysql_upgrade -u root -p
+mysql_upgrade -u ecdb -pecdb -h db
 
 echo "Running: mysqldump .. | $BKUP_BIN > $backupDir/$backupFile"
 mysqldump -u ecdb -pecdb -h db "ecdb" | $BKUP_BIN > "$backupDir/$backupFile"
