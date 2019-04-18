@@ -1,0 +1,14 @@
+[mysql]
+host=db
+user=ecdb
+password=ecdb
+
+[mysqldump]
+host=db
+user=ecdb
+password=ecdb
+force
+opt
+routines
+triggers
+max_allowed_packet=250M
