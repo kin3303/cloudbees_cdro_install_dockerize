@@ -1,6 +1,6 @@
 #!/bin/bash
 
-backupFile= backup.tar.gz 
+backupFile=backup.tar.gz
 if [ ! -f "$backupFile" ]; then 
     echo "Please check $backupFile file located in the source root."
     exit 1;
