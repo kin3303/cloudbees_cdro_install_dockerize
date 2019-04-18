@@ -7,7 +7,7 @@ chmod 755 /usr/local/bin/mysqlbkup.sh
 
 cp mysqlbkup.config /etc/mysqlbkup.config
 chmod 600 /etc/mysqlbkup.config
-cp mysqlbkup.cnf.sample /etc/mysqlbkup.cnf
+cp mysqlbkup.cnf /etc/mysqlbkup.cnf
 chmod 600 /etc/mysqlbkup.cnf
 
 . /etc/mysqlbkup.config
