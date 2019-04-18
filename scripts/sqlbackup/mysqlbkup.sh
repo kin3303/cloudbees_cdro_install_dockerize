@@ -41,6 +41,7 @@ if [ ! -d "$backupDir" ]; then
 fi
 
 mysql_upgrade -u ecdb -pecdb -h db
+mysql.server restart
 
 echo "Running: mysqldump .. | $BKUP_BIN > $backupDir/$backupFile"
 mysqldump -u ecdb -pecdb -h db "ecdb" | $BKUP_BIN > "$backupDir/$backupFile"
