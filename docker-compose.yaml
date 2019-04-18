@@ -50,6 +50,7 @@ services:
      volumes:
        - ${PWD}/data/db-data:/var/lib/mysql
        - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+       - ${PWD}/scripts:/tmp/scripts
      environment:
        MYSQL_ROOT_PASSWORD: ecdb
        MYSQL_DATABASE: ecdb
