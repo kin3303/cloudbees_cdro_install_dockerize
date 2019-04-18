@@ -1,5 +1,7 @@
 #!/bin/bash
 
-for filename in  /var/lib/mysql/backup/ecdb/*.gz; do
+FILES=/var/lib/mysql/backup/ecdb/*
+/var/lib/mysql/backup/ecdb
+for filename in  $FILES; do
   gunzip < $filename | mysql -h db -u ecdb -pecdb "ecdb"
 done 
