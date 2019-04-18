@@ -5,9 +5,9 @@ x-include:
     image: kin3303/commanderserver:${TAG}
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/conf:/opt/electriccloud/electriccommander/conf
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins:rw
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace:rw
+      - ${PWD}/data/conf:/opt/electriccloud/electriccommander/conf:rw
       - ${PWD}/scripts:/tmp/scripts
     ports:
       - 8000
@@ -19,29 +19,29 @@ x-include:
     image: kin3303/commanderapache:${TAG}
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins:rw
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace:rw
 
   commanderagent: &commanderagent
     image: kin3303/commanderagent:${TAG}
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins:rw
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace:rw
 
   commanderrepository: &commanderrepository
     image: kin3303/commanderrepository:${TAG}
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins:rw
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace:rw
+      - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data:rw
 
   commanderinsight: &commanderinsight
     image: kin3303/commanderinsight:${TAG}
     restart: always
     #volumes:
-    #  - ${PWD}/data/insight:/usr/share/elasticsearch/data
+    #  - ${PWD}/data/insight:/usr/share/elasticsearch/data:rw
           
 services:
   db:
