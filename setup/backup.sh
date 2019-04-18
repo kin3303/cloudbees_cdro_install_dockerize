@@ -1,11 +1,13 @@
 #!/bin/bash
 
+backupRoot=data/db-data/backup
+rm -rf $backupRoot
+
 ###################################################################################################
 # DB Backup
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/backupdb.sh
 
-backupRoot=data/db-data/backup
 backupDir=$backupRoot/ecdb
 if [ ! -d "$backupDir" ]; then
     echo "Backup Failed - There is no backup directory made by DB backup process";
