@@ -7,7 +7,7 @@ sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scr
 
 backupRoot=data/db-data/backup
 backupDir=$backupRoot/ecdb
-if [ !-d "$backupDir" ]; then
+if [ ! -d "$backupDir" ]; then
     echo "Backup Failed - There is no backup directory made by DB backup process";
     exit 1;
 fi
