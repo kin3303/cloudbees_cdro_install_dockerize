@@ -39,7 +39,7 @@
     - Configuration Files
        + <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
        + <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
-       +  ~~<DATADIR>/apache/conf  : Configuration files for the Web Server ~~ 
+  +  <del> <DATADIR>/apache/conf  : Configuration files for the Web Server </del> 
     -  Workspace Directories
        + <DATADIR>/workspace
  
