@@ -1,8 +1,4 @@
-license.xml
-tmp/*
-*.orig
-*_ready
-logs/* 
-
+# Ignore everything in this directory
+*
 # Except this file
 !.gitignore
