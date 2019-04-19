@@ -44,8 +44,10 @@ TIMESTAMP=`date +%Y%m%d`
 curl  -k –X PUT \
    -E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
    --key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem \
-   “$URL_REQ/$TIMESTAMP?wait_for_completion=true” -H ‘Content-Type: application/json’ -d \
-   ‘{ “indices”: “$backup_index”,  “ignore_unavailable”: true, “include_global_state”: false}’
+   “$URL_REQ/$TIMESTAMP?wait_for_completion=true”
+   
+   #-H ‘Content-Type: application/json’ -d \
+   #‘{ “indices”: “$backup_index”,  “ignore_unavailable”: true, “include_global_state”: false}’
 
 ########################################################
 # Remove Previous Snapshot
