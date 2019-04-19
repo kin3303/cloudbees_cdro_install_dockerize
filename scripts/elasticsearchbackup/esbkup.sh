@@ -25,7 +25,7 @@ EOF
 ########################################################
 # Add Repository
 ########################################################
-URL_REQ=”https://insight:9200/_snapshot/my_backup”
+URL_REQ=”https://localhost:9200/_snapshot/my_backup”
 
 curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{
  “type”: “fs”,
@@ -38,7 +38,6 @@ curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{
 ########################################################
 # Create Snapshot
 ########################################################
-backup_index=”.efinsight”
 TIMESTAMP=`date +%Y%m%d`
 
 curl  -k –X PUT \
