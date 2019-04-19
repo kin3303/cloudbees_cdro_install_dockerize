@@ -34,6 +34,21 @@
 
 ## Backup
 
+* DB Backup
+    - dbdump 
+* Data Backup       
+    - Configuration Files
+       + <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
+       + <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
+       + <DATADIR>/apache/conf  : Configuration files for the Web Server => SKIPED 
+    -  Workspace Directories
+       + <DATADIR>/workspace
+ 
+    - Plugins
+       + <DATADIR>/plugins
+    - Artifact
+       + <DATADIR>/repository-data
+  
 ```console
  $ efbackup
 ```
