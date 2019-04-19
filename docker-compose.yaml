@@ -40,8 +40,9 @@ x-include:
   commanderinsight: &commanderinsight
     image: kin3303/commanderinsight:${TAG}
     restart: always
-    #volumes:
-    #  - ${PWD}/data/insight:/usr/share/elasticsearch/data:rw
+    volumes:
+      - ${PWD}/scripts:/tmp/scripts
+      - ${PWD}/data/insight:/usr/share
           
 services:
   db:
