@@ -35,7 +35,7 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
 fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then
-  ectool installPlugin "${PWD}/ReleaseDemo.jar"
+  ectool installPlugin "/tmp/scripts/ReleaseDemo.jar"
   touch /opt/electriccloud/electriccommander/conf/demo_ready
 fi
 
