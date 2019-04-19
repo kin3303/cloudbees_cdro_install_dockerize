@@ -2,10 +2,13 @@
 
 backupdir=/usr/share/elasticsearch/backup
 snapshotdir=$backupdir/snapshot
-rm -rf $snapshotdir
-mkdir -p $snapshotdir
-chown -R elasticsearch $snapshotdir
-apt-get install curl
+
+if [ ! -d "$snapshotdir" ]; then 
+    echo "Creating backup directory : $snapshotdir"
+    mkdir -p "$snapshotdir"
+    chmod 777 $snapshotdir
+    apt-get install curl
+fi
 
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
