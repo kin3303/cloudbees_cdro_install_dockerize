@@ -42,7 +42,7 @@ x-include:
     restart: always
     volumes:
       - ${PWD}/scripts:/tmp/scripts
-      - ${PWD}/data/insight:/usr/share
+      #- ${PWD}/data/insight:/usr/share
           
 services:
   db:
