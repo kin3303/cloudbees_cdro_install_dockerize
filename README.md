@@ -34,8 +34,7 @@
 
 ## Backup
 
-* DB Backup
-    - dbdump 
+* DB Backup 
 * Data Backup       
     - Configuration Files
        + <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
@@ -48,12 +47,19 @@
        + <DATADIR>/plugins
     - Artifact
        + <DATADIR>/repository-data
+* Packaging
+    - backup.tar.gz
   
 ```console
  $ efbackup
 ```
 
 ## Restore
+
+* Unpackaging
+    - backup.tar.gz
+* Data Restore
+* DB Restore
 
 ```console
  $ efrestore
