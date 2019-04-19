@@ -13,6 +13,8 @@ git init
 git remote add -t $BRANCH -f origin $REMOTE_REPO
 git checkout $BRANCH 
 
+chmod 777 data/*
+
 # MAKE ALIAS
 echo -e "alias efsetenv='bash ./setup/install.sh'" >> ~/.bashrc
 echo -e "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
