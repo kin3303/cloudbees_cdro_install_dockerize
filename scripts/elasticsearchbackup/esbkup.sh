@@ -1,15 +1,17 @@
 #!/bin/bash
 
-rm -rf /etc/elasticsearch/backup
-mkdir -p /etc/elasticsearch/backup
-chown -R elasticsearch /etc/elasticsearch/backup
+backupdir=/usr/share/elasticsearch/backup
+snapshotdir=$backupdir/snapshot
+rm -rf $snapshotdir
+mkdir -p $snapshotdir
+chown -R elasticsearch $snapshotdir
 apt-get install curl
 
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
 ########################################################
 cat >> /etc/elasticsearch/elasticsearch.yml << EOF
-path.repo: ["/etc/elasticsearch/backup"]
+path.repo: ["$snapshotdir"]
 EOF
 
 ########################################################
@@ -25,7 +27,7 @@ URL_REQ=”https://insight:9200/_snapshot/my_backup”
 curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{
  “type”: “fs”,
  “settings”: {
- “location”: “/etc/elasticsearch/backup”,
+ “location”: “$snapshotdir”,
  “compress”: true
  }
 }’
@@ -58,4 +60,15 @@ echo “Done!”
 ########################################################
 # Packaging Snapshot
 ########################################################
-tar -zcvf elasticsearch-backup.tar.gz /etc/elasticsearch/backup
+cd /tmp
+tar -zcvf elasticsearch-backup.tar.gz $backupdir
+
+#Restore Example
+#cd /tmp
+#tar xzvf elasticsearch-backup.tar.gz
+#curl -k –X POST \
+#   -E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
+#   --key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem \
+#   “$URL_REQ/<snapshot_name>/_restore?wait_for_completion=true”
+
+
