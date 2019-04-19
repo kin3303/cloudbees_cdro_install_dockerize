@@ -2,3 +2,8 @@
 *
 # Except this file
 !.gitignore
+!privkey.pem
+!server.crt
+!server.csr
+!server.key
+!server.pem
