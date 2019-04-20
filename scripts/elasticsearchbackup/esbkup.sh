@@ -35,7 +35,7 @@ echo "Done - $outputAR"
 # Create Snapshot
 ########################################################
 echo "Creating snapshot..."
-SNAPSHOT="ElectricFlow"
+SNAPSHOT="insight"
 outputCS="$(curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true")"
 echo "Done - $outputCS"
 
