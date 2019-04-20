@@ -1,7 +1,7 @@
 #!/bin/bash
 
 backupdir=/usr/share/elasticsearch/backup
-snapshotdir=$backupdir/snapshot/
+snapshotdir=/usr/share/elasticsearch/backup/snapshot
 
 if [ ! -d "$snapshotdir" ]; then 
     echo "Creating backup directory : $snapshotdir"
