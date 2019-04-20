@@ -37,7 +37,7 @@ echo "Done"
 echo "Creating snapshot..."
 SNAPSHOT="insight"
 outputCS="$(curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true")"
-echo "Done"
+echo "Done-$outputCS"
 
 ########################################################
 # Cleanup Old Snapshot
