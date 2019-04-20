@@ -11,6 +11,8 @@ if [ ! -d "$snapshotdir" ]; then
     apt-get install -y curl
 fi
 
+rm -rf $snapshotdir/*
+
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
 ########################################################
