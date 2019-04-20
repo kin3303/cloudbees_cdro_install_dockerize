@@ -12,8 +12,6 @@ if [ ! -d "$snapshotdir" ]; then
     apt-get install -y jq
 fi
 
-rm -rf $snapshotdir/*
-
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
 ########################################################
@@ -28,16 +26,16 @@ fi
 # Add Repository
 ########################################################
 echo "Adding Repository"
-`curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{"type":"fs","settings":{"location": "/usr/share/elasticsearch/backup/snapshot","compress": true}}'`
-echo "Done"
+outputAR="$(curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{"type":"fs","settings":{"location": "/usr/share/elasticsearch/backup/snapshot","compress": true}}')"
+echo "Done - $outputAR"
 
 ########################################################
 # Create Snapshot
 ########################################################
 echo "Creating snapshot..."
 SNAPSHOT=`date +%Y%m%d-%H%M%S`
-`curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true"`
-echo "Done"
+outputCS="$(curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true")"
+echo "Done - $outputCS"
 
 ########################################################
 # Cleanup Old Snapshot
