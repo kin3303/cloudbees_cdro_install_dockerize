@@ -28,7 +28,10 @@ fi
 ########################################################
 URL_REQ=”https://localhost:9200/_snapshot/my_backup”
 
-curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{ \
+curl -m 30 -k –X PUT \
+-E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
+--key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem \
+-H ‘Content-Type: application/json’ -d ‘{ \
  “type”: “fs”, \
  “settings”: { \
  “location”: “$snapshotdir”, \
