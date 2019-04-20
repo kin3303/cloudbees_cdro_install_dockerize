@@ -20,6 +20,7 @@ rm -rf $snapshotdir/*
 if [ ! -f /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready ]; then
 cat >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elasticsearch.yml << EOF
 path.repo: ["$snapshotdir"]
+network.host: 0.0.0.0
 EOF
 touch /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready
 fi
