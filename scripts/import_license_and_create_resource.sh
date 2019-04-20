@@ -38,9 +38,9 @@ fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then 
   for file in /tmp/scripts/pluginResources/*.jar; do
-    #ectool installPlugin "$file"
-    project_name=$(ectool installPlugin "$file" | ec-perl -e 'use XML::Simple; print XMLin("-")->{plugin}->{projectName};')
-    ectool promotePlugin "${project_name}"
+    ectool installPlugin "$file"
+    #project_name=$(ectool installPlugin "$file" | ec-perl -e 'use XML::Simple; print XMLin("-")->{plugin}->{projectName};')
+    #ectool promotePlugin "${project_name}"
   done
   touch /opt/electriccloud/electriccommander/conf/demo_ready
 fi
