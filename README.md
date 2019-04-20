@@ -38,6 +38,7 @@
 ## Backup
 
 * DB Backup 
+* DevOpsInsight(Elasticsearch) Backup 
 * Data Backup       
     - Configuration Files
        + <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
