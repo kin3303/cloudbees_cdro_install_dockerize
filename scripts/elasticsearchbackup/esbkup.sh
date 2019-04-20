@@ -29,7 +29,7 @@ fi
 ########################################################
 echo "Adding Repository"
 outputAR="$(curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{"type":"fs","settings":{"location": "/usr/share/elasticsearch/backup/snapshot","compress": true}}')"
-echo "Done - $outputAR"
+echo "Done"
 
 ########################################################
 # Create Snapshot
@@ -37,7 +37,7 @@ echo "Done - $outputAR"
 echo "Creating snapshot..."
 SNAPSHOT="insight"
 outputCS="$(curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true")"
-echo "Done - $outputCS"
+echo "Done"
 
 ########################################################
 # Cleanup Old Snapshot
@@ -61,7 +61,7 @@ echo "Done!"
 ########################################################
 # Query All Snapshot
 ########################################################
-echo "Quering old snapshot..."
+echo "Quering current snapshot..."
 outputSnaps="$(curl -s -XGET "localhost:9200/_snapshot/my_backup/_all?pretty")"
 echo "$outputSnaps"
 echo "Done!"
@@ -71,8 +71,8 @@ echo "Done!"
 ########################################################
 echo "Packaging snapshots..."
 cd /tmp
-tar -zcvf elasticsearch-backup.tar.gz $snapshotdir
-echo "Done!"
+outputAR="$(tar -zcvf elasticsearch-backup.tar.gz $snapshotdir)"
+echo "Done - please check /tmp/elasticsearch-backup.tar.gz"
 
 #Restore Example
 #cd /tmp
