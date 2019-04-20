@@ -51,8 +51,7 @@ LIMIT=30
 REPO=my_backup
 
 # Get a list of snapshots that we want to delete
-SNAPSHOTS=`curl -s -XGET "http://localhost:9200/_snapshot/$REPO/_all" \
-  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
+SNAPSHOTS=`curl -s -XGET "http://localhost:9200/_snapshot/$REPO/_all"  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
 
 # Loop over the results and delete each snapshot
 for SNAPSHOT in $SNAPSHOTS
