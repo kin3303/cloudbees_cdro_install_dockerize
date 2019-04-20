@@ -7,7 +7,8 @@ if [ ! -d "$snapshotdir" ]; then
     echo "Creating backup directory : $snapshotdir"
     mkdir -p "$snapshotdir"
     chmod 777 $snapshotdir
-    apt-get install curl
+    apt-get update
+    apt-get install -y curl
 fi
 
 ########################################################
