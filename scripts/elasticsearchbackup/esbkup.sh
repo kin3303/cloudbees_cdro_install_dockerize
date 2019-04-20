@@ -42,7 +42,7 @@ echo "Done - $outputCS"
 ########################################################
 echo "Deleting old snapshot..."
 
-LIMIT=30
+LIMIT=1
 REPO=my_backup
 SNAPSHOTS=`curl -s -XGET "http://localhost:9200/_snapshot/$REPO/_all"  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
 
@@ -60,7 +60,8 @@ echo "Done!"
 # Query All Snapshot
 ########################################################
 echo "Quering old snapshot..."
-`curl -s -XGET "localhost:9200/_snapshot/my_backup/_all?pretty"`
+outputSnaps="$(curl -s -XGET "localhost:9200/_snapshot/my_backup/_all?pretty")"
+echo "$outputSnaps"
 echo "Done!"
 
 ########################################################
