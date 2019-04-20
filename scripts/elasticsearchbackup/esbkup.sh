@@ -23,24 +23,48 @@ EOF
 touch /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready
 fi
 
+
+
 ########################################################
 # Add Repository
 ########################################################
-URL_REQ=https://insight:9200/_snapshot/my_backup
-
-curl -m 30 -k -X PUT $URL_REQ \
--H Content-Type:'application/json' \
--d {type:fs,settings: {location:$snapshotdir,compress:true}}
+curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{
+  "type": "fs",
+  "settings": {
+    "location": "$snapshotdir",
+    "compress": true
+  }
+}'
 
 ########################################################
 # Create Snapshot
 ########################################################
 echo Creating snapshot...
 
-TIMESTAMP=`date +%Y%m%d`
+SNAPSHOT=`date +%Y%m%d-%H%M%S`
+curl -XPUT "localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true"  
 
-curl -k -X PUT $URL_REQ/elastic_backup_$TIMESTAMP?wait_for_completion=true
-   
+########################################################
+# Cleanup Old Snapshot
+########################################################
+
+# The amount of snapshots we want to keep.
+LIMIT=30
+
+# Name of our snapshot repository
+REPO=my_backup
+
+# Get a list of snapshots that we want to delete
+SNAPSHOTS=`curl -s -XGET "localhost:9200/_snapshot/$REPO/_all" \
+  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
+
+# Loop over the results and delete each snapshot
+for SNAPSHOT in $SNAPSHOTS
+do
+ echo "Deleting snapshot: $SNAPSHOT"
+ curl -s -XDELETE "localhost:9200/_snapshot/$REPO/$SNAPSHOT?pretty"
+done
+echo "Done!"
 
 ########################################################
 # Packaging Snapshot
