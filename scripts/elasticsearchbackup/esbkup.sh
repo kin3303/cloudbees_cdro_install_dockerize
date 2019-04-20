@@ -14,14 +14,12 @@ fi
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
 ########################################################
+if [ ! -f /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready ]; then
 cat >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elasticsearch.yml << EOF
 path.repo: ["$snapshotdir"]
 EOF
-
-########################################################
-# Restart Elasticsearch
-########################################################
-./bin/elasticsearch
+touch /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready
+fi
 
 ########################################################
 # Add Repository
