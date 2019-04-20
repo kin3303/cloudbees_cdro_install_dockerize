@@ -8,7 +8,7 @@ if [ ! -d "$snapshotdir" ]; then
     mkdir -p "$snapshotdir"
     chmod 777 $snapshotdir
     apt-get update
-    apt-get install -y curl
+    apt-get install -y curl 
 fi
 
 rm -rf $snapshotdir/*
@@ -39,6 +39,8 @@ curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{ \
 ########################################################
 # Create Snapshot
 ########################################################
+echo “Creating snapshot...”
+
 TIMESTAMP=`date +%Y%m%d`
 
 curl  -k –X PUT \
@@ -50,23 +52,10 @@ curl  -k –X PUT \
    #‘{ “indices”: “$backup_index”,  “ignore_unavailable”: true, “include_global_state”: false}’
 
 ########################################################
-# Remove Previous Snapshot
-########################################################
-LIMIT=30
-SNAPSHOTS=`curl -m 30 -s -XGET “$URL_REQ/_all” -H ‘Content-Type: application/json’ | jq “.snapshots[:-${LIMIT}][].snapshot”`
-
-for SNAPSHOT in $SNAPSHOTS
-do
- echo “Deleting snapshot: $SNAPSHOT”
- curl -m 30 -s -XDELETE ‘$URL_REQ/$SNAPSHOT?pretty’
-done
-echo “Done!”
-
-########################################################
 # Packaging Snapshot
 ########################################################
 cd /tmp
-tar -zcvf elasticsearch-backup.tar.gz $backupdir
+tar -zcvf elasticsearch-backup.tar.gz $snapshotdir
 
 #Restore Example
 #cd /tmp
