@@ -34,19 +34,21 @@ rm -rf data/mysql
 rm -rf data/workspace
 rm -rf data/plugins
 rm -rf data/repository-data
+rm -rf data/insight-data
 
 cp -r $restoreDir/conf data/conf
 cp -r $restoreDir/mysql data/mysql  
 cp -r $restoreDir/workspace data/workspace 
 cp -r $restoreDir/plugins data/plugins 
-cp -r $restoreDir/repository-data data/repository-data 
- 
-###################################################################################################
-# Start server
-###################################################################################################
-#./setup/start.sh
+cp -r $restoreDir/repository-data data/repository-data
+cp -r $restoreDir/insight-data data/insight-data
 
 ###################################################################################################
 # DB Restore
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
+
+###################################################################################################
+# Insight Restore
+###################################################################################################
+sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/restoreel.sh
