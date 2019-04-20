@@ -8,7 +8,11 @@
 
 ```console
   $ sudo su
-  $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh && source ~/.bashrc && cd master
+  $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && \
+  chmod 777 init.sh && \
+  ./init.sh && \
+  source ~/.bashrc && \
+  cd master
 ```
 
 ## Install Environment
