@@ -24,8 +24,6 @@ RUN rm -f /tmp/${EFLOW_DEV_INSTALLER}
  
 EXPOSE 9200 9300 9500 9600 
 
-RUN echo "path.repo: [\"/usr/share/elasticsearch/backup/snapshot/\"]" >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elasticsearch.yml
-
 CMD  /etc/init.d/commanderElasticsearch restart && \
 /etc/init.d/commanderLogstash restart && \
-tail -F /opt/electriccloud/reportserv/logs/reporting/elasticsearch.log
+tail -F /opt/electriccloud/electriccommander/logs/reporting/elasticsearch.log
