@@ -5,6 +5,10 @@ ARG EFLOW_DEV_INSTALLER
 
 RUN mkdir -p /usr/share/elasticsearch/data
 
+RUN apt-get update
+RUN apt-get install -y curl
+RUN apt-get install -y jq
+
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
 RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \ 
