@@ -34,9 +34,8 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/insight_ready
 fi
 
-if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then
-  ectool installPlugin "/tmp/scripts/pluginResources/ReleaseDemo.jar"
-  for file in /tmp/scripts/pluginResources/*.jar; do
+if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then 
+  for file in ./*.jar; do
     ectool installPlugin "/tmp/scripts/pluginResources/$file.jar"
   done
   touch /opt/electriccloud/electriccommander/conf/demo_ready
