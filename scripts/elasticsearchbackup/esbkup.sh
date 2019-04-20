@@ -8,10 +8,10 @@ if [ ! -d "$snapshotdir" ]; then
     mkdir -p "$snapshotdir"
     chmod 777 $snapshotdir
     apt-get update
-    apt-get install -y curl 
+    apt-get install -y curl
+    apt-get install -y jq
 fi
 
-apt-get install -y jq
 rm -rf $snapshotdir/*
 
 ########################################################
