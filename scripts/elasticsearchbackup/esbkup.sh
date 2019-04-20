@@ -28,9 +28,8 @@ fi
 ########################################################
 URL_REQ=https://localhost:9200/_snapshot/my_backup
 
-curl -m 30 -k -X PUT \
--E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
---key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem -H Content-Type:application/json \
+curl -m 30 -k -X PUT $URL_REQ \
+-H Content-Type:'application/json' \
 -d {type:fs,settings: {location:$snapshotdir,compress:true}}
 
 ########################################################
@@ -40,10 +39,7 @@ echo Creating snapshot...
 
 TIMESTAMP=`date +%Y%m%d`
 
-curl  -k -X PUT \
--E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
---key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem \
-$URL_REQ/$TIMESTAMP?wait_for_completion=true
+curl -k -X PUT $URL_REQ/elastic_backup_$TIMESTAMP?wait_for_completion=true
    
 
 ########################################################
