@@ -7,22 +7,22 @@ if [ ! -d "$snapshotdir" ]; then
     echo "Creating backup directory : $snapshotdir"
     mkdir -p "$snapshotdir"
     chmod 777 $snapshotdir
-    apt-get update
-    apt-get install -y curl
-    apt-get install -y jq
+    #apt-get update
+    #apt-get install -y curl
+    #apt-get install -y jq
 else
     rm -rf $snapshotdir/*
 fi
 
 ########################################################
-# Add the required path.repo to elasticsearch yaml file
+# Add the required path.repo to elasticsearch yaml file => Moved this action to dockerfile
 ########################################################
-if [ ! -f /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready ]; then
-cat >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elasticsearch.yml << EOF
-path.repo: ["$snapshotdir"]
-EOF
-touch /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready
-fi 
+#if [ ! -f /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready ]; then
+#cat >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elasticsearch.yml << EOF
+#path.repo: ["$snapshotdir"]
+#EOF
+#touch /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready
+#fi 
 
 ########################################################
 # Add Repository
