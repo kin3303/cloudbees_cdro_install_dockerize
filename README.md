@@ -76,6 +76,15 @@
  $ efrestore
 ```
 
+## Test 
+
+* Demo release
+   - Promote Release Demo
+   - Project: Release Demo-3.0 /  Procedure: Create Release Model / Step: Create Procedures
+     + Change string localhost to localagent
+   - Project: Release Demo-3.0 /  Procedure: Create Release Model / Step: Set up environments
+     + Change string localhost to localagent
+
 ## Scaling EF Server
 
 ```console
