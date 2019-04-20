@@ -72,7 +72,7 @@ echo "Done!"
 echo "Packaging snapshots..."
 cd /usr/share/elasticsearch/data/backup
 outputAR="$(tar -zcvf elasticsearch-backup.tar.gz snapshot/)"
-echo "Done - please check /tmp/elasticsearch-backup.tar.gz"
+echo "Done - please check data/insight-data/elasticsearch-backup.tar.gz"
 
 #Restore Example
 #cd /tmp
