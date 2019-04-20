@@ -28,16 +28,8 @@ fi
 ########################################################
 URL_REQ=”https://localhost:9200/_snapshot/my_backup”
 
-curl -m 30 -k –X PUT \
--E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
---key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem \
--H ‘Content-Type: application/json’ -d ‘{ \
- “type”: “fs”, \
- “settings”: { \
- “location”: “$snapshotdir”, \
- “compress”: true \
- } \
-}’
+curl -m 30 -k –X PUT -E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem --key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem -H ‘Content-Type:application/json’ \
+-d ‘{“type”:“fs”,“settings”: {“location”:“$snapshotdir”,“compress”:true}}’
 
 ########################################################
 # Create Snapshot
@@ -46,10 +38,7 @@ echo “Creating snapshot...”
 
 TIMESTAMP=`date +%Y%m%d`
 
-curl  -k –X PUT \
-   -E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem \
-   --key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem \
-   “$URL_REQ/$TIMESTAMP?wait_for_completion=true”
+curl  -k –XPUT -E /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.crtfull.pem --key /usr/share/elasticsearch/data/conf/reporting/elasticsearch/admin.key.pem “$URL_REQ/$TIMESTAMP?wait_for_completion=true”
    
    #-H ‘Content-Type: application/json’ -d \
    #‘{ “indices”: “$backup_index”,  “ignore_unavailable”: true, “include_global_state”: false}’
