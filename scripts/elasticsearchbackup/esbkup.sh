@@ -13,7 +13,7 @@ fi
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
 ########################################################
-cat >> /etc/elasticsearch/elasticsearch.yml << EOF
+cat >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elasticsearch.yml << EOF
 path.repo: ["$snapshotdir"]
 EOF
 
