@@ -26,7 +26,7 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/agents_ready ]; then
 fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/repository_ready ]; then
-  ectool createRepository myRepo --repositoryDisabled "false" --url  "https://repository:8200" 
+  ectool createRepository default --repositoryDisabled "false" --url  "https://repository:8200" 
   touch /opt/electriccloud/electriccommander/conf/repository_ready
 fi
 
