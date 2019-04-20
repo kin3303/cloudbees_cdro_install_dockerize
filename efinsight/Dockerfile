@@ -3,7 +3,7 @@ LABEL maintainer="dkim"
  
 ARG EFLOW_DEV_INSTALLER
 
-RUN mkdir -p /usr/share/elasticsearch/data/backup
+RUN mkdir -p /usr/share/elasticsearch/data
 
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
