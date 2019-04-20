@@ -133,6 +133,11 @@ services:
     depends_on:
       - commanderserver
 
+  localhost:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
+
   repository:
     <<: *commanderrepository
     depends_on:
