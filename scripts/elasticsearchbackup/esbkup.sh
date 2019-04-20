@@ -22,9 +22,7 @@ cat >> /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/elastic
 path.repo: ["$snapshotdir"]
 EOF
 touch /opt/electriccloud/electriccommander/conf/reporting/elasticsearch/repository_ready
-fi
-
-/etc/init.d/commanderElasticsearch restart
+fi 
 
 ########################################################
 # Add Repository
