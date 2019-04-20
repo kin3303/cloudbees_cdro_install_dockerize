@@ -30,12 +30,12 @@ fi
 ########################################################
 # Add Repository
 ########################################################
-curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{
-  "type": "fs",
-  "settings": {
-    "location": "$snapshotdir",
-    "compress": true
-  }
+curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{ \
+  "type": "fs", \
+  "settings": { \
+    "location": "$snapshotdir", \
+    "compress": true \
+  } \
 }'
 
 ########################################################
