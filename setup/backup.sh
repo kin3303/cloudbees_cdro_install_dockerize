@@ -15,6 +15,11 @@ if [ ! -d "$backupDir" ]; then
 fi
 
 ###################################################################################################
+# Elastic Search Backup
+###################################################################################################
+sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/backupel.sh
+
+###################################################################################################
 # Data Backup
 #    Configuration Files
 #       <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
