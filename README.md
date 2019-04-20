@@ -99,7 +99,7 @@
  $ cd <SourceRoot>
  $ export EFLOW_DEV_INSTALLER=ElectricFlowDevOpsInsightServer-x64-9.0.1.136311
  $ export EFLOW_INSTALLER=ElectricFlow-x64-9.0.1.136311
- $ export TAG=9.0.1
+ $ export TAG=latest
  $ docker login
  $ make
 ``` 
