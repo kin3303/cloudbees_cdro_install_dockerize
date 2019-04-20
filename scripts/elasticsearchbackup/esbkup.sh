@@ -10,6 +10,8 @@ if [ ! -d "$snapshotdir" ]; then
     apt-get update
     apt-get install -y curl
     apt-get install -y jq
+else
+    rm -rf $snapshotdir/*
 fi
 
 ########################################################
