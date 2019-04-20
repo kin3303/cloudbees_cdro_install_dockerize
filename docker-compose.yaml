@@ -42,8 +42,8 @@ x-include:
     restart: always
     volumes:
       - ${PWD}/scripts:/tmp/scripts
-      #- ${PWD}/data/insight:/usr/share
-          
+      - ${PWD}/data/insight-data:/usr/share/elasticsearch/data/backup
+
 services:
   db:
      image: mysql:5.7
