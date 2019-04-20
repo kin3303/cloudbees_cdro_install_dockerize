@@ -29,27 +29,25 @@ fi
 ########################################################
 # Add Repository
 ########################################################
-curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{"type":"fs","settings":{"location": "/usr/share/elasticsearch/backup/snapshot","compress": true}}'
+echo "Adding Repository"
+`curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d '{"type":"fs","settings":{"location": "/usr/share/elasticsearch/backup/snapshot","compress": true}}'`
+echo "Done"
 
 ########################################################
 # Create Snapshot
 ########################################################
-echo Creating snapshot...
-
+echo "Creating snapshot..."
 SNAPSHOT=`date +%Y%m%d-%H%M%S`
-curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true"  
+`curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true"`
+echo "Done"
 
 ########################################################
 # Cleanup Old Snapshot
 ########################################################
+echo "Deleting old snapshot..."
 
-# The amount of snapshots we want to keep.
 LIMIT=30
-
-# Name of our snapshot repository
 REPO=my_backup
-
-# Get a list of snapshots that we want to delete
 SNAPSHOTS=`curl -s -XGET "http://localhost:9200/_snapshot/$REPO/_all"  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
 
 # Loop over the results and delete each snapshot
@@ -58,13 +56,24 @@ do
  echo "Deleting snapshot: $SNAPSHOT"
  curl -s -XDELETE "http://localhost:9200/_snapshot/$REPO/$SNAPSHOT?pretty"
 done
+
+echo "Done!"
+
+
+########################################################
+# Query All Snapshot
+########################################################
+echo "Quering old snapshot..."
+`curl -s -XGET "localhost:9200/_snapshot/my_backup/_all?pretty"`
 echo "Done!"
 
 ########################################################
 # Packaging Snapshot
 ########################################################
+echo "Packaging snapshots..."
 cd /tmp
 tar -zcvf elasticsearch-backup.tar.gz $snapshotdir
+echo "Done!"
 
 #Restore Example
 #cd /tmp
