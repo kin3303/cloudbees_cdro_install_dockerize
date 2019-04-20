@@ -26,7 +26,7 @@ fi
 ########################################################
 # Add Repository
 ########################################################
-URL_REQ=https://localhost:9200/_snapshot/my_backup
+URL_REQ=https://insight:9200/_snapshot/my_backup
 
 curl -m 30 -k -X PUT $URL_REQ \
 -H Content-Type:'application/json' \
