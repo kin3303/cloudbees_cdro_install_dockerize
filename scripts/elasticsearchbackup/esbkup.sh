@@ -28,12 +28,12 @@ EOF
 ########################################################
 URL_REQ=”https://localhost:9200/_snapshot/my_backup”
 
-curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{
- “type”: “fs”,
- “settings”: {
- “location”: “$snapshotdir”,
- “compress”: true
- }
+curl -m 30 -XPUT $URL_REQ -H ‘Content-Type: application/json’ -d ‘{ \
+ “type”: “fs”, \
+ “settings”: { \
+ “location”: “$snapshotdir”, \
+ “compress”: true \
+ } \
 }’
 
 ########################################################
