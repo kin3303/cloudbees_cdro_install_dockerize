@@ -36,7 +36,7 @@ fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then 
   for file in ./*.jar; do
-    ectool installPlugin "/tmp/scripts/pluginResources/$file.jar"
+    ectool installPlugin "$file"
   done
   touch /opt/electriccloud/electriccommander/conf/demo_ready
 fi
