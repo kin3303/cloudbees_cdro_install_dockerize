@@ -71,7 +71,7 @@ echo "Done!"
 # Packaging Snapshot
 ########################################################
 echo "Packaging snapshots..."
-cd /usr/share/elasticsearch/data/backup
+cd /usr/share/elasticsearch/backup
 outputAR="$(tar -zcvf elasticsearch-backup.tar.gz snapshot/)"
 echo "Done - please check data/insight-data/elasticsearch-backup.tar.gz"
 
