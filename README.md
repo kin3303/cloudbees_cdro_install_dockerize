@@ -29,8 +29,15 @@
 
 ## Auto Configuration
 
-- Requrement 1 : This is available after server activation (<http://YOUR_IP_ADDRESS:1936/haproxy?stats>)
-- Requrement 2 : License file must be in **/tmp/license.xml**
+* Requrement 1 : This is available after server activation (<http://YOUR_IP_ADDRESS:1936/haproxy?stats>)
+* Requrement 2 : License file must be in **/tmp/license.xml**
+* Configurations
+   - Import license
+   - Add resouces - localagent, apacheAgent, repositoryAgent
+   - Add repository - default
+   - Config devopsinsight server connection
+   - Install plugins - Release Demo, Job Dashbard, Workflow Dashbard, DSL IDE, EC-Rest
+
 ```console
  $ efconfig
 ```
