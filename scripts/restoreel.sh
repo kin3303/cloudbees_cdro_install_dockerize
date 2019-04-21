@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /tmp/scripts/elasticsearchbackup/
-./esrestore.sh
+cd /tmp/scipts/elasticsearchbackup/
+./esestore.sh
