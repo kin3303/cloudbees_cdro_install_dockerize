@@ -4,6 +4,8 @@ tar xzvf elasticsearch-backup.tar.gz
 cp -r /usr/share/elasticsearch/backup/usr/share/elasticsearch/backup/* /usr/share/elasticsearch/backup
 rm -rf /usr/share/elasticsearch/backup/usr
 
+snapshotdir=/usr/share/elasticsearch/backup/snapshot
+chmod 777 $snapshotdir
 
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
