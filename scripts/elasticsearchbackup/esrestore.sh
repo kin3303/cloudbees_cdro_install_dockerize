@@ -1,6 +1,9 @@
 #!/bin/bash
 cd /usr/share/elasticsearch/backup
 tar xzvf elasticsearch-backup.tar.gz
+cp -r /usr/share/elasticsearch/backup/usr/share/elasticsearch/backup/* /usr/share/elasticsearch/backup
+rm -rf /usr/share/elasticsearch/backup/usr
+
 
 ########################################################
 # Add the required path.repo to elasticsearch yaml file
