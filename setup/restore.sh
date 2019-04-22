@@ -29,19 +29,19 @@ rm -rf $restoreDir/*
 ###################################################################################################
 tar -zxvf $backupFile
 
-rm -rf data/conf
-rm -rf data/mysql
-rm -rf data/workspace
-rm -rf data/plugins
-rm -rf data/repository-data
-rm -rf data/insight-data
+rm -rf data/conf/*
+rm -rf data/mysql/*
+rm -rf data/workspace/*
+rm -rf data/plugins/*
+rm -rf data/repository-data/*
+rm -rf data/insight-data/*
 
-cp -r $restoreDir/conf data/conf
-cp -r $restoreDir/mysql data/mysql  
-cp -r $restoreDir/workspace data/workspace 
-cp -r $restoreDir/plugins data/plugins 
-cp -r $restoreDir/repository-data data/repository-data
-cp -r $restoreDir/insight-data data/insight-data
+cp -r $restoreDir/conf/* data/conf
+cp -r $restoreDir/mysql/* data/mysql  
+cp -r $restoreDir/workspace/* data/workspace 
+cp -r $restoreDir/plugins/* data/plugins 
+cp -r $restoreDir/repository-data/* data/repository-data
+cp -r $restoreDir/insight-data/* data/insight-data
 
 ###################################################################################################
 # DB Restore
