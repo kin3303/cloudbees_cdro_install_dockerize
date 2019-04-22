@@ -43,7 +43,7 @@
 ```
 
 ## Backup
-
+* Please do not modify the project while backup
 * DB Backup 
 * DevOpsInsight(Elasticsearch) Backup 
 * Data Backup       
@@ -66,7 +66,7 @@
 ```
 
 ## Restore
-
+* Please do not modify the project while restore
 * Unpackaging
     - backup.tar.gz
 * Data Restore
