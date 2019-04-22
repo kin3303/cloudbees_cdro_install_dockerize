@@ -36,27 +36,27 @@ echo "Done"
 # Create Snapshot
 ########################################################
 echo "Creating snapshot..."
-SNAPSHOT="insight"
-outputCS="$(curl -XPUT "http://localhost:9200/_snapshot/my_backup/$SNAPSHOT?wait_for_completion=true")"
+curl -s -XDELETE "http://localhost:9200/_snapshot/my_backup/insight?pretty" # Delete Old Snapshot
+outputCS="$(curl -XPUT "http://localhost:9200/_snapshot/my_backup/insight?wait_for_completion=true")" # Create New Snapshot
 echo "Done-$outputCS"
 
 ########################################################
 # Cleanup Old Snapshot
 ########################################################
-echo "Deleting old snapshot..."
-
-LIMIT=1
-REPO=my_backup
-SNAPSHOTS=`curl -s -XGET "http://localhost:9200/_snapshot/$REPO/_all"  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
-
-# Loop over the results and delete each snapshot
-for SNAPSHOT in $SNAPSHOTS
-do
- echo "Deleting snapshot: $SNAPSHOT"
- curl -s -XDELETE "http://localhost:9200/_snapshot/$REPO/$SNAPSHOT?pretty"
-done
-
-echo "Done!"
+#echo "Deleting old snapshot..."
+#
+#LIMIT=3
+#REPO=my_backup
+#SNAPSHOTS=`curl -s -XGET "http://localhost:9200/_snapshot/$REPO/_all"  | jq -r ".snapshots[:-${LIMIT}][].snapshot"`
+#
+## Loop over the results and delete each snapshot
+#for SNAPSHOT in $SNAPSHOTS
+#do
+# echo "Deleting snapshot: $SNAPSHOT"
+# curl -s -XDELETE "http://localhost:9200/_snapshot/$REPO/$SNAPSHOT?pretty"
+#done
+#
+#echo "Done!"
 
 
 ########################################################
@@ -73,7 +73,11 @@ echo "Done!"
 echo "Packaging snapshots..."
 cd /usr/share/elasticsearch/backup
 tar -zcvf elasticsearch-backup.tar.gz $snapshotdir/
-echo "Done - please check data/insight-data/elasticsearch-backup.tar.gz"
+if [ ! -f /usr/share/elasticsearch/backup/elasticsearch-backup.tar.gz ]; then
+    echo "Error - there is no elasticsearch-backup.tar.gz"
+else
+    echo "Done!"
+fi
 
 #Restore Example
 #cd /tmp
