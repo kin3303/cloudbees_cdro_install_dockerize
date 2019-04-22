@@ -40,6 +40,6 @@ cleandata:
 
 cleankeepdata:
 	rm -rf $(PWD)/data/zoo/*
-	rm -f  $(PWD)/data/conf/*_ready
+	#rm -f  $(PWD)/data/conf/*_ready
 	rm -rf $(PWD)/data/conf/tmp*
 	rm -rf $(PWD)/data/haproxy/haproxy.cfg
