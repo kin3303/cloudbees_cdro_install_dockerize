@@ -42,7 +42,7 @@ x-include:
     restart: always
     volumes:
       - ${PWD}/scripts:/tmp/scripts
-      - ${PWD}/data/insight-data:/usr/share/elasticsearch/data/backup
+      - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
 
 services:
   db:
