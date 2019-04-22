@@ -42,6 +42,7 @@ cp -r $restoreDir/workspace data/workspace
 cp -r $restoreDir/plugins data/plugins 
 cp -r $restoreDir/repository-data data/repository-data
 cp -r $restoreDir/insight-data data/insight-data
+cp -r $restoreDir/elasticsearch-backup.tar.gz data/insight-data
 
 ###################################################################################################
 # DB Restore
