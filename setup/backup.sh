@@ -18,7 +18,7 @@ fi
 # Elastic Search Backup
 ###################################################################################################
 sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/backupel.sh
-cp -r data/insight-data/elasticsearch-backup.tar.gz data/db-dtat/backup/ecdb
+cp -r data/insight-data/elasticsearch-backup.tar.gz data/db-dtat/backup/ecdb/insight-data
 
 ###################################################################################################
 # Data Backup
