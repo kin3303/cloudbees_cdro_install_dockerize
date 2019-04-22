@@ -67,8 +67,7 @@
 
 ## Restore
 * Please do not modify the project while restore
-* Unpackaging
-    - backup.tar.gz
+* Unpackaging and restore db (mysql, elasticsearch)
 * Data Restore
 * DB Restore
 
