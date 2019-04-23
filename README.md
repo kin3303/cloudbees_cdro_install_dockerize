@@ -49,17 +49,15 @@
   - DevOpsInsight(Elasticsearch) Backup 
   - Data Backup       
     + Configuration Files
-        <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
-       + <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
-    +  Workspace Directories
-       + <DATADIR>/workspace
- 
+       1. <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
+       2. <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
+       3. <DATADIR>/workspace :  Workspace Directories
     + Plugins
-       + <DATADIR>/plugins
+       1. <DATADIR>/plugins
     + Artifact
-       + <DATADIR>/repository-data
+       1. <DATADIR>/repository-data
   - Packaging
-    + backup.tar.gz
+    + <Source>/backup.tar.gz
   
 ```console
  $ efbackup
