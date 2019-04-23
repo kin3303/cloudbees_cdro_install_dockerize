@@ -51,7 +51,8 @@
     + Configuration Files
        1. <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
        2. <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
-       3. <DATADIR>/workspace :  Workspace Directories
+    + Workspace Directories
+       1. <DATADIR>/workspace
     + Plugins
        1. <DATADIR>/plugins
     + Artifact
