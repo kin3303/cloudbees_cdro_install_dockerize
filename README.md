@@ -31,7 +31,7 @@
 
 * Requrement 1 : This is available after server activation (<http://YOUR_IP_ADDRESS:1936/haproxy?stats>)
 * Requrement 2 : License file must be in **/tmp/license.xml**
-* Configurations
+* What to do
    - Import license
    - Add resouces - localagent, apacheAgent, repositoryAgent
    - Add repository - default
@@ -44,21 +44,22 @@
 
 ## Backup
 * Please do not modify the project while backup
-* DB Backup 
-* DevOpsInsight(Elasticsearch) Backup 
-* Data Backup       
-    - Configuration Files
-       + <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
+* What to do
+  - DB Backup 
+  - DevOpsInsight(Elasticsearch) Backup 
+  - Data Backup       
+    + Configuration Files
+        <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
        + <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
-    -  Workspace Directories
+    +  Workspace Directories
        + <DATADIR>/workspace
  
-    - Plugins
+    + Plugins
        + <DATADIR>/plugins
-    - Artifact
+    + Artifact
        + <DATADIR>/repository-data
-* Packaging
-    - backup.tar.gz
+  - Packaging
+    + backup.tar.gz
   
 ```console
  $ efbackup
