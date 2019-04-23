@@ -45,8 +45,8 @@
 ## Backup
 * Please do not modify the project while backup
 * What to do
-  - DB Backup 
-  - DevOpsInsight(Elasticsearch) Backup 
+  - DB dump 
+  - DevOpsInsight(Elasticsearch) snapshot 
   - Data Backup       
     + Configuration Files
        1. <DATADIR>/conf  :  Configuration files
@@ -58,7 +58,7 @@
     + Artifact
        1. <DATADIR>/repository-data
   - Packaging
-    + <Source>/backup.tar.gz
+    + backup.tar.gz
   
 ```console
  $ efbackup
@@ -66,10 +66,20 @@
 
 ## Restore
 * Please do not modify the project while restore
-* Unpackaging and restore db (mysql, elasticsearch)
-* Data Restore
-* DB Restore
-
+* What to do
+  - Unpackaging backup.tar.gz
+  - Data Restore       
+    + Configuration Files
+       1. <DATADIR>/conf  :  Configuration files
+       2. <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
+    + Workspace Directories
+       1. <DATADIR>/workspace
+    + Plugins
+       1. <DATADIR>/plugins
+    + Artifact
+       1. <DATADIR>/repository-data
+  - Restore DB
+  - Restore DevOpsInsight snapshot
 ```console
  $ efrestore
 ```
