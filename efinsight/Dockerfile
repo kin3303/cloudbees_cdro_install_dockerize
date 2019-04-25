@@ -22,6 +22,8 @@ RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \
 --unixServerUser ubuntu
  
 RUN rm -f /tmp/${EFLOW_DEV_INSTALLER}
+
+RUN echo 'vm.max_map_count=655360' >> /etc/sysctl.conf
  
 EXPOSE 9200 9300 9500 9600 
 
