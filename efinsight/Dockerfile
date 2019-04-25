@@ -12,14 +12,7 @@ RUN apt-get install -y jq
 
 ADD ${EFLOW_DEV_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_DEV_INSTALLER}
-RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent \ 
---disableSSL \
---elasticsearchDataDirectory /usr/share/elasticsearch/data \
---elasticsearchRegenerateCertificates \
---hostName localhost \   
---temp /tmp \
---unixServerGroup ubuntu \
---unixServerUser ubuntu
+RUN /tmp/${EFLOW_DEV_INSTALLER}  --mode silent --disableSSL --elasticsearchDataDirectory "/usr/share/elasticsearch/data" --elasticsearchRegenerateCertificates --hostName localhost --temp "/tmp" --unixServerGroup ubuntu --unixServerUser ubuntu
  
 RUN rm -f /tmp/${EFLOW_DEV_INSTALLER}
 
