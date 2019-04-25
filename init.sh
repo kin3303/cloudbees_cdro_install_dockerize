@@ -16,7 +16,7 @@ git checkout $BRANCH
 chmod 777 data/*
 
 # MAKE ALIAS
-echo -e "alias efsetenv='bash ./setup/install.sh'" >> ~/.bashrc
+echo -e "alias efinstall='bash ./setup/install.sh'" >> ~/.bashrc
 echo -e "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
 echo -e "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
 echo -e "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
