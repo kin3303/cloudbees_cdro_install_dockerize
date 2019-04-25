@@ -4,8 +4,7 @@
 - Additional 3GB memory, 2 cores required when adding 1 more EFserver
 - Available EF tags : 9.0.1 , latest
 - Elasticsearch also uses a mix of NioFS and MMapFS for the various files. 
-Ensure that you configure the maximum map count so that there is ample virtual memory available for mmapped files. 
-`sysctl -w vm.max_map_count=262144` 
+Ensure that you configure the maximum map count so that there is ample virtual memory available for mmapped files.
 
 ## Initialize
 
