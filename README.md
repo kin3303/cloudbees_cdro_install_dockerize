@@ -11,7 +11,8 @@
   $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && \
   chmod 777 init.sh && \
   ./init.sh && \
-  source ~/.bashrc && \
+  source ~/.bashrc && \ 
+  sudo sysctl -w vm.max_map_count=262144 && \
   cd master
 ```
 
