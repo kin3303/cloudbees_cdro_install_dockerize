@@ -12,7 +12,7 @@
   chmod 777 init.sh && \
   ./init.sh && \
   source ~/.bashrc && \ 
-  sudo sysctl -w vm.max_map_count=262144 && \
+  sysctl -w vm.max_map_count=262144 && \
   cd master
 ```
 
