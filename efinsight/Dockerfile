@@ -4,7 +4,7 @@ LABEL maintainer="dkim"
 ARG EFLOW_DEV_INSTALLER
 
 RUN mkdir -p /usr/share/elasticsearch/backup && chmod 777 /usr/share/elasticsearch/backup
-#RUN mkdir -p /usr/share/elasticsearch/data && chmod 777 /usr/share/elasticsearch/data
+RUN mkdir -p /usr/share/elasticsearch/data && chmod 777 /usr/share/elasticsearch/data
 
 RUN apt-get update
 RUN apt-get install -y curl
