@@ -41,6 +41,12 @@ Ensure that you configure the maximum map count so that there is ample virtual m
  $ efconfig
 ```
 
+## Scaling EF Server
+
+```console
+ $ efscale <size>
+```
+
 ## Backup
 * Please do not modify the project while backup
 * What to do
@@ -81,21 +87,6 @@ Ensure that you configure the maximum map count so that there is ample virtual m
   - Restore DevOpsInsight snapshot
 ```console
  $ efrestore
-```
-
-## Test 
-
-* Demo release
-   - Promote Release Demo
-   - Project: Release Demo-3.0 /  Procedure: Create Release Model / Step: Create Procedures
-     + Change string localhost to localagent
-   - Project: Release Demo-3.0 /  Procedure: Create Release Model / Step: Set up environments
-     + Change string localhost to localagent
-
-## Scaling EF Server
-
-```console
- $ efscale <size>
 ```
 
 ## Upload EF Docker Images
