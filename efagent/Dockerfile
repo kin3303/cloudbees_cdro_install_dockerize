@@ -1,7 +1,8 @@
 FROM kin3303/commanderbase
 
 LABEL maintainer="dkim"
- 
+USER root
+
 ARG EFLOW_INSTALLER
 
 ADD ${EFLOW_INSTALLER} /tmp/
