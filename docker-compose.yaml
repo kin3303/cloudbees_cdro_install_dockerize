@@ -28,7 +28,6 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/scripts/demoResources:/tmp/demoResources
 
   commanderrepository: &commanderrepository
     image: kin3303/commanderrepository:${TAG}
