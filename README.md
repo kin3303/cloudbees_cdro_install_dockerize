@@ -23,6 +23,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 ## Install EF Packages
 
 ```console
+  $ export TAG=latest
   $ efstart
 ```
 
