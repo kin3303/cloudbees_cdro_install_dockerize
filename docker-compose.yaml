@@ -132,6 +132,21 @@ services:
     <<: *commanderagent
     depends_on:
       - commanderserver
+      
+  agentdev:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
+      
+  agentqa:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
+      
+  agentprod:
+    <<: *commanderagent
+    depends_on:
+      - commanderserver
 
   repository:
     <<: *commanderrepository
