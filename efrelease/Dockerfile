@@ -54,4 +54,7 @@ EXPOSE 8080
 EXPOSE 8009
 EXPOSE 7800
 
-CMD /opt/tomcat/bin/catalina.sh && /etc/init.d/commanderAgent start &&  && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+CMD chmod +x /opt/tomcat/bin/catalina.sh && \
+/opt/tomcat/bin/catalina.sh && \
+/etc/init.d/commanderAgent start && \
+tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
