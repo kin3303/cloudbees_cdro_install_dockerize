@@ -1,61 +1,46 @@
 FROM kin3303/commanderbase
 
-LABEL maintainer="dkim"
-USER root
+ENV TOMCAT_VERSION 8.0.37
 
-ENV TOMCAT_VERSION 8.0.53
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+# Set locales                                                    
+RUN locale-gen en_GB.UTF-8
 ENV LANG en_GB.UTF-8
 ENV LC_CTYPE en_GB.UTF-8
-ENV CATALINA_HOME /opt/tomcat
-ENV PATH $PATH:$CATALINA_HOME/bin
-
-ARG EFLOW_INSTALLER
-
-# Install EF Agent
-ADD ${EFLOW_INSTALLER} /tmp/
-RUN chmod +x /tmp/${EFLOW_INSTALLER}
-RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
-RUN rm -f /tmp/${EFLOW_INSTALLER}
-
-# Set locales
-RUN locale-gen en_GB.UTF-8
-
-# Fix sh
+                                                                                              
+# Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-# Install dependencies
+# Install dependencies                                      
 RUN apt-get update && \
 apt-get install -y git build-essential curl wget software-properties-common
+                                                                            
+# Install JDK 8                                                  
+RUN \                                                            
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+add-apt-repository -y ppa:webupd8team/java && \
+apt-get update && \
+apt-get install -y oracle-java8-installer wget unzip tar && \
+rm -rf /var/lib/apt/lists/* && \
+rm -rf /var/cache/oracle-jdk8-installer
 
-# Install JDK 8
-RUN apt-get update  && \
-apt-get install -y software-properties-common && \
-add-apt-repository -y ppa:openjdk-r/ppa && \
-apt-get update  && \
-apt-get install -y openjdk-8-jdk && \
-update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java 1100
+# Define commonly used JAVA_HOME variable                        
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
-# Tomcat
-RUN wget --quiet --no-cookies https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
+# Get Tomcat                                                                
+RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /
 tar xzvf /tmp/tomcat.tgz -C /opt && \
 mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat && \
 rm /tmp/tomcat.tgz && \
 rm -rf /opt/tomcat/webapps/examples && \
 rm -rf /opt/tomcat/webapps/docs && \
 rm -rf /opt/tomcat/webapps/ROOT
-
-# Add admin/admin user
-ADD tomcat-user.xml /opt/tomcat/conf/
-
-#VOLUME "/opt/tomcat/webapps"
+ENV CATALINA_HOME /opt/tomcat
+ENV PATH $PATH:$CATALINA_HOME/bin
 
 EXPOSE 8080
 EXPOSE 8009
-EXPOSE 7800
 
-CMD \
-/etc/init.d/commanderAgent start && \
-chmod +x /opt/tomcat/bin/catalina.sh && \
-/opt/tomcat/bin/catalina.sh run
+WORKDIR /opt/tomcat
 
+# Launch Tomcat
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
