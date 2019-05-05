@@ -48,7 +48,7 @@ rm -rf /opt/tomcat/webapps/ROOT
 # Add admin/admin user
 ADD tomcat-user.xml /opt/tomcat/conf/
 
-VOLUME "/opt/tomcat/webapps"
+#VOLUME "/opt/tomcat/webapps"
 
 EXPOSE 8080
 EXPOSE 8009
