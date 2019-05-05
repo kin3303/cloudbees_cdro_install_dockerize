@@ -138,8 +138,6 @@ services:
     ports:
       - "9080:8080"
       - "9009:8009"
-    volumes:
-      - "/opt/tomcat/webapps/:/opt/tomcat/webapps/"
 
   repository:
     <<: *commanderrepository
