@@ -134,19 +134,12 @@ services:
       - commanderserver
       
   agentdev:
-    <<: *commanderagent
-    depends_on:
-      - commanderserver
-      
-  agentqa:
-    <<: *commanderagent
-    depends_on:
-      - commanderserver
-      
-  agentprod:
-    <<: *commanderagent
-    depends_on:
-      - commanderserver
+    image: kin3303/demoagent
+    ports:
+      - "9080:8080"
+      - "9009:8009"
+    volumes:
+      - "/opt/tomcat/webapps/:/opt/tomcat/webapps/"
 
   repository:
     <<: *commanderrepository
