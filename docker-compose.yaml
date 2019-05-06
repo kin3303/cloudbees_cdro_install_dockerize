@@ -133,7 +133,7 @@ services:
     depends_on:
       - commanderserver
       
-  agentdemo:
+  demoagent:
     image: kin3303/demoagent
     ports:
       - "9080:8080"
