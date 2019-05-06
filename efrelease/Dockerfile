@@ -1,12 +1,4 @@
-FROM kin3303/commanderbase
-
-#EF Agent
-ARG EFLOW_INSTALLER
-
-ADD ${EFLOW_INSTALLER} /tmp/
-RUN chmod +x /tmp/${EFLOW_INSTALLER}
-RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
-RUN rm -f /tmp/${EFLOW_INSTALLER}
+FROM kin3303/commanderagent
 
 # Set locales                                                    
 RUN locale-gen en_GB.UTF-8
@@ -42,4 +34,4 @@ EXPOSE 8009
 WORKDIR /opt/tomcat
 
 # Launch Tomcat
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD /etc/init.d/commanderAgent start && /opt/tomcat/bin/catalina.sh run
