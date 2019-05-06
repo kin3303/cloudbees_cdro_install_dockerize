@@ -1,6 +1,6 @@
 FROM kin3303/commanderbase
 
-ENV TOMCAT_VERSION 8.0.37
+ENV TOMCAT_VERSION 8.5.40
 
 # Set locales                                                    
 RUN locale-gen en_GB.UTF-8
