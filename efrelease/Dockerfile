@@ -1,5 +1,8 @@
 FROM andreptb/oracle-java:8
 
+LABEL maintainer="dkim"
+USER root
+
 ENV CATALINA_HOME="/usr/local/tomcat" \
     PATH="/usr/local/tomcat/bin:$PATH" \
     TOMCAT_MAJOR_VERSION=9 \
@@ -10,6 +13,7 @@ ENV CATALINA_HOME="/usr/local/tomcat" \
 RUN mkdir -p "${CATALINA_HOME}"
 WORKDIR $CATALINA_HOME
 
+# INSTALL TOMCAT
 RUN set -x \
   && apk --no-cache add --virtual build-dependencies wget ca-certificates tar alpine-sdk gnupg \
   && gpg --keyserver pool.sks-keyservers.net --recv-keys \
@@ -46,5 +50,18 @@ RUN set -x \
   && sed -i 's/SSLEngine="on"/SSLEngine="off"/g' "${CATALINA_HOME}/conf/server.xml" \
   && apk del --purge build-dependencies
 
+
+# INSTALL EF Agent
+ARG EFLOW_INSTALLER
+ADD ${EFLOW_INSTALLER} /tmp/
+RUN chmod +x /tmp/${EFLOW_INSTALLER}
+RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
+RUN rm -f /tmp/${EFLOW_INSTALLER}
+
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+EXPOSE 7800
+CMD /etc/init.d/commanderAgent start &&  catalina.sh run
+
+
+
+ 
