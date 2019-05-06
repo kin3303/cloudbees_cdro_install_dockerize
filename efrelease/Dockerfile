@@ -15,14 +15,12 @@ RUN apt-get update && \
 apt-get install -y git build-essential curl wget software-properties-common
                                                                             
 # Install JDK 8                                                  
-RUN apt-get update  && \ 
-add-apt-repository -y ppa:openjdk-r/ppa && \
-apt-get update  && \
-apt-get install -y openjdk-8-jdk && \
-update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java 1100
+RUN wget https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/java-1.8.0-amazon-corretto-jdk_8.212.04-2_amd64.deb && \
+    apt-get update &&  apt-get install java-common && apt-get install -y --no-install-recommends apt-utils && \
+    dpkg --install java-1.8.0-amazon-corretto-jdk_8.212.04-2_amd64.deb
 
 # Define commonly used JAVA_HOME variable                        
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+#ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Tomcat
 RUN wget --quiet --no-cookies https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
