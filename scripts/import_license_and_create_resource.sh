@@ -23,13 +23,13 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/agents_ready ]; then
   ectool createResource repositoryAgent --hostName  repository 
   ectool pingResource repositoryAgent
   
-  ectool createResource PROD --hostName  agentdemo 
+  ectool createResource PROD --hostName  prodagent 
   ectool pingResource repositoryAgent
   
-  ectool createResource DEV --hostName  agentdemo 
+  ectool createResource DEV --hostName  devagent 
   ectool pingResource repositoryAgent
   
-  ectool createResource QA --hostName  agentdemo 
+  ectool createResource QA --hostName  qaagent 
   ectool pingResource repositoryAgent
   
   touch /opt/electriccloud/electriccommander/conf/agents_ready
