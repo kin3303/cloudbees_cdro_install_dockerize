@@ -8,9 +8,6 @@ RUN chmod +x /tmp/${EFLOW_INSTALLER}
 RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
 RUN rm -f /tmp/${EFLOW_INSTALLER}
 
-
-ENV TOMCAT_VERSION 8.5.40
-
 # Set locales                                                    
 RUN locale-gen en_GB.UTF-8
 ENV LANG en_GB.UTF-8
@@ -27,9 +24,7 @@ apt-get install -y git build-essential curl wget software-properties-common
 RUN apt-get update  && \ 
 add-apt-repository -y ppa:openjdk-r/ppa && \
 apt-get update  && \
-apt-get install -y openjdk-7-jdk 
-#&& \
-#update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java 1100
+apt-get install -y openjdk-7-jdk
 
  # Define commonly used JAVA_HOME variable                        
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
