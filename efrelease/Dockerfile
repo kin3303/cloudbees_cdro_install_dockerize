@@ -1,5 +1,14 @@
 FROM kin3303/commanderbase
 
+#EF Agent
+ARG EFLOW_INSTALLER
+
+ADD ${EFLOW_INSTALLER} /tmp/
+RUN chmod +x /tmp/${EFLOW_INSTALLER}
+RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
+RUN rm -f /tmp/${EFLOW_INSTALLER}
+
+
 ENV TOMCAT_VERSION 8.5.40
 
 # Set locales                                                    
@@ -18,20 +27,16 @@ apt-get install -y git build-essential curl wget software-properties-common
 RUN apt-get update  && \ 
 add-apt-repository -y ppa:openjdk-r/ppa && \
 apt-get update  && \
-apt-get install -y openjdk-7-jdk && \
-update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java 1100
+apt-get install -y openjdk-7-jdk 
+#&& \
+#update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java 1100
 
  # Define commonly used JAVA_HOME variable                        
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 # Tomcat
-RUN wget --quiet --no-cookies https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
-tar xzvf /tmp/tomcat.tgz -C /opt && \
-mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat && \
-rm /tmp/tomcat.tgz && \
-rm -rf /opt/tomcat/webapps/examples && \
-rm -rf /opt/tomcat/webapps/docs && \
-rm -rf /opt/tomcat/webapps/ROOT
+ADD apache-tomcat-8.0.9.tar.gz /tmp/
+RUN mv /tmp/apache-tomcat-8.0.9 /opt/tomcat
 
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$CATALINA_HOME/bin
