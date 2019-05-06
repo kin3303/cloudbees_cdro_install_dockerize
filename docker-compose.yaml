@@ -132,12 +132,21 @@ services:
     <<: *commanderagent
     depends_on:
       - commanderserver
-      
-  demoagent:
+
+  devagent:
     image: kin3303/demoagent
     ports:
-      - "9080:8080"
-      - "9009:8009"
+      - "8060:8080"
+      
+  qaagent:
+    image: kin3303/demoagent
+    ports:
+      - "8070:8080"
+      
+  prodagent:
+    image: kin3303/demoagent
+    ports:
+      - "8080:8080"
 
   repository:
     <<: *commanderrepository
