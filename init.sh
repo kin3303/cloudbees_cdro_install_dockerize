@@ -9,6 +9,7 @@ REMOTE_REPO=${2:-$defaultRepo}
 mkdir $BRANCH
 cd $BRANCH
 
+apt-get install -y git
 git init
 git remote add -t $BRANCH -f origin $REMOTE_REPO
 git checkout $BRANCH 
