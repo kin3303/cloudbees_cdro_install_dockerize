@@ -46,7 +46,7 @@ x-include:
 
 services:
   db:
-     image: mysql:8.0
+     image: mysql:5.7
      restart: always
      volumes:
        - ${PWD}/data/db-data:/var/lib/mysql
