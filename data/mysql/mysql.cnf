@@ -9,11 +9,11 @@ collation-server=utf8_general_ci
 
 skip-character-set-client-handshake
 
-port = 3306
+port=3306
 
 transaction-isolation=REPEATABLE-READ
 
-table_open_cache=1024
+table_open_cache=512
 
 query_cache_size=32M
 
@@ -21,16 +21,16 @@ sort_buffer_size=6M
 
 tmp_table_size=64M
 
-max_heap_table_size=32M
+max_heap_table_size=16M
 
 read_rnd_buffer_size=256K
 
 #innodb_additional_mem_pool_size=2M
 
-innodb_buffer_pool_size=512M
+innodb_buffer_pool_size=256M
 
 #innodb_file_per_table connect_timeout=14400
 
-max_allowed_packet=1024M
+max_allowed_packet=512M
 
-max_connections=500
+max_connections=100
