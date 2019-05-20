@@ -11,7 +11,9 @@ skip-character-set-client-handshake
 
 port=3306
 
-transaction-isolation=REPEATABLE-READ
+#transaction-isolation=REPEATABLE-READ
+
+transaction-isolation=READ-COMMITTED
 
 table_open_cache=512
 
