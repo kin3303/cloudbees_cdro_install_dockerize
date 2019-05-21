@@ -17,12 +17,12 @@ fi
 ###################################################################################################
 # Elastic Search Backup
 ###################################################################################################
-sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/backupel.sh
-if [ ! -d "$backupDir/insight-data" ]; then
-   mkdir -p "$backupDir/insight-data"
-   echo "Create ElasticSearch Data Directory - $backupDir/insight-data"
-fi
-cp "data/insight-data/elasticsearch-backup.tar.gz" "$backupDir/insight-data"
+#sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/backupel.sh
+#if [ ! -d "$backupDir/insight-data" ]; then
+#   mkdir -p "$backupDir/insight-data"
+#   echo "Create ElasticSearch Data Directory - $backupDir/insight-data"
+#fi
+#cp "data/insight-data/elasticsearch-backup.tar.gz" "$backupDir/insight-data"
 
 ###################################################################################################
 # Data Backup
