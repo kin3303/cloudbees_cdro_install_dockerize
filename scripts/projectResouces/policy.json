@@ -28,7 +28,16 @@
             "allow",
             "allow"
           ]
-        }
+        },
+        {
+          "user":"project: CO_DEMO",
+          "access":[
+            "allow",
+            "allow",
+            "allow",
+            "inherit"
+          ]
+        },
       ]
     },
     {
