@@ -1,6 +1,13 @@
 
 #!/bin/bash
 
+# Create swapfile 4G
+fallocate -l 4G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+echo '/swapfile  none  swap  sw  0 0' >>/etc/fstab
+swapon -a
+    
 # docker install
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
