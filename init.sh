@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Create swapfile 4G
-fallocate -l 4G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-echo '/swapfile  none  swap  sw  0 0' >>/etc/fstab
-swapon -a
-    
 # CHECKOUT SOURCES
 defaultRepo="https://github.com/kin3303/efdemo"
 
