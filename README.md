@@ -42,6 +42,12 @@ Ensure that you configure the maximum map count so that there is ample virtual m
  $ efconfig
 ```
 
+## Demo Configuration
+
+```console
+ $ efsetdemo
+```
+
 ## Scaling EF Server
 
 ```console
