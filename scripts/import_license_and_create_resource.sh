@@ -51,8 +51,8 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then
   for file in /tmp/scripts/pluginResources/*.jar; do
     echo "Installing plugin $file..."
     ectool --silent promotePlugin \
-    ectool installPlugin "$file"
     `ectool installPlugin $file --force true | grep -oPm1 "(?<=<pluginName>)[^<]+"`
+     #ectool installPlugin "$file"
   done
 
   # Import Projects
