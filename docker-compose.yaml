@@ -118,7 +118,7 @@ services:
         - "interlock.domain=local"
     links:
       - db
-      - insight
+     # - insight
     depends_on:
       - db
       - zookeeper1
