@@ -56,8 +56,6 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then
 
   for file in /tmp/scripts/projectResouces/*.xml; do
     ectool import --file "$file" --force 1
-    
-    projectName=$(basename "$file")
   done
   
   ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleDisabled true
