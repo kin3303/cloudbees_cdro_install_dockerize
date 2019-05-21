@@ -47,6 +47,7 @@ fi
 #fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then 
+  # Install Plugins
   for file in /tmp/scripts/pluginResources/*.jar; do
     echo "Installing plugin $file..."
     ectool --silent promotePlugin \
@@ -54,14 +55,36 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then
     `ectool installPlugin $file --force true | grep -oPm1 "(?<=<pluginName>)[^<]+"`
   done
 
+  # Import Projects
   for file in /tmp/scripts/projectResouces/*.xml; do
     ectool import --file "$file" --force 1
   done
-  
+
+  # Creating groups
+  for i in administrators development quality release operations executive it; do
+    ectool --silent createGroup $i
+  done
+
+  # Creating users
+  ectool --silent createUser anne --password changeme --fullUserName "Administrator Anne" --groupNames administrators --email "anne@flow.localdomain"
+  ectool --silent createUser dave --password changeme --fullUserName "Developer Dave" --groupNames development --email "dave@flow.localdomain"
+  ectool --silent createUser quinn --password changeme --fullUserName "Quality Quinn" --groupNames quality --email "quinn@flow.localdomain"
+  ectool --silent createUser raj --password changeme --fullUserName "Releaser Raj" --groupNames release --email "raj@flow.localdomain"
+  ectool --silent createUser oscar --password changeme --fullUserName "Operations Oscar" --groupNames operations --email "oscar@flow.localdomain"
+  ectool --silent createUser eddie --password changeme --fullUserName "Executive Eddie" --groupNames executive --email "eddie@flow.localdomain"
+  ectool --silent createUser ingrid --password changeme --fullUserName "IT Ingrid" --groupNames it --email "ingrid@flow.localdomain"
+
+  # Disable Sentry Monitor
   ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleDisabled true
+  
+  # Setting Demo Project acl
   ectool --silent createAclEntry user "project: CO_DEMO" --systemObjectName resources --executePrivilege allow --readPrivilege allow --modifyPrivilege allow
   ectool --silent createAclEntry user "project: CO_DEMO" --systemObjectName projects --executePrivilege allow --readPrivilege allow --modifyPrivilege allow
   ectool --silent createAclEntry user "project: CO_DEMO" --systemObjectName server --executePrivilege allow --readPrivilege allow --modifyPrivilege inherit
+
+  # Setting top-level security policies
+  ectool --silent setProperty "/server/flow_demo/security_policy" --valueFile  /tmp/scripts/projectResouces/policy.json 
+  ectool --silent runProcedure "/plugins/EC-Security/project" --procedureName ApplyPolicy --actualParameter "policyLocation=/server/flow_demo/security_policy" --pollInterval 1
 
   touch /opt/electriccloud/electriccommander/conf/demo_ready
 fi
