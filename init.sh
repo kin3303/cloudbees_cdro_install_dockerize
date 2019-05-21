@@ -20,6 +20,7 @@ chmod 777 data/*
 echo -e "alias efinstall='bash ./setup/install.sh'" >> ~/.bashrc
 echo -e "alias efstart='bash ./setup/start.sh'" >> ~/.bashrc
 echo -e "alias efconfig='bash ./setup/config.sh'" >> ~/.bashrc
+echo -e "alias efsetdemo='bash ./setup/demo_config.sh'" >> ~/.bashrc
 echo -e "alias efstop='bash ./setup/stop.sh'" >> ~/.bashrc
 echo -e "alias efscale='bash ./setup/scale.sh'" >> ~/.bashrc
 echo -e "alias efbackup='bash ./setup/backup.sh'" >> ~/.bashrc
