@@ -48,11 +48,22 @@ fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_ready ]; then 
   for file in /tmp/scripts/pluginResources/*.jar; do
+    echo "Installing plugin $file..."
+    ectool --silent promotePlugin \
     ectool installPlugin "$file"
+    `ectool installPlugin $file --force true | grep -oPm1 "(?<=<pluginName>)[^<]+"`
   done
 
   for file in /tmp/scripts/projectResouces/*.xml; do
     ectool import --file "$file" --force 1
+    
+    projectName=$(basename "$file")
   done
+  
+  ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleDisabled true
+  ectool --silent createAclEntry user "project: CO_DEMO" --systemObjectName resources --executePrivilege allow --readPrivilege allow --modifyPrivilege allow
+  ectool --silent createAclEntry user "project: CO_DEMO" --systemObjectName projects --executePrivilege allow --readPrivilege allow --modifyPrivilege allow
+  ectool --silent createAclEntry user "project: CO_DEMO" --systemObjectName server --executePrivilege allow --readPrivilege allow --modifyPrivilege inherit
+
   touch /opt/electriccloud/electriccommander/conf/demo_ready
 fi
