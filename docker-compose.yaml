@@ -162,6 +162,6 @@ services:
     depends_on:
       - commanderserver    
 
-  insight:
-    <<: *commanderinsight
-    hostname: insight
+  #insight:
+  #  <<: *commanderinsight
+  #  hostname: insight
