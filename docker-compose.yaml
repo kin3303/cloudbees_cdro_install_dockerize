@@ -133,30 +133,15 @@ services:
     depends_on:
       - commanderserver
 
-  devagent:
+  demoappagent:
     image: kin3303/demoagent
     ports:
-      - "8060:8080"
+      - "8090:8080"
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
-  qaagent:
-    image: kin3303/demoagent
-    ports:
-      - "8070:8080"
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      
-  prodagent:
-    image: kin3303/demoagent
-    ports:
-      - "8080:8080"
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      
+ 
   repository:
     <<: *commanderrepository
     depends_on:
