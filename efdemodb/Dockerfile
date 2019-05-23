@@ -10,22 +10,17 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Set environment variables 
 ENV MYSQL_USER=mysql \
-    MYSQL_VERSION=5.6 \
+    MYSQL_VERSION=5.7 \
     MYSQL_DATA_DIR=/var/lib/mysql \
     MYSQL_RUN_DIR=/run/mysqld \
     MYSQL_LOG_DIR=/var/log/mysql
 
 # Install
 
-RUN apt-get purge mysql-server \
-&& apt-get purge mysql-common \
-&& rm -rf /var/log/mysql \
-&& rm -rf /var/log/mysql.* \
-&& rm -rf /var/lib/mysql \
-&& rm -rf /etc/mysql
+RUN wget http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb \
+  && dpkg -i mysql-apt-config_0.6.0-1_all.deb
 
 RUN apt-get update \
- && apt-get upgrade \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server=${MYSQL_VERSION}* --fix-missing --fix-broken \
  && rm -rf ${MYSQL_DATA_DIR} \
  && rm -rf /var/lib/apt/lists/*
