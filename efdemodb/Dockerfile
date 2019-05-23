@@ -10,7 +10,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Set environment variables 
 ENV MYSQL_USER=mysql \
-    MYSQL_VERSION=5.7 \
+    MYSQL_VERSION=5.5.46 \
     MYSQL_DATA_DIR=/var/lib/mysql \
     MYSQL_RUN_DIR=/run/mysqld \
     MYSQL_LOG_DIR=/var/log/mysql
