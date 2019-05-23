@@ -7,20 +7,14 @@ ectool login admin changeme
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_agents_ready ]; then
 
-  ectool createResource webAgent --hostName  webagent
-  ectool pingResource webAgent
+  ectool createResource PROD --hostName  prodagent 
+  ectool pingResource repositoryAgent
   
-  ectool createResource dbAgent --hostName  dbagent
-  ectool pingResource dbAgent
+  ectool createResource DEV --hostName  devagent 
+  ectool pingResource repositoryAgent
   
-  ectool createResource DEV --hostName  webagent
-  ectool pingResource DEV
-  
-  ectool createResource QA --hostName  webagent
-  ectool pingResource QA
-  
-  ectool createResource PROD --hostName  dbagwebagentent
-  ectool pingResource PROD
+  ectool createResource QA --hostName  qaagent 
+  ectool pingResource repositoryAgent
   
   touch /opt/electriccloud/electriccommander/conf/demo_agents_ready
 fi
