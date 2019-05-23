@@ -16,4 +16,4 @@ EOF
 mysqld --bootstrap --verbose=0 < /tmp/sql
 rm -rf /tmp/sql
 
-mysqld
+/etc/init.d/commanderAgent start && mysqld
