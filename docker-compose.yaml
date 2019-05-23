@@ -133,21 +133,37 @@ services:
     depends_on:
       - commanderserver
 
-  webagent:
+  devagent:
     image: kin3303/demowebagent
     ports:
-      - "8090:8080"
+      - "8060:8080"
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
-  dbagent:
-    image: kin3303/demodbagent
-    environment: 
-      MYSQL_ROOT_PASSWORD: root
+  qaagent:
+    image: kin3303/demowebagent
+    ports:
+      - "8070:8080"
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      
+  prodagent:
+    image: kin3303/demowebagent
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      
+ # dbagent:
+ #   image: kin3303/demodbagent
+ #   environment: 
+ #     MYSQL_ROOT_PASSWORD: root
+ #   volumes:
+ #     - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+ #     - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
  
   repository:
     <<: *commanderrepository
