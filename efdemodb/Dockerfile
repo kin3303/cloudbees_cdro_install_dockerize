@@ -17,7 +17,8 @@ ENV MYSQL_USER=mysql \
 
 # Install
 
-RUN wget http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb \
+RUN apt-get install -y wget \
+  && wget http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb \
   && dpkg -i mysql-apt-config_0.6.0-1_all.deb
 
 RUN apt-get update \
