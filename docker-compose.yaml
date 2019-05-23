@@ -141,8 +141,10 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
- dbagent:
+  dbagent:
     image: kin3303/demodbagent
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
