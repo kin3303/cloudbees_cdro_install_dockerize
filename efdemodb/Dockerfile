@@ -25,6 +25,7 @@ RUN apt-get purge mysql-server \
 && rm -rf /etc/mysql
 
 RUN apt-get update \
+ && apt-get upgrade \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server=${MYSQL_VERSION}* --fix-missing --fix-broken \
  && rm -rf ${MYSQL_DATA_DIR} \
  && rm -rf /var/lib/apt/lists/*
