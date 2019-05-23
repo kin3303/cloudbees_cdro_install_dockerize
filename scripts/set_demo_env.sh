@@ -5,6 +5,26 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 
 ectool login admin changeme
 
+if [ ! -f /opt/electriccloud/electriccommander/conf/demo_agents_ready ]; then
+
+  ectool createResource webAgent --hostName  webagent
+  ectool pingResource webAgent
+  
+  ectool createResource dbAgent --hostName  dbagent
+  ectool pingResource dbAgent
+  
+  ectool createResource DEV --hostName  webagent
+  ectool pingResource DEV
+  
+  ectool createResource QA --hostName  webagent
+  ectool pingResource QA
+  
+  ectool createResource PROD --hostName  dbagwebagentent
+  ectool pingResource PROD
+  
+  touch /opt/electriccloud/electriccommander/conf/demo_agents_ready
+fi
+
 echo "Install Plugins"
 for file in /tmp/scripts/pluginResources/*.jar; do
   fileName=$(basename "$file")
