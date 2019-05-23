@@ -1,5 +1,5 @@
 include ../settings.mk
 
-MODULE_NAME = demoagent
+MODULE_NAME = demowebagent
 
 include ../template.mk
