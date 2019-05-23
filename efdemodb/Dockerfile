@@ -10,20 +10,19 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Set environment variables 
 ENV MYSQL_USER=mysql \
-    MYSQL_VERSION=5.5.46 \
     MYSQL_DATA_DIR=/var/lib/mysql \
     MYSQL_RUN_DIR=/run/mysqld \
     MYSQL_LOG_DIR=/var/log/mysql
 
 # Install
 
-RUN apt-get update \
-  && apt-get install -y wget \
-  && wget http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb \
-  && dpkg -i mysql-apt-config_0.6.0-1_all.deb
+#RUN apt-get update \
+#  && apt-get install -y wget \
+#  && wget http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb \
+#  && dpkg -i mysql-apt-config_0.6.0-1_all.deb
 
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server=${MYSQL_VERSION}* --fix-missing --fix-broken \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
  && rm -rf ${MYSQL_DATA_DIR} \
  && rm -rf /var/lib/apt/lists/*
 
