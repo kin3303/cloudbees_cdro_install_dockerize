@@ -8,18 +8,22 @@ ENV LC_CTYPE en_GB.UTF-8
 # Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV MYSQL_USER=mysql \
+    MYSQL_DATA_DIR=/var/lib/mysql \
+    MYSQL_RUN_DIR=/run/mysqld \
+    MYSQL_LOG_DIR=/var/log/mysql
 
-RUN apt-get update
-RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
-RUN echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
-RUN apt-get install -y mysql-server
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
+ && rm -rf ${MYSQL_DATA_DIR} \
+ && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /etc/mysql
-RUN sed -i "s/127.0.0.1/0.0.0.0/g" my.cnf
+COPY entrypoint.sh /sbin/entrypoint.sh
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-EXPOSE 3306
+RUN chmod 755 /sbin/entrypoint.sh
 
-ENTRYPOINT /entrypoint.sh
+EXPOSE 3306/tcp
+
+ENTRYPOINT ["/sbin/entrypoint.sh"]
+
+CMD ["/usr/bin/mysqld_safe"]
