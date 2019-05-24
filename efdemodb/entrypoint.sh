@@ -19,4 +19,4 @@ mysql_install_db --user mysql > /dev/null
 
 # Run mysql
 /etc/init.d/commanderAgent start
-mysqld_safe
+mysqld
