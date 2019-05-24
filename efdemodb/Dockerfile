@@ -12,6 +12,8 @@ RUN \
   echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\" WITH GRANT OPTION;'" >> /tmp/config && \
   bash /tmp/config && \
   rm -f /tmp/config
+  
+RUN /usr/bin/mysql/bin/mysqladmin password root
 
 # Define mountable directories.
 VOLUME ["/etc/mysql", "/var/lib/mysql"]
