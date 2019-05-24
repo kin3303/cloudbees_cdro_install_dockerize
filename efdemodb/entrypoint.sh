@@ -12,7 +12,7 @@ UPDATE user SET password=PASSWORD("password") WHERE user='root';
 EOF
 
 # Change root password
-mysqld --bootstrap --verbose=0 < /tmp/sql
+mysqld_safe --bootstrap --verbose=0 < /tmp/sql
 rm -rf /tmp/sql
 
 sleep 60
