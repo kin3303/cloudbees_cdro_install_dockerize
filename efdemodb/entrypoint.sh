@@ -8,7 +8,7 @@ cat > /tmp/sql <<EOF
 USE mysql;
 FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-UPDATE user SET password=PASSWORD("1234") WHERE user='root';
+UPDATE user SET password=PASSWORD("password") WHERE user='root';
 EOF
 
 # Change root password
