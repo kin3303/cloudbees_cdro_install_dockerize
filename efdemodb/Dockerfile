@@ -14,6 +14,7 @@ RUN \
   rm -f /tmp/config
   
 #RUN /usr/bin/mysql/bin/mysqladmin password 1234
+RUN chown -R mysql:mysql /var/lib/mysql
 RUN mysqladmin password 1234
 RUN mysql --user=root --password=1234 -e "UNINSTALL PLUGIN validate_password;"
 RUN mysqladmin --user=root --password="1234" password ""
