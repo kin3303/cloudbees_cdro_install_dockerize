@@ -14,9 +14,9 @@ RUN \
   rm -f /tmp/config
   
 #RUN /usr/bin/mysql/bin/mysqladmin password 1234
-RUN mysqladmin --user=root --password=1234
+RUN mysqladmin password 1234
 RUN mysql --user=root --password=1234 -e "UNINSTALL PLUGIN validate_password;"
-RUN mysqladmin --user=root --password="aaBB@@cc1122" password ""
+RUN mysqladmin --user=root --password="1234" password ""
 
 # Define mountable directories.
 VOLUME ["/etc/mysql", "/var/lib/mysql"]
