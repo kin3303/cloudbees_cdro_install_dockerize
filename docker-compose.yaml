@@ -137,6 +137,10 @@ services:
     image: kin3303/demowebagent
     ports:
       - "8060:8080"
+    links:
+      - dbagent
+    depends_on:
+      - dbagent
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
@@ -145,6 +149,10 @@ services:
     image: kin3303/demowebagent
     ports:
       - "8070:8080"
+    links:
+      - dbagent
+    depends_on:
+      - dbagent
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
@@ -153,6 +161,10 @@ services:
     image: kin3303/demowebagent
     ports:
       - "8080:8080"
+    links:
+      - dbagent
+    depends_on:
+      - dbagent
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
