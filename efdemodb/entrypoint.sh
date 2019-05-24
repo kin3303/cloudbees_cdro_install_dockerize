@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+et -e
 
 [[ $DEBUG == true ]] && set -x
 
