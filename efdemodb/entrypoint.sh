@@ -1,6 +1,4 @@
 #!/bin/bash
-
-/etc/init.d/commanderAgent start
  
 # Install database file
 mysql_install_db --user mysql > /dev/null
@@ -18,6 +16,4 @@ mysqld --bootstrap --verbose=0 < /tmp/sql
 rm -rf /tmp/sql
 
 # Run mysql
-mysqld --default-authentication-plugin=mysql_native_password
-
-/etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+/etc/init.d/commanderAgent start && /etc/init.d/mysql start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
