@@ -1,12 +1,7 @@
 FROM kin3303/commanderagent
 
-# Set locales                                                    
-RUN locale-gen en_GB.UTF-8
-ENV LANG en_GB.UTF-8
-ENV LC_CTYPE en_GB.UTF-8
-                                                                                              
-# Fix sh                                                        
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN grep ^mysql: /etc/group  >/dev/null || groupadd mysql
+RUN grep ^mysql: /etc/passwd >/dev/null || useradd -r -g mysql mysql
 
 ENV MYSQL_USER=mysql \
     MYSQL_DATA_DIR=/var/lib/mysql \
@@ -17,6 +12,8 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
  && rm -rf ${MYSQL_DATA_DIR} \
  && rm -rf /var/lib/apt/lists/*
+
+RUN chown -R mysql.mysql /etc/mysql
 
 COPY entrypoint.sh /sbin/entrypoint.sh
 
