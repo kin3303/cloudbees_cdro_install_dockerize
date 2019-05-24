@@ -37,12 +37,12 @@ create_log_dir() {
 }
 
 listen() {
-  sed -e "s/^bind-address\(.*\)=.*/bind-address = $1/" -i /etc/mysql/mysql.conf.d/mysqld.cnf
+  sed -e "s/^bind-address\(.*\)=.*/bind-address = $1/" -i /etc/mysql/my.cnf
 }
 
 apply_configuration_fixes() {
   # disable error log
-  sed 's/^log_error/# log_error/' -i /etc/mysql/mysql.conf.d/mysqld.cnf
+  sed 's/^log_error/# log_error/' -i /etc/mysql/my.cnf
 
   # Fixing StartUp Porblems with some DNS Situations and Speeds up the stuff
   # http://www.percona.com/blog/2008/05/31/dns-achilles-heel-mysql-installation/
