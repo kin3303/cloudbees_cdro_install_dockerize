@@ -18,4 +18,5 @@ rm -rf /tmp/sql
 sleep 60
 
 # Run mysql
-/etc/init.d/commanderAgent start && /etc/init.d/mysql start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+/etc/init.d/commanderAgent start
+mysqld_safe
