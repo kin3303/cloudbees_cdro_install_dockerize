@@ -157,13 +157,16 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
- # dbagent:
- #   image: kin3303/demodbagent
- #   environment: 
- #     MYSQL_ROOT_PASSWORD: root
- #   volumes:
- #     - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
- #     - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+ dbagent:
+    image: kin3303/demodbagent
+    restart: always
+    environment: 
+      DB_NAME: test
+      DB_USER: dkim
+      DB_PASS: dkim
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
  
   repository:
     <<: *commanderrepository
