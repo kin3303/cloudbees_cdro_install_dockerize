@@ -160,10 +160,8 @@ services:
  dbagent:
     image: kin3303/demodbagent
     restart: always
-    environment: 
-      DB_NAME: test
-      DB_USER: dkim
-      DB_PASS: dkim
+    ports:
+      - 3307:3306
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
