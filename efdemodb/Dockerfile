@@ -38,5 +38,6 @@ RUN sed -i "s/127.0.0.1/0.0.0.0/g" my.cnf
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 EXPOSE 3306
- 
-ENTRYPOINT /entrypoint.sh
+
+CMD /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+# ENTRYPOINT /entrypoint.sh
