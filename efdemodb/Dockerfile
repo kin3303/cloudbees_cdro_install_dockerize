@@ -22,8 +22,11 @@ COPY entrypoint.sh /sbin/entrypoint.sh
 
 RUN chmod 755 /sbin/entrypoint.sh
 
-EXPOSE 3306/tcp
+EXPOSE 3306
+EXPOSE 7800
 
-ENTRYPOINT ["/sbin/entrypoint.sh"]
+#ENTRYPOINT ["/sbin/entrypoint.sh"]
 
-CMD ["/usr/bin/mysqld_safe"]
+#CMD ["/usr/bin/mysqld_safe"]
+
+CMD /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
