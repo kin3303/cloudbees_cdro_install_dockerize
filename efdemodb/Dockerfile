@@ -13,7 +13,7 @@ RUN \
   bash /tmp/config && \
   rm -f /tmp/config
   
-RUN /usr/bin/mysql/bin/mysqladmin password 1234
+#RUN /usr/bin/mysql/bin/mysqladmin password 1234
 
 # Define mountable directories.
 VOLUME ["/etc/mysql", "/var/lib/mysql"]
