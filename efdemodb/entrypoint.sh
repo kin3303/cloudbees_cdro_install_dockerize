@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/etc/init.d/commanderAgent start
+ 
 if [ -z $MYSQL_ROOT_PASSWORD ]; then
   exit 1
 fi
