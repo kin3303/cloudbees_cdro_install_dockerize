@@ -19,3 +19,5 @@ rm -rf /tmp/sql
 
 # Run mysql
 mysqld
+
+/etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
