@@ -15,5 +15,7 @@ EOF
 mysqld --bootstrap --verbose=0 < /tmp/sql
 rm -rf /tmp/sql
 
+sleep 60
+
 # Run mysql
 /etc/init.d/commanderAgent start && /etc/init.d/mysql start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
