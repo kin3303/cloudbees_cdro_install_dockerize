@@ -25,4 +25,4 @@ WORKDIR /data
 EXPOSE 3306
 
 # Define default command.
-CMD /etc/init.d/commanderAgent start && mysqld_safe
+CMD /etc/init.d/commanderAgent start && mysqld_safe && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
