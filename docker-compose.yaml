@@ -162,6 +162,8 @@ services:
     restart: always
     ports:
       - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
