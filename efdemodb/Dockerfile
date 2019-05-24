@@ -1,32 +1,42 @@
 FROM kin3303/commanderagent
 
-# Install MySQL.
-RUN \
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
-  rm -rf /var/lib/apt/lists/* && \
-  sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf && \
-  sed -i 's/^\(log_error\s.*\)/# \1/' /etc/mysql/my.cnf && \
-  echo "mysqld_safe &" > /tmp/config && \
-  echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
-  echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\" WITH GRANT OPTION;'" >> /tmp/config && \
-  bash /tmp/config && \
-  rm -f /tmp/config
+## Install MySQL.
+#RUN \
+#  apt-get update && \
+#  DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
+#  rm -rf /var/lib/apt/lists/* && \
+#  sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf && \
+#  sed -i 's/^\(log_error\s.*\)/# \1/' /etc/mysql/my.cnf && \
+#  echo "mysqld_safe &" > /tmp/config && \
+#  echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
+#  echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\" WITH GRANT OPTION;'" >> /tmp/config && \
+#  bash /tmp/config && \
+#  rm -f /tmp/config
   
-#RUN /usr/bin/mysql/bin/mysqladmin password 1234
-RUN chown -R mysql:mysql /var/lib/mysql
-RUN mysqladmin password 1234
-RUN mysql --user=root --password=1234 -e "UNINSTALL PLUGIN validate_password;"
-RUN mysqladmin --user=root --password="1234" password ""
+## Define mountable directories.
+#VOLUME ["/etc/mysql", "/var/lib/mysql"]
 
-# Define mountable directories.
-VOLUME ["/etc/mysql", "/var/lib/mysql"]
+## Define working directory.
+#WORKDIR /data
 
-# Define working directory.
-WORKDIR /data
+## Expose ports.
+#EXPOSE 3306
 
-# Expose ports.
+## Define default command.
+#CMD /etc/init.d/commanderAgent start && mysqld_safe && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update
+RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
+RUN apt-get install -y mysql-server
+
+WORKDIR /etc/mysql
+RUN sed -i "s/127.0.0.1/0.0.0.0/g" my.cnf
+
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 EXPOSE 3306
 
-# Define default command.
-CMD /etc/init.d/commanderAgent start && mysqld_safe && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+ENTRYPOINT /entrypoint.sh
