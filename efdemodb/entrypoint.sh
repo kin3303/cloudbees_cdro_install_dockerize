@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [ "$INIT" = "1" ]; then
+#if [ "$INIT" = "1" ]; then
         echo "Initializing $DATADIR..."
         mysql_install_db
-fi
+#fi
 
 echo "Checking integrity of data from $DATADIR..."
 /usr/sbin/mysqld &
 TMPPID=$!
-sleep 3
+sleep 15
 
 mysql -u root "SHOW databases; USE mysql;"
 
@@ -17,7 +17,7 @@ STATUS=$?
 
 if [ "$STATUS" = "0" ]; then
         echo "Using data from $DATADIR..."
-        /usr/bin/mysqld_safe
+        /etc/init.d/mysql start
 else
         echo "Cannot load data from $DATADIR."
 fi
