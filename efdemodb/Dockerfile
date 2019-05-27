@@ -3,6 +3,8 @@ FROM kin3303/commanderagent
 VOLUME ["/var/lib/mysql/", "/var/log/mysql/"]
 
 RUN apt-get update \
+    && echo "mysql-server mysql-server/root_password password" | debconf-set-selections
+    && echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
     && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
     && rm -rf /var/lib/apt/lists/* \
     && sed -i '/^\(key_buffer\)\([\w\t]*=\)/s//\1_size\2/' /etc/mysql/my.cnf \
