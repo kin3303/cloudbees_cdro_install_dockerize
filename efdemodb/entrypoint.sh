@@ -17,7 +17,7 @@ STATUS=$?
 
 if [ "$STATUS" = "0" ]; then
         echo "Using data from $DATADIR..."
-        /etc/init.d/mysql start
+        /etc/init.d/mysql start && /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
 else
         echo "Cannot load data from $DATADIR."
 fi
