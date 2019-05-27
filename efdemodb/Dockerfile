@@ -28,8 +28,8 @@ ENV	PASSWORD=root \
 		PORT=3306 \
 		INIT=0
 
-COPY run.sh /root/run.sh
+COPY entrypoint.sh /root/entrypoint.sh
 
-ENTRYPOINT	["/root/run.sh"]
+ENTRYPOINT	["/root/entrypoint.sh"]
 
 #CMD /etc/init.d/commanderAgent start && mysqld
