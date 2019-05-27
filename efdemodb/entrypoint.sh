@@ -1,20 +1,23 @@
 #!/bin/bash
- 
-# Install database file
-mysql_install_db --user mysql > /dev/null
 
-# Create changing root password sql file
-cat > /tmp/sql <<EOF
-USE mysql;
-FLUSH PRIVILEGES;
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-UPDATE user SET password=PASSWORD("password") WHERE user='root';
-EOF
+if [ "$INIT" = "1" ]; then
+        echo "Initializing $DATADIR..."
+        mysql_install_db
+fi
 
-# Change root password
-mysqld_safe --bootstrap --verbose=0 < /tmp/sql
-rm -rf /tmp/sql
+echo "Checking integrity of data from $DATADIR..."
+/usr/sbin/mysqld &
+TMPPID=$!
+sleep 3
 
-# Run mysql
-/etc/init.d/commanderAgent start
-mysqld
+mysql -u root "SHOW databases; USE mysql;"
+
+kill -TERM $TMPPID && wait
+STATUS=$?
+
+if [ "$STATUS" = "0" ]; then
+        echo "Using data from $DATADIR..."
+        /usr/bin/mysqld_safe
+else
+        echo "Cannot load data from $DATADIR."
+fi
