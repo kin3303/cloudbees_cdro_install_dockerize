@@ -169,7 +169,7 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
- dbagent:
+  dbagent:
     image: kin3303/demodbagent
     restart: always
     ports:
