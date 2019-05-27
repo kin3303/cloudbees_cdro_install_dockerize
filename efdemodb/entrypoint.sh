@@ -12,6 +12,8 @@ sleep 15
 
 mysql --user=root --password=password "SHOW databases; USE mysql;"
 
+mysqladmin -u root password 'demodb'
+
 kill -TERM $TMPPID && wait
 STATUS=$?
 
