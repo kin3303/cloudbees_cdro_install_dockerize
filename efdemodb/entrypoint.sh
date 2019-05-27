@@ -10,7 +10,7 @@ echo "Checking integrity of data from $DATADIR..."
 TMPPID=$!
 sleep 15
 
-mysql -u root "SHOW databases; USE mysql;"
+mysql --user=root --password=password "SHOW databases; USE mysql;"
 
 kill -TERM $TMPPID && wait
 STATUS=$?
