@@ -2,10 +2,10 @@ FROM kin3303/commanderagent
 
 VOLUME ["/var/lib/mysql/", "/var/log/mysql/"]
 
-RUN apt-get update \
-    && echo "mysql-server mysql-server/root_password password" | debconf-set-selections
-    && echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
+RUN apt-get update
+RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
     && rm -rf /var/lib/apt/lists/* \
     && sed -i '/^\(key_buffer\)\([\w\t]*=\)/s//\1_size\2/' /etc/mysql/my.cnf \
     && sed -i '/^\(myisam-recover\)\([\w\t]*=\)/s//\1-options\2/' /etc/mysql/my.cnf \
