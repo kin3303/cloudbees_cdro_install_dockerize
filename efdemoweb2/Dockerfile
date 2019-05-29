@@ -7,8 +7,9 @@ ENV WILDFLY_VERSION 8.2.0.Final
 ENV JBOSS_HOME /opt/jboss/wildfly
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
-ENV WUSR flow
-ENV WGRP flow
+ENV WUSR jboss
+ENV WGRP jboss
+ENV JBOSS_CONF /etc/default/wildfly
 
 # Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -23,6 +24,10 @@ add-apt-repository -y ppa:openjdk-r/ppa && \
 apt-get update  && \
 apt-get install -y openjdk-7-jdk
 
+# User and group id for wildfly
+RUN groupadd ${WGRP}
+RUN useradd -m -g ${WGRP} ${WUSR}
+
 # Install wildfly
 USER root
 RUN cd $HOME \
@@ -31,16 +36,11 @@ RUN cd $HOME \
     && mkdir -p ${JBOSS_HOME} \
     && mv $HOME/wildfly-${WILDFLY_VERSION}/* ${JBOSS_HOME} \
     && rm wildfly-$WILDFLY_VERSION.tar.gz \
-    && chown -R jboss:0 ${JBOSS_HOME} \
-    && chmod -R g+rw ${JBOSS_HOME}
-
-# User and group id for wildfly
-RUN groupadd ${WGRP}
-RUN useradd -m -g ${WGRP} ${WUSR}
-RUN echo "export JBOSS_USER=${WUSR}" >>/etc/default/wildflyv
-RUN chown -R $WUSR:$WGRP .
-
-
+    && chown -R ${WUSR}:${WGRP} ${JBOSS_HOME} \
+    && chmod -R g+rw ${JBOSS_HOME} \
+    && echo "export JAVA_HOME=$JRE" > ${JBOSS_CONF} \
+    && echo "export JBOSS_USER=${WUSR}" > ${JBOSS_CONF}
+ 
 #Adding wildfly startup script...
 WORKDIR opt/jboss/wildfly
 RUN cp bin/init.d/wildfly-init-debian.sh /etc/init.d/wildfly
