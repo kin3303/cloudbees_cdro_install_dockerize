@@ -3,7 +3,7 @@ FROM kin3303/commanderagent
 RUN locale-gen en_GB.UTF-8
 ENV LANG en_GB.UTF-8
 ENV LC_CTYPE en_GB.UTF-8
-ENV WILDFLY_VERSION 10.0.0.Final
+ENV WILDFLY_VERSION 8.2.0.Final
 ENV JBOSS_HOME /opt/jboss/wildfly
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
