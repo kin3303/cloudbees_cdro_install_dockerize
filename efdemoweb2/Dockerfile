@@ -56,7 +56,7 @@ RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
  
 # Start the standalone JBoss server to make sure it works.
 # USER ${WUSR}
-EXPOSE 8080
+EXPOSE 8080 9990
 CMD /etc/init.d/wildfly start && /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
 
 # User
