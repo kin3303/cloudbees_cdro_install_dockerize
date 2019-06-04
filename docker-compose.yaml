@@ -118,7 +118,7 @@ services:
         - "interlock.domain=local"
     links:
       - db
-      - insight
+      #- insight
     depends_on:
       - db
       - zookeeper1
@@ -133,35 +133,35 @@ services:
     depends_on:
       - commanderserver
 
-  devagent:
-    image: kin3303/demowebagent
-    ports:
-      - "8060:8080"
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+  #devagent:
+  #  image: kin3303/demowebagent
+  #  ports:
+  #    - "8060:8080"
+  #  volumes:
+  #    - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+  #    - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
-  qaagent:
-    image: kin3303/demowebagent
-    ports:
-      - "8070:8080"
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+  #qaagent:
+  #  image: kin3303/demowebagent
+  #  ports:
+  #    - "8070:8080"
+  #  volumes:
+  #    - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+  #    - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
-  prodagent:
-    image: kin3303/demowebagent
-    ports:
-      - "8080:8080"
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+  #prodagent:
+  #  image: kin3303/demowebagent
+  #  ports:
+  #    - "8080:8080"
+  #  volumes:
+  #    - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+  #    - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
   repository:
     <<: *commanderrepository
     depends_on:
       - commanderserver    
 
-  insight:
-    <<: *commanderinsight
-    hostname: insight
+  #insight:
+  #  <<: *commanderinsight
+  #  hostname: insight
