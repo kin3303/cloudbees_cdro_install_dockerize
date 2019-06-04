@@ -93,7 +93,7 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock
 
   haproxy:
-    image: haproxy:1.8.9
+    image: haproxy
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
@@ -118,7 +118,7 @@ services:
         - "interlock.domain=local"
     links:
       - db
-     # - insight
+      - insight
     depends_on:
       - db
       - zookeeper1
