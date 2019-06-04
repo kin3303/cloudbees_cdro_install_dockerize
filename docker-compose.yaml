@@ -85,7 +85,7 @@ services:
     #hostname: zookeeper3
     
   interlock:
-    image: ehazlett/interlock:master
+    image: ehazlett/interlock:1.4.0
     restart: always
     command: run -c /etc/interlock/config.toml
     volumes:
@@ -94,7 +94,7 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock
 
   haproxy:
-    image: haproxy
+    image: haproxy:1.9.0
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
