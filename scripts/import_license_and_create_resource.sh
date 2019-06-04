@@ -31,8 +31,8 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/repository_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/repository_ready
 fi
 
-#if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
-#  ectool setDevOpsInsightServerConfiguration --userName reportuser --password changeme --enabled 1 \
-#  --logStashUrl  http://insight:9500  --elasticSearchUrl http://insight:9200 --testConnection 1
-#  touch /opt/electriccloud/electriccommander/conf/insight_ready
-#fi
+if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
+  ectool setDevOpsInsightServerConfiguration --userName reportuser --password changeme --enabled 1 \
+  --logStashUrl  http://insight:9500  --elasticSearchUrl http://insight:9200 --testConnection 1
+  touch /opt/electriccloud/electriccommander/conf/insight_ready
+fi
