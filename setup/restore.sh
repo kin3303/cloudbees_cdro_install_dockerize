@@ -51,4 +51,4 @@ sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scr
 ###################################################################################################
 # Insight Restore
 ###################################################################################################
-#sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/restoreel.sh
+sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/restoreel.sh
