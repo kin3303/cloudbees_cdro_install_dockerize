@@ -169,22 +169,11 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       
-  dbagent:
-    image: kin3303/demodbagent
-    restart: always
-    ports:
-      - 3307:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
- 
   repository:
     <<: *commanderrepository
     depends_on:
       - commanderserver    
 
-  #insight:
-  #  <<: *commanderinsight
-  #  hostname: insight
+  insight:
+    <<: *commanderinsight
+    hostname: insight
