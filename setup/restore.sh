@@ -10,11 +10,6 @@ restoreDir=data/db-data/backup/ecdb
 rm -rf $restoreDir/*
 
 ###################################################################################################
-# Stop server to restore data
-###################################################################################################
-#./setup/stop.sh
-
-###################################################################################################
 # Data Restore
 #    Configuration Files
 #       <DATADIR>/conf  :  Configuration files for the Server and  Artifact Repository
