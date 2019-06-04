@@ -60,7 +60,7 @@ services:
      hostname: db
 
   zookeeper1:
-    image: zookeeper
+    image: zookeeper:3.3
     restart: always
     environment:
       ZOO_MY_ID: 1
@@ -68,7 +68,7 @@ services:
     hostname: zookeeper1
 
   zookeeper2:
-    image: zookeeper
+    image: zookeeper:3.3
     restart: always
     environment:
       ZOO_MY_ID: 2
@@ -76,7 +76,7 @@ services:
     hostname: zookeeper2
     
   zookeeper3:
-    image: zookeeper
+    image: zookeeper:3.3
     restart: always
     environment:
       ZOO_MY_ID: 3
