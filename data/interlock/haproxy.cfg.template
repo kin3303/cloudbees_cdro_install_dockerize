@@ -106,10 +106,10 @@ listen  stats
 
         maxconn 10
 
-        timeout connect 10s
-        timeout client 10s
-        timeout server 10s
-        timeout queue   10s
+        timeout connect 100s
+        timeout client 100s
+        timeout server 100s
+        timeout queue   100s
 
         stats enable
         stats hide-version
