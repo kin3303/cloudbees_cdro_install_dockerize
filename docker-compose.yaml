@@ -94,7 +94,7 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock
 
   haproxy:
-    image: haproxy:1.8.5
+    image: haproxy:1.9.1
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
