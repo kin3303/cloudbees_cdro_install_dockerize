@@ -67,4 +67,12 @@ STOPSIGNAL SIGUSR1
 #COPY docker-entrypoint.sh /
 #ENTRYPOINT ["/docker-entrypoint.sh"]
 #CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
-CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
+
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
+RUN chmod +x /wait
+
+CMD /wait && \ 
+    haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p /run/haproxy.pid -db
+    
+#CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
