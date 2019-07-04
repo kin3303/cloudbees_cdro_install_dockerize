@@ -48,26 +48,7 @@ x-include:
     image: zookeeper:3.3
     restart: always
 
-services:
-  haproxy:
-    image: haproxy:1.9.0
-    restart: always
-    volumes:
-      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    labels:
-        - "interlock.ext.name=haproxy"
-    links:
-        - interlock:interlock
-    depends_on:
-        - interlock
-        - commanderserver
-        
+services:     
   db:
      image: mysql:5.7
      restart: always
@@ -129,6 +110,24 @@ services:
     depends_on:
       - commanderserver
 
+  haproxy:
+    image: haproxy:2.0
+    restart: always
+    volumes:
+      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    labels:
+        - "interlock.ext.name=haproxy"
+    links:
+        - interlock:interlock
+    depends_on:
+        - interlock
+        - commanderserver
 
   localagent:
     <<: *commanderagent
