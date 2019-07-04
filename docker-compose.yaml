@@ -93,25 +93,6 @@ services:
         - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
         - /var/run/docker.sock:/var/run/docker.sock
 
-  haproxy:
-    image: haproxy:1.9.0
-    restart: always
-    volumes:
-      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    labels:
-        - "interlock.ext.name=haproxy"
-    links:
-        - interlock:interlock
-    depends_on:
-        - interlock
-        - commanderserver
-
   commanderserver:
     << : *commanderserver
     labels:
@@ -166,3 +147,22 @@ services:
   insight:
     <<: *commanderinsight
     hostname: insight
+
+  haproxy:
+    image: haproxy:1.6.0
+    restart: always
+    volumes:
+      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    labels:
+        - "interlock.ext.name=haproxy"
+    links:
+        - interlock:interlock
+    depends_on:
+        - interlock
+        - commanderserver
