@@ -149,7 +149,7 @@ services:
     hostname: insight
 
   haproxy:
-    image: haproxy
+    image: haproxy:1.9.3
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
