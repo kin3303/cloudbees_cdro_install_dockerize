@@ -39,13 +39,13 @@ defaults
 #    option forwardfor       except 127.0.0.0/8
     option                  redispatch
     retries                 3
-    timeout http-request    10s
-    timeout queue           1m
-    timeout connect         10s
-    timeout client          1m
-    timeout server          1m
-    timeout http-keep-alive 10s
-    timeout check           10s
+    timeout http-request    30s
+    timeout queue           5m
+    timeout connect         30s
+    timeout client          5m
+    timeout server          5m
+    timeout http-keep-alive 30s
+    timeout check           30s
     maxconn                 3000
 
 # redirect port 80 to port 443
@@ -104,7 +104,7 @@ listen  stats
         mode            http
         log             global
 
-        maxconn 10
+        maxconn 100
 
         timeout connect 100s
         timeout client 100s
