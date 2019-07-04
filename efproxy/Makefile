@@ -1,5 +1,5 @@
 include ../settings.mk
 
-MODULE_NAME = commanderProxy
+MODULE_NAME = commanderproxy
 
 include ../template.mk
