@@ -111,7 +111,7 @@ services:
       - commanderserver
 
   haproxy:
-    image: haproxy:2.0
+    image: haproxy:1.8.0
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
