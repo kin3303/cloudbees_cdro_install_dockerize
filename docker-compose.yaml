@@ -85,7 +85,7 @@ services:
     #hostname: zookeeper3
     
   interlock:
-    image: ehazlett/interlock:1.4.0
+    image: ehazlett/interlock:1.4.3
     restart: always
     command: run -c /etc/interlock/config.toml
     volumes:
