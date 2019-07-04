@@ -49,6 +49,25 @@ x-include:
     restart: always
 
 services:
+  haproxy:
+    image: haproxy:1.9.0
+    restart: always
+    volumes:
+      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+      - 8443:8443
+      - 1936:1936
+    labels:
+        - "interlock.ext.name=haproxy"
+    links:
+        - interlock:interlock
+    depends_on:
+        - interlock
+        - commanderserver
+        
   db:
      image: mysql:5.7
      restart: always
@@ -92,7 +111,7 @@ services:
         - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
         - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
         - /var/run/docker.sock:/var/run/docker.sock
-
+        
   commanderserver:
     << : *commanderserver
     labels:
@@ -109,6 +128,7 @@ services:
     <<: *commanderapache
     depends_on:
       - commanderserver
+
 
   localagent:
     <<: *commanderagent
@@ -147,22 +167,3 @@ services:
   insight:
     <<: *commanderinsight
     hostname: insight
-
-  haproxy:
-    image: haproxy:1.9.3
-    restart: always
-    volumes:
-      - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
-      - 8443:8443
-      - 1936:1936
-    labels:
-        - "interlock.ext.name=haproxy"
-    links:
-        - interlock:interlock
-    depends_on:
-        - interlock
-        - commanderserver
