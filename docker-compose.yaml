@@ -68,21 +68,21 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    #hostname: zookeeper1
+    hostname: zookeeper1
 
   zookeeper2:
     << : *zookeeper
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    #hostname: zookeeper2
+    hostname: zookeeper2
     
   zookeeper3:
     << : *zookeeper
     environment:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-    #hostname: zookeeper3
+    hostname: zookeeper3
     
   interlock:
     image: ehazlett/interlock:1.4.0
@@ -92,6 +92,7 @@ services:
         - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
         - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
         - /var/run/docker.sock:/var/run/docker.sock
+    hostname: interlock
         
   commanderserver:
     << : *commanderserver
@@ -104,11 +105,13 @@ services:
     depends_on:
       - db
       - zookeeper1
-
+    hostname: commanderserver
+    
   commanderapache:
     <<: *commanderapache
     depends_on:
       - commanderserver
+    hostname: commanderapache
 
   haproxy:
     image: kin3303/commanderproxy
@@ -131,12 +134,14 @@ services:
     environment:
       WAIT_HOSTS: commanderserver:8000
       WAIT_HOSTS_TIMEOUT: 600
-      
+    hostname: haproxy
+    
   localagent:
     <<: *commanderagent
     depends_on:
       - commanderserver
-
+    hostname: localagent
+    
   devagent:
     image: kin3303/demowebagent
     ports:
@@ -144,7 +149,8 @@ services:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      
+    hostname: devagent
+    
   qaagent:
     image: kin3303/demowebagent
     ports:
@@ -152,7 +158,8 @@ services:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      
+    hostname: qaagent
+    
   prodagent:
     image: kin3303/demowebagent
     ports:
@@ -160,12 +167,14 @@ services:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      
+    hostname: prodagent
+    
   repository:
     <<: *commanderrepository
     depends_on:
       - commanderserver    
-
+    hostname: repository
+    
   insight:
     <<: *commanderinsight
     hostname: insight
