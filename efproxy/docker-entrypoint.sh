@@ -16,4 +16,4 @@ if [ "$1" = 'haproxy' ]; then
 fi
 
 
-wait && exec "$@"
+exec "$@"
