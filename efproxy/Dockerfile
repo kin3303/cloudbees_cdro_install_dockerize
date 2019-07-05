@@ -1,8 +1,8 @@
 FROM debian:stretch-slim
 
-ENV HAPROXY_VERSION 2.0.1
-ENV HAPROXY_URL https://www.haproxy.org/download/2.0/src/haproxy-2.0.1.tar.gz
-ENV HAPROXY_SHA256 9975c475ba6f19aac4b665d8705f7b9f7911df7fc316ba7b9efd6fe263181eb1
+ENV HAPROXY_VERSION 1.9.8
+ENV HAPROXY_URL https://www.haproxy.org/download/1.9/src/haproxy-1.9.8.tar.gz
+ENV HAPROXY_SHA256 2d9a3300dbd871bc35b743a83caaf50fecfbf06290610231ca2d334fd04c2aee
 
 # see https://sources.debian.net/src/haproxy/jessie/debian/rules/ for some helpful navigation of the possible "make" arguments
 RUN set -x \
@@ -27,7 +27,7 @@ RUN set -x \
 	&& rm haproxy.tar.gz \
 	\
 	&& makeOpts=' \
-		TARGET=linux-glibc \
+		TARGET=linux2628 \
 		USE_GETADDRINFO=1 \
 		USE_LUA=1 LUA_INC=/usr/include/lua5.3 \
 		USE_OPENSSL=1 \
@@ -35,8 +35,6 @@ RUN set -x \
 		USE_ZLIB=1 \
 		\
 		EXTRA_OBJS=" \
-# see https://github.com/docker-library/haproxy/issues/94#issuecomment-505673353 for more details about prometheus support
-			contrib/prometheus-exporter/service-prometheus.o \
 		" \
 	' \
 	&& nproc="$(nproc)" \
@@ -64,10 +62,6 @@ RUN set -x \
 # "graceful stop is triggered when the SIGUSR1 signal is sent to the haproxy process"
 STOPSIGNAL SIGUSR1
 
-#COPY docker-entrypoint.sh /
-#ENTRYPOINT ["/docker-entrypoint.sh"]
-#CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
-
 ## Add the wait script to the image
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
 RUN chmod +x /wait
@@ -79,8 +73,6 @@ RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
 
-
 #CMD /wait && \ 
 #    haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p /run/haproxy.pid -db
-    
 #CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
