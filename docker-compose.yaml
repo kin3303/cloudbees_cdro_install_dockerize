@@ -50,32 +50,35 @@ x-include:
 
 services:     
   db:
-     image: mysql:5.7
-     restart: always
-     volumes:
-       - ${PWD}/data/db-data:/var/lib/mysql
-       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
-       - ${PWD}/scripts:/tmp/scripts
-     environment:
-       MYSQL_ROOT_PASSWORD: ecdb
-       MYSQL_DATABASE: ecdb
-       MYSQL_USER: ecdb
-       MYSQL_PASSWORD: ecdb
-     hostname: db
-
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ${PWD}/data/db-data:/var/lib/mysql
+      - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      - ${PWD}/scripts:/tmp/scripts
+    environment:
+      MYSQL_ROOT_PASSWORD: ecdb
+      MYSQL_DATABASE: ecdb
+      MYSQL_USER: ecdb
+      MYSQL_PASSWORD: ecdb
+    hostname: db
+    container_name: zookeeper1
+    
   zookeeper1:
     << : *zookeeper
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper1
-
+    container_name: zookeeper1
+    
   zookeeper2:
     << : *zookeeper
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper2
+    container_name: zookeeper2
     
   zookeeper3:
     << : *zookeeper
@@ -83,6 +86,7 @@ services:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
+    container_name: zookeeper3
     
   interlock:
     image: ehazlett/interlock:1.4.0
@@ -145,6 +149,7 @@ services:
     depends_on:
       - commanderserver
     hostname: localagent
+    container_name: localagent
     
   devagent:
     image: kin3303/demowebagent
@@ -154,6 +159,7 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: devagent
+    container_name: devagent
     
   qaagent:
     image: kin3303/demowebagent
@@ -163,6 +169,7 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: qaagent
+    container_name: qaagent
     
   prodagent:
     image: kin3303/demowebagent
@@ -172,6 +179,7 @@ services:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: prodagent
+    container_name: prodagent
     
   repository:
     <<: *commanderrepository
