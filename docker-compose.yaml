@@ -62,7 +62,7 @@ services:
       MYSQL_USER: ecdb
       MYSQL_PASSWORD: ecdb
     hostname: db
-    container_name: zookeeper1
+    container_name: db
     
   zookeeper1:
     << : *zookeeper
