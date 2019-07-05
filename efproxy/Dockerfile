@@ -1,8 +1,8 @@
 FROM debian:stretch-slim
 
-ENV HAPROXY_VERSION 1.9.8
-ENV HAPROXY_URL https://www.haproxy.org/download/1.9/src/haproxy-1.9.8.tar.gz
-ENV HAPROXY_SHA256 2d9a3300dbd871bc35b743a83caaf50fecfbf06290610231ca2d334fd04c2aee
+ENV HAPROXY_VERSION 1.5.19
+ENV HAPROXY_URL https://www.haproxy.org/download/1.5/src/haproxy-1.5.19.tar.gz
+ENV HAPROXY_SHA256 e00ae2a633da614967f2e3ebebdb817ec537cba8383b833fc8d9a506876e0d5e
 
 # see https://sources.debian.net/src/haproxy/jessie/debian/rules/ for some helpful navigation of the possible "make" arguments
 RUN set -x \
@@ -12,9 +12,8 @@ RUN set -x \
 		ca-certificates \
 		gcc \
 		libc6-dev \
-		liblua5.3-dev \
 		libpcre2-dev \
-		libssl-dev \
+		libssl1.0-dev \
 		make \
 		wget \
 		zlib1g-dev \
@@ -29,7 +28,6 @@ RUN set -x \
 	&& makeOpts=' \
 		TARGET=linux2628 \
 		USE_GETADDRINFO=1 \
-		USE_LUA=1 LUA_INC=/usr/include/lua5.3 \
 		USE_OPENSSL=1 \
 		USE_PCRE2=1 USE_PCRE2_JIT=1 \
 		USE_ZLIB=1 \
@@ -62,16 +60,11 @@ RUN set -x \
 # "graceful stop is triggered when the SIGUSR1 signal is sent to the haproxy process"
 STOPSIGNAL SIGUSR1
 
-## Add the wait script to the image
-ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
-RUN chmod +x /wait
-
-
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
 
 #CMD /wait && \ 
 #    haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p /run/haproxy.pid -db
