@@ -121,7 +121,8 @@ services:
     container_name: commanderapache
 
   haproxy:
-    image: kin3303/commanderproxy
+    #image: kin3303/commanderproxy
+    image: haproxy:1.9.0
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
