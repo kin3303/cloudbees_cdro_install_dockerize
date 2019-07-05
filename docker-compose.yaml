@@ -111,7 +111,7 @@ services:
       - commanderserver
 
   haproxy:
-    image: kin3303/commanderproxy
+    image: haproxy:1.9.0
     restart: always
     volumes:
       - ${PWD}/data/haproxy/:/usr/local/etc/haproxy/
@@ -128,9 +128,6 @@ services:
     depends_on:
         - interlock
         - commanderserver
-    environment:
-      WAIT_HOSTS: commanderserver:8000
-      WAIT_HOSTS_TIMEOUT: 1200
 
   localagent:
     <<: *commanderagent
