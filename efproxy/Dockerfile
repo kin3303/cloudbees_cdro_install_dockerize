@@ -60,6 +60,10 @@ RUN set -x \
 # "graceful stop is triggered when the SIGUSR1 signal is sent to the haproxy process"
 STOPSIGNAL SIGUSR1
 
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
+RUN chmod +x /wait
+
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
