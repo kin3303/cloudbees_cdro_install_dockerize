@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -e
 
 # first arg is `-f` or `--some-option`
@@ -14,6 +13,5 @@ if [ "$1" = 'haproxy' ]; then
 	#   -db -- disables background mode
 	set -- haproxy -W -db "$@"
 fi
-
 
 exec "$@"
