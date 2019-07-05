@@ -84,21 +84,21 @@ services:
       ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
     hostname: zookeeper3
     
-  interlock:
-    image: ehazlett/interlock:1.4.0
-    restart: always
-    command: run -c /etc/interlock/config.toml
-    volumes:
-        - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
-        - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
-        - /var/run/docker.sock:/var/run/docker.sock
-    hostname: interlock
+#  interlock:
+#    image: ehazlett/interlock:1.4.0
+#    restart: always
+#    command: run -c /etc/interlock/config.toml
+#    volumes:
+#        - ${PWD}/data/interlock/config.toml:/etc/interlock/config.toml
+#        - ${PWD}/data/interlock/haproxy.cfg.template:/usr/local/etc/interlock/haproxy.cfg.template
+#        - /var/run/docker.sock:/var/run/docker.sock
+#    hostname: interlock
         
   commanderserver:
     << : *commanderserver
-    labels:
-        - "interlock.hostname=commanderserver"
-        - "interlock.domain=local"
+#    labels:
+#        - "interlock.hostname=commanderserver"
+#        - "interlock.domain=local"
     links:
       - db
       - insight
@@ -124,12 +124,12 @@ services:
       - 8000:8000
       - 8443:8443
       - 1936:1936
-    labels:
-        - "interlock.ext.name=haproxy"
-    links:
-        - interlock:interlock
+#    labels:
+#        - "interlock.ext.name=haproxy"
+#    links:
+#        - interlock:interlock
     depends_on:
-        - interlock
+#        - interlock
         - commanderserver
     environment:
       WAIT_HOSTS: commanderserver:8000
