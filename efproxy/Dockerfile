@@ -64,8 +64,8 @@ COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
 #ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
+#CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
 
-#CMD /wait && \ 
-#    haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p /run/haproxy.pid -db
+CMD /wait && \ 
+    haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p /run/haproxy.pid -db
 #CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg", "-p", "/run/haproxy.pid", "-db"]
