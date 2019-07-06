@@ -2,7 +2,7 @@ version: '3.4'
 
 x-include:
   commanderserver: &commanderserver
-    image: kin3303/commanderserver:${TAG}
+    image: "kin3303/commanderserver:${TAG}"
     restart: always
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
@@ -16,21 +16,21 @@ x-include:
       WAIT_HOSTS_TIMEOUT: 180
  
   commanderapache: &commanderapache
-    image: kin3303/commanderapache:${TAG}
+    image: "kin3303/commanderapache:${TAG}"
     restart: always
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
 
   commanderagent: &commanderagent
-    image: kin3303/commanderagent:${TAG}
+    image: "kin3303/commanderagent:${TAG}"
     restart: always
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
 
   commanderrepository: &commanderrepository
-    image: kin3303/commanderrepository:${TAG}
+    image: "kin3303/commanderrepository:${TAG}"
     restart: always
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
@@ -38,7 +38,7 @@ x-include:
       - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
 
   commanderinsight: &commanderinsight
-    image: kin3303/commanderinsight:${TAG}
+    image: "kin3303/commanderinsight:${TAG}"
     restart: always
     volumes:
       - ${PWD}/scripts:/tmp/scripts
