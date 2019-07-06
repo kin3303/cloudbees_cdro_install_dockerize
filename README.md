@@ -23,7 +23,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 ## Install EF Packages
 
 ```console
-  $ efstart <op:TAG>
+  $ efstart <op:TAG_VALUE>
 ```
 
 ## Auto Configuration
