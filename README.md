@@ -47,7 +47,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
  $ efsetdemo
 ```
 
-## Scaling EF Server
+## Scaling EF Server ( with docker-compose-with-haproxy.yaml only)
 
 ```console
  $ efscale <size>
