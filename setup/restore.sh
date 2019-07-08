@@ -41,9 +41,9 @@ cp -r $restoreDir/insight-data/* data/insight-data
 ###################################################################################################
 # DB Restore
 ###################################################################################################
-sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
+sudo docker exec -it $(docker ps |grep db|awk '{print $1}') /bin/bash /tmp/scripts/restoredb.sh
 
 ###################################################################################################
 # Insight Restore
 ###################################################################################################
-sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/restoreel.sh
+sudo docker exec -it $(docker ps |grep insight|awk '{print $1}') /bin/bash /tmp/scripts/restoreel.sh
