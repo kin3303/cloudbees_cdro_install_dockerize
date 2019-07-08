@@ -28,7 +28,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 
 ## Auto Configuration
 
-* Requrement 1 : This is available after server activation (<http://YOUR_IP_ADDRESS:1936/haproxy?stats>)
+* Requrement 1 : This is available after server activation
 * Requrement 2 : License file must be in **/tmp/license.xml**
 * What to do
    - Import license
