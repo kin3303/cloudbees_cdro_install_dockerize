@@ -6,7 +6,7 @@ rm -rf $backupRoot
 ###################################################################################################
 # DB Backup
 ###################################################################################################
-sudo docker exec -it $(docker ps |grep db_1|awk '{print $1}') /bin/bash /tmp/scripts/backupdb.sh
+sudo docker exec -it $(docker ps |grep db|awk '{print $1}') /bin/bash /tmp/scripts/backupdb.sh
 
 backupDir=$backupRoot/ecdb
 if [ ! -d "$backupDir" ]; then
@@ -17,7 +17,7 @@ fi
 ###################################################################################################
 # Elastic Search Backup
 ###################################################################################################
-sudo docker exec -it $(docker ps |grep insight_1|awk '{print $1}') /bin/bash /tmp/scripts/backupel.sh
+sudo docker exec -it $(docker ps |grep insight|awk '{print $1}') /bin/bash /tmp/scripts/backupel.sh
 if [ ! -d "$backupDir/insight-data" ]; then
    mkdir -p "$backupDir/insight-data"
    echo "Create ElasticSearch Data Directory - $backupDir/insight-data"
