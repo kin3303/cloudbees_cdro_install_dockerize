@@ -8,8 +8,8 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 
 ## Initialize
 
-- To receive master branch source code, execute follow commands
-- If you want to get other branch, just change master to branchName from follow commands
+- To get master branch source , execute follow commands
+- To get another branch source, change master to branchName then execute commands
 
 ```console
   $ sudo su
