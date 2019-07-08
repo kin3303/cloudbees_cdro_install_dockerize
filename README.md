@@ -1,6 +1,6 @@
 # EF Demo Project
 
-- Recommended 16GB memory, 8 cores or more, Ubuntu 14.04 or later
+- Recommended 16GB memory, 8 cores or more, Ubuntu 14.04 / 16.04 / 18.04 LTS 
 - Additional 3GB memory, 2 cores required when adding 1 more EFserver
 - Available EF tags : latest
 - Elasticsearch also uses a mix of NioFS and MMapFS for the various files. 
