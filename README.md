@@ -2,7 +2,7 @@
 
 - Recommended 16GB memory, 8 cores or more, Ubuntu 14.04 / 16.04 / 18.04 LTS 
 - Additional 3GB memory, 2 cores required when adding 1 more EFserver
-- Available EF tags : latest
+- Available EF tags : latest, 9.1.0, 9.0.1
 - Elasticsearch also uses a mix of NioFS and MMapFS for the various files. 
 Ensure that you configure the maximum map count so that there is ample virtual memory available for mmapped files.
 
