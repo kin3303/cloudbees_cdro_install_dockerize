@@ -63,22 +63,7 @@ services:
       MYSQL_PASSWORD: ecdb
     hostname: db
     container_name: db
-    
-  testdb:
-    image: mysql:5.7
-    restart: always
-    volumes:
-      - ${PWD}/data/db-data:/var/lib/mysql
-      - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
-      - ${PWD}/scripts:/tmp/scripts
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: univers
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-    hostname: testdb
-    container_name: testdb
-    
+
   zookeeper1:
     << : *zookeeper
     environment:
