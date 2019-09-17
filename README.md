@@ -26,7 +26,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 ## Install EF Packages
 
 ```console
-  $ efstart <op:TAG_VALUE>
+  $ efstart <op:TAG_VALUE> <op:DOCKER_COMPOSE_FILE_NAME>
 ```
 
 ## Auto Configuration
