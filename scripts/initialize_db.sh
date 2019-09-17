@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mysql -u ecdb -pecdb < initialize_db.sql
+mysql -u ecdb -pecdb < /tmp/scripts/initialize_db.sql
