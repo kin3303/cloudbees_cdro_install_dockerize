@@ -1,3 +1,3 @@
 #!/bin/bash
-
-mysql -u ecdb -pecdb < /tmp/scripts/initialize_db.sql
+/usr/local/mysqladmin password ecdb
+/usr/local/mysql -u ecdb -pecdb < /tmp/scripts/initialize_db.sql
