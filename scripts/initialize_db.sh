@@ -1,5 +1,4 @@
 #!/bin/bash
-mysqladmin -u ecdb password ecdb
 
 mysql --user=root --password=ecdb <<EOF
 drop database if exists univers;
