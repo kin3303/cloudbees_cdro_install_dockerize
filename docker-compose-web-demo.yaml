@@ -123,6 +123,7 @@ services:
     image: kin3303/demowebagent2
     ports:
       - "8060:8080"
+      - "9990:9990"
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
