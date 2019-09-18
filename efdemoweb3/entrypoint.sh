@@ -1,9 +1,7 @@
 #!/bin/bash
 
-#if [ "$INIT" = "1" ]; then
-        echo "Initializing $DATADIR..."
-        mysql_install_db
-#fi
+echo "Initializing $DATADIR..."
+mysql_install_db
 
 echo "Checking integrity of data from $DATADIR..."
 /usr/sbin/mysqld &
