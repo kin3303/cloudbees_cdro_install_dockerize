@@ -1,7 +1,10 @@
 #!/bin/bash
 
-echo "Initializing $DATADIR..."
-mysql_install_db
+if [ ! -f /tmp/mysql_ready ]; then
+  echo "Initializing $DATADIR..."
+  mysql_install_db
+  touch /tmp/mysql_ready
+fi
 
 echo "Checking integrity of data from $DATADIR..."
 /usr/sbin/mysqld &
