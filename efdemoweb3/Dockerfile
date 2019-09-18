@@ -10,15 +10,24 @@ ENV LANG=en_GB.UTF-8 \
     WUSR=testuser \
     WGRP=testuser \
     JBOSS_CONF=/etc/default/wildfly \
-    MYSQL_VERSION=5.7 \
+    MYSQL_VERSION=5.6 \
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
     PORT=3306 \
-    INIT=0
+    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
+    MAVEN_BRANCH_VERSION=3 \
+    MAVNE_VERSION=3.6.1 \
+    M2_HOME=/opt/maven \
+    MAVEN_HOME=/opt/maven \
+    PATH=${M2_HOME}/bin:${JAVA_HOME}/bin:${PATH}
 
 # Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# User and group id for wildfly
+RUN groupadd ${WGRP}
+RUN useradd -m -g ${WGRP} ${WUSR}
 
 # Install dependencies                                      
 RUN apt-get update && \
@@ -30,9 +39,11 @@ add-apt-repository -y ppa:openjdk-r/ppa && \
 apt-get update  && \
 apt-get install -y openjdk-8-jdk
 
-# User and group id for wildfly
-RUN groupadd ${WGRP}
-RUN useradd -m -g ${WGRP} ${WUSR}
+# Install Maven 
+WORKDIR /opt/
+RUN wget http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVNE_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
+tar -xvzf apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
+mv apache-maven-${MAVNE_VERSION} maven 
 
 # Install wildfly
 USER root
@@ -47,12 +58,12 @@ RUN cd $HOME \
     && echo "export JAVA_HOME=$JRE" > ${JBOSS_CONF} \
     && echo "export JBOSS_USER=${WUSR}" > ${JBOSS_CONF}
  
-#Adding wildfly startup script...
-WORKDIR opt/jboss/wildfly
+#Adding wildfly startup script
+WORKDIR /opt/jboss/wildfly
 RUN cp docs/contrib/scripts/init.d/wildfly-init-debian.sh /etc/init.d/wildfly
 RUN update-rc.d wildfly defaults
 
-# Create an admin user.
+# Create an admin user
 RUN bin/add-user.sh --silent --user admin --password changeme 
 
 # Updating wildfly config file
@@ -61,7 +72,10 @@ RUN sed -i -e 's/Xmx512m/Xmx1024m/' bin/standalone.conf
 RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
 
 # Install MySQL
-RUN apt-get update
+RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.3-1_all.deb && \
+DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.3-1_all.deb && \
+apt-get update
+
 RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server-${MYSQL_VERSION} \
