@@ -10,7 +10,6 @@ ENV LANG=en_GB.UTF-8 \
     WUSR=testuser \
     WGRP=testuser \
     JBOSS_CONF=/etc/default/wildfly \
-    PASSWORD=testdb \ 
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
