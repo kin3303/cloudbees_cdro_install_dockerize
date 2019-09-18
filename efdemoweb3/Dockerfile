@@ -49,7 +49,7 @@ RUN cd $HOME \
  
 #Adding wildfly startup script...
 WORKDIR opt/jboss/wildfly
-RUN cp bin/init.d/wildfly-init-debian.sh /etc/init.d/wildfly
+RUN cp docs/contrib/scripts/init.d/wildfly-init-debian.sh /etc/init.d/wildfly
 RUN update-rc.d wildfly defaults
 
 # Create an admin user.
