@@ -10,14 +10,12 @@ ENV LANG=en_GB.UTF-8 \
     WUSR=testuser \
     WGRP=testuser \
     JBOSS_CONF=/etc/default/wildfly \
-    PASSWORD=root \
-    USER=mysql \
+    PASSWORD=testdb \ 
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
     PORT=3306 \
     INIT=0
-
 
 # Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -62,7 +60,6 @@ RUN sed -i -e 's/127.0.0.1/0.0.0.0/g' standalone/configuration/standalone.xml
 RUN sed -i -e 's/Xmx512m/Xmx1024m/' bin/standalone.conf
 RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
 
-
 # Install MySQL
 RUN apt-get update
 RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
@@ -73,15 +70,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
     && sed -i '/^\(myisam-recover\)\([\w\t]*=\)/s//\1-options\2/' /etc/mysql/my.cnf \
     && sed -i "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf 
 
-
 # Expose Ports
 EXPOSE 8080 9990
 
 # Start
-#CMD /etc/init.d/wildfly start && /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
-
 COPY entrypoint.sh /root/entrypoint.sh
 RUN chmod +x /root/entrypoint.sh
-
 ENTRYPOINT ["/root/entrypoint.sh"]
-
