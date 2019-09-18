@@ -13,9 +13,9 @@ sleep 15
 
 mysql --user=root --password=password "SHOW databases; USE mysql;"
 
-mysqladmin -u root password '$PASSWORD'
+mysqladmin -u root password 'testdb'
 
-mysql --user=root --password=$PASSWORD <<EOF
+mysql --user=root --password=testdb <<EOF
 grant all on *.* to root@localhost IDENTIFIED BY '$PASSWORD';
 drop database if exists univers;
 create database univers;
