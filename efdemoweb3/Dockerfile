@@ -3,7 +3,7 @@ FROM kin3303/commanderagent
 RUN locale-gen en_GB.UTF-8
 ENV LANG en_GB.UTF-8
 ENV LC_CTYPE en_GB.UTF-8
-ENV WILDFLY_VERSION 8.2.0.Final
+ENV WILDFLY_VERSION 10.0.0.Final
 ENV JBOSS_HOME /opt/jboss/wildfly
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
@@ -18,11 +18,11 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get update && \
 apt-get install -y git build-essential curl wget software-properties-common xmlstarlet bsdtar unzip curl
                                                                             
-# Install JDK 7                                                 
+# Install JDK 8                                                 
 RUN apt-get update  && \ 
 add-apt-repository -y ppa:openjdk-r/ppa && \
 apt-get update  && \
-apt-get install -y openjdk-7-jdk
+apt-get install -y openjdk-8-jdk
 
 # User and group id for wildfly
 RUN groupadd ${WGRP}
@@ -59,12 +59,3 @@ RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
 EXPOSE 8080 9990
 CMD /etc/init.d/wildfly start && /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
 
-# User
-#USER jboss
-
-# Expose the ports we're interested in
-#EXPOSE 8080
-
-# Set the default command to run on boot
-# Standalone mode and bind to all interface
-#CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
