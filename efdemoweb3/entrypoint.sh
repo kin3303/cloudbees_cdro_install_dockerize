@@ -12,6 +12,13 @@ mysql --user=root --password=password "SHOW databases; USE mysql;"
 
 mysqladmin -u root password '$PASSWORD'
 
+mysql --user=root --password=$PASSWORD <<EOF
+grant all on *.* to root@localhost IDENTIFIED BY '$PASSWORD';
+drop database if exists univers;
+create database univers;
+use univers;
+EOF
+
 kill -TERM $TMPPID && wait
 STATUS=$?
 
