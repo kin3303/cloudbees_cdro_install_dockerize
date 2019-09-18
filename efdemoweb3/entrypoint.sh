@@ -11,12 +11,11 @@ echo "Checking integrity of data from $DATADIR..."
 TMPPID=$!
 sleep 15
 
-mysql --user=root --password=password "SHOW databases; USE mysql;"
+mysql --user=root --password=password "GRANT ALL PRIVILEGES ON *.* to 'root'@'%' IDENTIFIED BY 'password'; flush privileges;"
 
 mysqladmin -u root password 'testdb'
 
 mysql --user=root --password=testdb <<EOF
-grant all on *.* to root@localhost IDENTIFIED BY 'testdb';
 drop database if exists univers;
 create database univers;
 use univers;
