@@ -1,15 +1,23 @@
 FROM kin3303/commanderagent
                                                 
 RUN locale-gen en_GB.UTF-8
-ENV LANG en_GB.UTF-8
-ENV LC_CTYPE en_GB.UTF-8
-ENV WILDFLY_VERSION 10.0.0.Final
-ENV JBOSS_HOME /opt/jboss/wildfly
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
-ENV LAUNCH_JBOSS_IN_BACKGROUND true
-ENV WUSR jboss
-ENV WGRP jboss
-ENV JBOSS_CONF /etc/default/wildfly
+ENV LANG=en_GB.UTF-8 \
+    LC_CTYPE=en_GB.UTF-8 \
+    WILDFLY_VERSION=10.0.0.Final \
+    JBOSS_HOME=/opt/jboss/wildfly \
+    JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 \
+    LAUNCH_JBOSS_IN_BACKGROUND=true \
+    WUSR=testuser \
+    WGRP=testuser \
+    JBOSS_CONF=/etc/default/wildfly \
+    PASSWORD=root \
+    USER=mysql \
+    RUNDIR=/run/mysql \
+    LOGDIR=/var/log/mysql \
+    DATADIR=/var/lib/mysql \
+    PORT=3306 \
+    INIT=0
+
 
 # Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -53,9 +61,27 @@ RUN bin/add-user.sh --silent --user admin --password changeme
 RUN sed -i -e 's/127.0.0.1/0.0.0.0/g' standalone/configuration/standalone.xml
 RUN sed -i -e 's/Xmx512m/Xmx1024m/' bin/standalone.conf
 RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
- 
-# Start the standalone JBoss server to make sure it works.
-# USER ${WUSR}
+
+
+# Install MySQL
+RUN apt-get update
+RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
+    && rm -rf /var/lib/apt/lists/* \
+    && sed -i '/^\(key_buffer\)\([\w\t]*=\)/s//\1_size\2/' /etc/mysql/my.cnf \
+    && sed -i '/^\(myisam-recover\)\([\w\t]*=\)/s//\1-options\2/' /etc/mysql/my.cnf \
+    && sed -i "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf 
+
+
+# Expose Ports
 EXPOSE 8080 9990
-CMD /etc/init.d/wildfly start && /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+
+# Start
+#CMD /etc/init.d/wildfly start && /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
+
+COPY entrypoint.sh /root/entrypoint.sh
+RUN chmod +x /root/entrypoint.sh
+
+ENTRYPOINT ["/root/entrypoint.sh"]
 
