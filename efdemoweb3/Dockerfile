@@ -10,6 +10,7 @@ ENV LANG=en_GB.UTF-8 \
     WUSR=testuser \
     WGRP=testuser \
     JBOSS_CONF=/etc/default/wildfly \
+    MYSQL_VERSION=5.7 \
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
@@ -63,7 +64,7 @@ RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
 RUN apt-get update
 RUN echo "mysql-server mysql-server/root_password password" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server-${MYSQL_VERSION} \
     && rm -rf /var/lib/apt/lists/* \
     && sed -i '/^\(key_buffer\)\([\w\t]*=\)/s//\1_size\2/' /etc/mysql/my.cnf \
     && sed -i '/^\(myisam-recover\)\([\w\t]*=\)/s//\1-options\2/' /etc/mysql/my.cnf \
