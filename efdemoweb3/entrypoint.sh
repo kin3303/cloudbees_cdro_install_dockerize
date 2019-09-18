@@ -16,7 +16,7 @@ mysql --user=root --password=password "SHOW databases; USE mysql;"
 mysqladmin -u root password 'testdb'
 
 mysql --user=root --password=testdb <<EOF
-grant all on *.* to root@localhost IDENTIFIED BY '$PASSWORD';
+grant all on *.* to root@localhost IDENTIFIED BY 'testdb';
 drop database if exists univers;
 create database univers;
 use univers;
