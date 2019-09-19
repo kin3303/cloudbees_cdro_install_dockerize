@@ -18,7 +18,7 @@ ENV LANG=en_GB.UTF-8 \
     PORT=3306 \
     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
     MAVEN_BRANCH_VERSION=3 \
-    MAVNE_VERSION=3.6.1 \
+    MAVEN_VERSION=3.6.1 \
     M2_HOME=/opt/maven \
     MAVEN_HOME=/opt/maven \
     PATH=${M2_HOME}/bin:${JAVA_HOME}/bin:${PATH}
@@ -41,12 +41,13 @@ apt-get update  && \
 apt-get install -y openjdk-8-jdk
 
 # Install Maven 
-WORKDIR /opt/
-RUN wget http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVNE_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
-tar -xvzf apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
-rm -f apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
-mv apache-maven-${MAVNE_VERSION} maven && \
-ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
+RUN apt-get update &&  \
+  && mkdir -p /usr/share/maven /usr/share/maven/ref \
+  && curl -fsSL -o /tmp/apache-maven.tar.gz http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz \
+  && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
+  && rm -f /tmp/apache-maven.tar.gz \
+  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+
 
 # Install wildfly
 USER root
