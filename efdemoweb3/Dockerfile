@@ -43,7 +43,7 @@ RUN apt-get update \
 # Install Maven 
 RUN apt-get update \
     && mkdir -p /usr/share/maven /usr/share/maven/ref \
-    && curl -fsSL -o /tmp/apache-maven.tar.gz http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz \
+    && curl -fsSL -o /tmp/apache-maven.tar.gz http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
     && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
     && rm -f /tmp/apache-maven.tar.gz \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
