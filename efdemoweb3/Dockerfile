@@ -44,7 +44,9 @@ apt-get install -y openjdk-8-jdk
 WORKDIR /opt/
 RUN wget http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVNE_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
 tar -xvzf apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
-mv apache-maven-${MAVNE_VERSION} maven 
+rm -f apache-maven-${MAVNE_VERSION}-bin.tar.gz && \
+mv apache-maven-${MAVNE_VERSION} maven && \
+ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
 # Install wildfly
 USER root
