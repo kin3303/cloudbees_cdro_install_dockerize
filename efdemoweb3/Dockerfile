@@ -31,22 +31,22 @@ RUN groupadd ${WGRP}
 RUN useradd -m -g ${WGRP} ${WUSR}
 
 # Install dependencies                                      
-RUN apt-get update && \
-apt-get install -y git build-essential curl wget software-properties-common xmlstarlet bsdtar unzip curl
+RUN apt-get update \
+    && apt-get install -y git build-essential curl wget software-properties-common xmlstarlet bsdtar unzip curl
                                                                             
 # Install JDK 8                                                 
-RUN apt-get update  && \ 
-add-apt-repository -y ppa:openjdk-r/ppa && \
-apt-get update  && \
-apt-get install -y openjdk-8-jdk
+RUN apt-get update \ 
+    && add-apt-repository -y ppa:openjdk-r/ppa \
+    && apt-get update \
+    && apt-get install -y openjdk-8-jdk
 
 # Install Maven 
-RUN apt-get update &&  \
-  && mkdir -p /usr/share/maven /usr/share/maven/ref \
-  && curl -fsSL -o /tmp/apache-maven.tar.gz http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz \
-  && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
-  && rm -f /tmp/apache-maven.tar.gz \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+RUN apt-get update \
+    && mkdir -p /usr/share/maven /usr/share/maven/ref \
+    && curl -fsSL -o /tmp/apache-maven.tar.gz http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVNE_VERSION}-bin.tar.gz \
+    && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
+    && rm -f /tmp/apache-maven.tar.gz \
+    && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 
 # Install wildfly
@@ -76,9 +76,9 @@ RUN sed -i -e 's/Xmx512m/Xmx1024m/' bin/standalone.conf
 RUN sed -i -e 's/MaxPermSize=256m/MaxPermSize=384m/' bin/standalone.conf
 
 # Install MySQL
-RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.3-1_all.deb && \
-DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.3-1_all.deb && \
-apt-get update
+RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.3-1_all.deb \
+    && DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.3-1_all.deb \
+    && apt-get update
 
 RUN echo "mysql-server-${MYSQL_VERSION} mysql-server/root_password ${MYSQL_PASSWORD}" | debconf-set-selections
 RUN echo "mysql-server-${MYSQL_VERSION} mysql-server/root_password_again ${MYSQL_PASSWORD}" | debconf-set-selections
