@@ -14,6 +14,7 @@ ENV LANG=en_GB.UTF-8 \
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
+    MYSQL_PASSWORD=password \
     PORT=3306 \
     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
     MAVEN_BRANCH_VERSION=3 \
@@ -76,8 +77,8 @@ RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.3-1_all.deb && \
 DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.3-1_all.deb && \
 apt-get update
 
-RUN echo "mysql-server-${MYSQL_VERSION} mysql-server/root_password password" | debconf-set-selections
-RUN echo "mysql-server-${MYSQL_VERSION} mysql-server/root_password_again password" | debconf-set-selections
+RUN echo "mysql-server-${MYSQL_VERSION} mysql-server/root_password ${MYSQL_PASSWORD}" | debconf-set-selections
+RUN echo "mysql-server-${MYSQL_VERSION} mysql-server/root_password_again ${MYSQL_PASSWORD}" | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server-${MYSQL_VERSION} \
     && rm -rf /var/lib/apt/lists/* \
     && sed -i '/^\(key_buffer\)\([\w\t]*=\)/s//\1_size\2/' /etc/mysql/my.cnf \
