@@ -11,15 +11,13 @@ echo "Checking integrity of data from $DATADIR..."
 TMPPID=$!
 sleep 15
 
-mysql --user=root --password=password  <<EOF
+mysql --user=root --password=$MYSQL_PASSWORD  <<EOF
 drop database if exists univers;
 create database univers;
 grant all privileges on *.* to 'root'@'%' identified by 'password'; 
 flush privileges;
 use univers;
 EOF
-
-mysqladmin -u root password 'testdb'
 
 kill -TERM $TMPPID && wait
 STATUS=$?
