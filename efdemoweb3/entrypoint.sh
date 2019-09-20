@@ -14,13 +14,12 @@ sleep 30
 
 mysql --user=root --password=root "SHOW databases; USE mysql;"
 
-QUOTE="'"
-mysqladmin -u root password $QUOTE$MYSQL_PASSWORD$QUOTE
+mysqladmin -u root password 'password'
 
-mysql --user=root --password=$MYSQL_PASSWORD  <<EOF
+mysql --user=root --password=password  <<EOF
 drop database if exists univers;
 create database univers;
-grant all privileges on *.* to 'root'@'%' identified by $QUOTE$MYSQL_PASSWORD$QUOTE; 
+grant all privileges on *.* to 'root'@'%' identified by 'password'; 
 flush privileges;
 use univers;
 EOF
