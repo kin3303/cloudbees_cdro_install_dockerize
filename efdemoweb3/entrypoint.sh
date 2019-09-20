@@ -9,7 +9,13 @@ fi
 echo "Checking integrity of data from $DATADIR..."
 /usr/sbin/mysqld &
 TMPPID=$!
-sleep 15
+sleep 30
+
+
+mysql --user=root --password=root "SHOW databases; USE mysql;"
+
+QUOTE="'"
+mysqladmin -u root password $QUOTE$MYSQL_PASSWORD$QUOTE
 
 mysql --user=root --password=$MYSQL_PASSWORD  <<EOF
 drop database if exists univers;
