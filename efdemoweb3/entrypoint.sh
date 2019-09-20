@@ -20,7 +20,7 @@ mysqladmin -u root password $QUOTE$MYSQL_PASSWORD$QUOTE
 mysql --user=root --password=$MYSQL_PASSWORD  <<EOF
 drop database if exists univers;
 create database univers;
-grant all privileges on *.* to 'root'@'%' identified by 'password'; 
+grant all privileges on *.* to 'root'@'%' identified by $QUOTE$MYSQL_PASSWORD$QUOTE; 
 flush privileges;
 use univers;
 EOF
