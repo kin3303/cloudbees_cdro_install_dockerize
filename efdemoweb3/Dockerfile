@@ -14,7 +14,6 @@ ENV LANG=en_GB.UTF-8 \
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
-    MYSQL_PASSWORD=password \
     PORT=3306 \
     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
     MAVEN_BRANCH_VERSION=3 \
