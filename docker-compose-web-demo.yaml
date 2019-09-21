@@ -120,7 +120,7 @@ services:
     container_name: localagent
     
   devagent:
-    image: kin3303/demowebagent3
+    image: kin3303/demoagentdev
     ports:
       - 8060:8080
       - 9990:9990
@@ -131,7 +131,7 @@ services:
     container_name: devagent
     
   qaagent:
-    image: kin3303/demowebagent3
+    image: kin3303/demoagentdev
     ports:
       - 8070:8080
     volumes:
@@ -141,7 +141,7 @@ services:
     container_name: qaagent
     
   prodagent:
-    image: kin3303/demowebagent3
+    image: kin3303/demoagentdev
     ports:
       - 8080:8080
     volumes:
