@@ -14,6 +14,10 @@ VOLUME ["/var/lib/mysql/", "/var/log/mysql/"]
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
+# Install dependencies                                      
+RUN apt-get update \
+    && apt-get install -y git build-essential curl wget software-properties-common xmlstarlet bsdtar unzip curl
+        
 # Install MySQL
 RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.3-1_all.deb \
     && DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.3-1_all.deb \
