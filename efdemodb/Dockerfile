@@ -7,8 +7,6 @@ ENV LANG=en_GB.UTF-8 \
     RUNDIR=/run/mysql \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql
-
-VOLUME ["/var/lib/mysql/", "/var/log/mysql/"]
 	
 # Fix sh                                                        
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
