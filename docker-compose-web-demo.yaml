@@ -149,7 +149,18 @@ services:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: prodagent
     container_name: prodagent
-    
+
+  dbagent:
+    image: kin3303/demoagentdb
+    ports:
+      - 3307:3306
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/demo-db-data:/var/lib/mysql
+    hostname: dbagent
+    container_name: dbagent
+
   repository:
     <<: *commanderrepository
     depends_on:
