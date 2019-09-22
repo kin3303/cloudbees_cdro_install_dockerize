@@ -87,6 +87,7 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/demo_creds_ready ]; then
        --actualParameter config=mysqlcfg --pollInterval 20
   ectool --silent modifyCredential /plugins/EC-MYSQL/project mysqlcfg --userName root --password password
 
+  echo "Setting Git credentials..."
   ectool --silent runProcedure /plugins/ECSCM-Git/project --procedureName CreateConfiguration \
        --actualParameter config=gitcfg --pollInterval 20
   ectool --silent modifyCredential /plugins/ECSCM-Git/project gitcfg --userName kin3303 --password eodnddk!QAZ2wsx\
