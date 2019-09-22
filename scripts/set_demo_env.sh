@@ -8,16 +8,16 @@ ectool login admin changeme
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_agents_ready ]; then
 
   ectool createResource PROD --hostName  prodagent 
-  ectool pingResource prodagent
+  ectool pingResource PROD
   
   ectool createResource DEV --hostName  devagent 
-  ectool pingResource devagent
+  ectool pingResource DEV
   
   ectool createResource QA --hostName  qaagent 
-  ectool pingResource qaagent
+  ectool pingResource QA
   
   ectool createResource DB --hostName  dbagent 
-  ectool pingResource dbagent 
+  ectool pingResource DB 
   
   
   touch /opt/electriccloud/electriccommander/conf/demo_agents_ready
