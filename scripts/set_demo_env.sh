@@ -8,13 +8,17 @@ ectool login admin changeme
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_agents_ready ]; then
 
   ectool createResource PROD --hostName  prodagent 
-  ectool pingResource repositoryAgent
+  ectool pingResource prodagent
   
   ectool createResource DEV --hostName  devagent 
-  ectool pingResource repositoryAgent
+  ectool pingResource devagent
   
   ectool createResource QA --hostName  qaagent 
-  ectool pingResource repositoryAgent
+  ectool pingResource qaagent
+  
+  ectool createResource DB --hostName  dbagent 
+  ectool pingResource dbagent 
+  
   
   touch /opt/electriccloud/electriccommander/conf/demo_agents_ready
 fi
@@ -56,17 +60,19 @@ ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleD
 echo "Plugin Modification"
 ectool --silent  modifyProject "/plugins/EC-JIRA/project" --resourceName "local" --workspaceName "default"
 
-#echo "Creating users"
-#ectool createUser anne --password changeme --fullUserName "Administrator Anne" --groupNames administrators --email "anne@flow.localdomain"
-#ectool createUser dave --password changeme --fullUserName "Developer Dave" --groupNames development --email "dave@flow.localdomain"
-#ectool createUser quinn --password changeme --fullUserName "Quality Quinn" --groupNames quality --email "quinn@flow.localdomain"
-#ectool createUser raj --password changeme --fullUserName "Releaser Raj" --groupNames release --email "raj@flow.localdomain"
-#ectool createUser oscar --password changeme --fullUserName "Operations Oscar" --groupNames operations --email "oscar@flow.localdomain"
-#ectool createUser eddie --password changeme --fullUserName "Executive Eddie" --groupNames executive --email "eddie@flow.localdomain"
-#ectool createUser ingrid --password changeme --fullUserName "IT Ingrid" --groupNames it --email "ingrid@flow.localdomain"
+echo "Setting JBoss credentials..."
+ectool --silent runProcedure /plugins/EC-JBoss/project --procedureName CreateConfiguration \
+       --actualParameter config=jbosscfg jboss_url="localhost:9990" --pollInterval 20
+ectool --silent modifyCredential /plugins/EC-JBoss/project jbosscfg --userName admin --password changeme
 
 
-#echo "Setting top-level security policies"
-#ectool --silent setProperty "/server/flow_demo/security_policy" --valueFile  /tmp/scripts/projectResouces/policy.json 
-#ectool --silent runProcedure "/plugins/EC-Security/project" --procedureName ApplyPolicy --actualParameter "policyLocation=/server/flow_demo/security_policy" --pollInterval 1
+echo "Setting MySQL credentials..."
+ectool --silent runProcedure /plugins/EC-MYSQL/project --procedureName CreateConfiguration \
+       --actualParameter config=mysqlcfg --pollInterval 20
+ectool --silent modifyCredential /plugins/EC-MYSQL/project mysqlcfg --userName root --password password
+
+
+ectool --silent runProcedure /plugins/ECSCM-Git/project --procedureName CreateConfiguration \
+       --actualParameter config=gitcfg --pollInterval 20
+ectool --silent modifyCredential /plugins/ECSCM-Git/project gitcfg --userName kin3303 --password eodnddk!QAZ2wsx
 
