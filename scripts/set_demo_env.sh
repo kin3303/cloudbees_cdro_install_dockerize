@@ -23,12 +23,6 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/demo_qa_agents_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/demo_qa_agents_ready
 fi
 
-if [ ! -f /opt/electriccloud/electriccommander/conf/demo_db_agents_ready ]; then
-  ectool createResource DB --hostName  dbagent 
-  ectool pingResource DB 
-  touch /opt/electriccloud/electriccommander/conf/demo_db_agents_ready
-fi
-
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/plugin_install_ready ]; then
   echo "Install Plugins"
