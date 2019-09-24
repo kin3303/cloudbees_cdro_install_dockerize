@@ -90,7 +90,7 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/demo_creds_ready ]; then
   echo "Setting Git credentials..."
   ectool --silent runProcedure /plugins/ECSCM-Git/project --procedureName CreateConfiguration \
        --actualParameter config=gitcfg --pollInterval 20
-  ectool --silent modifyCredential /plugins/ECSCM-Git/project gitcfg --userName kin3303 --password eodnddk!QAZ2wsx\
+  ectool --silent modifyCredential /plugins/ECSCM-Git/project gitcfg --userName kin3303 --password eodnddk!QAZ2wsx
   
   touch /opt/electriccloud/electriccommander/conf/demo_creds_ready
 fi
