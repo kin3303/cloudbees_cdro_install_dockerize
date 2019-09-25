@@ -26,4 +26,5 @@ echo -e "alias efscale='bash ./setup/scale.sh'" >> ~/.bashrc
 echo -e "alias efbackup='bash ./setup/backup.sh'" >> ~/.bashrc
 echo -e "alias efrestore='bash ./setup/restore.sh'" >> ~/.bashrc
 echo -e "alias efupload='bash ./upload.sh'" >> ~/.bashrc
+echo -e "alias eftuning='bash ./setup/tuning.sh'" >> ~/.bashrc
 
