@@ -71,14 +71,14 @@ ectool --silent  modifyProject "/plugins/EC-JIRA/project" --resourceName "local"
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/demo_creds_ready ]; then
   echo "Setting JBoss credentials..."
-  ectool --silent runProcedure /plugins/EC-JBoss/project --procedureName CreateConfiguration \
+  ectool runProcedure /plugins/EC-JBoss/project --procedureName CreateConfiguration \
        --actualParameter config=jbosscfg jboss_url="localhost:9990" scriptphysicalpath=/opt/jboss/wildfly/bin/jboss-cli.sh --pollInterval 30
-  ectool --silent modifyCredential /plugins/EC-JBoss/project jbosscfg --userName admin --password changeme
+  ectool modifyCredential /plugins/EC-JBoss/project jbosscfg --userName admin --password changeme
 
   echo "Setting MySQL credentials..."
-  ectool --silent runProcedure /plugins/EC-MYSQL/project --procedureName CreateConfiguration \
+  ectool runProcedure /plugins/EC-MYSQL/project --procedureName CreateConfiguration \
        --actualParameter config=mysqlcfg --pollInterval 30
-  ectool --silent modifyCredential /plugins/EC-MYSQL/project mysqlcfg --userName root --password password
+  ectool modifyCredential /plugins/EC-MYSQL/project mysqlcfg --userName root --password password
  
   touch /opt/electriccloud/electriccommander/conf/demo_creds_ready
 fi
