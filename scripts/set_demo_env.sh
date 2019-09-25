@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+#!/bin/bash -ex
 
 export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 
