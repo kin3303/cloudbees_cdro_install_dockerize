@@ -26,7 +26,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 ## Install EF Packages
 
 ```console
-  $ efstart <op:TAG_VALUE> <op:DOCKER_COMPOSE_FILE_NAME>  (i.e efstart latest docker-compose-web-demo.yaml)
+  $ efstart
 ```
 
 ## Auto Configuration
@@ -48,14 +48,6 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 
 ```console
  $ efsetdemo
-```
-
-## Scaling EF Server
-
-* Requrement : Starting with docker-compose-with-haproxy.yaml
-
-```console
- $ efscale <size>
 ```
 
 ## Backup
