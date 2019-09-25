@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 backupFile=backup.tar.gz
 if [ ! -f "$backupFile" ]; then 
