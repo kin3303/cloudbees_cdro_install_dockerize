@@ -6,7 +6,7 @@
 - Elasticsearch also uses a mix of NioFS and MMapFS for the various files. 
 Ensure that you configure the maximum map count so that there is ample virtual memory available for mmapped files.
 
-## Initialize
+## Step 1. Initialize
 
 - To get master branch source , execute follow commands
 - To get another branch source, change master to branchName then execute commands
@@ -17,19 +17,19 @@ Ensure that you configure the maximum map count so that there is ample virtual m
   $ wget -O init.sh  https://github.com/kin3303/efdemo/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
 ```
 
-## Install Environment
+## Step 2. Install Environment
 
 ```console
   $ efinstall
 ```
 
-## Install EF Packages
+## Step 3. Install EF Packages
 
 ```console
   $ efstart
 ```
 
-## Auto Configuration
+## Step 4. Auto Configuration
 
 * Requrement 1 : This is available after server activation
 * Requrement 2 : License file must be in **/tmp/license.xml**
@@ -44,7 +44,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
  $ efconfig
 ```
 
-## Demo Configuration
+## Step 5 (OP). Demo Configuration
 
 ```console
  $ efsetdemo
