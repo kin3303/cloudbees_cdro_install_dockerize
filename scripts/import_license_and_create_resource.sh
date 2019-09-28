@@ -14,12 +14,8 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
 fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/agents_ready ]; then
-  #ectool createResource local --hostName localagent
-  #ectool pingResource local
-  ectool createResource localAgent --hostName localagent
-  ectool pingResource localAgent
-  ectool createResource local --hostName haproxy
-  ectool pingResource haproxy  
+  ectool createResource local --hostName localagent
+  ectool pingResource local
   
   ectool createResource apacheAgent --hostName  commanderapache 
   ectool pingResource apacheAgent
