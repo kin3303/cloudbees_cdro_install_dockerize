@@ -58,10 +58,13 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/project_import_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/project_import_ready
 fi
 
-echo "Creating groups"
-for i in administrators development quality release operations executive it; do
-  ectool createGroup $i
-done
+if [ ! -f /opt/electriccloud/electriccommander/conf/project_group_settings_ready ]; then
+  echo "Creating groups"
+  for i in administrators development quality release operations executive it; do
+    ectool createGroup $i
+  done
+  touch /opt/electriccloud/electriccommander/conf/project_group_settings_ready
+fi
 
 echo "Disable Sentry Monitor"
 ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleDisabled true
