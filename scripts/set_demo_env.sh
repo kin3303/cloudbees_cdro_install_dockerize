@@ -66,8 +66,8 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/project_group_settings_ready
   touch /opt/electriccloud/electriccommander/conf/project_group_settings_ready
 fi
 
-echo "Disable Sentry Monitor"
-ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleDisabled true
+#echo "Disable Sentry Monitor"
+#ectool --silent  modifySchedule "Electric Cloud" ECSCM-SentryMonitor --scheduleDisabled true
 
 echo "Plugin Modification"
 ectool --silent  modifyProject "/plugins/EC-JIRA/project" --resourceName "local" --workspaceName "default"
