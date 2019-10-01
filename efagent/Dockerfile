@@ -14,8 +14,8 @@ RUN chmod +x /tmp/${EFLOW_INSTALLER}
 RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
 RUN rm -f /tmp/${EFLOW_INSTALLER}
 
-RUN  sed -i -e 's/wrapper.java.initmemory=16/wrapper.java.initmemory=256/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
-RUN  sed -i -e 's/wrapper.java.maxmemory=64/wrapper.java.maxmemory=512/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
+RUN  sed -i -e 's/wrapper.java.initmemory=16/wrapper.java.initmemory=256/g' /opt/electriccloud/electriccommander/conf/agent/wrapper.conf
+RUN  sed -i -e 's/wrapper.java.maxmemory=64/wrapper.java.maxmemory=512/g' /opt/electriccloud/electriccommander/conf/agent/wrapper.conf
 
 EXPOSE 7800
 CMD /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
