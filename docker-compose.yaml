@@ -53,7 +53,7 @@ services:
     image: mysql:5.7
     restart: always
     volumes:
-      - ${PWD}/data/db-data:/var/lib/mysql
+      #- ${PWD}/data/db-data:/var/lib/mysql
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/scripts:/tmp/scripts
     environment:
