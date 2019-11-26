@@ -98,8 +98,8 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 
 ```console
  $ cd <SourceRoot>
- $ export EFLOW_DEV_INSTALLER=CloudBeesFlowDevOpsInsightServer-x64-9.1.0.138283
- $ export EFLOW_INSTALLER=CloudBeesFlow-x64-9.1.0.138283
+ $ export EFLOW_DEV_INSTALLER=CloudBeesFlowDevOpsInsightServer-x64-9.2.0.139827
+ $ export EFLOW_INSTALLER=CloudBeesFlow-x64-9.2.0.139827
  $ export TAG=latest
  $ docker login
  $ make
