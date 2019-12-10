@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<licenses>
+  <license>
+    <customerName>Electric-Cloud</customerName>
+    <productName>ElectricCommander</productName>
+    <featureName>Server</featureName>
+    <expirationDate>2020-01-07</expirationDate>
+    <gracePeriod>0</gracePeriod>
+    <evaluation>false</evaluation>
+    <properties>
+      <property>
+        <propertyName>maxHosts</propertyName>
+        <propertyValue>5</propertyValue>
+      </property>
+      <property>
+        <propertyName>maxConcurrentUsers</propertyName>
+        <propertyValue>5</propertyValue>
+      </property>
+    </properties>
+    <signature>r5E+LUo/sDkKS8sKEHFGTdEKNznK2DnfOz5VNkH6pzfNCqOr2yClslOSbA+u+wEp9tIxCBAX3CJRYYlfWx1x5EHFnJoR1npI+M8s8CaT9FUgB60lf2eJEQcCKEgtRze029gJKKpdZevagwpjh27EwJGgesIYf7yg1hc53dtaxelVP18fywFyVE6T6oHQ5RMXPaTI8AoqpMJvgrxtmw4k/+wXJEZXd8xpJONa1qMsxq3tNCHCruqBTvb7VUtbRcjy+W8YaGL/Dna/JjBzYHrCKW/aAMwBq70kYdSi1j4naKslP+jciKK5lKrvFZ9Jii9sbakNzFK3WaMDYMJnxLvC8EAEowKCY56GkxK75eEYQN6PvsiC6c7nAvwkxttxSuCuWp5iJsMocnR2mX/bt0ezZ/keNuig+mv+XRAKFhCBClQpPvgIkRQ+IQ9pJGZNRhve+Y8fofpZPc8kfFOxVeI3OKPTYf5vFb+sAhZllwJflXl6h/MFhdB3Mo/Gr9XjoBb4lndFjXICm7dEAsXJ7dZmctrmx2uaafq6Qq1Iu1qya8kqoQXrzBwKfXGrGQAvLRUXok8QQn8TJ4Nv5aX4yqDlSrXu4OzcpIl6LUrOiMsH1T9lQ0QhsIcurl1lDPbmlyX/YT+MKyfs6mPumtqIBuDllk/oRN2SZQLnK5M9jZZRAAs=</signature>
+  </license>
+</licenses>
