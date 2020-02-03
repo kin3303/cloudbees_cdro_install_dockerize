@@ -5,7 +5,7 @@
     <customerName>Electric-Cloud</customerName>
     <productName>ElectricCommander</productName>
     <featureName>Server</featureName>
-    <expirationDate>2020-01-07</expirationDate>
+    <expirationDate>2020-07-07</expirationDate>
     <gracePeriod>0</gracePeriod>
     <evaluation>false</evaluation>
     <properties>
@@ -18,6 +18,6 @@
         <propertyValue>5</propertyValue>
       </property>
     </properties>
-    <signature>r5E+LUo/sDkKS8sKEHFGTdEKNznK2DnfOz5VNkH6pzfNCqOr2yClslOSbA+u+wEp9tIxCBAX3CJRYYlfWx1x5EHFnJoR1npI+M8s8CaT9FUgB60lf2eJEQcCKEgtRze029gJKKpdZevagwpjh27EwJGgesIYf7yg1hc53dtaxelVP18fywFyVE6T6oHQ5RMXPaTI8AoqpMJvgrxtmw4k/+wXJEZXd8xpJONa1qMsxq3tNCHCruqBTvb7VUtbRcjy+W8YaGL/Dna/JjBzYHrCKW/aAMwBq70kYdSi1j4naKslP+jciKK5lKrvFZ9Jii9sbakNzFK3WaMDYMJnxLvC8EAEowKCY56GkxK75eEYQN6PvsiC6c7nAvwkxttxSuCuWp5iJsMocnR2mX/bt0ezZ/keNuig+mv+XRAKFhCBClQpPvgIkRQ+IQ9pJGZNRhve+Y8fofpZPc8kfFOxVeI3OKPTYf5vFb+sAhZllwJflXl6h/MFhdB3Mo/Gr9XjoBb4lndFjXICm7dEAsXJ7dZmctrmx2uaafq6Qq1Iu1qya8kqoQXrzBwKfXGrGQAvLRUXok8QQn8TJ4Nv5aX4yqDlSrXu4OzcpIl6LUrOiMsH1T9lQ0QhsIcurl1lDPbmlyX/YT+MKyfs6mPumtqIBuDllk/oRN2SZQLnK5M9jZZRAAs=</signature>
+    <signature>f6KVQ8xIKl2fcPflAp/3568hpE+7Bgd+lk0jDysMsnqFJWv2rzJDuJVUI9ZSwN6NA0XiSzEd3iAtkr8z0Cuypk6nLJFuRJ36lIe/ujVIQyKxcjSKDAhTs4cdaXB/E5kFz/OQbyBTXqGGWJk0gUj5XZslm7f+G+o8ZW5YgS4MTjJrXRKzkR2uAzwbiXPberqt6HM4E+kSC76SE9OCyZYemTRgX4jE4x2YSOFXn0JjaRSngTwz5oVU8+B2N1xXM4QDTk0RRtMFwbfc5T2Pb6A+Xvz12EertVyIw9cHl42UkcqWmDjjqVYsNtAm/sIQjbdUOdPMSO+DIpBOCRly8svzTsK8F8OeDWjxnv9kFeegiZsQ5xyh6ktw6Raomk40JtWicovpQPOdyLCXuUwP9gbqOIdQURg4LTBFxmTzh8ehZRwRJ448LCIsJTQuu86jwvOMuY/hkD3rV6r3pnIc0b43fQ6ua5KdgE8auSJa3Lamq+FcMpSeBkj2gsH3EaAj3Yf5/3wMyH+R6TF2VnuqHKw0/F8iamuLd9Dar4R0Owus/vJqbGOVSJIuPTPgvqpPEkW52IC8QUs24QB9WDBYksjZNwHp36v1exoZqzqGdSbaLWYlyjQfY9DwqfrjgXsLhfa48QDoFnwhuNbLTlVqRi5xCaiYp3Detee4nR3mWvNDtuI=</signature>
   </license>
 </licenses>
