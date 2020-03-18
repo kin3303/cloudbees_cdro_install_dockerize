@@ -33,9 +33,11 @@ innodb_buffer_pool_size=1024M
 
 #innodb_file_per_table connect_timeout=14400
 
-max_allowed_packet=256M
+max_allowed_packet=1024M
 
-max_connections=300
+max_connections=200
+
+table_open_cache=512
 
 query_cache_size=0
 query_cache_type=0
