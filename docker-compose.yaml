@@ -63,7 +63,51 @@ services:
       MYSQL_PASSWORD: ecdb
     hostname: db
     container_name: db
+        
+  haproxy:
+    << : *commanderserver
+    links:
+      - db
+      - insight
+    depends_on:
+      - db
+      #- zookeeper1
+    ports:
+      - 8000:8000
+      - 1936:1936
+    hostname: haproxy
+    container_name: haproxy
+    
+  commanderapache:
+    <<: *commanderapache
+    depends_on:
+      - haproxy
+    ports:
+      - 80:80
+      - 443:443
+    hostname: commanderapache
+    container_name: commanderapache
+    
+  localagent:
+    <<: *commanderagent
+    depends_on:
+      - haproxy
+    hostname: localagent
+    container_name: localagent
 
+  repository:
+    <<: *commanderrepository
+    depends_on:
+      - haproxy    
+    hostname: repository
+    container_name: repository
+    
+  insight:
+    <<: *commanderinsight
+    hostname: insight
+    container_name: insight
+
+###################################################################################################################
  # zookeeper1:
  #   << : *zookeeper
  #   environment:
@@ -87,38 +131,7 @@ services:
 #      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
 #    hostname: zookeeper3
 #    container_name: zookeeper3
-        
-  haproxy:
-    << : *commanderserver
-    links:
-      - db
-      - insight
-    depends_on:
-      - db
-  #    - zookeeper1
-    ports:
-      - 8000:8000
-      - 1936:1936
-    hostname: haproxy
-    container_name: haproxy
-    
-  commanderapache:
-    <<: *commanderapache
-    depends_on:
-      - haproxy
-    ports:
-      - 80:80
-      - 443:443
-    hostname: commanderapache
-    container_name: commanderapache
-    
-  localagent:
-    <<: *commanderagent
-    depends_on:
-      - haproxy
-    hostname: localagent
-    container_name: localagent
-    
+
 #  devagent:
 #    image: kin3303/demoagentdev
 #    ports:
@@ -149,15 +162,3 @@ services:
 #      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
 #    hostname: prodagent
 #    container_name: prodagent
-
-  repository:
-    <<: *commanderrepository
-    depends_on:
-      - haproxy    
-    hostname: repository
-    container_name: repository
-    
-  insight:
-    <<: *commanderinsight
-    hostname: insight
-    container_name: insight
