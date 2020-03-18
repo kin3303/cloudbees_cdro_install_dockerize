@@ -37,3 +37,5 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
   --logStashUrl  http://insight:9500  --elasticSearchUrl http://insight:9200 --testConnection 1
   touch /opt/electriccloud/electriccommander/conf/insight_ready
 fi
+
+/etc/init.d/commanderServer restart
