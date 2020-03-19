@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CHECKOUT SOURCES
-defaultRepo="https://github.com/kin3303/efdemo2"
+defaultRepo="https://github.com/kin3303/CBF_DEMO"
 
 BRANCH=${1:-master} 
 REMOTE_REPO=${2:-$defaultRepo}
