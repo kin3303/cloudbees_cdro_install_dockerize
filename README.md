@@ -17,16 +17,16 @@ Ensure that you configure the maximum map count so that there is ample virtual m
   $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
 ```
 
-## Step 2. Install Environment
+## Step 2. Install some packages 
 
 ```console
-  $ cbfinstall
+  $ cbfInstallPackage
 ```
 
-## Step 3. Install EF Packages
+## Step 3. Install CloudBees Flow
 
 ```console
-  $ cbfstart
+  $ cbfInstallCBF
 ```
 After using this command, 
 check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and then 
