@@ -7,8 +7,8 @@ ectool login admin changeme
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
   ectool importLicenseData /tmp/license/license.xml 
-  ectool setProperty "/server/settings/ipAddress" "haproxy"
-  ectool setProperty "/server/settings/stompClientUri" "stomp+ssl://haproxy:61613"
+  ectool setProperty "/server/settings/ipAddress" "flow"
+  ectool setProperty "/server/settings/stompClientUri" "stomp+ssl://flow:61613"
   ectool setProperty "/server/settings/stompSecure" "true"
   touch /opt/electriccloud/electriccommander/conf/license_ready
 fi
