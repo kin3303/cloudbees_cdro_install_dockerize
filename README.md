@@ -1,4 +1,4 @@
-# EF Demo Project
+# CloudBees Flow Demo Project
 
 - Recommended 24GB memory, 8 cores or more, Tested with Ubuntu 16.04 / 18.04 LTS 
 - Additional 3GB memory, 2 cores required when adding 1 more EFserver
