@@ -17,7 +17,7 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/agents_ready ]; then
   ectool createResource local --hostName localagent
   ectool pingResource local
   
-  ectool createResource apacheAgent --hostName  commanderapache 
+  ectool createResource apacheAgent --hostName  web 
   ectool pingResource apacheAgent
   
   ectool createResource repositoryAgent --hostName  repository 
