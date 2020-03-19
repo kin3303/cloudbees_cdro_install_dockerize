@@ -5,12 +5,13 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 
 ectool login admin changeme
 
+
+
 if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
   ectool importLicenseData /opt/electriccloud/electriccommander/conf/license.xml 
   ectool setProperty "/server/settings/ipAddress" "haproxy"
   ectool setProperty "/server/settings/stompClientUri" "stomp+ssl://haproxy:61613"
   ectool setProperty "/server/settings/stompSecure" "true"
-  ectool setDatabaseConfiguration --databaseType mysql --databaseName ecdb --hostName db --ignorePasskeyMismatch true --ignoreServerMismatch true --password ecdb --port 3306 --preserveSessions false --userName ecdb
   touch /opt/electriccloud/electriccommander/conf/license_ready
 fi
 
