@@ -19,7 +19,7 @@ save: pull
 load:
 	docker load -i ../images/$(MODULE_NAME)_$(TAG).tar
 
-clean: cleandata
+clean: cleancompose cleandata cleanimages
 
 cleandata:
 	rm -rf $(PWD)/data/plugins/*
@@ -27,3 +27,9 @@ cleandata:
 	rm -rf $(PWD)/data/repository-data/*
 	rm -rf $(PWD)/data/insight-data/*
 	rm -rf $(PWD)/data/license/*
+ 
+cleancompose:
+	docker-compose down
+	
+cleanimages:
+	docker rmi kin3303/$(MODULE_NAME):$(TAG)
