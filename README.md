@@ -28,6 +28,7 @@
 After using this command, 
 check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and then 
 open Webbrowser with the displayed URL for set the Database Configuration.
+You can use mysql server that I already installed. To achieve this, the following settings should be set.
 ```
 Database Type : Mysql
 Database Name : ecdb
