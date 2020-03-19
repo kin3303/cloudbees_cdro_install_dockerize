@@ -20,15 +20,21 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 ## Step 2. Install Environment
 
 ```console
-  $ efinstall
+  $ cbfinstall
 ```
 
 ## Step 3. Install EF Packages
 
 ```console
-  $ efstart
+  $ cbfstart
 ```
-
+After using this command, 
+check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and enter the displayed URL, for set the DB.
+```
+DBNAME : ecdb
+USER : root
+PASSOWRD : ecdb
+```
 ## Step 4. Auto Configuration
 
 * Requrement 1 : This is available after server activation
