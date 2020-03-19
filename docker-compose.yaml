@@ -7,7 +7,7 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      #- ${PWD}/data/conf:/opt/electriccloud/electriccommander/conf
+      - ${PWD}/data/license:/tmp/license
       - ${PWD}/scripts:/tmp/scripts
     ports:
       - 8000
