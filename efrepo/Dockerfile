@@ -12,9 +12,8 @@ RUN /tmp/${EFLOW_INSTALLER} --mode silent \
 --unixServerGroup ubuntu \
 --unixAgentUser ubuntu \
 --unixAgentGroup ubuntu 
-#--remoteServer haproxy; exit 0
 
-RUN  sed -i -e "s/^COMMANDER_HOST=localhost/COMMANDER_HOST=haproxy/g" /opt/electriccloud/electriccommander/conf/repository/server.properties
+RUN  sed -i -e "s/^COMMANDER_HOST=localhost/COMMANDER_HOST=flow/g" /opt/electriccloud/electriccommander/conf/repository/server.properties
 
 RUN rm -f /tmp/${EFLOW_INSTALLER}
 
