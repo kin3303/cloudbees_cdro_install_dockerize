@@ -27,16 +27,11 @@ cleanimages:
 	docker rmi kin3303/$(MODULE_NAME):$(TAG)
 
 cleandata:
-	rm -rf $(PWD)/data/db-data/*
-	rm -rf $(PWD)/data/zoo/*
 	rm -rf $(PWD)/data/plugins/*
 	rm -rf $(PWD)/data/workspace/*
 	rm -rf $(PWD)/data/repository-data/*
-	rm -f  $(PWD)/data/conf/*_ready
-	rm -rf $(PWD)/data/logs/*
-	rm -rf $(PWD)/data/conf/tmp*
-	rm -rf $(PWD)/data/haproxy/haproxy.cfg
-	rm -rf $(PWD)/data/insight/*
+	rm -rf $(PWD)/data/insight-data/*
+	rm -rf $(PWD)/data/license/*
 
 cleankeepdata:
 	rm -rf $(PWD)/data/zoo/*
