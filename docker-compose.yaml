@@ -64,7 +64,7 @@ services:
     hostname: db
     container_name: db
         
-  haproxy:
+  flow:
     << : *commanderserver
     links:
       - db
@@ -74,13 +74,13 @@ services:
     ports:
       - 8000:8000
       - 1936:1936
-    hostname: haproxy
-    container_name: haproxy
+    hostname: flow
+    container_name: flow
     
   commanderapache:
     <<: *commanderapache
     depends_on:
-      - haproxy
+      - flow
     ports:
       - 80:80
       - 443:443
@@ -90,14 +90,14 @@ services:
   localagent:
     <<: *commanderagent
     depends_on:
-      - haproxy
+      - flow
     hostname: localagent
     container_name: localagent
 
   repository:
     <<: *commanderrepository
     depends_on:
-      - haproxy    
+      - flow    
     hostname: repository
     container_name: repository
     
