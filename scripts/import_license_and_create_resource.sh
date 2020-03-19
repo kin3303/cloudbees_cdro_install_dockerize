@@ -8,8 +8,13 @@ ectool login admin changeme
 
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
+  echo "Set database configuration..."
   ectool setDatabaseConfiguration --databaseType mysql --databaseName demo --hostName db --ignorePasskeyMismatch true --ignoreServerMismatch true --password flow_pass --port 3306 --preserveSessions false --userName flow
+  
+  echo "Import license..."
   ectool importLicenseData /opt/electriccloud/electriccommander/conf/license.xml 
+  
+  echo "Set server name..."
   ectool setProperty "/server/settings/ipAddress" "haproxy"
   ectool setProperty "/server/settings/stompClientUri" "stomp+ssl://haproxy:61613"
   ectool setProperty "/server/settings/stompSecure" "true"
