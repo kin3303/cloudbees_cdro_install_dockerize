@@ -57,7 +57,7 @@ services:
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
     environment:
-      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: demo
       MYSQL_USER: flow
       MYSQL_PASSWORD: flow_pass
