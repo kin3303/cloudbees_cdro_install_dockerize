@@ -1,12 +1,12 @@
 FROM kin3303/commanderbase
 LABEL maintainer="dkim"
  
-ARG EFLOW_INSTALLER
+ARG FLOW_INSTALLER
 
-ADD ${EFLOW_INSTALLER} /tmp/
-RUN chmod +x /tmp/${EFLOW_INSTALLER}
-RUN /tmp/${EFLOW_INSTALLER}  --mode silent --installServer --unixServerUser ubuntu --unixServerGroup ubuntu --unixAgentUser ubuntu --unixAgentGroup ubuntu
-RUN rm -f /tmp/${EFLOW_INSTALLER}
+ADD ${FLOW_INSTALLER} /tmp/
+RUN chmod +x /tmp/${FLOW_INSTALLER}
+RUN /tmp/${FLOW_INSTALLER}  --mode silent --installServer --unixServerUser ubuntu --unixServerGroup ubuntu --unixAgentUser ubuntu --unixAgentGroup ubuntu
+RUN rm -f /tmp/${FLOW_INSTALLER}
 
 COPY ./mysql-connector-java.jar /opt/electriccloud/electriccommander/server/lib/mysql-connector-java.jar
 
