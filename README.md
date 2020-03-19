@@ -27,7 +27,7 @@
 ```
 After using this command, 
 check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and then 
-open Webbrowser with the displayed URL for set the DB.
+open Webbrowser with the displayed URL for set the Database Configuration.
 ```
 Database Type : Mysql
 Database Name : ecdb
