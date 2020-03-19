@@ -48,7 +48,7 @@ PASSOWRD : ecdb
    - Install plugins - Release Demo, Job Dashbard, Workflow Dashbard, DSL IDE, EC-Rest
 
 ```console
- $ efconfig
+ $ cbfConfigEnv
 ```
 
 ## Step 5 (OP). Demo Configuration
