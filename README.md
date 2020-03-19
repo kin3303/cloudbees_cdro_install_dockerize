@@ -78,8 +78,8 @@ If you want to see demo, please use follow command.
 
 ```console
  $ cd <SourceRoot>
- $ export EFLOW_DEV_INSTALLER=CloudBeesFlowDevOpsInsightServer-x64-9.2.0.139827
- $ export EFLOW_INSTALLER=CloudBeesFlow-x64-9.2.0.139827
+ $ export INSIGHT_INSTALLER=CloudBeesFlowDevOpsInsightServer-x64-9.2.0.139827
+ $ export FLOW_INSTALLER=CloudBeesFlow-x64-9.2.0.139827
  $ export TAG=latest
  $ docker login
  $ make
