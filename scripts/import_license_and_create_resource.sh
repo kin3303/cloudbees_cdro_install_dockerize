@@ -5,11 +5,9 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 
 ectool login admin changeme
 
-
-
 if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
   echo "Import license..."
-  ectool importLicenseData /opt/electriccloud/electriccommander/conf/license.xml 
+  ectool importLicenseData /tmp/license/license.xml 
   
   echo "Set server name..."
   ectool setProperty "/server/settings/ipAddress" "haproxy"
