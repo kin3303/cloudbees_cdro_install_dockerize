@@ -71,7 +71,6 @@ services:
       - insight
     depends_on:
       - db
-      #- zookeeper1
     ports:
       - 8000:8000
       - 1936:1936
@@ -108,29 +107,6 @@ services:
     container_name: insight
 
 ###################################################################################################################
- # zookeeper1:
- #   << : *zookeeper
- #   environment:
- #     ZOO_MY_ID: 1
- #     ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
- #   hostname: zookeeper1
- #   container_name: zookeeper1
-    
- # zookeeper2:
- #   << : *zookeeper
- #   environment:
- #     ZOO_MY_ID: 2
- #     ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
- #   hostname: zookeeper2
- #   container_name: zookeeper2
-    
-#  zookeeper3:
-#    << : *zookeeper
-#    environment:
-#      ZOO_MY_ID: 3
-#      ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
-#    hostname: zookeeper3
-#    container_name: zookeeper3
 
 #  devagent:
 #    image: kin3303/demoagentdev
