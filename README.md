@@ -29,9 +29,12 @@ After using this command,
 check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and then 
 open Webbrowser with the displayed URL for set the DB.
 ```
-DBNAME : ecdb
-USER : root
-PASSOWRD : ecdb
+Database Type : Mysql
+Database Name : ecdb
+Host name : db
+Port : 3306
+Username : root
+Password : ecdb 
 ```
 ## Step 4. Auto Configuration
 
