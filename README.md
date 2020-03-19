@@ -36,7 +36,7 @@ PASSOWRD : ecdb
 ## Step 4. Auto Configuration
 
 * Requrement 1 : This is available after server activation
-* Requrement 2 : License file must be in **/tmp/license.xml**
+* Requrement 2 : License file must be in **<SourceRoot>/data/license/license.xml**
 * What to do
    - Import license
    - Add resouces - localagent, apacheAgent, repositoryAgent
