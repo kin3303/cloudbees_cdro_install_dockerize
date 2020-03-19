@@ -77,15 +77,15 @@ services:
     hostname: flow
     container_name: flow
     
-  commanderapache:
+  web:
     <<: *commanderapache
     depends_on:
       - flow
     ports:
       - 80:80
       - 443:443
-    hostname: commanderapache
-    container_name: commanderapache
+    hostname: web
+    container_name: web
     
   localagent:
     <<: *commanderagent
