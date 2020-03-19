@@ -50,8 +50,10 @@ PASSOWRD : ecdb
 
 ## Step 5 (OP). Demo Configuration
 
+If you want to see demo, please use follow command.
+
 ```console
- $ efsetdemo
+ $ cbfSetDemo
 ```
 
 ## Upload EF Docker Images
