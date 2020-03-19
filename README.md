@@ -54,48 +54,6 @@ PASSOWRD : ecdb
  $ efsetdemo
 ```
 
-## Backup
-* Please do not modify the project while backup
-* What to do
-  - DB dump 
-  - DevOpsInsight(Elasticsearch) snapshot 
-  - Data Backup       
-    + Configuration Files
-       1. <DATADIR>/conf  :  Configuration files
-       2. <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
-    + Workspace Directories
-       1. <DATADIR>/workspace
-    + Plugins
-       1. <DATADIR>/plugins
-    + Artifact
-       1. <DATADIR>/repository-data
-  - Packaging
-    + backup.tar.gz
-  
-```console
- $ efbackup
-```
-
-## Restore
-* Please do not modify the project while restore
-* What to do
-  - Unpackaging backup.tar.gz
-  - Data Restore       
-    + Configuration Files
-       1. <DATADIR>/conf  :  Configuration files
-       2. <DATADIR>/mysql/mysql.cnf  : Configuration file for MYSQL
-    + Workspace Directories
-       1. <DATADIR>/workspace
-    + Plugins
-       1. <DATADIR>/plugins
-    + Artifact
-       1. <DATADIR>/repository-data
-  - Restore DB
-  - Restore DevOpsInsight snapshot
-```console
- $ efrestore
-```
-
 ## Upload EF Docker Images
 
 - Requrement : Save Flow, Devops Installer in **/tmp** folder
