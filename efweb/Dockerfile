@@ -1,11 +1,11 @@
 FROM kin3303/commanderbase
 LABEL maintainer="dkim"
 
-ARG EFLOW_INSTALLER
+ARG FLOW_INSTALLER
 
-ADD ${EFLOW_INSTALLER} /tmp/
-RUN chmod +x /tmp/${EFLOW_INSTALLER}
-RUN /tmp/${EFLOW_INSTALLER} --mode silent \
+ADD ${FLOW_INSTALLER} /tmp/
+RUN chmod +x /tmp/${FLOW_INSTALLER}
+RUN /tmp/${FLOW_INSTALLER} --mode silent \
 --installAgent \
 --installWeb \
 --unixServerUser ubuntu \
@@ -13,7 +13,7 @@ RUN /tmp/${EFLOW_INSTALLER} --mode silent \
 --unixAgentUser ubuntu \
 --unixAgentGroup ubuntu 
 
-RUN rm -f /tmp/${EFLOW_INSTALLER}
+RUN rm -f /tmp/${FLOW_INSTALLER}
 
 #change target of COMMANDER_SERVER, proxypass , ProxyPassReverse
 #change ServerName 
