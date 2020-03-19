@@ -18,5 +18,5 @@ RUN chmod +x /wait
  
 CMD /wait && \ 
 chmod +x /tmp/scripts/*.sh && \
-#/tmp/scripts/initiate_zoo.sh && \
+/tmp/scripts/initiate_zoo.sh && \
 tail -F /opt/electriccloud/electriccommander/logs/commander-`hostname`.log
