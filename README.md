@@ -29,7 +29,8 @@ Ensure that you configure the maximum map count so that there is ample virtual m
   $ cbfstart
 ```
 After using this command, 
-check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and enter the displayed URL, for set the DB.
+check the output log in ur PC and if the Cloudbees Flow server is running, exit by Ctrl +C and then 
+open Webbrowser with the displayed URL for set the DB.
 ```
 DBNAME : ecdb
 USER : root
