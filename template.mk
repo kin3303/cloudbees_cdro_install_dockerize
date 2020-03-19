@@ -21,11 +21,6 @@ load:
 
 clean: cleandata
 
-cleanall: cleandata cleanimages
-
-cleanimages:
-	docker rmi kin3303/$(MODULE_NAME):$(TAG)
-
 cleandata:
 	rm -rf $(PWD)/data/plugins/*
 	rm -rf $(PWD)/data/workspace/*
