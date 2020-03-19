@@ -5,10 +5,9 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 
 . /opt/electriccloud/electriccommander/bash.profile
 
-#if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
+if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
 #  echo "sleep 20 senconds to wait zookeeper start"
 #  sleep 20
- 
 #  cd /opt/electriccloud/electriccommander/conf
 # COMMANDER_ZK_CONNECTION=zookeeper1:2181 ../jre/bin/java -jar \
 #      ../server/bin/zk-config-tool-jar-with-dependencies.jar com.electriccloud.commander.cluster.ZKConfigTool \
@@ -17,7 +16,8 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 #      --passkeyFile passkey \
 #     --commanderPropertiesFile commander.properties
 #   touch /opt/electriccloud/electriccommander/conf/server_ready
-#fi
+  ectool setDatabaseConfiguration --databaseType mysql --databaseName demo --hostName db --ignorePasskeyMismatch true --ignoreServerMismatch true --password flow_pass --port 3306 --preserveSessions false --userName flow
+fi
 
 /etc/init.d/commanderServer restart
 
