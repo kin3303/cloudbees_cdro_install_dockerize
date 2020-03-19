@@ -107,7 +107,8 @@ services:
     container_name: insight
 
 ###################################################################################################################
-
+#  If you don't want to use demo that I made, please delete follow lines.
+###################################################################################################################
   devagent:
     image: kin3303/demoagentdev
     ports:
