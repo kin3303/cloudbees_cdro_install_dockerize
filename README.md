@@ -14,7 +14,7 @@ Ensure that you configure the maximum map count so that there is ample virtual m
 ```console
   $ sudo su
   $ sysctl -w vm.max_map_count=262144 
-  $ wget -O init.sh  https://github.com/kin3303/efdemo2/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
+  $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
 ```
 
 ## Step 2. Install Environment
