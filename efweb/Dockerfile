@@ -11,16 +11,15 @@ RUN /tmp/${EFLOW_INSTALLER} --mode silent \
 --unixServerUser ubuntu \
 --unixServerGroup ubuntu \
 --unixAgentUser ubuntu \
---unixAgentGroup ubuntu
-#--remoteServer haproxy
+--unixAgentGroup ubuntu 
 
 RUN rm -f /tmp/${EFLOW_INSTALLER}
 
 #change target of COMMANDER_SERVER, proxypass , ProxyPassReverse
 #change ServerName 
 #disable the https rewrite rule in the web server
-RUN  sed -i -e 's/localhost/haproxy/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
-RUN  sed -i -e "s/ServerName haproxy:80/ServerName $HOSTNAME:80/g" /opt/electriccloud/electriccommander/apache/conf/httpd.conf
+RUN  sed -i -e 's/localhost/flow/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
+RUN  sed -i -e "s/ServerName flow:80/ServerName $HOSTNAME:80/g" /opt/electriccloud/electriccommander/apache/conf/httpd.conf
 RUN  sed -i -e 's/RewriteCond %{HTTPS} !=on/#RewriteCond %{HTTPS} !=on/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
 RUN  sed -i 's/RewriteRule ^\/(.*)/#RewriteRule ^\/(.*)/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
 
