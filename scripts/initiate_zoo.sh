@@ -16,7 +16,6 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
 #      --passkeyFile passkey \
 #     --commanderPropertiesFile commander.properties
 #   touch /opt/electriccloud/electriccommander/conf/server_ready
-  ectool setDatabaseConfiguration --databaseType mysql --databaseName demo --hostName db --ignorePasskeyMismatch true --ignoreServerMismatch true --password flow_pass --port 3306 --preserveSessions false --userName flow
 fi
 
 /etc/init.d/commanderServer restart
