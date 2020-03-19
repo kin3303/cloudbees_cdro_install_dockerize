@@ -17,8 +17,8 @@ git checkout $BRANCH
 chmod 777 data/*
 
 # MAKE ALIAS
-echo -e "alias cbfinstall='bash ./setup/install.sh'" >> ~/.bashrc
-echo -e "alias cbfstart='bash ./setup/start.sh'" >> ~/.bashrc
+echo -e "alias cbfInstallPackage='bash ./setup/install.sh'" >> ~/.bashrc
+echo -e "alias cbfInstallCBF='bash ./setup/start.sh'" >> ~/.bashrc
 echo -e "alias cbfconfig='bash ./setup/config.sh'" >> ~/.bashrc
 echo -e "alias cbfsetdemo='bash ./setup/demo_config.sh'" >> ~/.bashrc
 echo -e "alias cbfstop='bash ./setup/stop.sh'" >> ~/.bashrc  
