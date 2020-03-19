@@ -11,7 +11,7 @@ RUN apt-get update \
 
 ADD ${EFLOW_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_INSTALLER}
-RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer haproxy
+RUN /tmp/${EFLOW_INSTALLER} --mode silent --installAgent --unixAgentUser ubuntu --unixAgentGroup ubuntu  --remoteServer flow
 RUN rm -f /tmp/${EFLOW_INSTALLER}
 
 RUN  sed -i -e 's/wrapper.java.initmemory=16/wrapper.java.initmemory=256/g' /opt/electriccloud/electriccommander/conf/agent/wrapper.conf
