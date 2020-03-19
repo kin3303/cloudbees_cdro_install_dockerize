@@ -2,8 +2,6 @@
 
 - Recommended 24GB memory, 8 cores or more, Tested with Ubuntu 16.04 / 18.04 LTS 
 - Available EF tags : latest, 9.2.0, 9.1.0, 9.0.1
-- Elasticsearch also uses a mix of NioFS and MMapFS for the various files. 
-Ensure that you configure the maximum map count so that there is ample virtual memory available for mmapped files.
 
 ## Step 1. Initialize
 
