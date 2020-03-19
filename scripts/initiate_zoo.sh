@@ -5,7 +5,7 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 
 . /opt/electriccloud/electriccommander/bash.profile
 
-if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
+#if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
 #  echo "sleep 20 senconds to wait zookeeper start"
 #  sleep 20
 #  cd /opt/electriccloud/electriccommander/conf
@@ -16,7 +16,7 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/server_ready ]; then
 #      --passkeyFile passkey \
 #     --commanderPropertiesFile commander.properties
 #   touch /opt/electriccloud/electriccommander/conf/server_ready
-fi
+#fi
 
 /etc/init.d/commanderServer restart
 
