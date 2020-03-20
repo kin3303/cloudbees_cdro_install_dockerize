@@ -3,7 +3,7 @@
 - Recommended 24GB memory, 8 cores or more, Tested with Ubuntu 16.04 / 18.04 LTS 
 - Available EF tags : latest, 9.2.0, 9.1.0, 9.0.1
 
-## Step 1. Initialize
+## Step 1. Initialization
 
 - To get master branch source , execute follow commands
 - To get another branch source, change master to branchName then execute commands
@@ -14,13 +14,13 @@
   $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
 ```
 
-## Step 2. Install some packages 
+## Step 2. Installing required packages 
 
 ```console
   $ cbfInstallPackage
 ```
 
-## Step 3. Install CloudBees Flow
+## Step 3. Installing CloudBees Flow
 
 ```console
   $ cbfInstallCBF
@@ -72,7 +72,7 @@ If you want to see demo, please use follow command.
  $ cbfSetDemo
 ```
 
-## Upload EF Docker Images
+## Upload CloudBees Flow Docker Images
 
 - Requrement : Save Flow, Devops Installer in **/tmp** folder
 
