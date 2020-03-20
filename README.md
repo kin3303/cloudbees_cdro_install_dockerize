@@ -38,7 +38,7 @@ Username : root
 Password : ecdb 
 ```
 
-If you want to use your own DB, please refer to the following to set up your DB.
+If you want to use your own DB, you need to execute query that I mention below and use it for Database Configuration.
 
 ```
 CREATE DATABASE IF NOT EXISTS ecdb CHARACTER SET utf8 COLLATE utf8_unicode_ci;
