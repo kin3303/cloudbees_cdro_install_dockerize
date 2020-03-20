@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cp /tmp/license.xml ./data/license
-docker exec $(docker ps |grep commanderserver|awk '{print $1}')  /tmp/scripts/import_license_and_create_resource.sh
+docker exec $(docker ps |grep -a commanderserver|awk '{print $1}')  /tmp/scripts/import_license_and_create_resource.sh
 rm -rf ./data/license/license.xml
