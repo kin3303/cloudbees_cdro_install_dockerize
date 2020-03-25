@@ -17,5 +17,7 @@ RUN rm -f /tmp/${FLOW_INSTALLER}
 RUN  sed -i -e 's/wrapper.java.initmemory=16/wrapper.java.initmemory=256/g' /opt/electriccloud/electriccommander/conf/agent/wrapper.conf
 RUN  sed -i -e 's/wrapper.java.maxmemory=64/wrapper.java.maxmemory=512/g' /opt/electriccloud/electriccommander/conf/agent/wrapper.conf
 
+RUN /etc/init.d/commanderServer restart
+
 EXPOSE 7800
 CMD /etc/init.d/commanderAgent start && tail -F /opt/electriccloud/electriccommander/logs/agent/agent.log
