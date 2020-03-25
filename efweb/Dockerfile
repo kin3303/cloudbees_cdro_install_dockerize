@@ -23,8 +23,7 @@ RUN  sed -i -e "s/ServerName flow:80/ServerName $HOSTNAME:80/g" /opt/electricclo
 RUN  sed -i -e 's/RewriteCond %{HTTPS} !=on/#RewriteCond %{HTTPS} !=on/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
 RUN  sed -i 's/RewriteRule ^\/(.*)/#RewriteRule ^\/(.*)/g' /opt/electriccloud/electriccommander/apache/conf/httpd.conf
 
-RUN /etc/init.d/commanderApache stop
-RUN /etc/init.d/commanderApache start
+RUN /etc/init.d/commanderApache restart 
 
 EXPOSE 80 443
 CMD /etc/init.d/commanderApache start && /etc/init.d/commanderAgent console
