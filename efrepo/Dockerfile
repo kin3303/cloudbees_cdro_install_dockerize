@@ -17,6 +17,8 @@ RUN  sed -i -e "s/^COMMANDER_HOST=localhost/COMMANDER_HOST=flow/g" /opt/electric
 
 RUN rm -f /tmp/${FLOW_INSTALLER}
 
+RUN /etc/init.d/commanderRepository restart 
+
 EXPOSE 8200
 
 CMD /etc/init.d/commanderRepository start && /etc/init.d/commanderAgent console
