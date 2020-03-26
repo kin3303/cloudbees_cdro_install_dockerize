@@ -36,8 +36,3 @@ max_allowed_packet=1024M
 max_connections=200
 
 table_open_cache=512
-
-query_cache_size=0
-query_cache_type=0
-query_cache_limit=2M
-table_open_cache=512
