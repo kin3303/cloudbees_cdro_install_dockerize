@@ -10,7 +10,7 @@ RUN rm -f /tmp/${FLOW_INSTALLER}
 
 COPY ./mysql-connector-java.jar /opt/electriccloud/electriccommander/server/lib/mysql-connector-java.jar
 
-RUN sed -i -e 's/COMMANDER_SERVER_NAME=.*/COMMANDER_SERVER_NAME=flow/' commander.properties 
+RUN sed -i -e 's/COMMANDER_SERVER_NAME=.*/COMMANDER_SERVER_NAME=flow/' /opt/electriccloud/electriccommander/conf/commander.properties 
 
 EXPOSE 8443 61613 8000 5445-5449
 
