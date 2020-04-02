@@ -106,8 +106,8 @@ you need to fix email configuration located at "<Sources>/scripts/mail_config.gr
       "mailHost" : "smtp.gmail.com",
       "mailPort" : "465",
       "mailProtocol" : "SMTPS",
-      "mailUser" : "<Please put ur email address>"
-      "mailUserPassword" :  "<Please put ur email password>"
+      "mailUser" : **"<Please put ur email address>"**
+      "mailUserPassword" :  **"<Please put ur email password>"**
     }
 }
  
