@@ -95,8 +95,8 @@ table_open_cache=512
 ## Step 5 (OP). Demo Configuration
 
 If you want to use demo projects that I made before,
-you need to open **./scripts/mail_config.groovy** file and then need to put 
-**mailUser** and **mailUserPassword** your own as follow : 
+you need to open **./scripts/mail_config.groovy** file and then fix 
+**mailUser** and **mailUserPassword** properties : 
 
 ```
 {
