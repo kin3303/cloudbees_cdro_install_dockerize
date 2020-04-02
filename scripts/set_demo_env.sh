@@ -66,12 +66,6 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/project_group_settings_ready
   touch /opt/electriccloud/electriccommander/conf/project_group_settings_ready
 fi
 
-if [ ! -f /opt/electriccloud/electriccommander/conf/email_config ]; then
-  echo "Creating email configuration"
-  ectool evalDsl --dslFile /tmp/scripts/mail_config.groovy
-  touch /opt/electriccloud/electriccommander/conf/email_config
-fi
-
 echo "Disable Schedules"
 ectool --silent  modifySchedule "Electric Cloud" "ECSCM-SentryMonitor" --scheduleDisabled true
 ectool --silent  modifySchedule "Electric Cloud" "Report Recent Job Outcome" --scheduleDisabled true
