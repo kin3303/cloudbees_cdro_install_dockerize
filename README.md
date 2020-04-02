@@ -95,7 +95,8 @@ table_open_cache=512
 ## Step 5 (OP). Demo Configuration
 
 If you want to use demo projects that I made before,
-you need to fix email configuration located at "<Sources>/scripts/mail_config.groovy" at first
+you need to open **./scripts/mail_config.groovy** file and then need to put 
+**mailUser** and **mailUserPassword** your own as follow : 
 
 ```
 {
@@ -106,14 +107,14 @@ you need to fix email configuration located at "<Sources>/scripts/mail_config.gr
       "mailHost" : "smtp.gmail.com",
       "mailPort" : "465",
       "mailProtocol" : "SMTPS",
-      "mailUser" : **"<Please put ur email address>"**
-      "mailUserPassword" :  **"<Please put ur email password>"**
+      "mailUser" : "<Please put ur email address>"
+      "mailUserPassword" :  "<Please put ur email password>"
     }
 }
  
 ```
 
-then, please use follow command.
+then please use follow command.
 
 ```console
  $ cbfSetDemo
