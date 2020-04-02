@@ -94,24 +94,7 @@ table_open_cache=512
 
 ## Step 5 (OP). Demo Configuration
 
-If you want to use demo projects that I made before,
-you need to open **./scripts/mail_config.groovy** file and then fix 
-**mailUser** and **mailUserPassword** properties : 
-
-```
-emailConfig "gmailTest", {
-      description = "gmail account access in EF"
-      mailFrom = "noReply@gmail.com"
-      mailHost = "smtp.gmail.com"
-      mailPort = "465"
-      mailProtocol = "SMTPS"
-      mailUser = "<HERE>"
-      mailUserPassword = "<HERE>"
-}
- 
-```
-
-then please use follow command.
+If you want to use demo projects, please use follow command.
 
 ```console
  $ cbfSetDemo
