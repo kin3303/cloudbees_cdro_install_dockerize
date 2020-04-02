@@ -68,7 +68,7 @@ fi
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/email_config ]; then
   echo "Creating email configuration"
-  ectool evalDsl --dslFile $BASEDIR/mailConfig.groovy  
+  ectool evalDsl --dslFile mailConfig.groovy  
   touch /opt/electriccloud/electriccommander/conf/email_config
 fi
 
