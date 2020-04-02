@@ -49,6 +49,34 @@ GRANT ALL PRIVILEGES ON ecdb_upgrade.* TO 'ecdb'@'%';
 FLUSH PRIVILEGES;
 ```
 
+Additionally you need to require modification of mysql.cnf file as follow:
+
+```
+[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+[mysqld]
+init_connect='SET collation_connection = utf8_unicode_ci' 
+init_connect='SET NAMES utf8' 
+character-set-server=utf8 
+collation-server=utf8_unicode_ci 
+skip-character-set-client-handshake
+port=3306
+transaction-isolation=READ-COMMITTED
+table_open_cache=512
+sort_buffer_size=6M
+tmp_table_size=256M
+max_heap_table_size=64M
+read_rnd_buffer_size=256K
+innodb_buffer_pool_size=1024M
+max_allowed_packet=1024M
+max_connections=200
+table_open_cache=512
+```
+
 ## Step 4. Auto Configuration
 
 * Requrement 1 : This is available after server activation
