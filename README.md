@@ -94,7 +94,26 @@ table_open_cache=512
 
 ## Step 5 (OP). Demo Configuration
 
-If you want to see demo, please use follow command.
+If you want to use demo projects that I made before,
+you need to fix email configuration located at "<Sources>/scripts/mail_config.groovy" at first
+
+```
+{
+  "emailConfigs" : [
+    { "name" : "gmail",
+      "description" : "gmail account access in EF",
+      "mailFrom" : "noReply@gmail.com",
+      "mailHost" : "smtp.gmail.com",
+      "mailPort" : "465",
+      "mailProtocol" : "SMTPS",
+      "mailUser" : "<Please put ur email address>"
+      "mailUserPassword" :  "<Please put ur email password>"
+    }
+}
+ 
+```
+
+then, please use follow command.
 
 ```console
  $ cbfSetDemo
@@ -113,6 +132,3 @@ If you want to see demo, please use follow command.
  $ make
 ``` 
 
-## Bugfix
-2020.03.25
-https://ask.cloudbees.com/questions/7834/upgrade-to-flow-9x-version-resulted-in-access-deni.html
