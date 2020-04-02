@@ -74,3 +74,4 @@ ectool --silent  modifySchedule "Electric Cloud" "ReportSchedule" --scheduleDisa
 
 echo "Plugin Modification"
 ectool --silent  modifyProject "/plugins/EC-JIRA/project" --resourceName "local" --workspaceName "default"
+ectool --silent  modifyProject "/plugins/EC-SonarQube/project" --resourceName "local" --workspaceName "default"
