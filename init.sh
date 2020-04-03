@@ -22,7 +22,7 @@ echo -e "alias cbfInstallCBF='bash ./setup/start.sh'" >> ~/.bashrc
 echo -e "alias cbfConfigEnv='bash ./setup/config.sh'" >> ~/.bashrc
 echo -e "alias cbfSetDemo='bash ./setup/demo_config.sh'" >> ~/.bashrc  
 
-# Because SonarQube uses an embedded Elasticsearch,
+# Because SonarQube & DevOps Insight uses an embedded Elasticsearch,
 # make sure that your Docker host configuration complies with the Elasticsearch production mode requirements and -
 # File Descriptors configuration.
 sysctl -w vm.max_map_count=262144 
