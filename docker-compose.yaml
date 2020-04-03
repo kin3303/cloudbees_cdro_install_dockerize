@@ -48,8 +48,8 @@ x-include:
     image: sonarqube
     restart: always
     ports:
-      - 9000
-      - 9092
+      - 9000:9000
+      - 9092:9092
 
 services:     
   db:
