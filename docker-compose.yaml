@@ -44,9 +44,12 @@ x-include:
       - ${PWD}/scripts:/tmp/scripts
       - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
       
-  zookeeper: &zookeeper
-    image: zookeeper:3.3
+  sonar: &sonar
+    image: sonarqube
     restart: always
+    ports:
+      - 9000
+      - 9092
 
 services:     
   db:
@@ -69,6 +72,7 @@ services:
     links:
       - db
       - insight
+      - sonarqube
     depends_on:
       - db
     ports:
@@ -105,6 +109,11 @@ services:
     <<: *commanderinsight
     hostname: insight
     container_name: insight
+    
+  sonarqube: 
+    <<: *sonar
+    hostname: sonarqube 
+    container_name: sonarqube
 
 ###################################################################################################################
 #  If you don't want to use demo that I made, please delete follow lines.
