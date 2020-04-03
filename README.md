@@ -5,12 +5,17 @@
 
 ## Step 1. Initialization
 
+- Because DevOps Insight uses an embedded Elasticsearch, 
+make sure that your Docker host configuration complies with the Elasticsearch production mode requirements and File Descriptors configuration.
 - To get master branch source , execute follow commands
 - To get another branch source, change master to branchName then execute commands
 
 ```console
   $ sudo su
   $ sysctl -w vm.max_map_count=262144 
+  $ sysctl -w fs.file-max=65536
+  $ ulimit -n 65536
+  $ ulimit -u 4096  
   $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
 ```
 
