@@ -45,7 +45,7 @@ x-include:
       - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
       
   sonar: &sonar
-    image: sonarqube
+    image: sonarqube:7.1
     restart: always
     ports:
       - 9000:9000
