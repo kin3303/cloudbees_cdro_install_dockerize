@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>_title_</title>
+        <script type="text/javascript" src="../../plugins/EC-CheckStyle/jquery.min.js"></script>
+        <!-- Double reference for local and commander access to jquery.min.js -->
+        <script src="../../plugins/EC-CheckStyle-2.0.4.57812/htdocs/jquery.min.js"></script>
+        <link rel="stylesheet" href= "../../plugins/EC-CheckStyle/pluginsummary.css" type="text/css"
+  media="screen" />
+        <script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '_title_'
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+
+            credits: {
+                enabled: false
+            },
+
+            series: [{
+                type: 'pie',
+                name: '',
+                data: [
+                    ['Annotations', _annotations_],
+                    ['Block', _blocks_],
+                    ['Lines', _lines_],
+                    ['Methods', _methods_],
+                    ['Parentheses', _parentheses_],
+                    ['Packages', _packages_],
+                    ['Duplicated', _duplicates_],
+                    ['Headers Status', _headers_],
+                    ['Variables', _variables_],
+                    ['Fields', _fields_],
+                    ['Equeals usage', _equals_],
+                    ['Import usage', _imports_],
+                    ['Indentation', _indentations_],
+                    ['Javadoc', _javadocs_],
+                    ['Modifier', _modifiers_],
+                    ['Parameters', _parameters_],
+                    ['White Spaces', _whitespaces_],
+                    ['Illegal Characters', _illegalcharacters_],
+                    ['Exceptions', _exceptions_],
+                ]
+            }]
+        });
+    });
+});
+
+/*Table Creation*/
+var total_issues= _annotations_ + _blocks_ + _lines_ +_methods_ + _parentheses_ + _packages_ + _duplicates_ + _headers_ + _variables_ + _fields_ + _equals_ + _imports_ + _indentations_ + _javadocs_ + _modifiers_ + _parameters_ + _whitespaces_ + _illegalcharacters_ + _exceptions_;
+
+//Get percentages of issues
+var percentage_annotations= (_annotations_/total_issues) * 100;
+var percentage_blocks_= (_blocks_/total_issues) * 100;
+var percentage_lines= (_lines_/total_issues) * 100;
+var percentage_methods= (_methods_/total_issues) * 100;
+var percentage_parentheses= (_parentheses_/total_issues) * 100;
+var percentage_packages= (_packages_/total_issues) * 100;
+var percentage_duplicates= (_duplicates_/total_issues) * 100;
+var percentage_headers= (_headers_/total_issues) * 100;
+var percentage_variables= (_variables_/total_issues) * 100;
+var percentage_fields= (_fields_/total_issues) * 100;
+var percentage_equals= (_equals_/total_issues) * 100;
+var percentage_imports= (_imports_/total_issues) * 100;
+var percentage_indentations= (_indentations_/total_issues) * 100;
+var percentage_javadocs= (_javadocs_/total_issues) * 100;
+var percentage_modifiers= (_modifiers_/total_issues) * 100;
+var percentage_parameters= (_parameters_/total_issues) * 100;
+var percentage_whitespaces= (_whitespaces_/total_issues) * 100;
+var percentage_illegalcharacters= (_illegalcharacters_/total_issues) * 100;
+var percentage_exceptions= (_exceptions_/total_issues) * 100;
+
+//Table construction
+document.write("<section id='data_table' style='align:center;text-align:center'>");
+document.write("<h1>Issues Summary Table</h1>");
+document.write("<table align='center'>");
+
+document.write("<caption>Summary of found issues</caption>   ");
+document.write("<thead> <tr><th>#</th><th>Issue Description</th><th>Found Issues</th><th>Percentage</th></tr> </thead>");
+
+document.write("<tbody>");
+document.write("<tr> <th>1</th><th>Annotations</th><td>",_annotations_,"</td><td>",percentage_annotations.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>2</th><th>Block</th><td>",_blocks_,"</td><td>",percentage_blocks_.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>3</th><th>Lines</th><td>",_lines_,"</td><td>",percentage_lines.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>4</th><th>Methods</th><td>",_methods_,"</td><td>",percentage_methods.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>5</th><th>Parentheses</th><td>",_parentheses_,"</td><td>",percentage_parentheses.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>6</th><th>Packages</th><td>",_packages_,"</td><td>",percentage_packages.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>7</th><th>Duplicated</th><td>",_duplicates_,"</td><td>",percentage_duplicates.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>8</th><th>Headers Status</th><td>",_headers_,"</td><td>",percentage_headers.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>9</th><th>Variables</th><td>",_variables_,"</td><td>",percentage_variables.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>10</th><th>Fields</th><td>",_fields_,"</td><td>",percentage_fields.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>11</th><th>Equeals usage</th><td>",_equals_,"</td><td>",percentage_equals.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>12</th><th>Import usage</th><td>",_imports_,"</td><td>",percentage_imports.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>13</th><th>Indentation</th><td>",_indentations_,"</td><td>",percentage_indentations.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>14</th><th>Javadoc</th><td>",_javadocs_,"</td><td>",percentage_javadocs.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>15</th><th>Modifier</th><td>",_modifiers_,"</td><td>",percentage_modifiers.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>16</th><th>Parameters</th><td>",_parameters_,"</td><td>",percentage_parameters.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>17</th><th>White Spaces</th><td>",_whitespaces_,"</td><td>",percentage_whitespaces.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>18</th><th>Illegal Characters</th><td>",_illegalcharacters_,"</td><td>",percentage_illegalcharacters.toFixed(4)," %</td> </tr>");
+document.write("<tr> <th>19</th><th>Exceptions</th><td>",_exceptions_,"</td><td>",percentage_exceptions.toFixed(4)," %</td> </tr>");
+document.write("</tbody>");
+
+document.write("<tfoot>");
+document.write("<tr> <th colspan='2'>Total</th>        <td>", total_issues,"</td> <td>100 %</td> </tr>");
+document.write("</tfoot>");
+
+document.write("</table>");
+document.write("</section>");
+document.write("</br>");
+
+
+        </script>
+    </head>
+    <body>
+        <section id="chart">
+            <script src="../../plugins/EC-CheckStyle/highcharts.js"></script>
+            <!-- Double reference for local and commander access to highcharts.js -->
+            <script src="../../plugins/EC-CheckStyle-2.0.4.57812/htdocs/highcharts.js"></script>
+            <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+        </section>
+
+    </body>
+</html>

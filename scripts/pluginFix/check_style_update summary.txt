@@ -1,0 +1,69 @@
+
+ use strict;
+use warnings; 
+use utf8; 
+use Encode;
+use JSON::PP;
+use Switch; 
+use ElectricCommander;
+
+use URI::Escape;
+
+use XML::XPath;
+use XML::XPath::XMLParser;
+use XML::LibXML;
+
+use Encode::Guess;
+use Encode qw( decode encode ); 
+
+use HTTP::Date(qw {str2time time2str time2iso time2isoz});
+
+use Storable qw(dclone);
+
+use Archive::Zip;
+
+use Digest::MD5;
+use Digest::SHA;
+
+use Cwd;
+
+use File::Basename;
+use File::Basename qw( fileparse );
+use File::Path;
+use File::Spec;
+use File::stat;
+use File::Glob 'bsd_glob';
+use File::Copy::Recursive qw(rcopy pathempty);
+use File::Path qw( mkpath rmtree );
+
+use DateTime;
+use DateTime::Format::Strptime;
+
+
+use Fcntl ':mode';
+
+use Data::Dumper; 
+$Data::Dumper::Useqq = 1;
+$Data::Dumper::Indent = 2; 
+$Data::Dumper::Sortkeys = 1;
+
+{ no warnings 'redefine';
+    sub Data::Dumper::qquote {
+        my $s = shift;
+        return "'$s'";
+    }
+} 
+
+
+
+
+ElectricCommander::initEncodings();
+$| = 1; 
+
+ 
+
+my $ec = new ElectricCommander(); 
+$ec->setProperty("/myJob/artifactsDirectory", '.');
+$ec->setProperty("/myJob/report-urls/EC-CheckStyle Issues Summary Report","jobSteps/$[/myJobStep/jobStepId]/CheckStyleIssuesSummary.html"); 
+ 
+ 
