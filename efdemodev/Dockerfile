@@ -31,7 +31,7 @@ RUN useradd -m -g ${WGRP} ${WUSR}
 
 # Install dependencies                                      
 RUN apt-get update \
-    && apt-get install -y git build-essential curl wget software-properties-common xmlstarlet bsdtar unzip curl
+    && apt-get install -y git build-essential curl wget software-properties-common xmlstarlet bsdtar unzip
                                                                             
 # Install JDK 8                                                 
 RUN apt-get update \ 
