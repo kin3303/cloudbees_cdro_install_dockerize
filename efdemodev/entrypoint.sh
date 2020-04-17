@@ -1,5 +1,9 @@
 #!/bin/bash
 
+ulimit -Sn 4096
+export JAVA_OPTS="$JAVA_OPTS -Xms1024m -Xmx2048m -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+UseCompressedOops -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djava.security.egd=file:/dev/./urandom -Dcom.sun.jersey.server.impl.cdi.lookupExtensionInBeanManager=true"
+
+
 if [ ! -f /tmp/mysql_ready ]; then
   echo "Initializing $DATADIR..."
   mysql_install_db
@@ -34,3 +38,5 @@ if [ "$STATUS" = "0" ]; then
 else
         echo "Cannot load data from $DATADIR."
 fi
+
+/opt/jboss/wildfly/bin/jboss-cli.sh --connect command=:reload
