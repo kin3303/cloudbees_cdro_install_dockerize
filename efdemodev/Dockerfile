@@ -15,9 +15,7 @@ ENV LANG=en_GB.UTF-8 \
     LOGDIR=/var/log/mysql \
     DATADIR=/var/lib/mysql \
     PORT=3306 \
-    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
-    MAVEN_BRANCH_VERSION=3 \
-    MAVEN_VERSION=3.6.3 \
+    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \  
     M2_HOME=/opt/maven \
     MAVEN_HOME=/opt/maven \
     PATH=${M2_HOME}/bin:${JAVA_HOME}/bin:${PATH}
@@ -39,10 +37,12 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y openjdk-8-jdk
 
+
+
 # Install Maven 
+COPY ./apache-maven-3-bin.tar.gz  /tmp/apache-maven.tar.gz
 RUN apt-get update \
     && mkdir -p /usr/share/maven /usr/share/maven/ref \
-    && curl -fsSL -o /tmp/apache-maven.tar.gz http://www-eu.apache.org/dist/maven/maven-${MAVEN_BRANCH_VERSION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
     && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
     && rm -f /tmp/apache-maven.tar.gz \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
