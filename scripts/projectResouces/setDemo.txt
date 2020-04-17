@@ -28,7 +28,7 @@
 		1. Release 를 1회 정도 수행
 		2. Insight 의 JIRA Configuration 을 수행
 	12. Electric Cloud Code Commit Report 생성 및 프로시저 한번 돌리기
-    13. CO_SIMPLE_ROLLBACK_APP 
+	13. CO_SIMPLE_ROLLBACK_APP 
 		1. Artifact 생성
 		2. Rollback App 생성
 	14. SonarQube 서버 SpringCodeTest 프로젝트 지우고 다시 SonarQube Project 생성
