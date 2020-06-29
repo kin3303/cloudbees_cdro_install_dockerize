@@ -122,10 +122,9 @@ services:
       - 9001:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - external 
 
-###################################################################################################################
-#  If you don't want to use demo that I made, please delete follow lines.
-###################################################################################################################
   devagent:
     image: kin3303/demoagentdev
     ports:
@@ -158,3 +157,7 @@ services:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: prodagent
     container_name: prodagent
+
+networks:
+  external:
+    driver: overlay  
