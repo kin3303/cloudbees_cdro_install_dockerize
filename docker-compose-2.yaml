@@ -1,0 +1,221 @@
+# Required to docker 18.06+
+version: "3.7"
+
+services:
+  traefik:
+    image: traefik:v2.0
+    command: 
+      - --web
+      - --docker
+      - --docker.swarmmode
+      - --docker.watch 
+    ports:
+      - 80:80
+      - 443:443
+      - 8081:8080 # <-- Dashboard
+    networks:
+      - external
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+
+  visualizer:
+    image: dockersamples/visualizer:latest
+    ports:
+      - 8081:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - external
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+
+  portainer:
+    image: portainer/portainer:latest
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - 9000:9000
+    networks:
+      - external
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+
+  db:
+    image: mysql:5.6
+    networks: 
+      - internal
+    volumes: 
+      - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
+      - ${PWD}/scripts:/tmp/scripts
+    environment:
+      MYSQL_ROOT_PASSWORD: ecdb
+      MYSQL_DATABASE: ecdb
+      MYSQL_USER: ecdb
+      MYSQL_PASSWORD: ecdb
+    hostname: db
+    container_name: db
+
+  flow:
+    image: "kin3303/commanderserver:${TAG}"
+    networks:
+      - internal
+      - external
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/license:/tmp/license
+      - ${PWD}/scripts:/tmp/scripts
+    ports:
+      - 8000
+    environment:
+      WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 180
+    links:
+      - db
+      - insight
+      - sonarqube
+    depends_on:
+      - db
+    ports:
+      - 8000:8000 
+    hostname: flow
+    container_name: flow
+    deploy:
+      mode: global
+      labels:
+        - "traefik.port=8000"
+        - "traefik.enable=true"
+        - "traefik.docker.network=fastcampus_external"
+        - "traefik.backend=counter"
+        - "traefik.frontend.rule=Host:flow.docker.local"
+
+  web:
+    image: "kin3303/commanderapache:${TAG}"
+    networks: 
+      - external
+    restart: always
+    # helthcheck:
+    #   test: curl localhost:80/index.html
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    depends_on:
+      - flow
+    expose: 
+      - "443"
+    hostname: web
+    container_name: web
+    deploy: 
+      mode: global 
+      labels: 
+        - "traefik.port=443"
+        - "traefik.enable=true"
+        - "traefik.docker.network=external"
+        - "traefik.backend=web"
+        - "traefik.frontend.rule=Host:web.docker.localhost"
+
+  localagent:
+    image: "kin3303/commanderagent:${TAG}"
+    networks: 
+      - internal
+    restart: always
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    depends_on:
+      - flow
+    hostname: localagent
+    container_name: localagent
+
+  repository:
+    image: "kin3303/commanderrepository:${TAG}"
+    networks: 
+      - internal
+    restart: always
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
+    depends_on:
+      - flow    
+    hostname: repository
+    container_name: repository
+
+  insight:
+    image: "kin3303/commanderinsight:${TAG}"
+    networks: 
+      - internal
+    restart: always
+    volumes:
+      - ${PWD}/scripts:/tmp/scripts
+      - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
+    hostname: insight
+    container_name: insight
+
+  sonarqube: 
+    image: sonarqube:7.1
+    networks: 
+      - internal
+    restart: always
+    ports:
+      - 9000:9000
+      - 9092:9092
+    hostname: sonarqube 
+    container_name: sonarqube
+
+  devagent:
+    image: "kin3303/demoagentdev"
+    networks: 
+      - internal
+    ports:
+      - 8060:8080
+      - 9960:9990
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    hostname: devagent
+    container_name: devagent
+
+  qaagent:
+    image: "kin3303/demoagentdev"
+    networks: 
+      - internal
+    ports:
+      - 8070:8080
+      - 9970:9990
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    hostname: qaagent
+    container_name: qaagent
+
+  prodagent:
+    image: "kin3303/demoagentdev"
+    networks: 
+      - internal
+    ports:
+      - 8080:8080
+      - 9980:9990
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    hostname: prodagent
+    container_name: prodagent
+
+networks:
+  external:
+    driver: overlay 
+  internal:
