@@ -106,8 +106,8 @@ If you want to use demo projects, please use follow command.
 
 ```console
  $ cd <SourceRoot>
- $ export INSIGHT_INSTALLER=CloudBeesFlowDevOpsInsightServer-x64-9.2.0.139827
- $ export FLOW_INSTALLER=CloudBeesFlow-x64-9.2.0.139827
+ $ export INSIGHT_INSTALLER=CloudBeesFlowDevOpsInsightServer-x64-10.0.0.14265
+ $ export FLOW_INSTALLER=CloudBeesFlow-x64-10.0.0.14265
  $ export TAG=latest
  $ docker login
  $ make
