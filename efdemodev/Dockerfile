@@ -18,8 +18,8 @@ ENV LANG=en_GB.UTF-8 \
     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \  
     MAVEN_BRANCH_VERSION=3 \
     MAVEN_VERSION=3.6.3 \
-    M2_HOME=/opt/maven \
-    MAVEN_HOME=/opt/maven \
+    M2_HOME=/usr/share/maven\
+    MAVEN_HOME=/usr/share/maven \
     PATH=${M2_HOME}/bin:${JAVA_HOME}/bin:${PATH}
 
 # Fix sh                                                        
