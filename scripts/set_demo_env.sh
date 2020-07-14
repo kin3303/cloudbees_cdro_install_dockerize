@@ -58,6 +58,15 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/project_import_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/project_import_ready
 fi
 
+if [ ! -f /opt/electriccloud/electriccommander/conf/project_import_ready ]; then
+  echo "Import Projects"
+  for file in /tmp/scripts/projectResouces/*.groovy; do
+    ectool evalDsl --dslFile "$file"  
+  done
+
+  touch /opt/electriccloud/electriccommander/conf/dsl_import_ready
+fi
+
 if [ ! -f /opt/electriccloud/electriccommander/conf/project_group_settings_ready ]; then
   echo "Creating groups"
   for i in administrators development quality release operations executive it; do
