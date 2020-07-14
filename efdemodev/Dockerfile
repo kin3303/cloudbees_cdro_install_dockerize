@@ -1,4 +1,4 @@
-FROM kin3303/commanderagent
+FROM kin3303/commanderagent:9.2
                                                 
 RUN locale-gen en_GB.UTF-8
 ENV LANG=en_GB.UTF-8 \
