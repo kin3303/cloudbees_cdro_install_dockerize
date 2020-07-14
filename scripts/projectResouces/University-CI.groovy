@@ -14,14 +14,14 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'projName', defaultValue: '$[/myProject/config/projName]', {
+  formalParameter 'projName', defaultValue: '$[/myProject/config-release/projName]', {
     expansionDeferred = '0'
     orderIndex = '2'
     required = '1'
     type = 'entry'
   }
 
-  formalParameter 'artifactGroup', defaultValue: '$[/myProject/config/artifactGroup]', {
+  formalParameter 'artifactGroup', defaultValue: '$[/myProject/config-release/artifactGroup]', {
     expansionDeferred = '0'
     label = 'Artifact Group Name'
     orderIndex = '3'
@@ -29,7 +29,7 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'apps', defaultValue: '$[/myProject/config/apps]', {
+  formalParameter 'apps', defaultValue: '$[/myProject/config-release/apps]', {
     description = ''
     expansionDeferred = '0'
     label = 'Application definitions'
@@ -38,7 +38,7 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'pipe', defaultValue: '$[/myProject/config/pipe]', {
+  formalParameter 'pipe', defaultValue: '$[/myProject/config-release/pipe]', {
     expansionDeferred = '0'
     label = 'Release pipeline definition'
     orderIndex = '5'
@@ -562,6 +562,6 @@ sudo rm -rf /tmp/*.war''',
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '10'
+    pipelineCounter = '11'
   }
 }

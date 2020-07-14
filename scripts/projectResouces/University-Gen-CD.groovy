@@ -742,6 +742,6 @@ project projName, {
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '11'
+    pipelineCounter = '12'
   }
 }
