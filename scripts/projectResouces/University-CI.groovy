@@ -14,9 +14,17 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
+  formalParameter 'serverName', defaultValue: '35.239.183.69', {
+    expansionDeferred = '0'
+    label = 'Server Name'
+    orderIndex = '2'
+    required = '1'
+    type = 'entry'
+  }
+
   formalParameter 'projName', defaultValue: '$[/myProject/config-release/projName]', {
     expansionDeferred = '0'
-    orderIndex = '2'
+    orderIndex = '3'
     required = '1'
     type = 'entry'
   }
@@ -24,7 +32,7 @@ pipeline 'University-CI', {
   formalParameter 'artifactGroup', defaultValue: '$[/myProject/config-release/artifactGroup]', {
     expansionDeferred = '0'
     label = 'Artifact Group Name'
-    orderIndex = '3'
+    orderIndex = '4'
     required = '1'
     type = 'entry'
   }
@@ -33,7 +41,7 @@ pipeline 'University-CI', {
     description = ''
     expansionDeferred = '0'
     label = 'Application definitions'
-    orderIndex = '4'
+    orderIndex = '5'
     required = '1'
     type = 'entry'
   }
@@ -41,7 +49,7 @@ pipeline 'University-CI', {
   formalParameter 'pipe', defaultValue: '$[/myProject/config-release/pipe]', {
     expansionDeferred = '0'
     label = 'Release pipeline definition'
-    orderIndex = '5'
+    orderIndex = '6'
     required = '1'
     type = 'entry'
   }
@@ -538,6 +546,7 @@ sudo rm -rf /tmp/*.war''',
         'IssueKey': '$[/myPipelineRuntime/IssueKey]',
         'pipe': '$[/myProject/config-release/pipe]',
         'projName': '$[/myProject/config-release/projName]',
+        'serverName': '$[/myPipelineRuntime/serverName]',
       ]
       advancedMode = '0'
       allowOutOfOrderRun = '0'
