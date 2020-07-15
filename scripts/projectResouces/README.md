@@ -4,9 +4,10 @@
 3. CO_WEB_DEMO 의 Initialize 프로시저 실행
 4. Job 중  jira job 찾아서 수동으로 돌리기
 5. SonarQube Plugin Configuration id/password 다시 넣기 
-	1. admin
+	1. <hostIP>
 	2. admin
-	3. Test connection? 체크 
+	3. admin
+	4. Test connection? 체크 
 6. SonarQube 서버 SonarQube Project 생성
 	1. http://<hostIP>:9000
 	2. 프로젝트 명 : SpringCodeTest
