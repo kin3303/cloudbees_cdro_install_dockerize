@@ -7,16 +7,24 @@ pipeline 'University-Gen-CD', {
   projectName = 'CO_WEB_DEMO'
   skipStageMode = 'ENABLED'
 
+  formalParameter 'serverName', defaultValue: '104.198.189.202', {
+    expansionDeferred = '0'
+    label = 'Server Name'
+    orderIndex = '1'
+    required = '1'
+    type = 'entry'
+  }
+
   formalParameter 'IssueKey', defaultValue: 'DOP-111', {
     expansionDeferred = '0'
-    orderIndex = '1'
+    orderIndex = '2'
     required = '1'
     type = 'entry'
   }
 
   formalParameter 'projName', defaultValue: '$[/myProject/config-release/projName]', {
     expansionDeferred = '0'
-    orderIndex = '2'
+    orderIndex = '3'
     required = '1'
     type = 'entry'
   }
@@ -24,7 +32,7 @@ pipeline 'University-Gen-CD', {
   formalParameter 'artifactGroup', defaultValue: '$[/myProject/config-release/artifactGroup]', {
     expansionDeferred = '0'
     label = 'Artifact Group Name'
-    orderIndex = '3'
+    orderIndex = '4'
     required = '1'
     type = 'entry'
   }
@@ -33,7 +41,7 @@ pipeline 'University-Gen-CD', {
     description = ''
     expansionDeferred = '0'
     label = 'Application definitions'
-    orderIndex = '4'
+    orderIndex = '5'
     required = '1'
     type = 'entry'
   }
@@ -41,7 +49,7 @@ pipeline 'University-Gen-CD', {
   formalParameter 'pipe', defaultValue: '$[/myProject/config-release/pipe]', {
     expansionDeferred = '0'
     label = 'Release pipeline definition'
-    orderIndex = '5'
+    orderIndex = '6'
     required = '1'
     type = 'entry'
   }
@@ -254,12 +262,32 @@ project projName, {
 		step "URL Test",
 			command: "echo testing URL"
 	}
-	
+
+	procedure "FunctionalTests",{
+		step "Selenium Test",
+			command: "echo selenium test"
+	}
+
 	procedure "SeleniumTests",{
 		step "Selenium Test",
-			command: "echo unit testing"
+			command: "echo selenium test"
+	}
+
+	procedure "FunctionalTests",{
+		step "Functional Test",
+			command: "echo functions test"
 	}
 	
+	procedure "IntegrationTests",{
+		step "Integration Test",
+			command: "echo integration test"
+	}
+	
+	procedure "SmokeTests",{
+		step "Integration Test",
+			command: "echo smoke test"
+	}
+				
 	procedure "UpdateTicket",{
 		step "URL Test",
 			command: "echo update ticket in jira"
@@ -292,15 +320,26 @@ project projName, {
 		}
 	}
 
-	procedure "System Tests", {
-		step "Tests", 
-			command: "echo Testing..."
+	procedure "GenerateQAResult", { 
 		step "Collect Test Results",
 			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +
 				// Dummy location...
-				"\\\'" + \'<html><a href=\\"http://cloudbees.devops.mousoft.co.kr:8070/univers-web/ui\\">Test Results</a></html>\' + "\\\'"
+				"\\\'" + \'<html><a href=\\"http://$[serverName]:8060/univers-web/ui\\">Test Results</a></html>\' + "\\\'"
 	}
-    
+	
+	procedure "GeneratePreProdResult", { 
+		step "Collect Test Results",
+			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +
+				// Dummy location...
+				"\\\'" + \'<html><a href=\\"http://$[serverName]:8070/univers-web/ui\\">Test Results</a></html>\' + "\\\'"
+	}
+	
+	procedure "GenerateProdResult", { 
+		step "Collect Test Results",
+			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +
+				// Dummy location...
+				"\\\'" + \'<html><a href=\\"http://$[serverName]:8080/univers-web/ui\\">Test Results</a></html>\' + "\\\'"
+	}
 }
  ''',
         'shellToUse': 'ectool evalDsl --dslFile {0}',
@@ -670,51 +709,119 @@ project projName, {
 	pipeline pipe.name+" - $[issueKey]", {
 		pipe.stages.eachWithIndex { st, index ->
 			stage st,{
+				if (index == 0) {
+					gate \'PRE\', {
+					}
+
+					gate \'POST\', { 
+					  task \'Ensure 75% Passing Tests\', { 
+						enabled = \'1\'
+						errorHandling = \'stopOnError\'
+						gateCondition =  \'$\'+\'[/javascript myStageRuntime.tasks.["Run functional Test"].outcome!="error"]\'
+						gateType = \'POST\'
+						insertRollingDeployManualStep = \'0\'
+						resourceName = \'\'
+						skippable = \'0\'
+						subproject = \'University\'
+						taskType = \'CONDITIONAL\'
+						useApproverAcl = \'0\'
+						waitForPlannedStartDate = \'0\'
+					  }
+					}
+				}
+	
 				task "Batch Deploy",
 					taskType: "DEPLOYER",
                     errorHandling: "stopOnError"
 					
-				if (index == 0) { 
-					task "System Tests For QA",
+				if (index == 0) {
+					task "Run functional Test",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
-						subprocedure: "System Tests", 
+						subprocedure: "FunctionalTests", 
                         errorHandling: "stopOnError"
-					task "Manual Validation",
-						taskType: "MANUAL",
-						approvers:[\'admin\'],
-						instruction: "Verify that business requirements are met"
-					}
+					task "Generate QA Result",
+						taskType: \'PROCEDURE\',
+						subproject: projName,
+						subprocedure: "GenerateQAResult", 
+                        errorHandling: "stopOnError" 
+				} 
 					
 				if (index == 1) {
-					task "Update Ticket For Deploy - $[issueKey]",
+					task "Run SIT Test",
+						taskType: \'PROCEDURE\',
+						subproject: projName,
+						subprocedure: "IntegrationTests", 
+                        errorHandling: "stopOnError"
+					task "Generate Pre-Prod Result",
+						taskType: \'PROCEDURE\',
+						subproject: projName,
+						subprocedure: "GeneratePreProdResult", 
+                        errorHandling: "stopOnError"
+		
+					task \'Send Slack Notification\', {
+					  description = \'\'
+					  actualParameter = [
+						\'config\': \'slackcfg\',
+						\'payload-msg\': \'\'\'{"text": "Check pre-production result. 
+<http://$[serverName]:8070/univers-web/ui|Click here> for details!"}\'\'\',
+						\'resultFormat\': \'json\',
+						\'resultPropertySheet\': \'/myJob/sendRTMStatus\',
+					  ]
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  skippable = \'0\'
+					  subpluginKey = \'EC-Slack\'
+					  subprocedure = \'Send Realtime Message\'
+					  taskType = \'PLUGIN\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					}
+					
+					task \'Veryfy QA/Notify\', { 
+						emailConfigName = \'gmail\' 
+						errorHandling = \'stopOnError\' 
+						instruction = \'Verify that business requirements are met\' 
+						notificationTemplate = \'ec_default_pipeline_manual_task_notification_template\'
+						taskType = \'MANUAL\' 
+						approver = [
+							\'development\',\'admin\'
+						]
+					}
+					
+					task "JIRA - Issue status update - [To Deploy]",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
 						subprocedure: "Update Ticket For Deploy - $[issueKey]"
-					task "Manual Validation",
-						taskType: "MANUAL",
-						approvers:[\'admin\'],
-						instruction: "Verify that business requirements are met"
-					}
+				}
 					
-
 				if (index == 2) {
-					task  "Update Ticket For Finish - $[issueKey]",
+					task "Run Smoke Test",
+						taskType: \'PROCEDURE\',
+						subproject: projName,
+						subprocedure: "SmokeTests", 
+                        errorHandling: "stopOnError"
+					task "Generate Production Result",
+						taskType: \'PROCEDURE\',
+						subproject: projName,
+						subprocedure: "GenerateProdResult", 
+                        errorHandling: "stopOnError"
+					task  "JIRA - Issue status update - [To Finish]",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
 						subprocedure: "Update Ticket For Finish - $[issueKey]" 
-					task "Manual Validation",
-						taskType: "MANUAL",
-						approvers:[\'admin\'],
-						instruction: "Verify that business requirements are met"
-					}						
-				if (index > 0)  {
-					task "Entry gate approval",  // Don\'t create a gate for first stage
+					task "Release Management",  // Don\'t create a gate for first stage
 						taskType: \'APPROVAL\',
 						approver: [\'admin\'],
 						gateType: \'PRE\',
 						notificationTemplate: \'ec_default_pipeline_notification_template\'
-					}
+				}						
+ 
 			} // stage
 		} // Each stage
 	} // Pipeline
@@ -742,6 +849,6 @@ project projName, {
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '12'
+    pipelineCounter = '28'
   }
 }

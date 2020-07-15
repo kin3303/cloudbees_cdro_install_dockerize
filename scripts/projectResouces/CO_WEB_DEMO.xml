@@ -1701,7 +1701,7 @@
         <expandable>1</expandable>
         <suppressValueTracking>0</suppressValueTracking>
         <tracked>1</tracked>
-        <value>						ectool deletePipeline "University" "Weekly Sprints"&#10;ectool deleteApplication "University" "University"&#10;ectool deleteEnvironment "University" "PROD"&#10;ectool deleteEnvironment "University" "QA"&#10;ectool deleteEnvironment "University" "DEV"&#10;ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	</value>
+        <value>																																				ectool deletePipeline "University" "Weekly Sprints"&#10;ectool deleteApplication "University" "University"&#10;ectool deleteEnvironment "University" "PROD"&#10;ectool deleteEnvironment "University" "QA"&#10;ectool deleteEnvironment "University" "DEV"&#10;ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	</value>
       </property>
       <property>
         <propertyName>compiledFiles</propertyName>
@@ -6331,6 +6331,19 @@
       <acl>
         <inheriting>1</inheriting>
         <tracked>1</tracked>
+        <aclEntry>
+          <allowChangePermissions>0</allowChangePermissions>
+          <allowExecute>1</allowExecute>
+          <allowModify>0</allowModify>
+          <allowRead>0</allowRead>
+          <denyChangePermissions>0</denyChangePermissions>
+          <denyExecute>0</denyExecute>
+          <denyModify>0</denyModify>
+          <denyRead>0</denyRead>
+          <principalName>test</principalName>
+          <principalType>serviceAccount</principalType>
+          <tracked>1</tracked>
+        </aclEntry>
       </acl>
       <flow>
         <flowName>12a896a9-c5a7-11ea-a2d0-0242ac130008_pipelineflow</flowName>
@@ -6964,7 +6977,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>11</value>
+              <value>14</value>
             </property>
           </propertySheet>
         </property>
@@ -7027,7 +7040,7 @@
       <stage>
         <stageName>Setup</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T07:59:02.557Z</completionTime>
+        <completionTime>2020-07-15T02:08:06.309Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>12f5cb65-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -7282,7 +7295,7 @@
       <stage>
         <stageName>Build</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T07:59:28.751Z</completionTime>
+        <completionTime>2020-07-15T02:08:34.451Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>132fc76e-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -7935,7 +7948,7 @@
       <stage>
         <stageName>Test</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T08:00:01.398Z</completionTime>
+        <completionTime>2020-07-15T02:09:05.788Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>13d333ea-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -8612,7 +8625,7 @@
       <stage>
         <stageName>Package</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T08:00:15.292Z</completionTime>
+        <completionTime>2020-07-15T02:09:15.587Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>1489d947-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -9088,8 +9101,7 @@
       </stage>
       <stage>
         <stageName>Generate CD Pipeline</stageName>
-        <completed>1</completed>
-        <completionTime>2020-07-14T08:00:16.280Z</completionTime>
+        <completed>0</completed>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>1522be52-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -9699,7 +9711,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>12</value>
+              <value>28</value>
             </property>
           </propertySheet>
         </property>
@@ -9710,7 +9722,7 @@
         <description></description>
         <expansionDeferred>0</expansionDeferred>
         <label>Application definitions</label>
-        <orderIndex>4</orderIndex>
+        <orderIndex>5</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -9720,7 +9732,7 @@
         <defaultValue>$[/myProject/config-release/artifactGroup]</defaultValue>
         <expansionDeferred>0</expansionDeferred>
         <label>Artifact Group Name</label>
-        <orderIndex>3</orderIndex>
+        <orderIndex>4</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -9735,7 +9747,7 @@
         <formalParameterName>IssueKey</formalParameterName>
         <defaultValue>DOP-111</defaultValue>
         <expansionDeferred>0</expansionDeferred>
-        <orderIndex>1</orderIndex>
+        <orderIndex>2</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -9745,7 +9757,7 @@
         <defaultValue>$[/myProject/config-release/pipe]</defaultValue>
         <expansionDeferred>0</expansionDeferred>
         <label>Release pipeline definition</label>
-        <orderIndex>5</orderIndex>
+        <orderIndex>6</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -9754,7 +9766,17 @@
         <formalParameterName>projName</formalParameterName>
         <defaultValue>$[/myProject/config-release/projName]</defaultValue>
         <expansionDeferred>0</expansionDeferred>
-        <orderIndex>2</orderIndex>
+        <orderIndex>3</orderIndex>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>serverName</formalParameterName>
+        <defaultValue>104.198.189.202</defaultValue>
+        <expansionDeferred>0</expansionDeferred>
+        <label>Server Name</label>
+        <orderIndex>1</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -9762,7 +9784,7 @@
       <stage>
         <stageName>Clean</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T08:00:37.735Z</completionTime>
+        <completionTime>2020-07-15T01:48:12.030Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>ffea4f1f-c5a6-11ea-aaf6-0242ac130008_stage_flow_state</flowStateName>
@@ -10085,7 +10107,7 @@
       <stage>
         <stageName>Setting</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T08:00:38.818Z</completionTime>
+        <completionTime>2020-07-15T01:48:13.046Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>003a6a44-c5a7-11ea-aaf6-0242ac130008_stage_flow_state</flowStateName>
@@ -10267,7 +10289,7 @@
       <stage>
         <stageName>Generate</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-14T08:00:59.948Z</completionTime>
+        <completionTime>2020-07-15T01:48:34.631Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>00710ae0-c5a7-11ea-aaf6-0242ac130008_stage_flow_state</flowStateName>
@@ -10325,7 +10347,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>def projName = "$[projName]"&#10;def subProjName = "$[/myProject/projectName]"&#10;&#10;project projName, {&#10;	procedure "AppValidation",{&#10;		step "URL Test",&#10;			command: "echo testing URL"&#10;	}&#10;	&#10;	procedure "SeleniumTests",{&#10;		step "Selenium Test",&#10;			command: "echo unit testing"&#10;	}&#10;	&#10;	procedure "UpdateTicket",{&#10;		step "URL Test",&#10;			command: "echo update ticket in jira"&#10;	}&#10;    &#10;	procedure("Update Ticket For Deploy - $[issueKey]"){&#10;		step('update jira ticket') {&#10;			subproject=subProjName&#10;			subprocedure="UpdateJIRAIssue"&#10;			actualParameter('issueKey', "$[issueKey]")&#10;			actualParameter('stepToApply', 'Deploy')&#10;		}&#10;	}&#10;	&#10;	procedure("Update Ticket For Rollback - $[issueKey]"){&#10;		step('update jira ticket') {&#10;			subproject=subProjName&#10;			subprocedure="UpdateJIRAIssue"&#10;			actualParameter('issueKey', "$[issueKey]")&#10;			actualParameter('stepToApply', 'Rollback')&#10;		}&#10;	}&#10;	&#10;	procedure("Update Ticket For Finish - $[issueKey]"){&#10;		step("update jira ticket - $[issueKey]") {&#10;			subproject=subProjName&#10;			subprocedure="UpdateJIRAIssue"&#10;			actualParameter('issueKey', "$[issueKey]")&#10;			actualParameter('stepToApply', 'Done')&#10;		}&#10;	}&#10;&#10;	procedure "System Tests", {&#10;		step "Tests", &#10;			command: "echo Testing..."&#10;		step "Collect Test Results",&#10;			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +&#10;				// Dummy location...&#10;				"\'" + '&lt;html&gt;&lt;a href=\"http://cloudbees.devops.mousoft.co.kr:8070/univers-web/ui\"&gt;Test Results&lt;/a&gt;&lt;/html&gt;' + "\'"&#10;	}&#10;    &#10;}&#10; </value>
+                <value>def projName = "$[projName]"&#10;def subProjName = "$[/myProject/projectName]"&#10;&#10;project projName, {&#10;	procedure "AppValidation",{&#10;		step "URL Test",&#10;			command: "echo testing URL"&#10;	}&#10;&#10;	procedure "FunctionalTests",{&#10;		step "Selenium Test",&#10;			command: "echo selenium test"&#10;	}&#10;&#10;	procedure "SeleniumTests",{&#10;		step "Selenium Test",&#10;			command: "echo selenium test"&#10;	}&#10;&#10;	procedure "FunctionalTests",{&#10;		step "Functional Test",&#10;			command: "echo functions test"&#10;	}&#10;	&#10;	procedure "IntegrationTests",{&#10;		step "Integration Test",&#10;			command: "echo integration test"&#10;	}&#10;	&#10;	procedure "SmokeTests",{&#10;		step "Integration Test",&#10;			command: "echo smoke test"&#10;	}&#10;				&#10;	procedure "UpdateTicket",{&#10;		step "URL Test",&#10;			command: "echo update ticket in jira"&#10;	}&#10;    &#10;	procedure("Update Ticket For Deploy - $[issueKey]"){&#10;		step('update jira ticket') {&#10;			subproject=subProjName&#10;			subprocedure="UpdateJIRAIssue"&#10;			actualParameter('issueKey', "$[issueKey]")&#10;			actualParameter('stepToApply', 'Deploy')&#10;		}&#10;	}&#10;	&#10;	procedure("Update Ticket For Rollback - $[issueKey]"){&#10;		step('update jira ticket') {&#10;			subproject=subProjName&#10;			subprocedure="UpdateJIRAIssue"&#10;			actualParameter('issueKey', "$[issueKey]")&#10;			actualParameter('stepToApply', 'Rollback')&#10;		}&#10;	}&#10;	&#10;	procedure("Update Ticket For Finish - $[issueKey]"){&#10;		step("update jira ticket - $[issueKey]") {&#10;			subproject=subProjName&#10;			subprocedure="UpdateJIRAIssue"&#10;			actualParameter('issueKey', "$[issueKey]")&#10;			actualParameter('stepToApply', 'Done')&#10;		}&#10;	}&#10;&#10;	procedure "GenerateQAResult", { &#10;		step "Collect Test Results",&#10;			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +&#10;				// Dummy location...&#10;				"\'" + '&lt;html&gt;&lt;a href=\"http://$[serverName]:8060/univers-web/ui\"&gt;Test Results&lt;/a&gt;&lt;/html&gt;' + "\'"&#10;	}&#10;	&#10;	procedure "GeneratePreProdResult", { &#10;		step "Collect Test Results",&#10;			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +&#10;				// Dummy location...&#10;				"\'" + '&lt;html&gt;&lt;a href=\"http://$[serverName]:8070/univers-web/ui\"&gt;Test Results&lt;/a&gt;&lt;/html&gt;' + "\'"&#10;	}&#10;	&#10;	procedure "GenerateProdResult", { &#10;		step "Collect Test Results",&#10;			command: "ectool setProperty /myPipelineStageRuntime/ec_summary/testResults " +&#10;				// Dummy location...&#10;				"\'" + '&lt;html&gt;&lt;a href=\"http://$[serverName]:8080/univers-web/ui\"&gt;Test Results&lt;/a&gt;&lt;/html&gt;' + "\'"&#10;	}&#10;}&#10; </value>
               </property>
               <property>
                 <propertyName>shellToUse</propertyName>
@@ -10481,7 +10503,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>def pipe  = $[pipe]&#10;def projName = "$[projName]"&#10;&#10;project projName, {&#10;&#10;	property "normalReleaseMode" // Used to flag whether tasks are run or not; use 0 to run seeding release&#10;	pipeline pipe.name+" - $[issueKey]", {&#10;		pipe.stages.eachWithIndex { st, index -&gt;&#10;			stage st,{&#10;				task "Batch Deploy",&#10;					taskType: "DEPLOYER",&#10;                    errorHandling: "stopOnError"&#10;					&#10;				if (index == 0) { &#10;					task "System Tests For QA",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "System Tests", &#10;                        errorHandling: "stopOnError"&#10;					task "Manual Validation",&#10;						taskType: "MANUAL",&#10;						approvers:['admin'],&#10;						instruction: "Verify that business requirements are met"&#10;					}&#10;					&#10;				if (index == 1) {&#10;					task "Update Ticket For Deploy - $[issueKey]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Deploy - $[issueKey]"&#10;					task "Manual Validation",&#10;						taskType: "MANUAL",&#10;						approvers:['admin'],&#10;						instruction: "Verify that business requirements are met"&#10;					}&#10;					&#10;&#10;				if (index == 2) {&#10;					task  "Update Ticket For Finish - $[issueKey]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Finish - $[issueKey]" &#10;					task "Manual Validation",&#10;						taskType: "MANUAL",&#10;						approvers:['admin'],&#10;						instruction: "Verify that business requirements are met"&#10;					}						&#10;				if (index &gt; 0)  {&#10;					task "Entry gate approval",  // Don't create a gate for first stage&#10;						taskType: 'APPROVAL',&#10;						approver: ['admin'],&#10;						gateType: 'PRE',&#10;						notificationTemplate: 'ec_default_pipeline_notification_template'&#10;					}&#10;			} // stage&#10;		} // Each stage&#10;	} // Pipeline&#10;} // Project</value>
+                <value>def pipe  = $[pipe]&#10;def projName = "$[projName]"&#10;&#10;project projName, {&#10;&#10;	property "normalReleaseMode" // Used to flag whether tasks are run or not; use 0 to run seeding release&#10;	pipeline pipe.name+" - $[issueKey]", {&#10;		pipe.stages.eachWithIndex { st, index -&gt;&#10;			stage st,{&#10;				if (index == 0) {&#10;					gate 'PRE', {&#10;					}&#10;&#10;					gate 'POST', { &#10;					  task 'Ensure 75% Passing Tests', { &#10;						enabled = '1'&#10;						errorHandling = 'stopOnError'&#10;						gateCondition =  '$'+'[/javascript myStageRuntime.tasks.["Run functional Test"].outcome!="error"]'&#10;						gateType = 'POST'&#10;						insertRollingDeployManualStep = '0'&#10;						resourceName = ''&#10;						skippable = '0'&#10;						subproject = 'University'&#10;						taskType = 'CONDITIONAL'&#10;						useApproverAcl = '0'&#10;						waitForPlannedStartDate = '0'&#10;					  }&#10;					}&#10;				}&#10;	&#10;				task "Batch Deploy",&#10;					taskType: "DEPLOYER",&#10;                    errorHandling: "stopOnError"&#10;					&#10;				if (index == 0) {&#10;					task "Run functional Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "FunctionalTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate QA Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GenerateQAResult", &#10;                        errorHandling: "stopOnError" &#10;				} &#10;					&#10;				if (index == 1) {&#10;					task "Run SIT Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "IntegrationTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate Pre-Prod Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GeneratePreProdResult", &#10;                        errorHandling: "stopOnError"&#10;		&#10;					task 'Send Slack Notification', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'config': 'slackcfg',&#10;						'payload-msg': '''{"text": "Check pre-production result. &#10;&lt;http://$[serverName]:8070/univers-web/ui|Click here&gt; for details!"}''',&#10;						'resultFormat': 'json',&#10;						'resultPropertySheet': '/myJob/sendRTMStatus',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  skippable = '0'&#10;					  subpluginKey = 'EC-Slack'&#10;					  subprocedure = 'Send Realtime Message'&#10;					  taskType = 'PLUGIN'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;					&#10;					task 'Veryfy QA/Notify', { &#10;						emailConfigName = 'gmail' &#10;						errorHandling = 'stopOnError' &#10;						instruction = 'Verify that business requirements are met' &#10;						notificationTemplate = 'ec_default_pipeline_manual_task_notification_template'&#10;						taskType = 'MANUAL' &#10;						approver = [&#10;							'development','admin'&#10;						]&#10;					}&#10;					&#10;					task "JIRA - Issue status update - [To Deploy]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Deploy - $[issueKey]"&#10;				}&#10;					&#10;				if (index == 2) {&#10;					task "Run Smoke Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "SmokeTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate Production Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GenerateProdResult", &#10;                        errorHandling: "stopOnError"&#10;					task  "JIRA - Issue status update - [To Finish]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Finish - $[issueKey]" &#10;					task "Release Management",  // Don't create a gate for first stage&#10;						taskType: 'APPROVAL',&#10;						approver: ['admin'],&#10;						gateType: 'PRE',&#10;						notificationTemplate: 'ec_default_pipeline_notification_template'&#10;				}						&#10; &#10;			} // stage&#10;		} // Each stage&#10;	} // Pipeline&#10;} // Project</value>
               </property>
               <property>
                 <propertyName>shellToUse</propertyName>
@@ -10669,6 +10691,179 @@
         </task>
       </stage>
     </pipeline>
+    <schedule>
+      <scheduleName>CI-Trigger</scheduleName>
+      <endDate></endDate>
+      <interval>0</interval>
+      <intervalUnits>seconds</intervalUnits>
+      <misfirePolicy>ignore</misfirePolicy>
+      <monthDays></monthDays>
+      <pipelineName>University-CI</pipelineName>
+      <priority>normal</priority>
+      <scheduleDisabled>0</scheduleDisabled>
+      <stopTime></stopTime>
+      <timeZone>Etc/UTC</timeZone>
+      <tracked>1</tracked>
+      <weekDays></weekDays>
+      <acl>
+        <inheriting>1</inheriting>
+        <tracked>1</tracked>
+      </acl>
+      <actualParameters>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>IssueKey</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>DOP-111</value>
+        </property>
+        <property>
+          <propertyName>apps</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/apps]</value>
+        </property>
+        <property>
+          <propertyName>artifactGroup</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/artifactGroup]</value>
+        </property>
+        <property>
+          <propertyName>ec_stagesToRun</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>["Setup","Build","Test","Package","Generate CD Pipeline"]</value>
+        </property>
+        <property>
+          <propertyName>pipe</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/pipe]</value>
+        </property>
+        <property>
+          <propertyName>projName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/projName]</value>
+        </property>
+      </actualParameters>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <tracked>1</tracked>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <property>
+              <propertyName>TriggerFlag</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>3</value>
+            </property>
+            <property>
+              <propertyName>ec_maxRetries</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>5</value>
+            </property>
+            <property>
+              <propertyName>ec_quietTime</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>0</value>
+            </property>
+            <property>
+              <propertyName>ec_runDuplicates</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>1</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookBranch</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>master</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookEventSource</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>github</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookEventType</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>push</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookRepositoryName</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>kin3303/efwebsample</value>
+            </property>
+            <property>
+              <propertyName>formType</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>$[/plugins/ECSCM-Git/project/scm_form/webhook]</value>
+            </property>
+            <property>
+              <propertyName>scmConfig</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>gitcfg</value>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>ec_triggerPluginName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>ECSCM-Git</value>
+        </property>
+        <property>
+          <propertyName>ec_triggerType</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>webhook</value>
+        </property>
+      </propertySheet>
+    </schedule>
     <schedule>
       <scheduleName>efwebSampleCI</scheduleName>
       <beginDate></beginDate>

@@ -562,6 +562,6 @@ sudo rm -rf /tmp/*.war''',
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '11'
+    pipelineCounter = '14'
   }
 }
