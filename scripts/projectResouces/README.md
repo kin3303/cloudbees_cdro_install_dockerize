@@ -8,7 +8,7 @@
 	2. admin
 	3. Test connection? 체크 
 6. SonarQube 서버 SonarQube Project 생성
-	1. http://cloudbees.devops.mousoft.co.kr:9000/admin/projects_management
+	1. http://<hostIP>:9000
 	2. 프로젝트 명 : SpringCodeTest
 	3. 프로젝트 키 : SpringCodeTest  
 7. Insight
