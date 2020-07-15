@@ -709,7 +709,11 @@ project projName, {
 	pipeline pipe.name+" - $[issueKey]", {
 		pipe.stages.eachWithIndex { st, index ->
 			stage st,{
+				resourceName = "local"
+				
 				if (index == 0) {
+					colorCode = \'#ff7f0e\'
+				
 					gate \'PRE\', {
 					}
 
@@ -717,7 +721,7 @@ project projName, {
 					  task \'Ensure 75% Passing Tests\', { 
 						enabled = \'1\'
 						errorHandling = \'stopOnError\'
-						gateCondition =  \'$\'+\'[/javascript myStageRuntime.tasks.["Run functional Test"].outcome!="error"]\'
+						gateCondition =  \'$\'+\'[/javascript getProperty("/myStageRuntime/outcome")!="error"]\'
 						gateType = \'POST\'
 						insertRollingDeployManualStep = \'0\'
 						resourceName = \'\'
@@ -727,14 +731,35 @@ project projName, {
 						useApproverAcl = \'0\'
 						waitForPlannedStartDate = \'0\'
 					  }
-					}
-				}
+					} 
 	
-				task "Batch Deploy",
-					taskType: "DEPLOYER",
-                    errorHandling: "stopOnError"
+					task \'Deploy App\', {
+					  description = \'\'
+					  actualParameter = [
+						\'ec_enforceDependencies\': \'1\',
+						\'ec_smartDeployOption\': \'1\',
+						\'ec_stageArtifacts\': \'1\',
+					  ]
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  environmentName = \'QA\'
+					  environmentProjectName = \'University\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  rollingDeployEnabled = \'0\'
+					  skippable = \'0\'
+					  subapplication = \'University\'
+					  subprocess = \'DeployForQA\'
+					  subproject = \'University\'
+					  taskProcessType = \'APPLICATION\'
+					  taskType = \'PROCESS\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					}
 					
-				if (index == 0) {
 					task "Run functional Test",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
@@ -748,6 +773,35 @@ project projName, {
 				} 
 					
 				if (index == 1) {
+					colorCode = \'#2ca02c\'
+					
+					task \'Deploy App\', {
+					  description = \'\'
+					  actualParameter = [
+						\'ec_enforceDependencies\': \'1\',
+						\'ec_smartDeployOption\': \'1\',
+						\'ec_stageArtifacts\': \'1\',
+					  ]
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  environmentName = \'Pre-prod\'
+					  environmentProjectName = \'University\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  rollingDeployEnabled = \'0\'
+					  skippable = \'0\'
+					  subapplication = \'University\'
+					  subprocess = \'Deploy\'
+					  subproject = \'University\'
+					  taskProcessType = \'APPLICATION\'
+					  taskType = \'PROCESS\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					}
+	
 					task "Run SIT Test",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
@@ -801,11 +855,75 @@ project projName, {
 				}
 					
 				if (index == 2) {
+					colorCode = \'#00adee\'
+					
+					task \'Deploy App - Blue Phase\', {
+					  description = \'\'
+					  actualParameter = [
+						\'ec_enforceDependencies\': \'1\',
+						\'ec_smartDeployOption\': \'1\',
+						\'ec_stageArtifacts\': \'1\',
+					  ]
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  environmentName = \'Production\'
+					  environmentProjectName = \'University\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  rollingDeployEnabled = \'1\'
+					  skippable = \'0\'
+					  subapplication = \'University\'
+					  subprocess = \'Deploy\'
+					  subproject = \'University\'
+					  taskProcessType = \'APPLICATION\'
+					  taskType = \'PROCESS\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					  rollingDeployPhase = [
+						\'Blue\',
+					  ]
+					}
+				
 					task "Run Smoke Test",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
 						subprocedure: "SmokeTests", 
                         errorHandling: "stopOnError"
+
+					task \'Deploy App - Green Phase\', {
+					  description = \'\'
+					  actualParameter = [
+						\'ec_enforceDependencies\': \'1\',
+						\'ec_smartDeployOption\': \'1\',
+						\'ec_stageArtifacts\': \'1\',
+					  ]
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  condition = \'$\'+\'[/javascript getProperty("/myStageRuntime/outcome")!="error"]\'
+					  enabled = \'1\'
+					  environmentName = \'Production\'
+					  environmentProjectName = \'University\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  rollingDeployEnabled = \'1\'
+					  skippable = \'0\'
+					  subapplication = \'University\'
+					  subprocess = \'Deploy\'
+					  subproject = \'University\'
+					  taskProcessType = \'APPLICATION\'
+					  taskType = \'PROCESS\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					  rollingDeployPhase = [
+						\'Green\',
+					  ]
+					}
+						
 					task "Generate Production Result",
 						taskType: \'PROCEDURE\',
 						subproject: projName,
@@ -849,6 +967,6 @@ project projName, {
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '28'
+    pipelineCounter = '52'
   }
 }
