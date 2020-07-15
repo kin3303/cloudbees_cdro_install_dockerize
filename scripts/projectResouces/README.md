@@ -16,7 +16,7 @@
 	1. Insight 서버에서 System Administrator 를 열어 TimeZone - Asia/Seoul 로 설정   
 	2. Release 를 1회 정도 수행
 	3. Insight 의 JIRA Configuration 을 수행
-8. Electric Cloud Code Commit Report 생성   \
+8. Electric Cloud Code Commit Report 생성
 9. Slack Configuration
 	1. 자신의 workspace 로 로그인 
 		1. https://fcdevops.slack.com/
