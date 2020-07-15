@@ -114,7 +114,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>1</suppressValueTracking>
             <tracked>1</tracked>
-            <value>[&#10;    name: "Weekly Sprints",&#10;    stages: ["DEV", "QA", "PROD"]&#10;]</value>
+            <value>[&#10;    name: "University Weekly Sprints",&#10;    stages: ["DEV", "QA", "PROD"]&#10;]</value>
           </property>
           <property>
             <propertyName>projName</propertyName>
@@ -159,7 +159,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>0</suppressValueTracking>
             <tracked>1</tracked>
-            <value>[&#10;    name: "Weekly Sprints",&#10;    stages: ["QA", "Pre-prod", "Production"]&#10;]&#10;</value>
+            <value>[&#10;    name: "University Weekly Sprints",&#10;    stages: ["QA", "Pre-prod", "Production"]&#10;]&#10;</value>
           </property>
           <property>
             <propertyName>projName</propertyName>
