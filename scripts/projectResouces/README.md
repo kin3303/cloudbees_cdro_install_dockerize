@@ -25,7 +25,7 @@
 	4. Endpoint URL 로 slackcfg 생성
 	5. Message 
 		```
-		{
-    		  "text": "Hello, world."
-		}
+            {
+              "text": "Hello, world."
+            }
 		```
