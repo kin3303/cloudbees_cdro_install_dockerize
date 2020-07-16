@@ -395,7 +395,7 @@ project projName, {
 		
 				environmentTier envTier, {
 					// create and add resource to the Tier
-					def resCount = isProd?3:1
+					def resCount = isProd?2:1
 					(1..resCount).each { resNum ->
 						def resName = (String) "${env}_${projName}_${envTier}_${resNum}"
 						if(isPreProd){
@@ -938,9 +938,62 @@ project projName, {
 						approver: [\'admin\'],
 						gateType: \'PRE\',
 						notificationTemplate: \'ec_default_pipeline_notification_template\'
-				}						
- 
-			} // stage
+				}
+
+				if (index == 3) { 
+					colorCode = \'#d62728\' 
+
+					task \'Generate Approval Audit Report\', { 
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  skippable = \'0\'
+					  subpluginKey = \'EC-AuditReports\'
+					  subprocedure = \'generateApprovalAuditReport\'
+					  taskType = \'PLUGIN\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					}
+
+					task \'Generate Evidence Links Audit Report\', {
+					  description = \'\'
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  skippable = \'0\'
+					  subpluginKey = \'EC-AuditReports\'
+					  subprocedure = \'generateEvidenceLinksAuditReport\'
+					  taskType = \'PLUGIN\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					}
+
+					task \'Generate Task Duration Audit Report\', {
+					  description = \'\'
+					  advancedMode = \'0\'
+					  allowOutOfOrderRun = \'0\'
+					  alwaysRun = \'0\'
+					  enabled = \'1\'
+					  errorHandling = \'stopOnError\'
+					  insertRollingDeployManualStep = \'0\'
+					  resourceName = \'\'
+					  skippable = \'0\'
+					  subpluginKey = \'EC-AuditReports\'
+					  subprocedure = \'generateTaskDurationAuditReport\'
+					  taskType = \'PLUGIN\'
+					  useApproverAcl = \'0\'
+					  waitForPlannedStartDate = \'0\'
+					}				
+				}
+			} // stages
 		} // Each stage
 	} // Pipeline
 } // Project''',
@@ -967,6 +1020,6 @@ project projName, {
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '52'
+    pipelineCounter = '58'
   }
 }

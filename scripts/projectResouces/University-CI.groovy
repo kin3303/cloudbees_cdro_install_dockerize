@@ -54,6 +54,30 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
+  formalParameter 'major', defaultValue: '1', {
+    expansionDeferred = '0'
+    label = 'Major Version'
+    orderIndex = '7'
+    required = '1'
+    type = 'entry'
+  }
+
+  formalParameter 'minor', defaultValue: '0', {
+    expansionDeferred = '0'
+    label = 'Minor Version'
+    orderIndex = '8'
+    required = '1'
+    type = 'entry'
+  }
+
+  formalParameter 'patch', defaultValue: '0', {
+    expansionDeferred = '0'
+    label = 'Patch Version'
+    orderIndex = '9'
+    required = '1'
+    type = 'entry'
+  }
+
   formalParameter 'ec_stagesToRun', {
     expansionDeferred = '1'
     required = '0'
@@ -444,7 +468,7 @@ sudo rm -rf /tmp/*.war''',
       description = ''
       actualParameter = [
         'artifactName': 'com.demo.university:db',
-        'artifactVersionVersion': '1.0.0-$[/increment /server/ec_counters/artifactCounter]',
+        'artifactVersionVersion': '$[major].$[minor].$[patch]-$[/increment /server/ec_counters/artifactCounter]',
         'compress': '1',
         'dependentArtifactVersionList': '',
         'excludePatterns': '',
@@ -472,7 +496,7 @@ sudo rm -rf /tmp/*.war''',
       description = ''
       actualParameter = [
         'artifactName': 'com.demo.university:app',
-        'artifactVersionVersion': '1.0.0-$[/increment /server/ec_counters/artifactCounter]',
+        'artifactVersionVersion': '$[major].$[minor].$[patch]-$[/increment /server/ec_counters/artifactCounter]',
         'compress': '1',
         'dependentArtifactVersionList': '',
         'excludePatterns': '',
@@ -500,7 +524,7 @@ sudo rm -rf /tmp/*.war''',
       description = ''
       actualParameter = [
         'artifactName': 'com.demo.university:web',
-        'artifactVersionVersion': '1.0.0-$[/increment /server/ec_counters/artifactCounter]',
+        'artifactVersionVersion': '$[major].$[minor].$[patch]-$[/increment /server/ec_counters/artifactCounter]',
         'compress': '1',
         'dependentArtifactVersionList': '',
         'excludePatterns': '',
@@ -571,6 +595,6 @@ sudo rm -rf /tmp/*.war''',
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '15'
+    pipelineCounter = '17'
   }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData version="96" buildLabel="build_main_142654_2020.06.25_02:11:48" buildVersion="10.0.0.142654" passkey="311ebe3bcbd015faaab51757836a80fff0657eed">
+<exportedData version="96" buildLabel="build_main_142654_2020.06.25_02:11:48" buildVersion="10.0.0.142654" passkey="8a3ff6b128282ed1e27b458a2ef6976bd21a2077">
   <exportPath>/projects/CO_WEB_DEMO</exportPath>
   <project>
     <projectName>CO_WEB_DEMO</projectName>
@@ -61,7 +61,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>1</suppressValueTracking>
             <tracked>1</tracked>
-            <value>5</value>
+            <value>0</value>
           </property>
           <property>
             <propertyName>dbCount</propertyName>
@@ -69,7 +69,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>1</suppressValueTracking>
             <tracked>1</tracked>
-            <value>5</value>
+            <value>0</value>
           </property>
           <property>
             <propertyName>webCount</propertyName>
@@ -77,7 +77,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>1</suppressValueTracking>
             <tracked>1</tracked>
-            <value>5</value>
+            <value>0</value>
           </property>
         </propertySheet>
       </property>
@@ -114,7 +114,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>1</suppressValueTracking>
             <tracked>1</tracked>
-            <value>[&#10;    name: "University Weekly Sprints",&#10;    stages: ["DEV", "QA", "PROD"]&#10;]</value>
+            <value>[&#10;    name: "Weekly Sprints",&#10;    stages: ["DEV", "QA", "PROD"]&#10;]</value>
           </property>
           <property>
             <propertyName>projName</propertyName>
@@ -159,7 +159,7 @@
             <expandable>1</expandable>
             <suppressValueTracking>0</suppressValueTracking>
             <tracked>1</tracked>
-            <value>[&#10;    name: "University Weekly Sprints",&#10;    stages: ["QA", "Pre-prod", "Production"]&#10;]&#10;</value>
+            <value>[&#10;    name: "University Weekly Sprints",&#10;    stages: ["QA", "Pre-prod", "Production","Audit Reports"]&#10;]&#10;</value>
           </property>
           <property>
             <propertyName>projName</propertyName>
@@ -1701,7 +1701,7 @@
         <expandable>1</expandable>
         <suppressValueTracking>0</suppressValueTracking>
         <tracked>1</tracked>
-        <value>																																				ectool deletePipeline "University" "Weekly Sprints"&#10;ectool deleteApplication "University" "University"&#10;ectool deleteEnvironment "University" "PROD"&#10;ectool deleteEnvironment "University" "QA"&#10;ectool deleteEnvironment "University" "DEV"&#10;ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	</value>
+        <value>																																																																																																ectool deletePipeline "University" "Weekly Sprints"&#10;ectool deleteApplication "University" "University"&#10;ectool deleteEnvironment "University" "PROD"&#10;ectool deleteEnvironment "University" "QA"&#10;ectool deleteEnvironment "University" "DEV"&#10;ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	ectool deleteResource "PROD_University_JBoss_3_prod"&#10;ectool deleteResource "PROD_University_JBoss_2_prod"&#10;ectool deleteResource "PROD_University_JBoss_1_prod"&#10;ectool deleteResource "PROD_University_MySql_3_prod"&#10;ectool deleteResource "PROD_University_MySql_2_prod"&#10;ectool deleteResource "PROD_University_MySql_1_prod"&#10;ectool deleteResource "PROD_University_Spring_3_prod"&#10;ectool deleteResource "PROD_University_Spring_2_prod"&#10;ectool deleteResource "PROD_University_Spring_1_prod"&#10;ectool deleteResource "QA_University_JBoss_1_qa"&#10;ectool deleteResource "QA_University_MySql_1_qa"&#10;ectool deleteResource "QA_University_Spring_1_qa"&#10;ectool deleteResource "DEV_University_JBoss_1_dev"&#10;ectool deleteResource "DEV_University_MySql_1_dev"&#10;ectool deleteResource "DEV_University_Spring_1_dev"&#10;&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	&#10;		ectool deleteProject "University"&#10;	</value>
       </property>
       <property>
         <propertyName>compiledFiles</propertyName>
@@ -6340,13 +6340,26 @@
           <denyExecute>0</denyExecute>
           <denyModify>0</denyModify>
           <denyRead>0</denyRead>
+          <principalName>git0-sa</principalName>
+          <principalType>serviceAccount</principalType>
+          <tracked>1</tracked>
+        </aclEntry>
+        <aclEntry>
+          <allowChangePermissions>0</allowChangePermissions>
+          <allowExecute>1</allowExecute>
+          <allowModify>0</allowModify>
+          <allowRead>0</allowRead>
+          <denyChangePermissions>0</denyChangePermissions>
+          <denyExecute>0</denyExecute>
+          <denyModify>0</denyModify>
+          <denyRead>0</denyRead>
           <principalName>test</principalName>
           <principalType>serviceAccount</principalType>
           <tracked>1</tracked>
         </aclEntry>
       </acl>
       <flow>
-        <flowName>12a896a9-c5a7-11ea-a2d0-0242ac130008_pipelineflow</flowName>
+        <flowName>e82c7a06-c655-11ea-a45a-0242ac120008_pipelineflow</flowName>
         <tracked>1</tracked>
         <acl>
           <inheriting>1</inheriting>
@@ -6369,7 +6382,7 @@
           <flowStateType>task</flowStateType>
           <index>0</index>
           <keepOnError>0</keepOnError>
-          <subflow>12f5cb6a-c5a7-11ea-a2d0-0242ac130008_pregateflow</subflow>
+          <subflow>e83e2d1c-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6416,7 +6429,7 @@
           <index>1</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>12f57d3d-c5a7-11ea-a2d0-0242ac130008_stageflow</subflow>
+          <subflow>e8379d4a-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6461,7 +6474,7 @@
           <flowStateType>task</flowStateType>
           <index>2</index>
           <keepOnError>0</keepOnError>
-          <subflow>12f5f27e-c5a7-11ea-a2d0-0242ac130008_postgateflow</subflow>
+          <subflow>e8409e28-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6488,7 +6501,7 @@
           <flowStateType>task</flowStateType>
           <index>3</index>
           <keepOnError>0</keepOnError>
-          <subflow>132fc773-c5a7-11ea-a2d0-0242ac130008_pregateflow</subflow>
+          <subflow>e8435da2-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6535,7 +6548,7 @@
           <index>4</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>132f7946-c5a7-11ea-a2d0-0242ac130008_stageflow</subflow>
+          <subflow>e842c120-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6580,7 +6593,7 @@
           <flowStateType>task</flowStateType>
           <index>5</index>
           <keepOnError>0</keepOnError>
-          <subflow>132fc777-c5a7-11ea-a2d0-0242ac130008_postgateflow</subflow>
+          <subflow>e8435dae-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6607,7 +6620,7 @@
           <flowStateType>task</flowStateType>
           <index>6</index>
           <keepOnError>0</keepOnError>
-          <subflow>13d35aff-c5a7-11ea-a2d0-0242ac130008_pregateflow</subflow>
+          <subflow>e849c5df-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6654,7 +6667,7 @@
           <index>7</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>13d2e5c2-c5a7-11ea-a2d0-0242ac130008_stageflow</subflow>
+          <subflow>e849777a-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6699,7 +6712,7 @@
           <flowStateType>task</flowStateType>
           <index>8</index>
           <keepOnError>0</keepOnError>
-          <subflow>13d35b03-c5a7-11ea-a2d0-0242ac130008_postgateflow</subflow>
+          <subflow>e849c5eb-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6726,7 +6739,7 @@
           <flowStateType>task</flowStateType>
           <index>9</index>
           <keepOnError>0</keepOnError>
-          <subflow>1489d94c-c5a7-11ea-a2d0-0242ac130008_pregateflow</subflow>
+          <subflow>e84aafd3-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6773,7 +6786,7 @@
           <index>10</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>14898b1f-c5a7-11ea-a2d0-0242ac130008_stageflow</subflow>
+          <subflow>e84a3b61-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6818,7 +6831,7 @@
           <flowStateType>task</flowStateType>
           <index>11</index>
           <keepOnError>0</keepOnError>
-          <subflow>1489d950-c5a7-11ea-a2d0-0242ac130008_postgateflow</subflow>
+          <subflow>e84aafdf-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6845,7 +6858,7 @@
           <flowStateType>task</flowStateType>
           <index>12</index>
           <keepOnError>0</keepOnError>
-          <subflow>1522be57-c5a7-11ea-a2d0-0242ac130008_pregateflow</subflow>
+          <subflow>e84b9a77-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6891,7 +6904,7 @@
           <flowStateType>task</flowStateType>
           <index>13</index>
           <keepOnError>0</keepOnError>
-          <subflow>1522702a-c5a7-11ea-a2d0-0242ac130008_stageflow</subflow>
+          <subflow>e84b252d-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6936,7 +6949,7 @@
           <flowStateType>task</flowStateType>
           <index>14</index>
           <keepOnError>0</keepOnError>
-          <subflow>1522be5b-c5a7-11ea-a2d0-0242ac130008_postgateflow</subflow>
+          <subflow>e84b9a83-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -6977,7 +6990,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>14</value>
+              <value>17</value>
             </property>
           </propertySheet>
         </property>
@@ -6988,7 +7001,7 @@
         <description></description>
         <expansionDeferred>0</expansionDeferred>
         <label>Application definitions</label>
-        <orderIndex>4</orderIndex>
+        <orderIndex>5</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -6998,7 +7011,7 @@
         <defaultValue>$[/myProject/config-release/artifactGroup]</defaultValue>
         <expansionDeferred>0</expansionDeferred>
         <label>Artifact Group Name</label>
-        <orderIndex>3</orderIndex>
+        <orderIndex>4</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -7019,11 +7032,41 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
+        <formalParameterName>major</formalParameterName>
+        <defaultValue>1</defaultValue>
+        <expansionDeferred>0</expansionDeferred>
+        <label>Major Version</label>
+        <orderIndex>7</orderIndex>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>minor</formalParameterName>
+        <defaultValue>0</defaultValue>
+        <expansionDeferred>0</expansionDeferred>
+        <label>Minor Version</label>
+        <orderIndex>8</orderIndex>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>patch</formalParameterName>
+        <defaultValue>0</defaultValue>
+        <expansionDeferred>0</expansionDeferred>
+        <label>Patch Version</label>
+        <orderIndex>9</orderIndex>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>pipe</formalParameterName>
         <defaultValue>$[/myProject/config-release/pipe]</defaultValue>
         <expansionDeferred>0</expansionDeferred>
         <label>Release pipeline definition</label>
-        <orderIndex>5</orderIndex>
+        <orderIndex>6</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
@@ -7032,6 +7075,16 @@
         <formalParameterName>projName</formalParameterName>
         <defaultValue>$[/myProject/config-release/projName]</defaultValue>
         <expansionDeferred>0</expansionDeferred>
+        <orderIndex>3</orderIndex>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>serverName</formalParameterName>
+        <defaultValue>35.239.183.69</defaultValue>
+        <expansionDeferred>0</expansionDeferred>
+        <label>Server Name</label>
         <orderIndex>2</orderIndex>
         <required>1</required>
         <tracked>1</tracked>
@@ -7040,7 +7093,7 @@
       <stage>
         <stageName>Setup</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T02:08:06.309Z</completionTime>
+        <completionTime>2020-07-16T00:00:20.343Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>12f5cb65-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -7051,7 +7104,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>12f57d3d-c5a7-11ea-a2d0-0242ac130008_stageflow</flowName>
+          <flowName>e8379d4a-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -7178,7 +7231,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>12f5cb6a-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e83e2d1c-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>12fe08d6-c5a7-11ea-a2d0-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Setup</stageName>
@@ -7188,7 +7241,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>12f5cb6a-c5a7-11ea-a2d0-0242ac130008_pregateflow</flowName>
+            <flowName>e83e2d1c-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -7213,7 +7266,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>12f5f27e-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e8409e28-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>130730a3-c5a7-11ea-a2d0-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Setup</stageName>
@@ -7223,7 +7276,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>12f5f27e-c5a7-11ea-a2d0-0242ac130008_postgateflow</flowName>
+            <flowName>e8409e28-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -7295,7 +7348,7 @@
       <stage>
         <stageName>Build</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T02:08:34.451Z</completionTime>
+        <completionTime>2020-07-16T00:00:48.352Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>132fc76e-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -7306,7 +7359,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>132f7946-c5a7-11ea-a2d0-0242ac130008_stageflow</flowName>
+          <flowName>e842c120-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -7593,7 +7646,7 @@
             <keepOnError>0</keepOnError>
             <resourceName></resourceName>
             <runType>parallel</runType>
-            <subflow>139196db-c5a7-11ea-a2d0-0242ac130008_groupflow</subflow>
+            <subflow>e8435dcc-c655-11ea-a45a-0242ac120008_groupflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -7621,7 +7674,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>132fc773-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e8435da2-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>133bd56f-c5a7-11ea-a2d0-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Build</stageName>
@@ -7631,7 +7684,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>132fc773-c5a7-11ea-a2d0-0242ac130008_pregateflow</flowName>
+            <flowName>e8435da2-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -7656,7 +7709,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>132fc777-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e8435dae-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>13465ccc-c5a7-11ea-a2d0-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Build</stageName>
@@ -7666,7 +7719,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>132fc777-c5a7-11ea-a2d0-0242ac130008_postgateflow</flowName>
+            <flowName>e8435dae-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -7770,7 +7823,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>139196db-c5a7-11ea-a2d0-0242ac130008_groupflow</flowName>
+            <flowName>e8435dcc-c655-11ea-a45a-0242ac120008_groupflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -7948,7 +8001,7 @@
       <stage>
         <stageName>Test</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T02:09:05.788Z</completionTime>
+        <completionTime>2020-07-16T00:01:21.269Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>13d333ea-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -7959,7 +8012,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>13d2e5c2-c5a7-11ea-a2d0-0242ac130008_stageflow</flowName>
+          <flowName>e849777a-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -8292,7 +8345,7 @@
             <keepOnError>0</keepOnError>
             <resourceName></resourceName>
             <runType>parallel</runType>
-            <subflow>1436d718-c5a7-11ea-a2d0-0242ac130008_groupflow</subflow>
+            <subflow>e849ed13-c655-11ea-a45a-0242ac120008_groupflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -8320,7 +8373,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>13d35aff-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e849c5df-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>13e0535b-c5a7-11ea-a2d0-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Test</stageName>
@@ -8330,7 +8383,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>13d35aff-c5a7-11ea-a2d0-0242ac130008_pregateflow</flowName>
+            <flowName>e849c5df-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -8355,7 +8408,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>13d35b03-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e849c5eb-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>13ee0e08-c5a7-11ea-a2d0-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Test</stageName>
@@ -8365,7 +8418,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>13d35b03-c5a7-11ea-a2d0-0242ac130008_postgateflow</flowName>
+            <flowName>e849c5eb-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -8447,7 +8500,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>1436d718-c5a7-11ea-a2d0-0242ac130008_groupflow</flowName>
+            <flowName>e849ed13-c655-11ea-a45a-0242ac120008_groupflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -8625,7 +8678,7 @@
       <stage>
         <stageName>Package</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T02:09:15.587Z</completionTime>
+        <completionTime>2020-07-16T00:01:33.951Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>1489d947-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -8636,7 +8689,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>14898b1f-c5a7-11ea-a2d0-0242ac130008_stageflow</flowName>
+          <flowName>e84a3b61-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -8690,7 +8743,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>1.0.0-$[/increment /server/ec_counters/artifactCounter]</value>
+                <value>$[major].$[minor].$[patch]-$[/increment /server/ec_counters/artifactCounter]</value>
               </property>
               <property>
                 <propertyName>compress</propertyName>
@@ -8791,7 +8844,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>1.0.0-$[/increment /server/ec_counters/artifactCounter]</value>
+                <value>$[major].$[minor].$[patch]-$[/increment /server/ec_counters/artifactCounter]</value>
               </property>
               <property>
                 <propertyName>compress</propertyName>
@@ -8892,7 +8945,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>1.0.0-$[/increment /server/ec_counters/artifactCounter]</value>
+                <value>$[major].$[minor].$[patch]-$[/increment /server/ec_counters/artifactCounter]</value>
               </property>
               <property>
                 <propertyName>compress</propertyName>
@@ -8963,7 +9016,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>1489d94c-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e84aafd3-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>1499dee8-c5a7-11ea-a2d0-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Package</stageName>
@@ -8973,7 +9026,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>1489d94c-c5a7-11ea-a2d0-0242ac130008_pregateflow</flowName>
+            <flowName>e84aafd3-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -8998,7 +9051,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>1489d950-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e84aafdf-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>14abe055-c5a7-11ea-a2d0-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Package</stageName>
@@ -9008,7 +9061,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>1489d950-c5a7-11ea-a2d0-0242ac130008_postgateflow</flowName>
+            <flowName>e84aafdf-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -9101,7 +9154,8 @@
       </stage>
       <stage>
         <stageName>Generate CD Pipeline</stageName>
-        <completed>0</completed>
+        <completed>1</completed>
+        <completionTime>2020-07-16T00:01:34.928Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>1522be52-c5a7-11ea-a2d0-0242ac130008_stage_flow_state</flowStateName>
@@ -9112,7 +9166,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>1522702a-c5a7-11ea-a2d0-0242ac130008_stageflow</flowName>
+          <flowName>e84b252d-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -9190,6 +9244,13 @@
                 <tracked>1</tracked>
                 <value>$[/myProject/config-release/projName]</value>
               </property>
+              <property>
+                <propertyName>serverName</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>$[/myPipelineRuntime/serverName]</value>
+              </property>
             </actualParameters>
             <propertySheet>
               <credentialProtected>0</credentialProtected>
@@ -9210,7 +9271,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>1522be57-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e84b9a77-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>15338743-c5a7-11ea-a2d0-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Generate CD Pipeline</stageName>
@@ -9220,7 +9281,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>1522be57-c5a7-11ea-a2d0-0242ac130008_pregateflow</flowName>
+            <flowName>e84b9a77-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -9245,7 +9306,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>1522be5b-c5a7-11ea-a2d0-0242ac130008</gateName>
+          <gateName>e84b9a83-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>15469a20-c5a7-11ea-a2d0-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Generate CD Pipeline</stageName>
@@ -9255,7 +9316,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>1522be5b-c5a7-11ea-a2d0-0242ac130008_postgateflow</flowName>
+            <flowName>e84b9a83-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -9317,7 +9378,7 @@
         <tracked>1</tracked>
       </acl>
       <flow>
-        <flowName>ff96d7d3-c5a6-11ea-aaf6-0242ac130008_pipelineflow</flowName>
+        <flowName>e84bc1a5-c655-11ea-a45a-0242ac120008_pipelineflow</flowName>
         <tracked>1</tracked>
         <acl>
           <inheriting>1</inheriting>
@@ -9340,7 +9401,7 @@
           <flowStateType>task</flowStateType>
           <index>0</index>
           <keepOnError>0</keepOnError>
-          <subflow>ffea4f24-c5a6-11ea-aaf6-0242ac130008_pregateflow</subflow>
+          <subflow>e84c849a-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9387,7 +9448,7 @@
           <index>1</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>ffea00f7-c5a6-11ea-aaf6-0242ac130008_stageflow</subflow>
+          <subflow>e84c374e-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9432,7 +9493,7 @@
           <flowStateType>task</flowStateType>
           <index>2</index>
           <keepOnError>0</keepOnError>
-          <subflow>ffea4f28-c5a6-11ea-aaf6-0242ac130008_postgateflow</subflow>
+          <subflow>e84c84a6-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9459,7 +9520,7 @@
           <flowStateType>task</flowStateType>
           <index>3</index>
           <keepOnError>0</keepOnError>
-          <subflow>003a6a49-c5a7-11ea-aaf6-0242ac130008_pregateflow</subflow>
+          <subflow>e84cabeb-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9506,7 +9567,7 @@
           <index>4</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>003a1c1c-c5a7-11ea-aaf6-0242ac130008_stageflow</subflow>
+          <subflow>e84cabd4-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9551,7 +9612,7 @@
           <flowStateType>task</flowStateType>
           <index>5</index>
           <keepOnError>0</keepOnError>
-          <subflow>003a6a4d-c5a7-11ea-aaf6-0242ac130008_postgateflow</subflow>
+          <subflow>e84cabf7-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9578,7 +9639,7 @@
           <flowStateType>task</flowStateType>
           <index>6</index>
           <keepOnError>0</keepOnError>
-          <subflow>00710ae5-c5a7-11ea-aaf6-0242ac130008_pregateflow</subflow>
+          <subflow>e84d2171-c655-11ea-a45a-0242ac120008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9625,7 +9686,7 @@
           <index>7</index>
           <keepOnError>0</keepOnError>
           <resourceName>DEV</resourceName>
-          <subflow>0070bcb8-c5a7-11ea-aaf6-0242ac130008_stageflow</subflow>
+          <subflow>e84cd319-c655-11ea-a45a-0242ac120008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9670,7 +9731,7 @@
           <flowStateType>task</flowStateType>
           <index>8</index>
           <keepOnError>0</keepOnError>
-          <subflow>00710ae9-c5a7-11ea-aaf6-0242ac130008_postgateflow</subflow>
+          <subflow>e84d217d-c655-11ea-a45a-0242ac120008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -9711,7 +9772,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>28</value>
+              <value>58</value>
             </property>
           </propertySheet>
         </property>
@@ -9784,7 +9845,7 @@
       <stage>
         <stageName>Clean</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T01:48:12.030Z</completionTime>
+        <completionTime>2020-07-16T00:35:31.646Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>ffea4f1f-c5a6-11ea-aaf6-0242ac130008_stage_flow_state</flowStateName>
@@ -9795,7 +9856,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>ffea00f7-c5a6-11ea-aaf6-0242ac130008_stageflow</flowName>
+          <flowName>e84c374e-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -9968,7 +10029,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>ffea4f24-c5a6-11ea-aaf6-0242ac130008</gateName>
+          <gateName>e84c849a-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>fffa7bd0-c5a6-11ea-aaf6-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Clean</stageName>
@@ -9978,7 +10039,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>ffea4f24-c5a6-11ea-aaf6-0242ac130008_pregateflow</flowName>
+            <flowName>e84c849a-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -10003,7 +10064,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>ffea4f28-c5a6-11ea-aaf6-0242ac130008</gateName>
+          <gateName>e84c84a6-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>000466ed-c5a7-11ea-aaf6-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Clean</stageName>
@@ -10013,7 +10074,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>ffea4f28-c5a6-11ea-aaf6-0242ac130008_postgateflow</flowName>
+            <flowName>e84c84a6-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -10107,7 +10168,7 @@
       <stage>
         <stageName>Setting</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T01:48:13.046Z</completionTime>
+        <completionTime>2020-07-16T00:35:32.777Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>003a6a44-c5a7-11ea-aaf6-0242ac130008_stage_flow_state</flowStateName>
@@ -10118,7 +10179,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>003a1c1c-c5a7-11ea-aaf6-0242ac130008_stageflow</flowName>
+          <flowName>e84cabd4-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -10194,7 +10255,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>003a6a49-c5a7-11ea-aaf6-0242ac130008</gateName>
+          <gateName>e84cabeb-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>00460315-c5a7-11ea-aaf6-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Setting</stageName>
@@ -10204,7 +10265,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>003a6a49-c5a7-11ea-aaf6-0242ac130008_pregateflow</flowName>
+            <flowName>e84cabeb-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -10229,7 +10290,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>003a6a4d-c5a7-11ea-aaf6-0242ac130008</gateName>
+          <gateName>e84cabf7-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>00508a72-c5a7-11ea-aaf6-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Setting</stageName>
@@ -10239,7 +10300,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>003a6a4d-c5a7-11ea-aaf6-0242ac130008_postgateflow</flowName>
+            <flowName>e84cabf7-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -10289,7 +10350,7 @@
       <stage>
         <stageName>Generate</stageName>
         <completed>1</completed>
-        <completionTime>2020-07-15T01:48:34.631Z</completionTime>
+        <completionTime>2020-07-16T00:35:56.965Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>00710ae0-c5a7-11ea-aaf6-0242ac130008_stage_flow_state</flowStateName>
@@ -10300,7 +10361,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>0070bcb8-c5a7-11ea-aaf6-0242ac130008_stageflow</flowName>
+          <flowName>e84cd319-c655-11ea-a45a-0242ac120008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -10399,7 +10460,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>def pipe  = $[pipe]&#10;def projName = "$[projName]"&#10;def apps = $[apps]&#10;&#10;def envs = pipe.stages&#10;&#10;def resources = []&#10;&#10;project projName, {&#10;	pipe.stages.each { env -&gt;&#10;		environment env, {&#10;			// Only in Prod&#10;			def isProd = env.toLowerCase().contains("production")&#10;			def isPreProd = env.toLowerCase().contains("pre-prod")&#10;			def isQa = env.toLowerCase().contains("qa")&#10;			&#10;			if (isProd) {				&#10;				rollingDeployEnabled = '1'&#10;				rollingDeployType = 'phase'&#10;&#10;				["Green","Blue"].each { phase -&gt;&#10;					rollingDeployPhase phase, {&#10;						orderIndex = '1'&#10;						phaseExpression = null&#10;						rollingDeployPhaseType = 'tagged'&#10;					}&#10;				}&#10;			}&#10;&#10;			apps[0].tiers.each { appTier, envTier -&gt;&#10;		&#10;				environmentTier envTier, {&#10;					// create and add resource to the Tier&#10;					def resCount = isProd?3:1&#10;					(1..resCount).each { resNum -&gt;&#10;						def resName = (String) "${env}_${projName}_${envTier}_${resNum}"&#10;						if(isPreProd){&#10;							resName = resName + "-PRE-PROD"&#10;							resource resourceName: resName, hostName : "devagent"&#10;						} else if(isQa) {&#10;							resName = resName + "-QA"&#10;							resource resourceName: resName, hostName : "qaagent"&#10;						} else {&#10;							resName = resName + "-PROD"&#10;							resource resourceName: resName, hostName : "prodagent"&#10;						} &#10;						resources.push(resName)&#10;						&#10;						def phase = (resNum==1)?'Blue':'Green'&#10;						if (isProd) {&#10;							environmentTier envTier, resourcePhaseMapping: [(resName) : phase]&#10;						}&#10;					} // each resource&#10;				} // environmentTier&#10;			} // each app&#10;		} // environment&#10;	} // Environments&#10;} // Project projName&#10;&#10;def clean = getProperty("/myProject/clean").value&#10;resources.each {&#10;	clean += "ectool deleteResource \"$it\"\n"&#10;}&#10;setProperty "/myProject/clean", value: clean</value>
+                <value>def pipe  = $[pipe]&#10;def projName = "$[projName]"&#10;def apps = $[apps]&#10;&#10;def envs = pipe.stages&#10;&#10;def resources = []&#10;&#10;project projName, {&#10;	pipe.stages.each { env -&gt;&#10;		environment env, {&#10;			// Only in Prod&#10;			def isProd = env.toLowerCase().contains("production")&#10;			def isPreProd = env.toLowerCase().contains("pre-prod")&#10;			def isQa = env.toLowerCase().contains("qa")&#10;			&#10;			if (isProd) {				&#10;				rollingDeployEnabled = '1'&#10;				rollingDeployType = 'phase'&#10;&#10;				["Green","Blue"].each { phase -&gt;&#10;					rollingDeployPhase phase, {&#10;						orderIndex = '1'&#10;						phaseExpression = null&#10;						rollingDeployPhaseType = 'tagged'&#10;					}&#10;				}&#10;			}&#10;&#10;			apps[0].tiers.each { appTier, envTier -&gt;&#10;		&#10;				environmentTier envTier, {&#10;					// create and add resource to the Tier&#10;					def resCount = isProd?2:1&#10;					(1..resCount).each { resNum -&gt;&#10;						def resName = (String) "${env}_${projName}_${envTier}_${resNum}"&#10;						if(isPreProd){&#10;							resName = resName + "-PRE-PROD"&#10;							resource resourceName: resName, hostName : "devagent"&#10;						} else if(isQa) {&#10;							resName = resName + "-QA"&#10;							resource resourceName: resName, hostName : "qaagent"&#10;						} else {&#10;							resName = resName + "-PROD"&#10;							resource resourceName: resName, hostName : "prodagent"&#10;						} &#10;						resources.push(resName)&#10;						&#10;						def phase = (resNum==1)?'Blue':'Green'&#10;						if (isProd) {&#10;							environmentTier envTier, resourcePhaseMapping: [(resName) : phase]&#10;						}&#10;					} // each resource&#10;				} // environmentTier&#10;			} // each app&#10;		} // environment&#10;	} // Environments&#10;} // Project projName&#10;&#10;def clean = getProperty("/myProject/clean").value&#10;resources.each {&#10;	clean += "ectool deleteResource \"$it\"\n"&#10;}&#10;setProperty "/myProject/clean", value: clean</value>
               </property>
               <property>
                 <propertyName>shellToUse</propertyName>
@@ -10471,7 +10532,7 @@
             </propertySheet>
           </flowState>
           <flowState>
-            <flowStateName>00d460df-c5a7-11ea-aaf6-0242ac130008_task_flow_state</flowStateName>
+            <flowStateName>fb75f305-c66c-11ea-a879-0242ac120008_task_flow_state</flowStateName>
             <advancedMode>0</advancedMode>
             <alwaysRun>0</alwaysRun>
             <deployerTask>0</deployerTask>
@@ -10480,6 +10541,7 @@
             <flowStateType>task</flowStateType>
             <index>3</index>
             <keepOnError>0</keepOnError>
+            <parallelToPrevious>0</parallelToPrevious>
             <resourceName></resourceName>
             <subpluginKey>EC-Core</subpluginKey>
             <subprocedure>RunCommand</subprocedure>
@@ -10503,7 +10565,7 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>def pipe  = $[pipe]&#10;def projName = "$[projName]"&#10;&#10;project projName, {&#10;&#10;	property "normalReleaseMode" // Used to flag whether tasks are run or not; use 0 to run seeding release&#10;	pipeline pipe.name+" - $[issueKey]", {&#10;		pipe.stages.eachWithIndex { st, index -&gt;&#10;			stage st,{&#10;				if (index == 0) {&#10;					gate 'PRE', {&#10;					}&#10;&#10;					gate 'POST', { &#10;					  task 'Ensure 75% Passing Tests', { &#10;						enabled = '1'&#10;						errorHandling = 'stopOnError'&#10;						gateCondition =  '$'+'[/javascript myStageRuntime.tasks.["Run functional Test"].outcome!="error"]'&#10;						gateType = 'POST'&#10;						insertRollingDeployManualStep = '0'&#10;						resourceName = ''&#10;						skippable = '0'&#10;						subproject = 'University'&#10;						taskType = 'CONDITIONAL'&#10;						useApproverAcl = '0'&#10;						waitForPlannedStartDate = '0'&#10;					  }&#10;					}&#10;				}&#10;	&#10;				task "Batch Deploy",&#10;					taskType: "DEPLOYER",&#10;                    errorHandling: "stopOnError"&#10;					&#10;				if (index == 0) {&#10;					task "Run functional Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "FunctionalTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate QA Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GenerateQAResult", &#10;                        errorHandling: "stopOnError" &#10;				} &#10;					&#10;				if (index == 1) {&#10;					task "Run SIT Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "IntegrationTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate Pre-Prod Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GeneratePreProdResult", &#10;                        errorHandling: "stopOnError"&#10;		&#10;					task 'Send Slack Notification', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'config': 'slackcfg',&#10;						'payload-msg': '''{"text": "Check pre-production result. &#10;&lt;http://$[serverName]:8070/univers-web/ui|Click here&gt; for details!"}''',&#10;						'resultFormat': 'json',&#10;						'resultPropertySheet': '/myJob/sendRTMStatus',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  skippable = '0'&#10;					  subpluginKey = 'EC-Slack'&#10;					  subprocedure = 'Send Realtime Message'&#10;					  taskType = 'PLUGIN'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;					&#10;					task 'Veryfy QA/Notify', { &#10;						emailConfigName = 'gmail' &#10;						errorHandling = 'stopOnError' &#10;						instruction = 'Verify that business requirements are met' &#10;						notificationTemplate = 'ec_default_pipeline_manual_task_notification_template'&#10;						taskType = 'MANUAL' &#10;						approver = [&#10;							'development','admin'&#10;						]&#10;					}&#10;					&#10;					task "JIRA - Issue status update - [To Deploy]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Deploy - $[issueKey]"&#10;				}&#10;					&#10;				if (index == 2) {&#10;					task "Run Smoke Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "SmokeTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate Production Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GenerateProdResult", &#10;                        errorHandling: "stopOnError"&#10;					task  "JIRA - Issue status update - [To Finish]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Finish - $[issueKey]" &#10;					task "Release Management",  // Don't create a gate for first stage&#10;						taskType: 'APPROVAL',&#10;						approver: ['admin'],&#10;						gateType: 'PRE',&#10;						notificationTemplate: 'ec_default_pipeline_notification_template'&#10;				}						&#10; &#10;			} // stage&#10;		} // Each stage&#10;	} // Pipeline&#10;} // Project</value>
+                <value>def pipe  = $[pipe]&#10;def projName = "$[projName]"&#10;&#10;project projName, {&#10;&#10;	property "normalReleaseMode" // Used to flag whether tasks are run or not; use 0 to run seeding release&#10;	pipeline pipe.name+" - $[issueKey]", {&#10;		pipe.stages.eachWithIndex { st, index -&gt;&#10;			stage st,{&#10;				resourceName = "local"&#10;				&#10;				if (index == 0) {&#10;					colorCode = '#ff7f0e'&#10;				&#10;					gate 'PRE', {&#10;					}&#10;&#10;					gate 'POST', { &#10;					  task 'Ensure 75% Passing Tests', { &#10;						enabled = '1'&#10;						errorHandling = 'stopOnError'&#10;						gateCondition =  '$'+'[/javascript getProperty("/myStageRuntime/outcome")!="error"]'&#10;						gateType = 'POST'&#10;						insertRollingDeployManualStep = '0'&#10;						resourceName = ''&#10;						skippable = '0'&#10;						subproject = 'University'&#10;						taskType = 'CONDITIONAL'&#10;						useApproverAcl = '0'&#10;						waitForPlannedStartDate = '0'&#10;					  }&#10;					} &#10;	&#10;					task 'Deploy App', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'ec_enforceDependencies': '1',&#10;						'ec_smartDeployOption': '1',&#10;						'ec_stageArtifacts': '1',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  environmentName = 'QA'&#10;					  environmentProjectName = 'University'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  rollingDeployEnabled = '0'&#10;					  skippable = '0'&#10;					  subapplication = 'University'&#10;					  subprocess = 'DeployForQA'&#10;					  subproject = 'University'&#10;					  taskProcessType = 'APPLICATION'&#10;					  taskType = 'PROCESS'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;					&#10;					task "Run functional Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "FunctionalTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate QA Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GenerateQAResult", &#10;                        errorHandling: "stopOnError" &#10;				} &#10;					&#10;				if (index == 1) {&#10;					colorCode = '#2ca02c'&#10;					&#10;					task 'Deploy App', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'ec_enforceDependencies': '1',&#10;						'ec_smartDeployOption': '1',&#10;						'ec_stageArtifacts': '1',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  environmentName = 'Pre-prod'&#10;					  environmentProjectName = 'University'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  rollingDeployEnabled = '0'&#10;					  skippable = '0'&#10;					  subapplication = 'University'&#10;					  subprocess = 'Deploy'&#10;					  subproject = 'University'&#10;					  taskProcessType = 'APPLICATION'&#10;					  taskType = 'PROCESS'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;	&#10;					task "Run SIT Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "IntegrationTests", &#10;                        errorHandling: "stopOnError"&#10;					task "Generate Pre-Prod Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GeneratePreProdResult", &#10;                        errorHandling: "stopOnError"&#10;		&#10;					task 'Send Slack Notification', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'config': 'slackcfg',&#10;						'payload-msg': '''{"text": "Check pre-production result. &#10;&lt;http://$[serverName]:8070/univers-web/ui|Click here&gt; for details!"}''',&#10;						'resultFormat': 'json',&#10;						'resultPropertySheet': '/myJob/sendRTMStatus',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  skippable = '0'&#10;					  subpluginKey = 'EC-Slack'&#10;					  subprocedure = 'Send Realtime Message'&#10;					  taskType = 'PLUGIN'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;					&#10;					task 'Veryfy QA/Notify', { &#10;						emailConfigName = 'gmail' &#10;						errorHandling = 'stopOnError' &#10;						instruction = 'Verify that business requirements are met' &#10;						notificationTemplate = 'ec_default_pipeline_manual_task_notification_template'&#10;						taskType = 'MANUAL' &#10;						approver = [&#10;							'development','admin'&#10;						]&#10;					}&#10;					&#10;					task "JIRA - Issue status update - [To Deploy]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Deploy - $[issueKey]"&#10;				}&#10;					&#10;				if (index == 2) {&#10;					colorCode = '#00adee'&#10;					&#10;					task 'Deploy App - Blue Phase', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'ec_enforceDependencies': '1',&#10;						'ec_smartDeployOption': '1',&#10;						'ec_stageArtifacts': '1',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  environmentName = 'Production'&#10;					  environmentProjectName = 'University'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  rollingDeployEnabled = '1'&#10;					  skippable = '0'&#10;					  subapplication = 'University'&#10;					  subprocess = 'Deploy'&#10;					  subproject = 'University'&#10;					  taskProcessType = 'APPLICATION'&#10;					  taskType = 'PROCESS'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					  rollingDeployPhase = [&#10;						'Blue',&#10;					  ]&#10;					}&#10;				&#10;					task "Run Smoke Test",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "SmokeTests", &#10;                        errorHandling: "stopOnError"&#10;&#10;					task 'Deploy App - Green Phase', {&#10;					  description = ''&#10;					  actualParameter = [&#10;						'ec_enforceDependencies': '1',&#10;						'ec_smartDeployOption': '1',&#10;						'ec_stageArtifacts': '1',&#10;					  ]&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  condition = '$'+'[/javascript getProperty("/myStageRuntime/outcome")!="error"]'&#10;					  enabled = '1'&#10;					  environmentName = 'Production'&#10;					  environmentProjectName = 'University'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  rollingDeployEnabled = '1'&#10;					  skippable = '0'&#10;					  subapplication = 'University'&#10;					  subprocess = 'Deploy'&#10;					  subproject = 'University'&#10;					  taskProcessType = 'APPLICATION'&#10;					  taskType = 'PROCESS'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					  rollingDeployPhase = [&#10;						'Green',&#10;					  ]&#10;					}&#10;						&#10;					task "Generate Production Result",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "GenerateProdResult", &#10;                        errorHandling: "stopOnError"&#10;					task  "JIRA - Issue status update - [To Finish]",&#10;						taskType: 'PROCEDURE',&#10;						subproject: projName,&#10;						subprocedure: "Update Ticket For Finish - $[issueKey]" &#10;					task "Release Management",  // Don't create a gate for first stage&#10;						taskType: 'APPROVAL',&#10;						approver: ['admin'],&#10;						gateType: 'PRE',&#10;						notificationTemplate: 'ec_default_pipeline_notification_template'&#10;				}&#10;&#10;				if (index == 3) { &#10;					colorCode = '#d62728' &#10;&#10;					task 'Generate Approval Audit Report', { &#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  skippable = '0'&#10;					  subpluginKey = 'EC-AuditReports'&#10;					  subprocedure = 'generateApprovalAuditReport'&#10;					  taskType = 'PLUGIN'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;&#10;					task 'Generate Evidence Links Audit Report', {&#10;					  description = ''&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  skippable = '0'&#10;					  subpluginKey = 'EC-AuditReports'&#10;					  subprocedure = 'generateEvidenceLinksAuditReport'&#10;					  taskType = 'PLUGIN'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}&#10;&#10;					task 'Generate Task Duration Audit Report', {&#10;					  description = ''&#10;					  advancedMode = '0'&#10;					  allowOutOfOrderRun = '0'&#10;					  alwaysRun = '0'&#10;					  enabled = '1'&#10;					  errorHandling = 'stopOnError'&#10;					  insertRollingDeployManualStep = '0'&#10;					  resourceName = ''&#10;					  skippable = '0'&#10;					  subpluginKey = 'EC-AuditReports'&#10;					  subprocedure = 'generateTaskDurationAuditReport'&#10;					  taskType = 'PLUGIN'&#10;					  useApproverAcl = '0'&#10;					  waitForPlannedStartDate = '0'&#10;					}				&#10;				}&#10;			} // stages&#10;		} // Each stage&#10;	} // Pipeline&#10;} // Project</value>
               </property>
               <property>
                 <propertyName>shellToUse</propertyName>
@@ -10532,7 +10594,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>00710ae5-c5a7-11ea-aaf6-0242ac130008</gateName>
+          <gateName>e84d2171-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>007bb951-c5a7-11ea-aaf6-0242ac130008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>Generate</stageName>
@@ -10542,7 +10604,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>00710ae5-c5a7-11ea-aaf6-0242ac130008_pregateflow</flowName>
+            <flowName>e84d2171-c655-11ea-a45a-0242ac120008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -10567,7 +10629,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>00710ae9-c5a7-11ea-aaf6-0242ac130008</gateName>
+          <gateName>e84d217d-c655-11ea-a45a-0242ac120008</gateName>
           <flowStateName>008926de-c5a7-11ea-aaf6-0242ac130008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>Generate</stageName>
@@ -10577,7 +10639,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>00710ae9-c5a7-11ea-aaf6-0242ac130008_postgateflow</flowName>
+            <flowName>e84d217d-c655-11ea-a45a-0242ac120008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -10671,7 +10733,7 @@
           <taskName>Generate Release Pipeline</taskName>
           <allowOutOfOrderRun>0</allowOutOfOrderRun>
           <description></description>
-          <flowStateName>00d460df-c5a7-11ea-aaf6-0242ac130008_task_flow_state</flowStateName>
+          <flowStateName>fb75f305-c66c-11ea-a879-0242ac120008_task_flow_state</flowStateName>
           <taskEnabled>1</taskEnabled>
           <taskSkippable>0</taskSkippable>
           <taskType>COMMAND</taskType>
@@ -10691,179 +10753,6 @@
         </task>
       </stage>
     </pipeline>
-    <schedule>
-      <scheduleName>CI-Trigger</scheduleName>
-      <endDate></endDate>
-      <interval>0</interval>
-      <intervalUnits>seconds</intervalUnits>
-      <misfirePolicy>ignore</misfirePolicy>
-      <monthDays></monthDays>
-      <pipelineName>University-CI</pipelineName>
-      <priority>normal</priority>
-      <scheduleDisabled>0</scheduleDisabled>
-      <stopTime></stopTime>
-      <timeZone>Etc/UTC</timeZone>
-      <tracked>1</tracked>
-      <weekDays></weekDays>
-      <acl>
-        <inheriting>1</inheriting>
-        <tracked>1</tracked>
-      </acl>
-      <actualParameters>
-        <credentialProtected>0</credentialProtected>
-        <tracked>1</tracked>
-        <acl>
-          <inheriting>1</inheriting>
-          <tracked>1</tracked>
-        </acl>
-        <property>
-          <propertyName>IssueKey</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>DOP-111</value>
-        </property>
-        <property>
-          <propertyName>apps</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>$[/myProject/config-release/apps]</value>
-        </property>
-        <property>
-          <propertyName>artifactGroup</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>$[/myProject/config-release/artifactGroup]</value>
-        </property>
-        <property>
-          <propertyName>ec_stagesToRun</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>["Setup","Build","Test","Package","Generate CD Pipeline"]</value>
-        </property>
-        <property>
-          <propertyName>pipe</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>$[/myProject/config-release/pipe]</value>
-        </property>
-        <property>
-          <propertyName>projName</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>$[/myProject/config-release/projName]</value>
-        </property>
-      </actualParameters>
-      <propertySheet>
-        <credentialProtected>0</credentialProtected>
-        <tracked>1</tracked>
-        <acl>
-          <inheriting>1</inheriting>
-          <tracked>1</tracked>
-        </acl>
-        <property>
-          <propertyName>ec_customEditorData</propertyName>
-          <tracked>1</tracked>
-          <propertySheet>
-            <credentialProtected>0</credentialProtected>
-            <tracked>1</tracked>
-            <acl>
-              <inheriting>1</inheriting>
-              <tracked>1</tracked>
-            </acl>
-            <property>
-              <propertyName>TriggerFlag</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>3</value>
-            </property>
-            <property>
-              <propertyName>ec_maxRetries</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>5</value>
-            </property>
-            <property>
-              <propertyName>ec_quietTime</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>0</value>
-            </property>
-            <property>
-              <propertyName>ec_runDuplicates</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>1</value>
-            </property>
-            <property>
-              <propertyName>ec_webhookBranch</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>master</value>
-            </property>
-            <property>
-              <propertyName>ec_webhookEventSource</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>github</value>
-            </property>
-            <property>
-              <propertyName>ec_webhookEventType</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>push</value>
-            </property>
-            <property>
-              <propertyName>ec_webhookRepositoryName</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>kin3303/efwebsample</value>
-            </property>
-            <property>
-              <propertyName>formType</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>$[/plugins/ECSCM-Git/project/scm_form/webhook]</value>
-            </property>
-            <property>
-              <propertyName>scmConfig</propertyName>
-              <expandable>1</expandable>
-              <suppressValueTracking>0</suppressValueTracking>
-              <tracked>1</tracked>
-              <value>gitcfg</value>
-            </property>
-          </propertySheet>
-        </property>
-        <property>
-          <propertyName>ec_triggerPluginName</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>ECSCM-Git</value>
-        </property>
-        <property>
-          <propertyName>ec_triggerType</propertyName>
-          <expandable>1</expandable>
-          <suppressValueTracking>0</suppressValueTracking>
-          <tracked>1</tracked>
-          <value>webhook</value>
-        </property>
-      </propertySheet>
-    </schedule>
     <schedule>
       <scheduleName>efwebSampleCI</scheduleName>
       <beginDate></beginDate>
@@ -11166,6 +11055,359 @@
               <value>gitcfg</value>
             </property>
           </propertySheet>
+        </property>
+      </propertySheet>
+    </schedule>
+    <schedule>
+      <scheduleName>git-ci-pull</scheduleName>
+      <endDate></endDate>
+      <interval>0</interval>
+      <intervalUnits>seconds</intervalUnits>
+      <misfirePolicy>ignore</misfirePolicy>
+      <monthDays></monthDays>
+      <pipelineName>University-CI</pipelineName>
+      <priority>normal</priority>
+      <scheduleDisabled>0</scheduleDisabled>
+      <stopTime></stopTime>
+      <timeZone>Etc/UTC</timeZone>
+      <tracked>1</tracked>
+      <weekDays></weekDays>
+      <acl>
+        <inheriting>1</inheriting>
+        <tracked>1</tracked>
+      </acl>
+      <actualParameters>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>IssueKey</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>DOP-111</value>
+        </property>
+        <property>
+          <propertyName>apps</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/apps]</value>
+        </property>
+        <property>
+          <propertyName>artifactGroup</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/artifactGroup]</value>
+        </property>
+        <property>
+          <propertyName>ec_stagesToRun</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>["Setup","Build","Test","Package","Generate CD Pipeline"]</value>
+        </property>
+        <property>
+          <propertyName>pipe</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/pipe]</value>
+        </property>
+        <property>
+          <propertyName>projName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/projName]</value>
+        </property>
+        <property>
+          <propertyName>serverName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>35.239.183.69</value>
+        </property>
+      </actualParameters>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <tracked>1</tracked>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <property>
+              <propertyName>GitBranch</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>master</value>
+            </property>
+            <property>
+              <propertyName>GitRepo</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>https://github.com/kin3303/efwebsample.git</value>
+            </property>
+            <property>
+              <propertyName>TriggerFlag</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>2</value>
+            </property>
+            <property>
+              <propertyName>formType</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>$[/plugins/ECSCM-Git/project/scm_form/sentry]</value>
+            </property>
+            <property>
+              <propertyName>lsRemote</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>1</value>
+            </property>
+            <property>
+              <propertyName>monitorTags</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>0</value>
+            </property>
+            <property>
+              <propertyName>runDuplicates</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>0</value>
+            </property>
+            <property>
+              <propertyName>scheduleDisabled</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>1</value>
+            </property>
+            <property>
+              <propertyName>scmConfig</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>gitcfg</value>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>ec_triggerPluginName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>ECSCM-Git</value>
+        </property>
+        <property>
+          <propertyName>ec_triggerType</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>polling</value>
+        </property>
+      </propertySheet>
+    </schedule>
+    <schedule>
+      <scheduleName>gitTrigger</scheduleName>
+      <endDate></endDate>
+      <interval>0</interval>
+      <intervalUnits>seconds</intervalUnits>
+      <misfirePolicy>ignore</misfirePolicy>
+      <monthDays></monthDays>
+      <pipelineName>University-CI</pipelineName>
+      <priority>normal</priority>
+      <scheduleDisabled>0</scheduleDisabled>
+      <stopTime></stopTime>
+      <timeZone>Etc/UTC</timeZone>
+      <tracked>1</tracked>
+      <weekDays></weekDays>
+      <acl>
+        <inheriting>1</inheriting>
+        <tracked>1</tracked>
+      </acl>
+      <actualParameters>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>IssueKey</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>DOP-111</value>
+        </property>
+        <property>
+          <propertyName>apps</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/apps]</value>
+        </property>
+        <property>
+          <propertyName>artifactGroup</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/artifactGroup]</value>
+        </property>
+        <property>
+          <propertyName>ec_stagesToRun</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>["Setup","Build","Test","Package","Generate CD Pipeline"]</value>
+        </property>
+        <property>
+          <propertyName>pipe</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/pipe]</value>
+        </property>
+        <property>
+          <propertyName>projName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>$[/myProject/config-release/projName]</value>
+        </property>
+        <property>
+          <propertyName>serverName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>35.239.183.69</value>
+        </property>
+      </actualParameters>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <tracked>1</tracked>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <property>
+              <propertyName>TriggerFlag</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>0</value>
+            </property>
+            <property>
+              <propertyName>ec_maxRetries</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>5</value>
+            </property>
+            <property>
+              <propertyName>ec_quietTime</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>0</value>
+            </property>
+            <property>
+              <propertyName>ec_runDuplicates</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>1</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookBranch</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>master</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookEventSource</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>github</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookEventType</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>push</value>
+            </property>
+            <property>
+              <propertyName>ec_webhookRepositoryName</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>kin3303/efwebsample</value>
+            </property>
+            <property>
+              <propertyName>formType</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>$[/plugins/ECSCM-Git/project/scm_form/webhook]</value>
+            </property>
+            <property>
+              <propertyName>scmConfig</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>gitcfg</value>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>ec_triggerPluginName</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>ECSCM-Git</value>
+        </property>
+        <property>
+          <propertyName>ec_triggerType</propertyName>
+          <expandable>1</expandable>
+          <suppressValueTracking>0</suppressValueTracking>
+          <tracked>1</tracked>
+          <value>webhook</value>
         </property>
       </propertySheet>
     </schedule>
