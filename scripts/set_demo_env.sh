@@ -80,4 +80,4 @@ ectool --silent  modifySchedule "Electric Cloud" "ECSCM-SentryMonitor" --schedul
 
 echo "Plugin Modification"
 ectool --silent  modifyProject "/plugins/EC-JIRA/project" --resourceName "local" --workspaceName "default"
-ectool --silent  modifyProject "/plugins/EC-SonarQube/project" --resourceName "local" --workspaceName "DEV"
+ectool --silent  modifyProject "/plugins/EC-SonarQube/project" --resourceName "DEV" --workspaceName "default"
