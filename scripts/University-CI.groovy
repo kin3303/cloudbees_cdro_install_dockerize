@@ -7,7 +7,7 @@ pipeline 'University-CI', {
   projectName = 'CO_WEB_DEMO'
   skipStageMode = 'ENABLED'
 
-  formalParameter 'serverName', defaultValue: '104.198.189.202', {
+  formalParameter 'serverName', defaultValue: 'cloudbees.devops.mousoft.co.kr', {
     expansionDeferred = '0'
     label = 'Server Name'
     orderIndex = '1'
@@ -15,7 +15,7 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'IssueKey', defaultValue: 'DOP-111', {
+  formalParameter 'IssueKey', defaultValue: 'DOP-117', {
     expansionDeferred = '0'
     orderIndex = '2'
     required = '1'
