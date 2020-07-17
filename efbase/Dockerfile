@@ -14,10 +14,9 @@ RUN sed -i 's/kr.archive.ubuntu.com/ftp.daumkakao.com/g' /etc/apt/sources.list
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
 #Set the locale-Hangle
-RUN apt-get update && apt-get -y install locales 
-ENV LANG ko_KR.utf8
-ENV LANGUAGE ko_KR.utf8
-RUN update-locale LANG=ko_KR.utf8
+# RUN apt-get update && apt-get install -y language-pack-ko
+# RUN locale-gen ko_KR.UTF-8 
+# RUN update-locale LANG=ko_KR.utf8
 
 #ubuntu 14.04 32 package install for efweb and efrepository
 RUN apt-get update && dpkg --add-architecture i386
