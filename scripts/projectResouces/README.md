@@ -81,21 +81,29 @@
 
 		// 얻은 정보 확인
 		echo $APISERVER
-			https://34.67.84.236
+		    https://34.67.84.236
 		echo $ROOTTOKEN
-			eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3Nlcn...
+		    eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3Nlcn...
 		
 		// 마스터 노드 버전 확인
 		kubernetes get no 
 		    v1.14.10-gke.36
 		```
 2. EC-Kubernetes Configuration 생성
-	1. Kubernetes API Endpoint : $APISERVER/  (example : https://34.67.84.236/)
+	1. Kubernetes API Endpoint : https://34.67.84.236/
 	2. User Name : root-sa
-	3. Kubernetes Bearer token : $ROOTTOKEN
-	4. Kubernetes Version: 마스터 노드 버전에서 v 빼고 
+	3. Kubernetes Bearer token : eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3Nlcn...
+	4. Kubernetes Version: 1.14
+	5. URI Path for Checking Cluster: api
 
+3. Environment 생성
+	1. Cluster 타입으로 생성 -> EC-Kubernetes Configuration 이름 입력
 
+4. Service Catalog 를 통한 Microservice 구성
+	1. Import Kubernetes YAML file
+		1. Kubernetes YAML File Content: test.yml 파일의 내용을 긁어 넣는다.
+		2. Create Microservices within an Application: Uncheck
+		
 
 
 
