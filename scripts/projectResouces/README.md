@@ -1,3 +1,5 @@
+# Spring Web App Demo
+
 1. CO_WEB_DEMO => Initialize
 	1.  Create SonarQube Configuration -> host 찾아서 IP 주소 넣기
 	2.  CO_WEB_DEMO 의 Initialize 프로시저 실행
@@ -31,4 +33,60 @@
          	 ```
 7. Insight 서버에서 System Administrator 를 열어 TimeZone - Asia/Seoul 로 설정   
 8. Electric Cloud => Code Commit Report 생성 
+
+
+# Kubernetes Demo
+
+1. Kubernetes 클러스터 생성 및 설정
+	1. SA 계정 생성
+	```
+	 cat > root-sa-admin-access.yaml <<EOF
+	apiVersion: v1
+	kind: ServiceAccount
+	metadata:
+	  name:  root-sa
+	  namespace: kube-system
+	---
+	kind: ClusterRoleBinding
+	apiVersion: rbac.authorization.k8s.io/v1beta1
+	metadata:
+	  name: root-sa-kube-system-cluster-admin
+	subjects:
+	- kind: ServiceAccount
+	  name: root-sa
+	  namespace: kube-system
+	roleRef:
+	  apiGroup: rbac.authorization.k8s.io
+	  kind: ClusterRole
+	  name: cluster-admin
+	EOF
+	```
+	3. SA 계정 배포
+	```
+	kubectl apply -f root-sa-admin-access.yaml
+	```
+	4. 계정 Token 얻기
+	```
+	// kubernetes API-Server 접근 정보
+	APISERVER=$(kubectl config view | grep server | cut -f 2- -d ":" | tr -d " ")
+
+	// 계정 Token 얻기
+	ROOTTOKEN="$(kubectl get secret -nkube-system \
+	$(kubectl get secrets -nkube-system | grep root-sa | cut -f1 -d ' ') \
+	-o jsonpath='{$.data.token}' | base64 --decode)"
+
+	//토큰으로 통신확인
+	curl -D - --insecure --header "Authorization: Bearer $ROOTTOKEN" $APISERVER/api/v1/namespaces/default/services
+
+	// 얻은 정보 확인
+	echo $APISERVER
+	echo $ROOTTOKEN
+	```
+
+
+
+
+
+
+
 
