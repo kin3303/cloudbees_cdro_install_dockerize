@@ -38,7 +38,8 @@
 # Kubernetes Demo
 
 1. Kubernetes 클러스터 생성 및 설정
-	1. SA 계정 생성
+	1. GKE 생성
+	2. SA 계정 생성
 	```
 	 cat > root-sa-admin-access.yaml <<EOF
 	apiVersion: v1
