@@ -7,7 +7,7 @@
 2. Plugin 활성화 (Install & Promote & Project 열어서 workspace, resource 설정)
 	1. unplug
 	2. EC-AuditReports
-	3. Slack
+	3. Slack 
 3. Plugin Project 열어서 workspace, resource 설정
 	1. Slack
 	2. EC-AuditReports
