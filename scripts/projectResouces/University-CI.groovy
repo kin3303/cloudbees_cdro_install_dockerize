@@ -267,7 +267,7 @@ sudo rm -rf /tmp/*.war''',
         description = ''
         actualParameter = [
           'issueKey': '$[/myPipelineRuntime/IssueKey]',
-          'stepToApply': 'Build Fail',
+          'stepToApply': 'Build Success',
         ]
         advancedMode = '0'
         allowOutOfOrderRun = '0'
@@ -575,11 +575,12 @@ sudo rm -rf /tmp/*.war''',
     task 'Generate CD', {
       description = ''
       actualParameter = [
-        'apps': '$[/myProject/config-release/apps]',
-        'artifactGroup': '$[/myProject/config-release/artifactGroup]',
+        'apps': '''
+$[/myPipelineRuntime/apps]''',
+        'artifactGroup': '$[/myPipelineRuntime/artifactGroup]',
         'IssueKey': '$[/myPipelineRuntime/IssueKey]',
-        'pipe': '$[/myProject/config-release/pipe]',
-        'projName': '$[/myProject/config-release/projName]',
+        'pipe': '$[/myPipelineRuntime/pipe]',
+        'projName': '$[/myPipelineRuntime/projName]',
         'serverName': '$[/myPipelineRuntime/serverName]',
       ]
       advancedMode = '0'
@@ -605,6 +606,6 @@ sudo rm -rf /tmp/*.war''',
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '19'
+    pipelineCounter = '23'
   }
 }
