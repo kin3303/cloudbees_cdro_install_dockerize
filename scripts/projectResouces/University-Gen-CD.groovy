@@ -15,21 +15,22 @@ pipeline 'University-Gen-CD', {
     type = 'entry'
   }
 
-  formalParameter 'IssueKey', defaultValue: 'DOP-111', {
+  formalParameter 'IssueKey', defaultValue: 'DOP-117', {
     expansionDeferred = '0'
     orderIndex = '2'
     required = '1'
     type = 'entry'
   }
 
-  formalParameter 'projName', defaultValue: '$[/myProject/config-release/projName]', {
+  formalParameter 'projName', defaultValue: 'University', {
     expansionDeferred = '0'
+    label = 'Project Name'
     orderIndex = '3'
     required = '1'
     type = 'entry'
   }
 
-  formalParameter 'artifactGroup', defaultValue: '$[/myProject/config-release/artifactGroup]', {
+  formalParameter 'artifactGroup', defaultValue: 'com.demo', {
     expansionDeferred = '0'
     label = 'Artifact Group Name'
     orderIndex = '4'
@@ -37,21 +38,30 @@ pipeline 'University-Gen-CD', {
     type = 'entry'
   }
 
-  formalParameter 'apps', defaultValue: '$[/myProject/config-release/apps]', {
+  formalParameter 'apps', defaultValue: '''[
+    [
+        name: "University",
+        artifactName: "university",
+        tiers: ["app":"Spring","db":"MySql","web":"JBoss"]
+    ],
+]''', {
     description = ''
     expansionDeferred = '0'
     label = 'Application definitions'
     orderIndex = '5'
     required = '1'
-    type = 'entry'
+    type = 'textarea'
   }
 
-  formalParameter 'pipe', defaultValue: '$[/myProject/config-release/pipe]', {
+  formalParameter 'pipe', defaultValue: '''[
+    name: "Weekly Sprints",
+    stages: ["DEV", "QA", "PROD"]
+]''', {
     expansionDeferred = '0'
     label = 'Release pipeline definition'
     orderIndex = '6'
     required = '1'
-    type = 'entry'
+    type = 'textarea'
   }
 
   formalParameter 'ec_stagesToRun', {

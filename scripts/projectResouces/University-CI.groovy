@@ -7,14 +7,14 @@ pipeline 'University-CI', {
   projectName = 'CO_WEB_DEMO'
   skipStageMode = 'ENABLED'
 
-  formalParameter 'IssueKey', defaultValue: 'DOP-111', {
+  formalParameter 'IssueKey', defaultValue: 'DOP-117', {
     expansionDeferred = '0'
     orderIndex = '1'
     required = '1'
     type = 'entry'
   }
 
-  formalParameter 'serverName', defaultValue: '35.239.183.69', {
+  formalParameter 'serverName', defaultValue: 'cloudbees.devops.mousoft.co.kr', {
     expansionDeferred = '0'
     label = 'Server Name'
     orderIndex = '2'
@@ -22,14 +22,15 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'projName', defaultValue: '$[/myProject/config-release/projName]', {
+  formalParameter 'projName', defaultValue: 'University', {
     expansionDeferred = '0'
+    label = 'Project Name'
     orderIndex = '3'
     required = '1'
     type = 'entry'
   }
 
-  formalParameter 'artifactGroup', defaultValue: '$[/myProject/config-release/artifactGroup]', {
+  formalParameter 'artifactGroup', defaultValue: 'com.demo', {
     expansionDeferred = '0'
     label = 'Artifact Group Name'
     orderIndex = '4'
@@ -37,21 +38,30 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'apps', defaultValue: '$[/myProject/config-release/apps]', {
+  formalParameter 'apps', defaultValue: '''[
+    [
+        name: "University",
+        artifactName: "university",
+        tiers: ["app":"Spring","db":"MySql","web":"JBoss"]
+    ],
+]''', {
     description = ''
     expansionDeferred = '0'
     label = 'Application definitions'
     orderIndex = '5'
     required = '1'
-    type = 'entry'
+    type = 'textarea'
   }
 
-  formalParameter 'pipe', defaultValue: '$[/myProject/config-release/pipe]', {
+  formalParameter 'pipe', defaultValue: '''[
+    name: "Weekly Sprints",
+    stages: ["DEV", "QA", "PROD"]
+]''', {
     expansionDeferred = '0'
     label = 'Release pipeline definition'
     orderIndex = '6'
     required = '1'
-    type = 'entry'
+    type = 'textarea'
   }
 
   formalParameter 'major', defaultValue: '1', {
@@ -70,7 +80,7 @@ pipeline 'University-CI', {
     type = 'entry'
   }
 
-  formalParameter 'patch', defaultValue: '0', {
+  formalParameter 'patch', defaultValue: '1', {
     expansionDeferred = '0'
     label = 'Patch Version'
     orderIndex = '9'
@@ -595,6 +605,6 @@ sudo rm -rf /tmp/*.war''',
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '17'
+    pipelineCounter = '19'
   }
 }
