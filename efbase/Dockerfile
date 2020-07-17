@@ -14,8 +14,7 @@ RUN sed -i 's/kr.archive.ubuntu.com/ftp.daumkakao.com/g' /etc/apt/sources.list
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
 #Set the locale-Hangle
-RUN apt-get update
-RUN apt-get install locales
+RUN apt-get update && apt-get -y install locales 
 ENV LANG ko_KR.utf8
 ENV LANGUAGE ko_KR.utf8
 RUN update-locale LANG=ko_KR.utf8
