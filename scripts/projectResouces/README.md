@@ -81,9 +81,14 @@
 
 		// 얻은 정보 확인
 		echo $APISERVER
+			https://34.67.84.236
 		echo $ROOTTOKEN
+			eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3Nlcn...
 		```
-
+2. EC-Kubernetes Configuration 생성
+	1. Kubernetes API Endpoint
+		$APISERVER/ -> example : https://34.67.84.236/
+	2. Bearer Token of Kubernetes Cluster : 
 
 
 
