@@ -25,7 +25,7 @@
 	3. Apps -> webhook 으로 검색 -> Incoming WebHooks Add -> Post to Channel : alert 
 	4. Configuration 생성  
 		1. Name : slackcfg
-		2. Endpoint URL  
+		2. Endpoint URL : https://hooks.slack.com/services/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
 7. Insight 서버에서 System Administrator 를 열어 TimeZone - Asia/Seoul 로 설정   
 8. Electric Cloud => Code Commit Report 생성 
 
