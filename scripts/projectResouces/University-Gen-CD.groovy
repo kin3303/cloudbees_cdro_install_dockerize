@@ -54,8 +54,8 @@ pipeline 'University-Gen-CD', {
   }
 
   formalParameter 'pipe', defaultValue: '''[
-    name: "Weekly Sprints",
-    stages: ["DEV", "QA", "PROD"]
+    name: "University Weekly Sprints",
+    stages: ["QA", "Pre-prod", "Production","Audit Reports"]
 ]''', {
     expansionDeferred = '0'
     label = 'Release pipeline definition'
@@ -1030,6 +1030,6 @@ project projName, {
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '59'
+    pipelineCounter = '63'
   }
 }
