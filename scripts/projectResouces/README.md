@@ -84,12 +84,16 @@
 			https://34.67.84.236
 		echo $ROOTTOKEN
 			eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3Nlcn...
+		
+		// 마스터 노드 버전 확인
+		kubernetes get no 
+		    v1.14.10-gke.36
 		```
 2. EC-Kubernetes Configuration 생성
-	1. Kubernetes API Endpoint
-		$APISERVER/ -> example : https://34.67.84.236/
-	2. Bearer Token of Kubernetes Cluster : 
-
+	1. Kubernetes API Endpoint : $APISERVER/  (example : https://34.67.84.236/)
+	2. User Name : root-sa
+	3. Kubernetes Bearer token : $ROOTTOKEN
+	4. Kubernetes Version: 마스터 노드 버전에서 v 빼고 
 
 
 
