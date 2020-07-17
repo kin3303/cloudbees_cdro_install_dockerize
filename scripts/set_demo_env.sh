@@ -58,8 +58,8 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/project_import_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/project_import_ready
 fi
 
-if [ ! -f /opt/electriccloud/electriccommander/conf/project_import_ready ]; then
-  echo "Import Projects"
+if [ ! -f /opt/electriccloud/electriccommander/conf/dsl_import_ready ]; then
+  echo "Import DSL files"
   for file in /tmp/scripts/projectResouces/*.groovy; do
     ectool evalDsl --dslFile "$file"  
   done
