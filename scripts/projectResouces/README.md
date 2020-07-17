@@ -4,7 +4,7 @@
 	1.  Create SonarQube Configuration -> host 찾아서 IP 주소 넣기
 	2.  CO_WEB_DEMO 의 Initialize 프로시저 실행
 	3. Job 중  jira job 찾아서 수동으로 돌리기
-2. Plugin 활성화 (Install & Promote & Project 열어서 workspace, resource 설정)
+2. Plugin  Install & Promote
 	1. Slack
 	2. EC-AuditReports
 	3. unplug 
