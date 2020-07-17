@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData version="90" buildLabel="build_main_139827_2019.11.07_06:46:40" buildVersion="9.2.0.139827" passkey="f0f301f293aeb2552b1be24584f547cacff05fed">
+<exportedData version="90" buildLabel="build_main_139827_2019.11.07_06:46:40" buildVersion="9.2.0.139827" passkey="d671432cab324112b451d468dfc795269e5871d4">
   <exportPath>/projects/Demo</exportPath>
   <project>
     <projectName>Demo</projectName>
@@ -1148,7 +1148,6 @@
       <reportName>CodeSonar Report</reportName>
       <definition>{"size":10,"query":{"bool":{"filter":[{"bool":{"must":[{"exists":{"field":"total","boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"sort":[{"start":{"order":"desc"}}]}</definition>
       <description></description>
-      <reportObjectTypeName>codesonar_report</reportObjectTypeName>
       <reportQuery>{"searchCriteria":[{"criterion":"MUST","conditions":[{"field":"total","operator":"EXISTS"}]}],"size":10,"sortBy":[{"field":"start","ascending":false}]}</reportQuery>
       <tracked>1</tracked>
       <acl>
@@ -1168,7 +1167,6 @@
       <reportName>QAC_ComplianceReport</reportName>
       <definition>{"size":10,"query":{"bool":{"filter":[{"bool":{"must":[{"exists":{"field":"start","boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"sort":[{"buildNumber":{"order":"desc"}}]}</definition>
       <description></description>
-      <reportObjectTypeName>qac_compliancereport</reportObjectTypeName>
       <reportQuery>{"searchCriteria":[{"criterion":"MUST","conditions":[{"field":"start","operator":"EXISTS"}]}],"size":10,"sortBy":[{"field":"buildNumber","ascending":false}]}</reportQuery>
       <tracked>1</tracked>
       <acl>
@@ -2662,7 +2660,7 @@
         <tracked>1</tracked>
       </acl>
       <flow>
-        <flowName>a98a7fe4-7a2b-11ea-bf23-0242ac150008_pipelineflow</flowName>
+        <flowName>ff8e5c36-aaba-11ea-9b9e-0242ac140008_pipelineflow</flowName>
         <tracked>1</tracked>
         <acl>
           <inheriting>1</inheriting>
@@ -2685,7 +2683,7 @@
           <flowStateType>task</flowStateType>
           <index>0</index>
           <keepOnError>0</keepOnError>
-          <subflow>a99b2250-7a2b-11ea-bf23-0242ac150008_pregateflow</subflow>
+          <subflow>ff9dc528-aaba-11ea-9b9e-0242ac140008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2734,7 +2732,7 @@
           <keepOnError>0</keepOnError>
           <plannedEndTime>2020-04-15T15:00:00.000Z</plannedEndTime>
           <plannedStartTime>2020-04-08T15:00:00.000Z</plannedStartTime>
-          <subflow>a995f21a-7a2b-11ea-bf23-0242ac150008_stageflow</subflow>
+          <subflow>ff990a1c-aaba-11ea-9b9e-0242ac140008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2779,7 +2777,7 @@
           <flowStateType>task</flowStateType>
           <index>2</index>
           <keepOnError>0</keepOnError>
-          <subflow>a99d6c4c-7a2b-11ea-bf23-0242ac150008_postgateflow</subflow>
+          <subflow>ff9fc104-aaba-11ea-9b9e-0242ac140008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2806,7 +2804,7 @@
           <flowStateType>task</flowStateType>
           <index>3</index>
           <keepOnError>0</keepOnError>
-          <subflow>a9a02b9a-7a2b-11ea-bf23-0242ac150008_pregateflow</subflow>
+          <subflow>ffa20b27-aaba-11ea-9b9e-0242ac140008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2855,7 +2853,7 @@
           <keepOnError>0</keepOnError>
           <plannedEndTime>2020-04-17T15:00:00.000Z</plannedEndTime>
           <plannedStartTime>2020-04-13T15:00:00.000Z</plannedStartTime>
-          <subflow>a99fb64e-7a2b-11ea-bf23-0242ac150008_stageflow</subflow>
+          <subflow>ffa1bcec-aaba-11ea-9b9e-0242ac140008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2900,7 +2898,7 @@
           <flowStateType>task</flowStateType>
           <index>5</index>
           <keepOnError>0</keepOnError>
-          <subflow>a9a02ba6-7a2b-11ea-bf23-0242ac150008_postgateflow</subflow>
+          <subflow>ffa20b33-aaba-11ea-9b9e-0242ac140008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2927,7 +2925,7 @@
           <flowStateType>task</flowStateType>
           <index>6</index>
           <keepOnError>0</keepOnError>
-          <subflow>a9ba69af-7a2b-11ea-bf23-0242ac150008_pregateflow</subflow>
+          <subflow>ffbd348e-aaba-11ea-9b9e-0242ac140008_pregateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -2976,7 +2974,7 @@
           <keepOnError>0</keepOnError>
           <plannedEndTime>2020-04-24T15:00:00.000Z</plannedEndTime>
           <plannedStartTime>2020-04-20T15:00:00.000Z</plannedStartTime>
-          <subflow>a9b9f443-7a2b-11ea-bf23-0242ac150008_stageflow</subflow>
+          <subflow>ffbce640-aaba-11ea-9b9e-0242ac140008_stageflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -3021,7 +3019,7 @@
           <flowStateType>task</flowStateType>
           <index>8</index>
           <keepOnError>0</keepOnError>
-          <subflow>a9ba90cb-7a2b-11ea-bf23-0242ac150008_postgateflow</subflow>
+          <subflow>ffbd349a-aaba-11ea-9b9e-0242ac140008_postgateflow</subflow>
           <tracked>1</tracked>
           <useApproverAcl>0</useApproverAcl>
           <waitForCompletion>0</waitForCompletion>
@@ -3062,7 +3060,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>23</value>
+              <value>25</value>
             </property>
           </propertySheet>
         </property>
@@ -3181,7 +3179,8 @@
       </formalParameter>
       <stage>
         <stageName>통합공지</stageName>
-        <completed>0</completed>
+        <completed>1</completed>
+        <completionTime>2020-07-06T07:26:47.873Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>3c01078e-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
@@ -3192,7 +3191,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>a995f21a-7a2b-11ea-bf23-0242ac150008_stageflow</flowName>
+          <flowName>ff990a1c-aaba-11ea-9b9e-0242ac140008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -3239,38 +3238,9 @@
                 <expandable>1</expandable>
                 <suppressValueTracking>0</suppressValueTracking>
                 <tracked>1</tracked>
-                <value>exit 1&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/1) 통합 버전 : " --value "$[/myPipelineRuntime/통합버전]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/2) 일      정 : " --value "$[/myPipelineRuntime/일정]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/3) 상세내용 : " --value "$[/myPipelineRuntime/상세내용]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/4) 세      대 : " --value "$[/myPipelineRuntime/세대]"</value>
+                <value>ectool setProperty "/myPipelineStageRuntime/ec_summary/1) 통합 버전 : " --value "$[/myPipelineRuntime/통합버전]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/2) 일      정 : " --value "$[/myPipelineRuntime/일정]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/3) 상세내용 : " --value "$[/myPipelineRuntime/상세내용]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/4) 세      대 : " --value "$[/myPipelineRuntime/세대]"</value>
               </property>
             </actualParameters>
-            <propertySheet>
-              <credentialProtected>0</credentialProtected>
-              <tracked>1</tracked>
-              <acl>
-                <inheriting>1</inheriting>
-                <tracked>1</tracked>
-              </acl>
-            </propertySheet>
-          </flowState>
-          <flowState>
-            <flowStateName>7bd43977-7d46-11ea-a8bf-0242ac150008_task_flow_state</flowStateName>
-            <advancedMode>0</advancedMode>
-            <alwaysRun>0</alwaysRun>
-            <deployerTask>0</deployerTask>
-            <errorHandling>stopOnError</errorHandling>
-            <flowStateType>task</flowStateType>
-            <index>1</index>
-            <keepOnError>0</keepOnError>
-            <resourceName></resourceName>
-            <subpluginKey>EC-Core</subpluginKey>
-            <subprocedure>RunCommand</subprocedure>
-            <tracked>1</tracked>
-            <useApproverAcl>0</useApproverAcl>
-            <waitForCompletion>0</waitForCompletion>
-            <waitForPlannedStart>0</waitForPlannedStart>
-            <acl>
-              <inheriting>1</inheriting>
-              <tracked>1</tracked>
-            </acl>
             <propertySheet>
               <credentialProtected>0</credentialProtected>
               <tracked>1</tracked>
@@ -3290,7 +3260,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>a99b2250-7a2b-11ea-bf23-0242ac150008</gateName>
+          <gateName>ff9dc528-aaba-11ea-9b9e-0242ac140008</gateName>
           <flowStateName>3c31666f-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>통합공지</stageName>
@@ -3300,7 +3270,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a99b2250-7a2b-11ea-bf23-0242ac150008_pregateflow</flowName>
+            <flowName>ff9dc528-aaba-11ea-9b9e-0242ac140008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -3325,7 +3295,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>a99d6c4c-7a2b-11ea-bf23-0242ac150008</gateName>
+          <gateName>ff9fc104-aaba-11ea-9b9e-0242ac140008</gateName>
           <flowStateName>3c4c417c-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>통합공지</stageName>
@@ -3335,7 +3305,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a99d6c4c-7a2b-11ea-bf23-0242ac150008_postgateflow</flowName>
+            <flowName>ff9fc104-aaba-11ea-9b9e-0242ac140008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -3381,31 +3351,11 @@
             </acl>
           </propertySheet>
         </task>
-        <task>
-          <taskName>test</taskName>
-          <allowOutOfOrderRun>0</allowOutOfOrderRun>
-          <flowStateName>7bd43977-7d46-11ea-a8bf-0242ac150008_task_flow_state</flowStateName>
-          <taskEnabled>1</taskEnabled>
-          <taskSkippable>0</taskSkippable>
-          <taskType>COMMAND</taskType>
-          <tracked>1</tracked>
-          <acl>
-            <inheriting>1</inheriting>
-            <tracked>1</tracked>
-          </acl>
-          <propertySheet>
-            <credentialProtected>0</credentialProtected>
-            <tracked>1</tracked>
-            <acl>
-              <inheriting>1</inheriting>
-              <tracked>1</tracked>
-            </acl>
-          </propertySheet>
-        </task>
       </stage>
       <stage>
         <stageName>모듈버전선택</stageName>
-        <completed>0</completed>
+        <completed>1</completed>
+        <completionTime>2020-07-06T07:27:30.669Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>3c904f79-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
@@ -3416,7 +3366,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>a99fb64e-7a2b-11ea-bf23-0242ac150008_stageflow</flowName>
+          <flowName>ffa1bcec-aaba-11ea-9b9e-0242ac140008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -3442,7 +3392,7 @@
             <keepOnError>0</keepOnError>
             <resourceName></resourceName>
             <runType>parallel</runType>
-            <subflow>a9a7a4dc-7a2b-11ea-bf23-0242ac150008_groupflow</subflow>
+            <subflow>ffaa48b9-aaba-11ea-9b9e-0242ac140008_groupflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -3507,7 +3457,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>a9a02b9a-7a2b-11ea-bf23-0242ac150008</gateName>
+          <gateName>ffa20b27-aaba-11ea-9b9e-0242ac140008</gateName>
           <flowStateName>3cabedda-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>모듈버전선택</stageName>
@@ -3517,7 +3467,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a9a02b9a-7a2b-11ea-bf23-0242ac150008_pregateflow</flowName>
+            <flowName>ffa20b27-aaba-11ea-9b9e-0242ac140008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -3542,7 +3492,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>a9a02ba6-7a2b-11ea-bf23-0242ac150008</gateName>
+          <gateName>ffa20b33-aaba-11ea-9b9e-0242ac140008</gateName>
           <flowStateName>3cc9d527-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>모듈버전선택</stageName>
@@ -3552,7 +3502,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a9a02ba6-7a2b-11ea-bf23-0242ac150008_postgateflow</flowName>
+            <flowName>ffa20b33-aaba-11ea-9b9e-0242ac140008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -3672,7 +3622,7 @@
             <allowOutOfOrderRun>0</allowOutOfOrderRun>
             <description></description>
             <flowStateName>3d0a87b1-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
-            <gateName>a9a02ba6-7a2b-11ea-bf23-0242ac150008</gateName>
+            <gateName>ffa20b33-aaba-11ea-9b9e-0242ac140008</gateName>
             <taskApprovers>admin</taskApprovers>
             <taskEnabled>1</taskEnabled>
             <taskSkippable>0</taskSkippable>
@@ -3706,7 +3656,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a9a7a4dc-7a2b-11ea-bf23-0242ac150008_groupflow</flowName>
+            <flowName>ffaa48b9-aaba-11ea-9b9e-0242ac140008_groupflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -4659,7 +4609,7 @@
       <stage>
         <stageName>배포</stageName>
         <completed>1</completed>
-        <completionTime>2020-04-13T05:19:09.481Z</completionTime>
+        <completionTime>2020-07-06T07:27:35.986Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>3ebca558-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
@@ -4670,7 +4620,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>a9b9f443-7a2b-11ea-bf23-0242ac150008_stageflow</flowName>
+          <flowName>ffbce640-aaba-11ea-9b9e-0242ac140008_stageflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -4695,7 +4645,7 @@
             <index>0</index>
             <keepOnError>0</keepOnError>
             <runType>serial</runType>
-            <subflow>7092dde1-7d45-11ea-a067-0242ac150008_groupflow</subflow>
+            <subflow>ffbd5ab6-aaba-11ea-9b9e-0242ac140008_groupflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -4870,7 +4820,7 @@
           </acl>
         </propertySheet>
         <gate>
-          <gateName>a9ba69af-7a2b-11ea-bf23-0242ac150008</gateName>
+          <gateName>ffbd348e-aaba-11ea-9b9e-0242ac140008</gateName>
           <flowStateName>3edc3b59-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
           <gateType>PRE</gateType>
           <stageName>배포</stageName>
@@ -4880,7 +4830,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a9ba69af-7a2b-11ea-bf23-0242ac150008_pregateflow</flowName>
+            <flowName>ffbd348e-aaba-11ea-9b9e-0242ac140008_pregateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -4905,7 +4855,7 @@
           </propertySheet>
         </gate>
         <gate>
-          <gateName>a9ba90cb-7a2b-11ea-bf23-0242ac150008</gateName>
+          <gateName>ffbd349a-aaba-11ea-9b9e-0242ac140008</gateName>
           <flowStateName>3efcbab6-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
           <gateType>POST</gateType>
           <stageName>배포</stageName>
@@ -4915,7 +4865,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>a9ba90cb-7a2b-11ea-bf23-0242ac150008_postgateflow</flowName>
+            <flowName>ffbd349a-aaba-11ea-9b9e-0242ac140008_postgateflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -4952,7 +4902,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>7092dde1-7d45-11ea-a067-0242ac150008_groupflow</flowName>
+            <flowName>ffbd5ab6-aaba-11ea-9b9e-0242ac140008_groupflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -5194,7 +5144,7 @@
           <tracked>1</tracked>
         </acl>
         <flow>
-          <flowName>ee8e0b38-7b14-11ea-a0ce-0242ac150008_pipelineflow</flowName>
+          <flowName>ffc04124-aaba-11ea-9b9e-0242ac140008_pipelineflow</flowName>
           <tracked>1</tracked>
           <acl>
             <inheriting>1</inheriting>
@@ -5217,7 +5167,7 @@
             <flowStateType>task</flowStateType>
             <index>0</index>
             <keepOnError>0</keepOnError>
-            <subflow>eebbd167-7b14-11ea-a0ce-0242ac150008_pregateflow</subflow>
+            <subflow>ffcec0b0-aaba-11ea-9b9e-0242ac140008_pregateflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5266,7 +5216,7 @@
             <keepOnError>0</keepOnError>
             <plannedEndTime>2020-04-15T15:00:00.000Z</plannedEndTime>
             <plannedStartTime>2020-04-08T15:00:00.000Z</plannedStartTime>
-            <subflow>eeb43038-7b14-11ea-a0ce-0242ac150008_stageflow</subflow>
+            <subflow>ffc9b78a-aaba-11ea-9b9e-0242ac140008_stageflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5311,7 +5261,7 @@
             <flowStateType>task</flowStateType>
             <index>2</index>
             <keepOnError>0</keepOnError>
-            <subflow>eebf05bf-7b14-11ea-a0ce-0242ac150008_postgateflow</subflow>
+            <subflow>ffd06e6c-aaba-11ea-9b9e-0242ac140008_postgateflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5338,7 +5288,7 @@
             <flowStateType>task</flowStateType>
             <index>3</index>
             <keepOnError>0</keepOnError>
-            <subflow>eece210d-7b14-11ea-a0ce-0242ac150008_pregateflow</subflow>
+            <subflow>ffd21b49-aaba-11ea-9b9e-0242ac140008_pregateflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5387,7 +5337,7 @@
             <keepOnError>0</keepOnError>
             <plannedEndTime>2020-04-17T15:00:00.000Z</plannedEndTime>
             <plannedStartTime>2020-04-13T15:00:00.000Z</plannedStartTime>
-            <subflow>eec45cfb-7b14-11ea-a0ce-0242ac150008_stageflow</subflow>
+            <subflow>ffd1cd0e-aaba-11ea-9b9e-0242ac140008_stageflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5432,7 +5382,7 @@
             <flowStateType>task</flowStateType>
             <index>5</index>
             <keepOnError>0</keepOnError>
-            <subflow>eed10745-7b14-11ea-a0ce-0242ac150008_postgateflow</subflow>
+            <subflow>ffd21b55-aaba-11ea-9b9e-0242ac140008_postgateflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5459,7 +5409,7 @@
             <flowStateType>task</flowStateType>
             <index>6</index>
             <keepOnError>0</keepOnError>
-            <subflow>ef1fc374-7b14-11ea-a0ce-0242ac150008_pregateflow</subflow>
+            <subflow>ffeea44e-aaba-11ea-9b9e-0242ac140008_pregateflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5508,7 +5458,7 @@
             <keepOnError>0</keepOnError>
             <plannedEndTime>2020-04-24T15:00:00.000Z</plannedEndTime>
             <plannedStartTime>2020-04-20T15:00:00.000Z</plannedStartTime>
-            <subflow>ef0ed358-7b14-11ea-a0ce-0242ac150008_stageflow</subflow>
+            <subflow>ffee2ee2-aaba-11ea-9b9e-0242ac140008_stageflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5553,7 +5503,7 @@
             <flowStateType>task</flowStateType>
             <index>8</index>
             <keepOnError>0</keepOnError>
-            <subflow>ef22d0bc-7b14-11ea-a0ce-0242ac150008_postgateflow</subflow>
+            <subflow>ffeea45a-aaba-11ea-9b9e-0242ac140008_postgateflow</subflow>
             <tracked>1</tracked>
             <useApproverAcl>0</useApproverAcl>
             <waitForCompletion>0</waitForCompletion>
@@ -5726,7 +5676,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>eeb43038-7b14-11ea-a0ce-0242ac150008_stageflow</flowName>
+            <flowName>ffc9b78a-aaba-11ea-9b9e-0242ac140008_stageflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -5795,7 +5745,7 @@
             </acl>
           </propertySheet>
           <gate>
-            <gateName>eebbd167-7b14-11ea-a0ce-0242ac150008</gateName>
+            <gateName>ffcec0b0-aaba-11ea-9b9e-0242ac140008</gateName>
             <flowStateName>3c31666f-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
             <gateType>PRE</gateType>
             <stageName>통합공지</stageName>
@@ -5805,7 +5755,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>eebbd167-7b14-11ea-a0ce-0242ac150008_pregateflow</flowName>
+              <flowName>ffcec0b0-aaba-11ea-9b9e-0242ac140008_pregateflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -5830,7 +5780,7 @@
             </propertySheet>
           </gate>
           <gate>
-            <gateName>eebf05bf-7b14-11ea-a0ce-0242ac150008</gateName>
+            <gateName>ffd06e6c-aaba-11ea-9b9e-0242ac140008</gateName>
             <flowStateName>3c4c417c-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
             <gateType>POST</gateType>
             <stageName>통합공지</stageName>
@@ -5840,7 +5790,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>eebf05bf-7b14-11ea-a0ce-0242ac150008_postgateflow</flowName>
+              <flowName>ffd06e6c-aaba-11ea-9b9e-0242ac140008_postgateflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -5901,7 +5851,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>eec45cfb-7b14-11ea-a0ce-0242ac150008_stageflow</flowName>
+            <flowName>ffd1cd0e-aaba-11ea-9b9e-0242ac140008_stageflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -5927,7 +5877,7 @@
               <keepOnError>0</keepOnError>
               <resourceName></resourceName>
               <runType>parallel</runType>
-              <subflow>eedd3c5d-7b14-11ea-a0ce-0242ac150008_groupflow</subflow>
+              <subflow>ffdaa6fb-aaba-11ea-9b9e-0242ac140008_groupflow</subflow>
               <tracked>1</tracked>
               <useApproverAcl>0</useApproverAcl>
               <waitForCompletion>0</waitForCompletion>
@@ -5992,7 +5942,7 @@
             </acl>
           </propertySheet>
           <gate>
-            <gateName>eece210d-7b14-11ea-a0ce-0242ac150008</gateName>
+            <gateName>ffd21b49-aaba-11ea-9b9e-0242ac140008</gateName>
             <flowStateName>3cabedda-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
             <gateType>PRE</gateType>
             <stageName>모듈버전선택</stageName>
@@ -6002,7 +5952,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>eece210d-7b14-11ea-a0ce-0242ac150008_pregateflow</flowName>
+              <flowName>ffd21b49-aaba-11ea-9b9e-0242ac140008_pregateflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -6027,7 +5977,7 @@
             </propertySheet>
           </gate>
           <gate>
-            <gateName>eed10745-7b14-11ea-a0ce-0242ac150008</gateName>
+            <gateName>ffd21b55-aaba-11ea-9b9e-0242ac140008</gateName>
             <flowStateName>3cc9d527-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
             <gateType>POST</gateType>
             <stageName>모듈버전선택</stageName>
@@ -6037,7 +5987,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>eed10745-7b14-11ea-a0ce-0242ac150008_postgateflow</flowName>
+              <flowName>ffd21b55-aaba-11ea-9b9e-0242ac140008_postgateflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -6157,7 +6107,7 @@
               <allowOutOfOrderRun>0</allowOutOfOrderRun>
               <description></description>
               <flowStateName>3d0a87b1-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
-              <gateName>eed10745-7b14-11ea-a0ce-0242ac150008</gateName>
+              <gateName>ffd21b55-aaba-11ea-9b9e-0242ac140008</gateName>
               <taskApprovers>admin</taskApprovers>
               <taskEnabled>1</taskEnabled>
               <taskSkippable>0</taskSkippable>
@@ -6191,7 +6141,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>eedd3c5d-7b14-11ea-a0ce-0242ac150008_groupflow</flowName>
+              <flowName>ffdaa6fb-aaba-11ea-9b9e-0242ac140008_groupflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -7155,7 +7105,7 @@
             <tracked>1</tracked>
           </acl>
           <flow>
-            <flowName>ef0ed358-7b14-11ea-a0ce-0242ac150008_stageflow</flowName>
+            <flowName>ffee2ee2-aaba-11ea-9b9e-0242ac140008_stageflow</flowName>
             <tracked>1</tracked>
             <acl>
               <inheriting>1</inheriting>
@@ -7416,7 +7366,7 @@
             </acl>
           </propertySheet>
           <gate>
-            <gateName>ef1fc374-7b14-11ea-a0ce-0242ac150008</gateName>
+            <gateName>ffeea44e-aaba-11ea-9b9e-0242ac140008</gateName>
             <flowStateName>3edc3b59-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
             <gateType>PRE</gateType>
             <stageName>배포</stageName>
@@ -7426,7 +7376,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>ef1fc374-7b14-11ea-a0ce-0242ac150008_pregateflow</flowName>
+              <flowName>ffeea44e-aaba-11ea-9b9e-0242ac140008_pregateflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -7451,7 +7401,7 @@
             </propertySheet>
           </gate>
           <gate>
-            <gateName>ef22d0bc-7b14-11ea-a0ce-0242ac150008</gateName>
+            <gateName>ffeea45a-aaba-11ea-9b9e-0242ac140008</gateName>
             <flowStateName>3efcbab6-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
             <gateType>POST</gateType>
             <stageName>배포</stageName>
@@ -7461,7 +7411,7 @@
               <tracked>1</tracked>
             </acl>
             <flow>
-              <flowName>ef22d0bc-7b14-11ea-a0ce-0242ac150008_postgateflow</flowName>
+              <flowName>ffeea45a-aaba-11ea-9b9e-0242ac140008_postgateflow</flowName>
               <tracked>1</tracked>
               <acl>
                 <inheriting>1</inheriting>
@@ -7724,6 +7674,2492 @@
           </parameterDetail>
         </pluginParameters>
       </devOpsInsightDataSource>
+    </release>
+    <release>
+      <releaseName>통합자동화시스템 2차 릴리즈</releaseName>
+      <archived>0</archived>
+      <description></description>
+      <plannedEndTime>2020-07-09T00:00:00.000Z</plannedEndTime>
+      <plannedStartTime>2020-06-25T00:00:00.000Z</plannedStartTime>
+      <releaseStatus>RUNNING</releaseStatus>
+      <tracked>1</tracked>
+      <acl>
+        <inheriting>1</inheriting>
+        <tracked>1</tracked>
+      </acl>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+      </propertySheet>
+      <pipeline>
+        <pipelineName>통합자동화시스템</pipelineName>
+        <description></description>
+        <disableMultipleActiveRuns>0</disableMultipleActiveRuns>
+        <disableRestart>0</disableRestart>
+        <overrideWorkspace>0</overrideWorkspace>
+        <pipelineEnabled>1</pipelineEnabled>
+        <skipStageMode>ENABLED</skipStageMode>
+        <templatePipelineName>통합자동화시스템</templatePipelineName>
+        <templatePipelineProjectName>Demo</templatePipelineProjectName>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <flow>
+          <flowName>eea9cfb5-b6a0-11ea-b8e1-0242ac140008_pipelineflow</flowName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+          <flowState>
+            <flowStateName>3c31666f-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description>gate flow step</description>
+            <flowStateType>task</flowStateType>
+            <index>0</index>
+            <keepOnError>0</keepOnError>
+            <subflow>eecee358-b6a0-11ea-b8e1-0242ac140008_pregateflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowTransition>
+              <flowTransitionName>3c318d80-797b-11ea-af82-0242ac140008_3c01078f-797b-11ea-af82-0242ac140008</flowTransitionName>
+              <index>0</index>
+              <targetFlowStateName>3c01078e-797b-11ea-af82-0242ac140008_stage_flow_state</targetFlowStateName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowTransition>
+          </flowState>
+          <flowState>
+            <flowStateName>3c01078e-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <colorCode>#00adee</colorCode>
+            <deployerTask>0</deployerTask>
+            <description>stage flow step</description>
+            <duration>10080</duration>
+            <flowStateType>task</flowStateType>
+            <index>1</index>
+            <keepOnError>0</keepOnError>
+            <plannedEndTime>2020-06-21T15:00:00.000Z</plannedEndTime>
+            <plannedStartTime>2020-06-14T15:00:00.000Z</plannedStartTime>
+            <subflow>eec79045-b6a0-11ea-b8e1-0242ac140008_stageflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowTransition>
+              <flowTransitionName>3c01078f-797b-11ea-af82-0242ac140008_3c4c417d-797b-11ea-af82-0242ac140008</flowTransitionName>
+              <index>0</index>
+              <targetFlowStateName>3c4c417c-797b-11ea-af82-0242ac140008_post_gate_flow_state</targetFlowStateName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowTransition>
+          </flowState>
+          <flowState>
+            <flowStateName>3c4c417c-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description>gate flow step</description>
+            <flowStateType>task</flowStateType>
+            <index>2</index>
+            <keepOnError>0</keepOnError>
+            <subflow>eed12d50-b6a0-11ea-b8e1-0242ac140008_postgateflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </flowState>
+          <flowState>
+            <flowStateName>3cabedda-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description>gate flow step</description>
+            <flowStateType>task</flowStateType>
+            <index>3</index>
+            <keepOnError>0</keepOnError>
+            <subflow>eeddfeb2-b6a0-11ea-b8e1-0242ac140008_pregateflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowTransition>
+              <flowTransitionName>3cabeddb-797b-11ea-af82-0242ac140008_3c904f7a-797b-11ea-af82-0242ac140008</flowTransitionName>
+              <index>0</index>
+              <targetFlowStateName>3c904f79-797b-11ea-af82-0242ac140008_stage_flow_state</targetFlowStateName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowTransition>
+          </flowState>
+          <flowState>
+            <flowStateName>3c904f79-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <colorCode>#ff7f0e</colorCode>
+            <deployerTask>0</deployerTask>
+            <description>stage flow step</description>
+            <duration>4320</duration>
+            <flowStateType>task</flowStateType>
+            <index>4</index>
+            <keepOnError>0</keepOnError>
+            <plannedEndTime>2020-06-25T15:00:00.000Z</plannedEndTime>
+            <plannedStartTime>2020-06-22T15:00:00.000Z</plannedStartTime>
+            <subflow>eed65d80-b6a0-11ea-b8e1-0242ac140008_stageflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowTransition>
+              <flowTransitionName>3c904f7a-797b-11ea-af82-0242ac140008_3cc9d528-797b-11ea-af82-0242ac140008</flowTransitionName>
+              <index>0</index>
+              <targetFlowStateName>3cc9d527-797b-11ea-af82-0242ac140008_post_gate_flow_state</targetFlowStateName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowTransition>
+          </flowState>
+          <flowState>
+            <flowStateName>3cc9d527-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description>gate flow step</description>
+            <flowStateType>task</flowStateType>
+            <index>5</index>
+            <keepOnError>0</keepOnError>
+            <subflow>eee048aa-b6a0-11ea-b8e1-0242ac140008_postgateflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </flowState>
+          <flowState>
+            <flowStateName>3edc3b59-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description>gate flow step</description>
+            <flowStateType>task</flowStateType>
+            <index>6</index>
+            <keepOnError>0</keepOnError>
+            <subflow>ef1dc6bf-b6a0-11ea-b8e1-0242ac140008_pregateflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowTransition>
+              <flowTransitionName>3edc3b5a-797b-11ea-af82-0242ac140008_3ebca559-797b-11ea-af82-0242ac140008</flowTransitionName>
+              <index>0</index>
+              <targetFlowStateName>3ebca558-797b-11ea-af82-0242ac140008_stage_flow_state</targetFlowStateName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowTransition>
+          </flowState>
+          <flowState>
+            <flowStateName>3ebca558-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <colorCode>#2ca02c</colorCode>
+            <deployerTask>0</deployerTask>
+            <description>stage flow step</description>
+            <duration>7200</duration>
+            <flowStateType>task</flowStateType>
+            <index>7</index>
+            <keepOnError>0</keepOnError>
+            <plannedEndTime>2020-06-29T15:00:00.000Z</plannedEndTime>
+            <plannedStartTime>2020-06-24T15:00:00.000Z</plannedStartTime>
+            <subflow>ef12ca1d-b6a0-11ea-b8e1-0242ac140008_stageflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowTransition>
+              <flowTransitionName>3ebca559-797b-11ea-af82-0242ac140008_3efcbab7-797b-11ea-af82-0242ac140008</flowTransitionName>
+              <index>0</index>
+              <targetFlowStateName>3efcbab6-797b-11ea-af82-0242ac140008_post_gate_flow_state</targetFlowStateName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowTransition>
+          </flowState>
+          <flowState>
+            <flowStateName>3efcbab6-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description>gate flow step</description>
+            <flowStateType>task</flowStateType>
+            <index>8</index>
+            <keepOnError>0</keepOnError>
+            <subflow>ef2010b7-b6a0-11ea-b8e1-0242ac140008_postgateflow</subflow>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </flowState>
+        </flow>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <property>
+            <propertyName>ec_counters</propertyName>
+            <tracked>1</tracked>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <property>
+                <propertyName>pipelineCounter</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>25</value>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <tracked>1</tracked>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <property>
+                <propertyName>parameters</propertyName>
+                <tracked>1</tracked>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                  <property>
+                    <propertyName>PLM_Deploy</propertyName>
+                    <tracked>1</tracked>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                      <property>
+                        <propertyName>checkedValue</propertyName>
+                        <expandable>1</expandable>
+                        <suppressValueTracking>0</suppressValueTracking>
+                        <tracked>1</tracked>
+                        <value>true</value>
+                      </property>
+                      <property>
+                        <propertyName>formType</propertyName>
+                        <expandable>1</expandable>
+                        <suppressValueTracking>0</suppressValueTracking>
+                        <tracked>1</tracked>
+                        <value>standard</value>
+                      </property>
+                      <property>
+                        <propertyName>uncheckedValue</propertyName>
+                        <expandable>1</expandable>
+                        <suppressValueTracking>0</suppressValueTracking>
+                        <tracked>1</tracked>
+                        <value>false</value>
+                      </property>
+                    </propertySheet>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+        <formalParameter>
+          <formalParameterName>ec_stagesToRun</formalParameterName>
+          <expansionDeferred>1</expansionDeferred>
+          <required>0</required>
+          <tracked>1</tracked>
+        </formalParameter>
+        <formalParameter>
+          <formalParameterName>PLM_Deploy</formalParameterName>
+          <defaultValue>true</defaultValue>
+          <expansionDeferred>0</expansionDeferred>
+          <label>PLM 배포</label>
+          <orderIndex>5</orderIndex>
+          <required>0</required>
+          <tracked>1</tracked>
+          <type>checkbox</type>
+        </formalParameter>
+        <formalParameter>
+          <formalParameterName>상세내용</formalParameterName>
+          <defaultValue>2차 릴리즈</defaultValue>
+          <expansionDeferred>0</expansionDeferred>
+          <label>상세내용</label>
+          <orderIndex>3</orderIndex>
+          <required>1</required>
+          <tracked>1</tracked>
+          <type>textarea</type>
+        </formalParameter>
+        <formalParameter>
+          <formalParameterName>세대</formalParameterName>
+          <defaultValue>4세대</defaultValue>
+          <expansionDeferred>0</expansionDeferred>
+          <label>세대</label>
+          <orderIndex>4</orderIndex>
+          <required>1</required>
+          <tracked>1</tracked>
+          <type>entry</type>
+        </formalParameter>
+        <formalParameter>
+          <formalParameterName>일정</formalParameterName>
+          <defaultValue>2020-04-14</defaultValue>
+          <expansionDeferred>0</expansionDeferred>
+          <label>일정</label>
+          <orderIndex>2</orderIndex>
+          <required>1</required>
+          <tracked>1</tracked>
+          <type>date</type>
+        </formalParameter>
+        <formalParameter>
+          <formalParameterName>통합버전</formalParameterName>
+          <defaultValue>V1.0.0</defaultValue>
+          <expansionDeferred>0</expansionDeferred>
+          <label>통합버전</label>
+          <orderIndex>1</orderIndex>
+          <required>1</required>
+          <tracked>1</tracked>
+          <type>entry</type>
+        </formalParameter>
+        <stage>
+          <stageName>통합공지</stageName>
+          <completed>1</completed>
+          <completionTime>2020-06-25T05:07:57.288Z</completionTime>
+          <completionType>auto</completionType>
+          <description></description>
+          <flowStateName>3c01078e-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
+          <pipelineName>통합자동화시스템</pipelineName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <flow>
+            <flowName>eec79045-b6a0-11ea-b8e1-0242ac140008_stageflow</flowName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowState>
+              <flowStateName>3c78f6d6-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <advancedMode>0</advancedMode>
+              <alwaysRun>0</alwaysRun>
+              <deployerTask>0</deployerTask>
+              <description></description>
+              <errorHandling>stopOnError</errorHandling>
+              <flowStateType>task</flowStateType>
+              <index>0</index>
+              <keepOnError>0</keepOnError>
+              <resourceName>local</resourceName>
+              <subpluginKey>EC-Core</subpluginKey>
+              <subprocedure>RunCommand</subprocedure>
+              <tracked>1</tracked>
+              <useApproverAcl>0</useApproverAcl>
+              <waitForCompletion>0</waitForCompletion>
+              <waitForPlannedStart>0</waitForPlannedStart>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <actualParameters>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <property>
+                  <propertyName>commandToRun</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>ectool setProperty "/myPipelineStageRuntime/ec_summary/1) 통합 버전 : " --value "$[/myPipelineRuntime/통합버전]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/2) 일      정 : " --value "$[/myPipelineRuntime/일정]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/3) 상세내용 : " --value "$[/myPipelineRuntime/상세내용]"&#10;ectool setProperty "/myPipelineStageRuntime/ec_summary/4) 세      대 : " --value "$[/myPipelineRuntime/세대]"</value>
+                </property>
+              </actualParameters>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowState>
+          </flow>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+          <gate>
+            <gateName>eecee358-b6a0-11ea-b8e1-0242ac140008</gateName>
+            <flowStateName>3c31666f-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
+            <gateType>PRE</gateType>
+            <stageName>통합공지</stageName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>eecee358-b6a0-11ea-b8e1-0242ac140008_pregateflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </gate>
+          <gate>
+            <gateName>eed12d50-b6a0-11ea-b8e1-0242ac140008</gateName>
+            <flowStateName>3c4c417c-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
+            <gateType>POST</gateType>
+            <stageName>통합공지</stageName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>eed12d50-b6a0-11ea-b8e1-0242ac140008_postgateflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </gate>
+          <task>
+            <taskName>통합공지</taskName>
+            <allowOutOfOrderRun>0</allowOutOfOrderRun>
+            <description></description>
+            <flowStateName>3c78f6d6-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+            <taskEnabled>1</taskEnabled>
+            <taskSkippable>0</taskSkippable>
+            <taskType>COMMAND</taskType>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </task>
+        </stage>
+        <stage>
+          <stageName>모듈버전선택</stageName>
+          <completed>1</completed>
+          <completionTime>2020-06-25T05:08:50.838Z</completionTime>
+          <completionType>auto</completionType>
+          <description></description>
+          <flowStateName>3c904f79-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
+          <pipelineName>통합자동화시스템</pipelineName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <flow>
+            <flowName>eed65d80-b6a0-11ea-b8e1-0242ac140008_stageflow</flowName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowState>
+              <flowStateName>3d3ce263-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <advancedMode>0</advancedMode>
+              <alwaysRun>0</alwaysRun>
+              <deployerTask>0</deployerTask>
+              <description></description>
+              <errorHandling>stopOnError</errorHandling>
+              <flowStateType>task</flowStateType>
+              <index>0</index>
+              <keepOnError>0</keepOnError>
+              <resourceName></resourceName>
+              <runType>parallel</runType>
+              <subflow>eeea5ae2-b6a0-11ea-b8e1-0242ac140008_groupflow</subflow>
+              <tracked>1</tracked>
+              <useApproverAcl>0</useApproverAcl>
+              <waitForCompletion>0</waitForCompletion>
+              <waitForPlannedStart>0</waitForPlannedStart>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowState>
+            <flowState>
+              <flowStateName>3e9e47d5-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <advancedMode>0</advancedMode>
+              <alwaysRun>0</alwaysRun>
+              <deployerTask>0</deployerTask>
+              <description></description>
+              <errorHandling>stopOnError</errorHandling>
+              <flowStateType>task</flowStateType>
+              <index>1</index>
+              <keepOnError>0</keepOnError>
+              <resourceName></resourceName>
+              <subprocedure>ModuleInfo</subprocedure>
+              <tracked>1</tracked>
+              <useApproverAcl>0</useApproverAcl>
+              <waitForCompletion>0</waitForCompletion>
+              <waitForPlannedStart>0</waitForPlannedStart>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <actualParameters>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </actualParameters>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowState>
+          </flow>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+          <gate>
+            <gateName>eeddfeb2-b6a0-11ea-b8e1-0242ac140008</gateName>
+            <flowStateName>3cabedda-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
+            <gateType>PRE</gateType>
+            <stageName>모듈버전선택</stageName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>eeddfeb2-b6a0-11ea-b8e1-0242ac140008_pregateflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </gate>
+          <gate>
+            <gateName>eee048aa-b6a0-11ea-b8e1-0242ac140008</gateName>
+            <flowStateName>3cc9d527-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
+            <gateType>POST</gateType>
+            <stageName>모듈버전선택</stageName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>eee048aa-b6a0-11ea-b8e1-0242ac140008_postgateflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+              <flowState>
+                <flowStateName>3d0a87b1-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+                <advancedMode>0</advancedMode>
+                <allowSkip>0</allowSkip>
+                <alwaysRun>0</alwaysRun>
+                <deployerTask>0</deployerTask>
+                <description></description>
+                <errorHandling>stopOnError</errorHandling>
+                <flowStateType>manual</flowStateType>
+                <index>0</index>
+                <keepOnError>0</keepOnError>
+                <resourceName></resourceName>
+                <tracked>1</tracked>
+                <useApproverAcl>0</useApproverAcl>
+                <waitForCompletion>0</waitForCompletion>
+                <waitForPlannedStart>0</waitForPlannedStart>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                </propertySheet>
+                <emailNotifier>
+                  <notifierName>3d0a87b1-797b-11ea-af82-0242ac140008_task_flow_state-defaultNotifier</notifierName>
+                  <destinations></destinations>
+                  <enabled>1</enabled>
+                  <eventType>onStart</eventType>
+                  <formattingTemplate>Subject:$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_gate_task_notification_template/subject]&#10;&#13;&#10;&#13;&#10;&#10;$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_gate_task_notification_template/body]</formattingTemplate>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                    <aclEntry>
+                      <allowChangePermissions>1</allowChangePermissions>
+                      <allowExecute>1</allowExecute>
+                      <allowModify>1</allowModify>
+                      <allowRead>1</allowRead>
+                      <denyChangePermissions>0</denyChangePermissions>
+                      <denyExecute>0</denyExecute>
+                      <denyModify>0</denyModify>
+                      <denyRead>0</denyRead>
+                      <principalName>admin</principalName>
+                      <principalType>user</principalType>
+                      <tracked>1</tracked>
+                    </aclEntry>
+                  </acl>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                    </acl>
+                  </propertySheet>
+                  <eventSubscription>
+                    <eventSubscriptionName>user-admin</eventSubscriptionName>
+                    <tracked>1</tracked>
+                    <userName>admin</userName>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                      <aclEntry>
+                        <allowChangePermissions>1</allowChangePermissions>
+                        <allowExecute>1</allowExecute>
+                        <allowModify>1</allowModify>
+                        <allowRead>1</allowRead>
+                        <denyChangePermissions>0</denyChangePermissions>
+                        <denyExecute>0</denyExecute>
+                        <denyModify>0</denyModify>
+                        <denyRead>0</denyRead>
+                        <principalName>admin</principalName>
+                        <principalType>user</principalType>
+                        <tracked>1</tracked>
+                      </aclEntry>
+                    </acl>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                    </propertySheet>
+                  </eventSubscription>
+                </emailNotifier>
+              </flowState>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <task>
+              <taskName>PL 확인</taskName>
+              <allowOutOfOrderRun>0</allowOutOfOrderRun>
+              <description></description>
+              <flowStateName>3d0a87b1-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <gateName>eee048aa-b6a0-11ea-b8e1-0242ac140008</gateName>
+              <taskApprovers>admin</taskApprovers>
+              <taskEnabled>1</taskEnabled>
+              <taskSkippable>0</taskSkippable>
+              <taskType>APPROVAL</taskType>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </task>
+          </gate>
+          <task>
+            <taskName>모듈버전선택</taskName>
+            <allowOutOfOrderRun>0</allowOutOfOrderRun>
+            <description></description>
+            <flowStateName>3d3ce263-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+            <taskEnabled>1</taskEnabled>
+            <taskSkippable>0</taskSkippable>
+            <taskType>GROUP</taskType>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>eeea5ae2-b6a0-11ea-b8e1-0242ac140008_groupflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+              <flowState>
+                <flowStateName>3d7ad5d0-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+                <advancedMode>0</advancedMode>
+                <allowSkip>0</allowSkip>
+                <alwaysRun>0</alwaysRun>
+                <deployerTask>0</deployerTask>
+                <description></description>
+                <disableFailure>0</disableFailure>
+                <errorHandling>stopOnError</errorHandling>
+                <flowStateType>manual</flowStateType>
+                <index>0</index>
+                <keepOnError>0</keepOnError>
+                <parallelToPrevious>0</parallelToPrevious>
+                <resourceName></resourceName>
+                <tracked>1</tracked>
+                <useApproverAcl>0</useApproverAcl>
+                <waitForCompletion>0</waitForCompletion>
+                <waitForPlannedStart>0</waitForPlannedStart>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                  <property>
+                    <propertyName>ec_customEditorData</propertyName>
+                    <tracked>1</tracked>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                      <property>
+                        <propertyName>parameters</propertyName>
+                        <tracked>1</tracked>
+                        <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <tracked>1</tracked>
+                          <acl>
+                            <inheriting>1</inheriting>
+                            <tracked>1</tracked>
+                          </acl>
+                          <property>
+                            <propertyName>A_Version</propertyName>
+                            <tracked>1</tracked>
+                            <propertySheet>
+                              <credentialProtected>0</credentialProtected>
+                              <tracked>1</tracked>
+                              <acl>
+                                <inheriting>1</inheriting>
+                                <tracked>1</tracked>
+                              </acl>
+                              <property>
+                                <propertyName>options</propertyName>
+                                <tracked>1</tracked>
+                                <propertySheet>
+                                  <credentialProtected>0</credentialProtected>
+                                  <tracked>1</tracked>
+                                  <acl>
+                                    <inheriting>1</inheriting>
+                                    <tracked>1</tracked>
+                                  </acl>
+                                  <property>
+                                    <propertyName>option1</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option2</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option3</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V3.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V3.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>optionCount</propertyName>
+                                    <expandable>1</expandable>
+                                    <suppressValueTracking>0</suppressValueTracking>
+                                    <tracked>1</tracked>
+                                    <value>3</value>
+                                  </property>
+                                  <property>
+                                    <propertyName>type</propertyName>
+                                    <expandable>1</expandable>
+                                    <suppressValueTracking>0</suppressValueTracking>
+                                    <tracked>1</tracked>
+                                    <value>list</value>
+                                  </property>
+                                </propertySheet>
+                              </property>
+                              <property>
+                                <propertyName>formType</propertyName>
+                                <expandable>1</expandable>
+                                <suppressValueTracking>0</suppressValueTracking>
+                                <tracked>1</tracked>
+                                <value>standard</value>
+                              </property>
+                            </propertySheet>
+                          </property>
+                        </propertySheet>
+                      </property>
+                    </propertySheet>
+                  </property>
+                </propertySheet>
+                <emailNotifier>
+                  <notifierName>3d7ad5d0-797b-11ea-af82-0242ac140008_task_flow_state-defaultNotifier</notifierName>
+                  <destinations></destinations>
+                  <enabled>1</enabled>
+                  <eventType>onStart</eventType>
+                  <formattingTemplate>Subject:$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_pipeline_manual_task_notification_template/subject]&#10;&#13;&#10;&#13;&#10;&#10;$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_pipeline_manual_task_notification_template/body]</formattingTemplate>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                    <aclEntry>
+                      <allowChangePermissions>1</allowChangePermissions>
+                      <allowExecute>1</allowExecute>
+                      <allowModify>1</allowModify>
+                      <allowRead>1</allowRead>
+                      <denyChangePermissions>0</denyChangePermissions>
+                      <denyExecute>0</denyExecute>
+                      <denyModify>0</denyModify>
+                      <denyRead>0</denyRead>
+                      <principalName>admin</principalName>
+                      <principalType>user</principalType>
+                      <tracked>1</tracked>
+                    </aclEntry>
+                  </acl>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                    </acl>
+                  </propertySheet>
+                  <eventSubscription>
+                    <eventSubscriptionName>user-admin</eventSubscriptionName>
+                    <tracked>1</tracked>
+                    <userName>admin</userName>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                      <aclEntry>
+                        <allowChangePermissions>1</allowChangePermissions>
+                        <allowExecute>1</allowExecute>
+                        <allowModify>1</allowModify>
+                        <allowRead>1</allowRead>
+                        <denyChangePermissions>0</denyChangePermissions>
+                        <denyExecute>0</denyExecute>
+                        <denyModify>0</denyModify>
+                        <denyRead>0</denyRead>
+                        <principalName>admin</principalName>
+                        <principalType>user</principalType>
+                        <tracked>1</tracked>
+                      </aclEntry>
+                    </acl>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                    </propertySheet>
+                  </eventSubscription>
+                </emailNotifier>
+                <formalParameter>
+                  <formalParameterName>A_Version</formalParameterName>
+                  <defaultValue>V2.0</defaultValue>
+                  <expansionDeferred>0</expansionDeferred>
+                  <label>A모듈 버전</label>
+                  <optionsType>options</optionsType>
+                  <orderIndex>1</orderIndex>
+                  <required>1</required>
+                  <tracked>1</tracked>
+                  <type>select</type>
+                </formalParameter>
+              </flowState>
+              <flowState>
+                <flowStateName>3de04e92-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+                <advancedMode>0</advancedMode>
+                <allowSkip>0</allowSkip>
+                <alwaysRun>0</alwaysRun>
+                <deployerTask>0</deployerTask>
+                <description></description>
+                <disableFailure>0</disableFailure>
+                <errorHandling>stopOnError</errorHandling>
+                <flowStateType>manual</flowStateType>
+                <index>1</index>
+                <keepOnError>0</keepOnError>
+                <parallelToPrevious>1</parallelToPrevious>
+                <resourceName></resourceName>
+                <tracked>1</tracked>
+                <useApproverAcl>0</useApproverAcl>
+                <waitForCompletion>0</waitForCompletion>
+                <waitForPlannedStart>0</waitForPlannedStart>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                  <property>
+                    <propertyName>ec_customEditorData</propertyName>
+                    <tracked>1</tracked>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                      <property>
+                        <propertyName>parameters</propertyName>
+                        <tracked>1</tracked>
+                        <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <tracked>1</tracked>
+                          <acl>
+                            <inheriting>1</inheriting>
+                            <tracked>1</tracked>
+                          </acl>
+                          <property>
+                            <propertyName>B_Version</propertyName>
+                            <tracked>1</tracked>
+                            <propertySheet>
+                              <credentialProtected>0</credentialProtected>
+                              <tracked>1</tracked>
+                              <acl>
+                                <inheriting>1</inheriting>
+                                <tracked>1</tracked>
+                              </acl>
+                              <property>
+                                <propertyName>options</propertyName>
+                                <tracked>1</tracked>
+                                <propertySheet>
+                                  <credentialProtected>0</credentialProtected>
+                                  <tracked>1</tracked>
+                                  <acl>
+                                    <inheriting>1</inheriting>
+                                    <tracked>1</tracked>
+                                  </acl>
+                                  <property>
+                                    <propertyName>option1</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option2</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.1</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.1</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option3</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option4</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V3.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V3.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>optionCount</propertyName>
+                                    <expandable>1</expandable>
+                                    <suppressValueTracking>0</suppressValueTracking>
+                                    <tracked>1</tracked>
+                                    <value>4</value>
+                                  </property>
+                                  <property>
+                                    <propertyName>type</propertyName>
+                                    <expandable>1</expandable>
+                                    <suppressValueTracking>0</suppressValueTracking>
+                                    <tracked>1</tracked>
+                                    <value>list</value>
+                                  </property>
+                                </propertySheet>
+                              </property>
+                              <property>
+                                <propertyName>formType</propertyName>
+                                <expandable>1</expandable>
+                                <suppressValueTracking>0</suppressValueTracking>
+                                <tracked>1</tracked>
+                                <value>standard</value>
+                              </property>
+                            </propertySheet>
+                          </property>
+                        </propertySheet>
+                      </property>
+                    </propertySheet>
+                  </property>
+                </propertySheet>
+                <emailNotifier>
+                  <notifierName>3de04e92-797b-11ea-af82-0242ac140008_task_flow_state-defaultNotifier</notifierName>
+                  <destinations></destinations>
+                  <enabled>1</enabled>
+                  <eventType>onStart</eventType>
+                  <formattingTemplate>Subject:$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_pipeline_manual_task_notification_template/subject]&#10;&#13;&#10;&#13;&#10;&#10;$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_pipeline_manual_task_notification_template/body]</formattingTemplate>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                    <aclEntry>
+                      <allowChangePermissions>1</allowChangePermissions>
+                      <allowExecute>1</allowExecute>
+                      <allowModify>1</allowModify>
+                      <allowRead>1</allowRead>
+                      <denyChangePermissions>0</denyChangePermissions>
+                      <denyExecute>0</denyExecute>
+                      <denyModify>0</denyModify>
+                      <denyRead>0</denyRead>
+                      <principalName>admin</principalName>
+                      <principalType>user</principalType>
+                      <tracked>1</tracked>
+                    </aclEntry>
+                  </acl>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                    </acl>
+                  </propertySheet>
+                  <eventSubscription>
+                    <eventSubscriptionName>user-admin</eventSubscriptionName>
+                    <tracked>1</tracked>
+                    <userName>admin</userName>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                      <aclEntry>
+                        <allowChangePermissions>1</allowChangePermissions>
+                        <allowExecute>1</allowExecute>
+                        <allowModify>1</allowModify>
+                        <allowRead>1</allowRead>
+                        <denyChangePermissions>0</denyChangePermissions>
+                        <denyExecute>0</denyExecute>
+                        <denyModify>0</denyModify>
+                        <denyRead>0</denyRead>
+                        <principalName>admin</principalName>
+                        <principalType>user</principalType>
+                        <tracked>1</tracked>
+                      </aclEntry>
+                    </acl>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                    </propertySheet>
+                  </eventSubscription>
+                </emailNotifier>
+                <formalParameter>
+                  <formalParameterName>B_Version</formalParameterName>
+                  <defaultValue>V1.1</defaultValue>
+                  <expansionDeferred>0</expansionDeferred>
+                  <label>B모듈 버전</label>
+                  <optionsType>options</optionsType>
+                  <orderIndex>1</orderIndex>
+                  <required>1</required>
+                  <tracked>1</tracked>
+                  <type>select</type>
+                </formalParameter>
+              </flowState>
+              <flowState>
+                <flowStateName>3e455229-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+                <advancedMode>0</advancedMode>
+                <allowSkip>0</allowSkip>
+                <alwaysRun>0</alwaysRun>
+                <deployerTask>0</deployerTask>
+                <description></description>
+                <disableFailure>0</disableFailure>
+                <errorHandling>stopOnError</errorHandling>
+                <flowStateType>manual</flowStateType>
+                <index>2</index>
+                <keepOnError>0</keepOnError>
+                <parallelToPrevious>1</parallelToPrevious>
+                <resourceName></resourceName>
+                <tracked>1</tracked>
+                <useApproverAcl>0</useApproverAcl>
+                <waitForCompletion>0</waitForCompletion>
+                <waitForPlannedStart>0</waitForPlannedStart>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                  <property>
+                    <propertyName>ec_customEditorData</propertyName>
+                    <tracked>1</tracked>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                      <property>
+                        <propertyName>parameters</propertyName>
+                        <tracked>1</tracked>
+                        <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <tracked>1</tracked>
+                          <acl>
+                            <inheriting>1</inheriting>
+                            <tracked>1</tracked>
+                          </acl>
+                          <property>
+                            <propertyName>C_Version</propertyName>
+                            <tracked>1</tracked>
+                            <propertySheet>
+                              <credentialProtected>0</credentialProtected>
+                              <tracked>1</tracked>
+                              <acl>
+                                <inheriting>1</inheriting>
+                                <tracked>1</tracked>
+                              </acl>
+                              <property>
+                                <propertyName>options</propertyName>
+                                <tracked>1</tracked>
+                                <propertySheet>
+                                  <credentialProtected>0</credentialProtected>
+                                  <tracked>1</tracked>
+                                  <acl>
+                                    <inheriting>1</inheriting>
+                                    <tracked>1</tracked>
+                                  </acl>
+                                  <property>
+                                    <propertyName>option1</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option2</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.1</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V1.1</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option3</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.0</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.0</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option4</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.1</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.1</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>option5</propertyName>
+                                    <tracked>1</tracked>
+                                    <propertySheet>
+                                      <credentialProtected>0</credentialProtected>
+                                      <tracked>1</tracked>
+                                      <acl>
+                                        <inheriting>1</inheriting>
+                                        <tracked>1</tracked>
+                                      </acl>
+                                      <property>
+                                        <propertyName>text</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.2</value>
+                                      </property>
+                                      <property>
+                                        <propertyName>value</propertyName>
+                                        <expandable>1</expandable>
+                                        <suppressValueTracking>0</suppressValueTracking>
+                                        <tracked>1</tracked>
+                                        <value>V2.2</value>
+                                      </property>
+                                    </propertySheet>
+                                  </property>
+                                  <property>
+                                    <propertyName>optionCount</propertyName>
+                                    <expandable>1</expandable>
+                                    <suppressValueTracking>0</suppressValueTracking>
+                                    <tracked>1</tracked>
+                                    <value>5</value>
+                                  </property>
+                                  <property>
+                                    <propertyName>type</propertyName>
+                                    <expandable>1</expandable>
+                                    <suppressValueTracking>0</suppressValueTracking>
+                                    <tracked>1</tracked>
+                                    <value>list</value>
+                                  </property>
+                                </propertySheet>
+                              </property>
+                              <property>
+                                <propertyName>formType</propertyName>
+                                <expandable>1</expandable>
+                                <suppressValueTracking>0</suppressValueTracking>
+                                <tracked>1</tracked>
+                                <value>standard</value>
+                              </property>
+                            </propertySheet>
+                          </property>
+                        </propertySheet>
+                      </property>
+                    </propertySheet>
+                  </property>
+                </propertySheet>
+                <emailNotifier>
+                  <notifierName>3e455229-797b-11ea-af82-0242ac140008_task_flow_state-defaultNotifier</notifierName>
+                  <destinations></destinations>
+                  <enabled>1</enabled>
+                  <eventType>onStart</eventType>
+                  <formattingTemplate>Subject:$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_pipeline_manual_task_notification_template/subject]&#10;&#13;&#10;&#13;&#10;&#10;$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_pipeline_manual_task_notification_template/body]</formattingTemplate>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                    <aclEntry>
+                      <allowChangePermissions>1</allowChangePermissions>
+                      <allowExecute>1</allowExecute>
+                      <allowModify>1</allowModify>
+                      <allowRead>1</allowRead>
+                      <denyChangePermissions>0</denyChangePermissions>
+                      <denyExecute>0</denyExecute>
+                      <denyModify>0</denyModify>
+                      <denyRead>0</denyRead>
+                      <principalName>admin</principalName>
+                      <principalType>user</principalType>
+                      <tracked>1</tracked>
+                    </aclEntry>
+                  </acl>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                    </acl>
+                  </propertySheet>
+                  <eventSubscription>
+                    <eventSubscriptionName>user-admin</eventSubscriptionName>
+                    <tracked>1</tracked>
+                    <userName>admin</userName>
+                    <acl>
+                      <inheriting>1</inheriting>
+                      <tracked>1</tracked>
+                      <aclEntry>
+                        <allowChangePermissions>1</allowChangePermissions>
+                        <allowExecute>1</allowExecute>
+                        <allowModify>1</allowModify>
+                        <allowRead>1</allowRead>
+                        <denyChangePermissions>0</denyChangePermissions>
+                        <denyExecute>0</denyExecute>
+                        <denyModify>0</denyModify>
+                        <denyRead>0</denyRead>
+                        <principalName>admin</principalName>
+                        <principalType>user</principalType>
+                        <tracked>1</tracked>
+                      </aclEntry>
+                    </acl>
+                    <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <tracked>1</tracked>
+                      <acl>
+                        <inheriting>1</inheriting>
+                        <tracked>1</tracked>
+                      </acl>
+                    </propertySheet>
+                  </eventSubscription>
+                </emailNotifier>
+                <formalParameter>
+                  <formalParameterName>C_Version</formalParameterName>
+                  <defaultValue>V2.2</defaultValue>
+                  <expansionDeferred>0</expansionDeferred>
+                  <label>C모듈 버전</label>
+                  <optionsType>options</optionsType>
+                  <orderIndex>1</orderIndex>
+                  <required>1</required>
+                  <tracked>1</tracked>
+                  <type>select</type>
+                </formalParameter>
+              </flowState>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <task>
+              <taskName>A 모듈 버전 선택</taskName>
+              <allowOutOfOrderRun>0</allowOutOfOrderRun>
+              <description></description>
+              <flowStateName>3d7ad5d0-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <taskApprovers>admin</taskApprovers>
+              <taskEnabled>1</taskEnabled>
+              <taskSkippable>0</taskSkippable>
+              <taskType>MANUAL</taskType>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </task>
+            <task>
+              <taskName>B 모듈 버전 선택</taskName>
+              <allowOutOfOrderRun>0</allowOutOfOrderRun>
+              <description></description>
+              <flowStateName>3de04e92-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <taskApprovers>admin</taskApprovers>
+              <taskEnabled>1</taskEnabled>
+              <taskSkippable>0</taskSkippable>
+              <taskType>MANUAL</taskType>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </task>
+            <task>
+              <taskName>C 모듈 버전 선택</taskName>
+              <allowOutOfOrderRun>0</allowOutOfOrderRun>
+              <description></description>
+              <flowStateName>3e455229-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <taskApprovers>admin</taskApprovers>
+              <taskEnabled>1</taskEnabled>
+              <taskSkippable>0</taskSkippable>
+              <taskType>MANUAL</taskType>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </task>
+          </task>
+          <task>
+            <taskName>모듈 버전 확인</taskName>
+            <allowOutOfOrderRun>0</allowOutOfOrderRun>
+            <description></description>
+            <flowStateName>3e9e47d5-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+            <taskEnabled>1</taskEnabled>
+            <taskSkippable>0</taskSkippable>
+            <taskType>PROCEDURE</taskType>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </task>
+        </stage>
+        <stage>
+          <stageName>배포</stageName>
+          <completed>1</completed>
+          <completionTime>2020-06-25T05:08:57.677Z</completionTime>
+          <completionType>auto</completionType>
+          <description></description>
+          <flowStateName>3ebca558-797b-11ea-af82-0242ac140008_stage_flow_state</flowStateName>
+          <pipelineName>통합자동화시스템</pipelineName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <flow>
+            <flowName>ef12ca1d-b6a0-11ea-b8e1-0242ac140008_stageflow</flowName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <flowState>
+              <flowStateName>7092dde2-7d45-11ea-a067-0242ac150008_task_flow_state</flowStateName>
+              <advancedMode>0</advancedMode>
+              <alwaysRun>0</alwaysRun>
+              <deployerTask>0</deployerTask>
+              <description>group flow step</description>
+              <errorHandling>stopOnError</errorHandling>
+              <flowStateType>task</flowStateType>
+              <index>0</index>
+              <keepOnError>0</keepOnError>
+              <runType>serial</runType>
+              <subflow>ef23ba3f-b6a0-11ea-b8e1-0242ac140008_groupflow</subflow>
+              <tracked>1</tracked>
+              <useApproverAcl>0</useApproverAcl>
+              <waitForCompletion>0</waitForCompletion>
+              <waitForPlannedStart>0</waitForPlannedStart>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowState>
+            <flowState>
+              <flowStateName>3f9e03e8-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <advancedMode>0</advancedMode>
+              <alwaysRun>0</alwaysRun>
+              <deployerTask>0</deployerTask>
+              <description></description>
+              <errorHandling>stopOnError</errorHandling>
+              <flowStateType>task</flowStateType>
+              <index>1</index>
+              <keepOnError>0</keepOnError>
+              <resourceName>local</resourceName>
+              <subpluginKey>EC-Artifact</subpluginKey>
+              <subprocedure>Publish</subprocedure>
+              <tracked>1</tracked>
+              <useApproverAcl>0</useApproverAcl>
+              <waitForCompletion>0</waitForCompletion>
+              <waitForPlannedStart>0</waitForPlannedStart>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <actualParameters>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <property>
+                  <propertyName>artifactName</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>com.acmebank.apps.cards:app</value>
+                </property>
+                <property>
+                  <propertyName>artifactVersionVersion</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>1.0.0-$[/increment /server/ec_counters/artifactCounter]</value>
+                </property>
+                <property>
+                  <propertyName>compress</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>0</value>
+                </property>
+                <property>
+                  <propertyName>dependentArtifactVersionList</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value></value>
+                </property>
+                <property>
+                  <propertyName>excludePatterns</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value></value>
+                </property>
+                <property>
+                  <propertyName>followSymlinks</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>1</value>
+                </property>
+                <property>
+                  <propertyName>fromLocation</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>./</value>
+                </property>
+                <property>
+                  <propertyName>includePatterns</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>*.*</value>
+                </property>
+                <property>
+                  <propertyName>repositoryName</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>default</value>
+                </property>
+              </actualParameters>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowState>
+            <flowState>
+              <flowStateName>7d4d5643-797b-11ea-a865-0242ac140008_task_flow_state</flowStateName>
+              <advancedMode>0</advancedMode>
+              <alwaysRun>0</alwaysRun>
+              <deployerTask>0</deployerTask>
+              <description></description>
+              <errorHandling>stopOnError</errorHandling>
+              <flowStateType>task</flowStateType>
+              <index>2</index>
+              <keepOnError>0</keepOnError>
+              <resourceName>local</resourceName>
+              <runCondition>$[PLM_Deploy]</runCondition>
+              <subpluginKey>EC-Core</subpluginKey>
+              <subprocedure>RunCommand</subprocedure>
+              <tracked>1</tracked>
+              <useApproverAcl>0</useApproverAcl>
+              <waitForCompletion>0</waitForCompletion>
+              <waitForPlannedStart>0</waitForPlannedStart>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <actualParameters>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <property>
+                  <propertyName>commandToRun</propertyName>
+                  <expandable>1</expandable>
+                  <suppressValueTracking>0</suppressValueTracking>
+                  <tracked>1</tracked>
+                  <value>echo PLM Upload</value>
+                </property>
+              </actualParameters>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flowState>
+          </flow>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+          <gate>
+            <gateName>ef1dc6bf-b6a0-11ea-b8e1-0242ac140008</gateName>
+            <flowStateName>3edc3b59-797b-11ea-af82-0242ac140008_pre_gate_flow_state</flowStateName>
+            <gateType>PRE</gateType>
+            <stageName>배포</stageName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>ef1dc6bf-b6a0-11ea-b8e1-0242ac140008_pregateflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </gate>
+          <gate>
+            <gateName>ef2010b7-b6a0-11ea-b8e1-0242ac140008</gateName>
+            <flowStateName>3efcbab6-797b-11ea-af82-0242ac140008_post_gate_flow_state</flowStateName>
+            <gateType>POST</gateType>
+            <stageName>배포</stageName>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>ef2010b7-b6a0-11ea-b8e1-0242ac140008_postgateflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </gate>
+          <task>
+            <taskName>Group 1</taskName>
+            <allowOutOfOrderRun>0</allowOutOfOrderRun>
+            <flowStateName>7092dde2-7d45-11ea-a067-0242ac150008_task_flow_state</flowStateName>
+            <taskEnabled>1</taskEnabled>
+            <taskSkippable>0</taskSkippable>
+            <taskType>GROUP</taskType>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <flow>
+              <flowName>ef23ba3f-b6a0-11ea-b8e1-0242ac140008_groupflow</flowName>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+              <flowState>
+                <flowStateName>3f335b20-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+                <advancedMode>0</advancedMode>
+                <alwaysRun>0</alwaysRun>
+                <deployerTask>0</deployerTask>
+                <description></description>
+                <errorHandling>stopOnError</errorHandling>
+                <flowStateType>task</flowStateType>
+                <index>0</index>
+                <keepOnError>0</keepOnError>
+                <parallelToPrevious>0</parallelToPrevious>
+                <resourceName>local</resourceName>
+                <subpluginKey>EC-Core</subpluginKey>
+                <subprocedure>RunCommand</subprocedure>
+                <tracked>1</tracked>
+                <useApproverAcl>0</useApproverAcl>
+                <waitForCompletion>0</waitForCompletion>
+                <waitForPlannedStart>0</waitForPlannedStart>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <actualParameters>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                  <property>
+                    <propertyName>commandToRun</propertyName>
+                    <expandable>1</expandable>
+                    <suppressValueTracking>0</suppressValueTracking>
+                    <tracked>1</tracked>
+                    <value>echo 통합</value>
+                  </property>
+                </actualParameters>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                </propertySheet>
+              </flowState>
+              <flowState>
+                <flowStateName>3f69ad6c-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+                <advancedMode>0</advancedMode>
+                <alwaysRun>0</alwaysRun>
+                <deployerTask>0</deployerTask>
+                <description></description>
+                <errorHandling>stopOnError</errorHandling>
+                <flowStateType>task</flowStateType>
+                <index>1</index>
+                <keepOnError>0</keepOnError>
+                <parallelToPrevious>0</parallelToPrevious>
+                <resourceName>local</resourceName>
+                <subpluginKey>EC-Core</subpluginKey>
+                <subprocedure>RunCommand</subprocedure>
+                <tracked>1</tracked>
+                <useApproverAcl>0</useApproverAcl>
+                <waitForCompletion>0</waitForCompletion>
+                <waitForPlannedStart>0</waitForPlannedStart>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+                <actualParameters>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                  <property>
+                    <propertyName>commandToRun</propertyName>
+                    <expandable>1</expandable>
+                    <suppressValueTracking>0</suppressValueTracking>
+                    <tracked>1</tracked>
+                    <value>echo 릴리즈노트생성</value>
+                  </property>
+                </actualParameters>
+                <propertySheet>
+                  <credentialProtected>0</credentialProtected>
+                  <tracked>1</tracked>
+                  <acl>
+                    <inheriting>1</inheriting>
+                    <tracked>1</tracked>
+                  </acl>
+                </propertySheet>
+              </flowState>
+            </flow>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+            <task>
+              <taskName>통합</taskName>
+              <allowOutOfOrderRun>0</allowOutOfOrderRun>
+              <description></description>
+              <flowStateName>3f335b20-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <taskEnabled>1</taskEnabled>
+              <taskSkippable>0</taskSkippable>
+              <taskType>COMMAND</taskType>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </task>
+            <task>
+              <taskName>릴리즈 노트 생성</taskName>
+              <allowOutOfOrderRun>0</allowOutOfOrderRun>
+              <description></description>
+              <flowStateName>3f69ad6c-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+              <taskEnabled>1</taskEnabled>
+              <taskSkippable>0</taskSkippable>
+              <taskType>COMMAND</taskType>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <acl>
+                  <inheriting>1</inheriting>
+                  <tracked>1</tracked>
+                </acl>
+              </propertySheet>
+            </task>
+          </task>
+          <task>
+            <taskName>배포</taskName>
+            <allowOutOfOrderRun>0</allowOutOfOrderRun>
+            <description></description>
+            <flowStateName>3f9e03e8-797b-11ea-af82-0242ac140008_task_flow_state</flowStateName>
+            <taskEnabled>1</taskEnabled>
+            <taskSkippable>0</taskSkippable>
+            <taskType>PLUGIN</taskType>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </task>
+          <task>
+            <taskName>PLM 업로드</taskName>
+            <allowOutOfOrderRun>0</allowOutOfOrderRun>
+            <description></description>
+            <flowStateName>7d4d5643-797b-11ea-a865-0242ac140008_task_flow_state</flowStateName>
+            <taskEnabled>1</taskEnabled>
+            <taskSkippable>0</taskSkippable>
+            <taskType>COMMAND</taskType>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </task>
+        </stage>
+      </pipeline>
     </release>
     <schedule>
       <scheduleName>통합자동화시스템 1차 릴리즈_feature_1586612956701</scheduleName>
