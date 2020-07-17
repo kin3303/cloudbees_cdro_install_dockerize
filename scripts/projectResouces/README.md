@@ -23,14 +23,9 @@
 	1. 자신의 workspace 로 로그인  ->  https://plateerworkspace.slack.com/
 	2. Channels -> alert 만들기
 	3. Apps -> webhook 으로 검색 -> Incoming WebHooks Add -> Post to Channel : alert 
-	4. Configuration 생성 - Slack Plugin 
-		1. Endpoint URL 로 slackcfg 생성
-		2. 플러그인에 메시지는 아래 형식으로 넣음
-          	```
-          	{
-             	"text": "Hello, world."
-          	}
-         	 ```
+	4. Configuration 생성  
+		1. Name : slackcfg
+		2. Endpoint URL  
 7. Insight 서버에서 System Administrator 를 열어 TimeZone - Asia/Seoul 로 설정   
 8. Electric Cloud => Code Commit Report 생성 
 
