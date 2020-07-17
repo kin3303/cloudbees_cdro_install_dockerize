@@ -10,8 +10,15 @@ ENV JAVA_HOME="/opt/electriccloud/electriccommander/jre/bin"
 RUN sed -i 's/archive/kr.archive/g' /etc/apt/sources.list
 RUN sed -i 's/kr.archive.ubuntu.com/ftp.daumkakao.com/g' /etc/apt/sources.list
 
-#Timezone
+#Timezone-Asia Seoul
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
+#Set the locale-Hangle
+RUN apt-get update
+RUN apt-get install locales
+ENV LANG ko_KR.UTF-8
+ENV LANGUAGE ko_KR.UTF-8
+RUN update-locale LANG=ko_KR.UTF-8
 
 #ubuntu 14.04 32 package install for efweb and efrepository
 RUN apt-get update && dpkg --add-architecture i386
