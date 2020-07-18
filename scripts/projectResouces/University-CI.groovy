@@ -606,6 +606,6 @@ $[/myPipelineRuntime/apps]''',
   property 'ec_counters', {
 
     // Custom properties
-    pipelineCounter = '27'
+    pipelineCounter = '29'
   }
 }
