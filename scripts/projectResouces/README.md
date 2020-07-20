@@ -96,7 +96,7 @@
 
 4. Service Catalog 를 통한 Microservice 구성
 	1. Import Kubernetes YAML file
-		1. Kubernetes YAML File Content: https://hub.docker.com/r/dockersamples/examplevotingapp_vote
+		1. Kubernetes YAML File Content: https://github.com/dockersamples/example-voting-app/blob/master/kube-deployment.yml
 		2. Project Name: Environment 와 동일한 Project
 		3. Create Microservices within an Application: Uncheck / Check
 		4. Application Name: 3번이 Check 인 경우만 사용
