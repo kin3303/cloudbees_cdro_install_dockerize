@@ -150,3 +150,14 @@ services:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: prodagent
     container_name: prodagent
+
+
+  portainer:
+    image: portainer/portainer:latest
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - 9001:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - external 
