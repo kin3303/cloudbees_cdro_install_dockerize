@@ -20,7 +20,15 @@
   $ cbfInstallPackage
 ```
 
-## Step 3. Installing CloudBees Flow
+## Step 3. Portainer setting
+
+Create portainer User within 5mins
+
+```console
+  http://<>:9001
+```
+
+## Step 4. Installing CloudBees Flow
 
 ```console
   $ cbfInstallCBF
@@ -77,7 +85,7 @@ max_connections=200
 table_open_cache=512
 ```
 
-## Step 4. Auto Configuration
+## Step 5. Auto Configuration
 
 * Requrement 1 : This is available after server activation
 * Requrement 2 : License file must be in **/tmp/license.xml**
@@ -92,7 +100,7 @@ table_open_cache=512
  $ cbfConfigEnv
 ```
 
-## Step 5 (OP). Demo Configuration
+## Step 6 (OP). Demo Configuration
 
 If you want to use demo projects, please use follow command.
 
