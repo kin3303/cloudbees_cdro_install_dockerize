@@ -19,7 +19,7 @@
 
 ## Step 3. Portainer setting
 
-Need to create portainer admin user within 5mins to use the portainer service.
+Need to create portainer admin user within 5mins to use the potainer service.
 
 ```console
   http://<HOSTIP>:9001
