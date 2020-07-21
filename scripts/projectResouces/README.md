@@ -36,7 +36,7 @@
 	1. GKE 생성
 	2. SA 계정 생성
 		```
-		 cat > root-sa-admin-access.yaml <<EOF
+		cat > root-sa-admin-access.yaml <<EOF
 		apiVersion: v1
 		kind: ServiceAccount
 		metadata:
