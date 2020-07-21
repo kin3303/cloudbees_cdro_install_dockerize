@@ -17,7 +17,7 @@
   $ cbfInstallPackage
 ```
 
-## Step 3. Portainer setting
+## Step 3. Potainer setting
 
 Need to create portainer admin user within 5mins to use the potainer service.
 
