@@ -25,7 +25,7 @@
 Create portainer User within 5mins
 
 ```console
-  http://<>:9001
+  http://<HOSTIP>:9001
 ```
 
 ## Step 4. Installing CloudBees Flow
