@@ -5,12 +5,9 @@
 
 ## Step 1. Initialization
 
-- To get master branch source , execute follow commands
-- To get another branch source, change master to branchName then execute commands
-
 ```console
   $ sudo su
-  $ sudo timedatectl set-timezone <Your Location>  : i.e) sudo timedatectl set-timezone Asia/Seoul
+  $ sudo timedatectl set-timezone Asia/Seoul
   $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
 ```
 
@@ -22,7 +19,7 @@
 
 ## Step 3. Portainer setting
 
-Create portainer User within 5mins
+Need to create portainer admin user within 5mins to use the portainer service.
 
 ```console
   http://<HOSTIP>:9001
