@@ -1,4 +1,4 @@
-# CloudBees Flow Demo Project
+# CloudBees CD Demo Project
 
 - Tested with 24GB memory, 8 cores,  Ubuntu 16.04 LTS 
 - Available EF tags : latest, 10.0.0, 9.2.0, 9.1.0, 9.0.1 
