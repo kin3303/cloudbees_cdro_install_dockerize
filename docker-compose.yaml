@@ -78,6 +78,8 @@ services:
     ports:
       - 8000:8000
       - 1936:1936
+      - 8443:8443
+      - 61613:61613
     hostname: flow
     container_name: flow
     
@@ -88,7 +90,6 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 8443:8443      
     hostname: web
     container_name: web
     
