@@ -17,15 +17,9 @@
   $ cbfInstallPackage
 ```
 
-## Step 3. Potainer setting
 
-Need to create portainer admin user within 5mins to use the potainer service.
 
-```console
-  http://<HOSTIP>:9001
-```
-
-## Step 4. Installing CloudBees Flow
+## Step 3. Installing CloudBees Flow
 
 ```console
   $ cbfInstallCBF
@@ -81,7 +75,13 @@ max_allowed_packet=1024M
 max_connections=200
 table_open_cache=512
 ```
+## Step 4. Potainer setting
 
+Need to create portainer admin user within 5mins to use the potainer service.
+
+```console
+  http://<HOSTIP>:9001
+```
 ## Step 5. Auto Configuration
 
 * Requrement 1 : This is available after server activation
