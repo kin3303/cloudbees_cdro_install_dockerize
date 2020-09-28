@@ -78,6 +78,8 @@ services:
     ports:
       - 8000:8000
       - 1936:1936
+      - 8443:8443
+      - 61613:61613
     hostname: flow
     container_name: flow
     
@@ -108,12 +110,7 @@ services:
   insight:
     <<: *commanderinsight
     hostname: insight
-    container_name: insight
-    
-  sonarqube: 
-    <<: *sonar
-    hostname: sonarqube 
-    container_name: sonarqube
+    container_name: insight 
 
   portainer:
     image: portainer/portainer:latest
@@ -122,42 +119,53 @@ services:
       - 9001:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - external 
+      
+  sonarqube: 
+    <<: *sonar
+    hostname: sonarqube 
+    container_name: sonarqube
 
-  devagent:
-    image: kin3303/demoagentdev
+  sql-server-db:
+    container_name: sql-server-db
+    image: microsoft/mssql-server-linux:2017-latest
     ports:
-      - 8060:8080
-      - 9960:9990
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-    hostname: devagent
-    container_name: devagent
-    
-  qaagent:
-    image: kin3303/demoagentdev
-    ports:
-      - 8070:8080
-      - 9970:9990
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-    hostname: qaagent
-    container_name: qaagent
-    
-  prodagent:
-    image: kin3303/demoagentdev
-    ports:
-      - 8080:8080
-      - 9980:9990
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-    hostname: prodagent
-    container_name: prodagent
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "change_this_password"
+      ACCEPT_EULA: "Y"
 
-networks:
-  external:
-    driver: overlay  
+###################################################################################################################
+#  If you don't want to use demo that I made, please delete follow lines.
+###################################################################################################################
+#  devagent:
+#    image: kin3303/demoagentdev
+#    ports:
+#      - 8060:8080
+#      - 9960:9990
+#    volumes:
+#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+#    hostname: devagent
+#    container_name: devagent
+#    
+#  qaagent:
+#    image: kin3303/demoagentdev
+#    ports:
+#      - 8070:8080
+#      - 9970:9990
+#    volumes:
+#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+#    hostname: qaagent
+#    container_name: qaagent
+#    
+#  prodagent:
+#    image: kin3303/demoagentdev
+#    ports:
+#      - 8080:8080
+#      - 9980:9990
+#    volumes:
+#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+#    hostname: prodagent
+#    container_name: prodagent
