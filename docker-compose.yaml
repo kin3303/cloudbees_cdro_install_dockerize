@@ -110,49 +110,7 @@ services:
   insight:
     <<: *commanderinsight
     hostname: insight
-    container_name: insight
-    
-  sonarqube: 
-    <<: *sonar
-    hostname: sonarqube 
-    container_name: sonarqube
-
-###################################################################################################################
-#  If you don't want to use demo that I made, please delete follow lines.
-###################################################################################################################
-  devagent:
-    image: kin3303/demoagentdev
-    ports:
-      - 8060:8080
-      - 9960:9990
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-    hostname: devagent
-    container_name: devagent
-    
-  qaagent:
-    image: kin3303/demoagentdev
-    ports:
-      - 8070:8080
-      - 9970:9990
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-    hostname: qaagent
-    container_name: qaagent
-    
-  prodagent:
-    image: kin3303/demoagentdev
-    ports:
-      - 8080:8080
-      - 9980:9990
-    volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-    hostname: prodagent
-    container_name: prodagent
-
+    container_name: insight 
 
   portainer:
     image: portainer/portainer:latest
@@ -161,10 +119,40 @@ services:
       - 9001:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+ 
 
-  nexus:
-    image: sonatype/nexus
-    volumes:
-      - "nexus-data:/sonatype-work"
-    ports:
-      - "8085:8085"
+###################################################################################################################
+#  If you don't want to use demo that I made, please delete follow lines.
+###################################################################################################################
+#  devagent:
+#    image: kin3303/demoagentdev
+#    ports:
+#      - 8060:8080
+#      - 9960:9990
+#    volumes:
+#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+#    hostname: devagent
+#    container_name: devagent
+#    
+#  qaagent:
+#    image: kin3303/demoagentdev
+#    ports:
+#      - 8070:8080
+#      - 9970:9990
+#    volumes:
+#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+#    hostname: qaagent
+#    container_name: qaagent
+#    
+#  prodagent:
+#    image: kin3303/demoagentdev
+#    ports:
+#      - 8080:8080
+#      - 9980:9990
+#    volumes:
+#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+#    hostname: prodagent
+#    container_name: prodagent
