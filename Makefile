@@ -1,4 +1,4 @@
-SUB_DIRS = efserver efagent efweb efrepo efinsight efdemodev
+SUB_DIRS = efserver efagent efweb efrepo efinsight
 
 include settings.mk
 
