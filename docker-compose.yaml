@@ -74,7 +74,7 @@ services:
       - db
       - insight
       - sonarqube
-      - sql-server-db
+#     - sql-server-db
     depends_on:
       - db
     ports:
@@ -127,25 +127,25 @@ services:
     hostname: sonarqube 
     container_name: sonarqube
 
-  sql-server-db:
-    container_name: sql-server-db
-    image: microsoft/mssql-server-linux:2017-latest
-    ports:
-      - 1433:1433
-    environment:
-      - SA_PASSWORD=yourStrong(!)Password
-      - ACCEPT_EULA=Y
-    volumes:
-      - sql-volume:/var/opt/mssql
+#  sql-server-db:
+#    container_name: sql-server-db
+#    image: microsoft/mssql-server-linux:2017-latest
+#    ports:
+#      - 1433:1433
+#    environment:
+#      - SA_PASSWORD=yourStrong(!)Password
+#      - ACCEPT_EULA=Y
+#    volumes:
+#      - sql-volume:/var/opt/mssql
  
 volumes:
   plugins-volume:
   workspace-volume:
   repository-volume:
   insight-volume:
-  sql-volume:
   mysqldb-volume:
- 
+#  sql-volume:
+
 ###################################################################################################################
 #  If you don't want to use demo that I made, please delete follow lines.
 ###################################################################################################################
