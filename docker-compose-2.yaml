@@ -5,8 +5,8 @@ x-include:
     image: "kin3303/commanderserver:${TAG}"
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - plugins-volume:/opt/electriccloud/electriccommander/plugins
+      - workspace-volume:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/license:/tmp/license
       - ${PWD}/scripts:/tmp/scripts
     ports:
@@ -19,30 +19,30 @@ x-include:
     image: "kin3303/commanderapache:${TAG}"
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - plugins-volume:/opt/electriccloud/electriccommander/plugins
+      - workspace-volume:/opt/electriccloud/electriccommander/workspace
 
   commanderagent: &commanderagent
     image: "kin3303/commanderagent:${TAG}"
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - plugins-volume:/opt/electriccloud/electriccommander/plugins
+      - workspace-volume:/opt/electriccloud/electriccommander/workspace
 
   commanderrepository: &commanderrepository
     image: "kin3303/commanderrepository:${TAG}"
     restart: always
     volumes:
-      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
+      - plugins-volume:/opt/electriccloud/electriccommander/plugins
+      - workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - repository-volume:/opt/electriccloud/electriccommander/repository-data
 
   commanderinsight: &commanderinsight
     image: "kin3303/commanderinsight:${TAG}"
     restart: always
     volumes:
       - ${PWD}/scripts:/tmp/scripts
-      - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
+      - insight-volume:/usr/share/elasticsearch/backup
       
   sonar: &sonar
     image: sonarqube:7.1
@@ -73,6 +73,7 @@ services:
       - db
       - insight
       - sonarqube
+      - sql-server-db
     depends_on:
       - db
     ports:
@@ -129,11 +130,20 @@ services:
     container_name: sql-server-db
     image: microsoft/mssql-server-linux:2017-latest
     ports:
-      - "1433:1433"
+      - 1433:1433
     environment:
-      SA_PASSWORD: "change_this_password"
-      ACCEPT_EULA: "Y"
-
+      - SA_PASSWORD=change_this_password
+      - ACCEPT_EULA=Y
+    volumes:
+      - sql-volume:/var/opt/mssql
+ 
+volumes:
+  plugins-volume:
+  workspace-volume:
+  repository-volume:
+  insight-volume:
+  sql-volume:
+ 
 ###################################################################################################################
 #  If you don't want to use demo that I made, please delete follow lines.
 ###################################################################################################################
