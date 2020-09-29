@@ -132,7 +132,7 @@ services:
     ports:
       - 1433:1433
     environment:
-      - SA_PASSWORD=change_this_password
+      - SA_PASSWORD=!QAZ2wsx3edc@
       - ACCEPT_EULA=Y
     volumes:
       - sql-volume:/var/opt/mssql
