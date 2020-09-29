@@ -75,6 +75,12 @@ max_allowed_packet=1024M
 max_connections=200
 table_open_cache=512
 ```
+
+if u want to use Microsoft sql, u need to set :
+1. Security -> Logins -> <User> -> Server Roles => public
+2. Security -> Logins -> <User> -> User Mapping -> <DB> => db_owner, public
+3. Collation -> SQL_Latin1_General_CP1_CI_AS
+  
 ## Step 4. Potainer setting
 
 Need to create portainer admin user within 5mins to use the potainer service.
