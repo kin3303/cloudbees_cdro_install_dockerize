@@ -59,6 +59,7 @@ services:
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
+      - mysqldb-volume:/var/lib/mysql 
     environment:
       MYSQL_ROOT_PASSWORD: ecdb
       MYSQL_DATABASE: ecdb
@@ -143,6 +144,7 @@ volumes:
   repository-volume:
   insight-volume:
   sql-volume:
+  mysqldb-volume:
  
 ###################################################################################################################
 #  If you don't want to use demo that I made, please delete follow lines.
