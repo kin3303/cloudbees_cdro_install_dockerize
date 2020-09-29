@@ -9,6 +9,7 @@ RUN /tmp/${FLOW_INSTALLER}  --mode silent --installServer --unixServerUser ubunt
 RUN rm -f /tmp/${FLOW_INSTALLER}
 
 COPY ./mysql-connector-java.jar /opt/electriccloud/electriccommander/server/lib/mysql-connector-java.jar
+COPY ./mssql-jdbc-8.4.1.jre11.jar /opt/electriccloud/electriccommander/server/lib/mssql-jdbc-8.4.1.jre11.jar
 
 RUN sed -i -e 's/COMMANDER_SERVER_NAME=.*/COMMANDER_SERVER_NAME=flow/' /opt/electriccloud/electriccommander/conf/commander.properties 
 
