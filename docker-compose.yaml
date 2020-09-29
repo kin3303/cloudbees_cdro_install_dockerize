@@ -127,6 +127,12 @@ services:
     hostname: sonarqube 
     container_name: sonarqube
 
+###################################################################################################################
+#  For MsSQL Connection Test  
+#   - Need to add connector to '/opt/electriccloud/electriccommander/server/lib' folder of flow container inside.
+#   - Need to add volume named sql-volume
+#   - Need to link with flow service
+###################################################################################################################
 #  sql-server-db:
 #    container_name: sql-server-db
 #    image: microsoft/mssql-server-linux:2017-latest
@@ -137,17 +143,9 @@ services:
 #      - ACCEPT_EULA=Y
 #    volumes:
 #      - sql-volume:/var/opt/mssql
- 
-volumes:
-  plugins-volume:
-  workspace-volume:
-  repository-volume:
-  insight-volume:
-  mysqldb-volume:
-#  sql-volume:
 
 ###################################################################################################################
-#  If you don't want to use demo that I made, please delete follow lines.
+# For Demo Project
 ###################################################################################################################
 #  devagent:
 #    image: kin3303/demoagentdev
@@ -181,3 +179,12 @@ volumes:
 #      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
 #    hostname: prodagent
 #    container_name: prodagent
+
+
+volumes:
+  plugins-volume:
+  workspace-volume:
+  repository-volume:
+  insight-volume:
+  mysqldb-volume:
+#  sql-volume:
