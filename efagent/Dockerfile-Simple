@@ -10,7 +10,7 @@ RUN apt-get update && \
 software-properties-common xmlstarlet bsdtar unzip
 
 RUN addgroup ubuntu
-RUN useradd -m -g mobis ubuntu 
+RUN useradd -m -g ubuntu ubuntu 
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 ARG FLOW_INSTALLER 
