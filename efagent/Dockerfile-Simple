@@ -9,9 +9,7 @@ RUN apt-get update && \
     git net-tools iputils-ping build-essential curl vim wget \
 software-properties-common xmlstarlet bsdtar unzip
 
-RUN addgroup ubuntu
-RUN useradd -m -g ubuntu ubuntu 
-RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN useradd -m -g sudo ubuntu
 
 ARG FLOW_INSTALLER 
 ADD ${FLOW_INSTALLER} /tmp/
@@ -20,7 +18,7 @@ RUN /tmp/${FLOW_INSTALLER} \
     --mode silent \
     --installAgent \
     --unixAgentUser ubuntu \
-    --unixAgentGroup ubuntu  \
+    --unixAgentGroup sudo  \
     --agentInitMemoryMB 256 \
     --agentMaxMemoryMB 512 \
     --remoteServer 35.188.108.93 # Server IP
