@@ -1,0 +1,29 @@
+FROM ubuntu:16.04 
+
+ENV PATH="${PATH}:/etc/environment:/opt/electriccloud/electriccommander/bin "
+ENV JAVA_HOME="/opt/electriccloud/electriccommander/jre/bin"
+
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN apt-get update && \
+    apt-get install -y \
+    git net-tools iputils-ping build-essential curl vim wget \
+software-properties-common xmlstarlet bsdtar unzip
+
+RUN addgroup ubuntu
+RUN useradd -m -g mobis ubuntu 
+RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+ARG FLOW_INSTALLER 
+ADD ${FLOW_INSTALLER} /tmp/
+RUN chmod +x /tmp/${FLOW_INSTALLER}
+RUN /tmp/${FLOW_INSTALLER} \
+    --mode silent \
+    --installAgent \
+    --unixAgentUser ubuntu \
+    --unixAgentGroup ubuntu  \
+    --agentInitMemoryMB 256 \
+    --agentMaxMemoryMB 512 \
+    --remoteServer 35.188.108.93 # Server IP
+RUN rm -rf /tmp/*
+
+EXPOSE 7800
