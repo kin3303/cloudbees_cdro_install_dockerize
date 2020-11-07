@@ -7,7 +7,6 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/logs/server:/opt/electriccloud/electriccommander/logs
       - ${PWD}/data/license:/tmp/license
       - ${PWD}/scripts:/tmp/scripts
     ports:
@@ -29,7 +28,6 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/logs/agent:/opt/electriccloud/electriccommander/logs
 
   commanderrepository: &commanderrepository
     image: "kin3303/commanderrepository:${TAG}"
@@ -54,7 +52,7 @@ services:
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
-      - ${PWD}/data/mysql/data:/var/lib/mysql
+      - mysql-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ecdb
       MYSQL_DATABASE: ecdb
@@ -119,7 +117,7 @@ services:
 ###################################################################################################################
 #  For MsSQL Connection Test  
 #   - Need to add connector to '/opt/electriccloud/electriccommander/server/lib' folder of flow container inside.
-#   - Need to add volume named sql-volume
+#   - Need to add volume named mssql-volume
 #   - Need to link with flow service
 ###################################################################################################################
 #  sql-server-db:
@@ -131,7 +129,7 @@ services:
 #      - SA_PASSWORD=yourStrong(!)Password
 #      - ACCEPT_EULA=Y
 #    volumes:
-#      - sql-volume:/var/opt/mssql
+#      - mssql-volume:/var/opt/mssql
 
 ###################################################################################################################
 # For Demo Project
@@ -170,5 +168,6 @@ services:
 #    container_name: prodagent
 
 
-#volumes: 
-#  sql-volume:
+volumes:
+  mysql-volume
+  mssql-volume:
