@@ -112,7 +112,7 @@ services:
     image: portainer/portainer:latest
     command: -H unix:///var/run/docker.sock
     ports:
-      - 9009:9000
+      - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
