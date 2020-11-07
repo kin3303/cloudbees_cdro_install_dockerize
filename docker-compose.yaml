@@ -7,7 +7,7 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
+      - ${PWD}/data/logs/server:/opt/electriccloud/electriccommander/logs
       - ${PWD}/data/license:/tmp/license
       - ${PWD}/scripts:/tmp/scripts
     ports:
@@ -22,7 +22,7 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
+      - ${PWD}/data/logs/web:/opt/electriccloud/electriccommander/logs
 
   commanderagent: &commanderagent
     image: "kin3303/commanderagent:${TAG}"
@@ -30,7 +30,7 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
+      - ${PWD}/data/logs/agent:/opt/electriccloud/electriccommander/logs
 
   commanderrepository: &commanderrepository
     image: "kin3303/commanderrepository:${TAG}"
@@ -39,7 +39,7 @@ x-include:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
-      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
+      - ${PWD}/data/logs/repo:/opt/electriccloud/electriccommander/logs
 
   commanderinsight: &commanderinsight
     image: "kin3303/commanderinsight:${TAG}"
