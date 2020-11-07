@@ -6,7 +6,7 @@ x-include:
     restart: always
     volumes:
       - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - commander-workspace-volume:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/license:/tmp/license
       - ${PWD}/scripts:/tmp/scripts
     ports:
@@ -20,21 +20,21 @@ x-include:
     restart: always
     volumes:
       - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - web-workspace-volume:/opt/electriccloud/electriccommander/workspace
 
   commanderagent: &commanderagent
     image: "kin3303/commanderagent:${TAG}"
     restart: always
     volumes:
       - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - agent-workspace-volume:/opt/electriccloud/electriccommander/workspace
 
   commanderrepository: &commanderrepository
     image: "kin3303/commanderrepository:${TAG}"
     restart: always
     volumes:
       - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - reop-workspace-volume:/opt/electriccloud/electriccommander/workspace
       - repository-volume:/opt/electriccloud/electriccommander/repository-data
 
   commanderinsight: &commanderinsight
@@ -43,13 +43,6 @@ x-include:
     volumes:
       - ${PWD}/scripts:/tmp/scripts
       - insight-volume:/usr/share/elasticsearch/backup
-      
-  sonar: &sonar
-    image: sonarqube:7.1
-    restart: always
-    ports:
-      - 9000:9000
-      - 9092:9092
 
 services:     
   db:
@@ -118,14 +111,9 @@ services:
     image: portainer/portainer:latest
     command: -H unix:///var/run/docker.sock
     ports:
-      - 9001:9000
+      - 9009:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      
-  sonarqube: 
-    <<: *sonar
-    hostname: sonarqube 
-    container_name: sonarqube
 
 ###################################################################################################################
 #  For MsSQL Connection Test  
@@ -187,4 +175,8 @@ volumes:
   repository-volume:
   insight-volume:
   mysqldb-volume:
+  commander-workspace-volume:
+  web-workspace-volume:
+  agent-workspace-volume:
+  reop-workspace-volume:
 #  sql-volume:
