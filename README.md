@@ -34,7 +34,7 @@ Database Name : ecdb
 Host name : db
 Port : 3306
 Username : root
-Password : ecdb 
+Password : ecdb
 ```
 
 If you want to use your own DB, you need to execute query that I mention below and use it for Database Configuration.
