@@ -5,8 +5,9 @@ x-include:
     image: "kin3303/commanderserver:${TAG}"
     restart: always
     volumes:
-      - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - commander-workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
       - ${PWD}/data/license:/tmp/license
       - ${PWD}/scripts:/tmp/scripts
     ports:
@@ -19,30 +20,33 @@ x-include:
     image: "kin3303/commanderapache:${TAG}"
     restart: always
     volumes:
-      - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - web-workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
 
   commanderagent: &commanderagent
     image: "kin3303/commanderagent:${TAG}"
     restart: always
     volumes:
-      - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - agent-workspace-volume:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
 
   commanderrepository: &commanderrepository
     image: "kin3303/commanderrepository:${TAG}"
     restart: always
     volumes:
-      - plugins-volume:/opt/electriccloud/electriccommander/plugins
-      - reop-workspace-volume:/opt/electriccloud/electriccommander/workspace
-      - repository-volume:/opt/electriccloud/electriccommander/repository-data
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+      - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
+      - ${PWD}/data/logs:/opt/electriccloud/electriccommander/logs
 
   commanderinsight: &commanderinsight
     image: "kin3303/commanderinsight:${TAG}"
     restart: always
     volumes:
       - ${PWD}/scripts:/tmp/scripts
-      - insight-volume:/usr/share/elasticsearch/backup
+      - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
 
 services:     
   db:
@@ -52,7 +56,7 @@ services:
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
-      - mysqldb-volume:/var/lib/mysql 
+      - ${PWD}/data/mysql/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ecdb
       MYSQL_DATABASE: ecdb
@@ -169,14 +173,5 @@ services:
 #    container_name: prodagent
 
 
-volumes:
-  plugins-volume:
-  workspace-volume:
-  repository-volume:
-  insight-volume:
-  mysqldb-volume:
-  commander-workspace-volume:
-  web-workspace-volume:
-  agent-workspace-volume:
-  reop-workspace-volume:
+#volumes: 
 #  sql-volume:
