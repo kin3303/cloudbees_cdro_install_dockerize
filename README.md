@@ -86,7 +86,7 @@ if u want to use Microsoft sql, u need to set :
 Need to create portainer admin user within 5mins to use the potainer service.
 
 ```console
-  http://<HOSTIP>:9001
+  http://<HOSTIP>:9000
 ```
 ## Step 5. Auto Configuration
 
