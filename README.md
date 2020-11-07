@@ -8,7 +8,7 @@
 ```console
   $ sudo su
   $ sudo timedatectl set-timezone Asia/Seoul
-  $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd master && chmod 777 *
+  $ wget -O init.sh  https://github.com/kin3303/CBF_DEMO/blob/master/init.sh?raw=true && chmod 777 init.sh && ./init.sh master && source ~/.bashrc && cd CBF_DEMO && chmod 777 *
 ```
 
 ## Step 2. Installing required packages 
