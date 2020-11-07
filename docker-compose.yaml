@@ -70,7 +70,6 @@ services:
     links:
       - db
       - insight
-      - sonarqube
 #     - sql-server-db
     depends_on:
       - db
