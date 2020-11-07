@@ -22,7 +22,6 @@ x-include:
     volumes:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-      - ${PWD}/data/logs/web:/opt/electriccloud/electriccommander/logs
 
   commanderagent: &commanderagent
     image: "kin3303/commanderagent:${TAG}"
@@ -39,7 +38,6 @@ x-include:
       - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
       - ${PWD}/data/repository-data:/opt/electriccloud/electriccommander/repository-data
-      - ${PWD}/data/logs/repo:/opt/electriccloud/electriccommander/logs
 
   commanderinsight: &commanderinsight
     image: "kin3303/commanderinsight:${TAG}"
