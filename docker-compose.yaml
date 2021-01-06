@@ -113,7 +113,57 @@ services:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      
+###################################################################################################################
+#  For Sonarqube install
+###################################################################################################################
+  sonarqube:
+    image: sonarqube:7.7-community
+    environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=mypass
+      - sonar.jdbc.url=jdbc:postgresql://sonarqubedb:5432/sonarqube
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_data:/opt/sonarqube/data 
+    ports:
+      - 9100:9000
 
+  sonarqubedb:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=mypass
+      - POSTGRES_DB=sonarqube
+    volumes:
+      - sonarqube_db:/var/lib/postgresql/data
+	  
+###################################################################################################################
+#  For Jenkins install
+###################################################################################################################
+  jenkins:
+    image: kin3303/jenkins-docker
+    volumes:
+      - jenkins-volume:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=Asia/Seoul 
+    ports:
+      - 9200:8080
+	  
+###################################################################################################################
+#  For Nexus install
+###################################################################################################################
+  nexus:
+    image: sonatype/nexus3
+    volumes:
+      - nexus-volume:/nexus-data
+    ports:
+      - 9300:8081
+      - 9400:5000
+      
 ###################################################################################################################
 #  For MsSQL Connection Test  
 #   - Need to add connector to '/opt/electriccloud/electriccommander/server/lib' folder of flow container inside.
@@ -134,40 +184,52 @@ services:
 ###################################################################################################################
 # For Demo Project
 ###################################################################################################################
-#  devagent:
-#    image: kin3303/demoagentdev
-#    ports:
-#      - 8060:8080
-#      - 9960:9990
-#    volumes:
-#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-#    hostname: devagent
-#    container_name: devagent
-#    
-#  qaagent:
-#    image: kin3303/demoagentdev
-#    ports:
-#      - 8070:8080
-#      - 9970:9990
-#    volumes:
-#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-#    hostname: qaagent
-#    container_name: qaagent
-#    
-#  prodagent:
-#    image: kin3303/demoagentdev
-#    ports:
-#      - 8080:8080
-#      - 9980:9990
-#    volumes:
-#      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
-#      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
-#    hostname: prodagent
-#    container_name: prodagent
-
+  devagent:
+    image: kin3303/demoagentdev
+    ports:
+      - 8060:8080
+      - 9960:9990
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    hostname: devagent
+    container_name: devagent
+    
+  qaagent:
+    image: kin3303/demoagentdev
+    ports:
+      - 8070:8080
+      - 9970:9990
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    hostname: qaagent
+    container_name: qaagent
+    
+  prodagent:
+    image: kin3303/demoagentdev
+    ports:
+      - 8080:8080
+      - 9980:9990
+    volumes:
+      - ${PWD}/data/plugins:/opt/electriccloud/electriccommander/plugins
+      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
+    hostname: prodagent
+    container_name: prodagent
 
 volumes:
+######################## For mysql
   mysql-volume:
+######################## For Sonarqube
+  sonarqube_conf:
+  sonarqube_extensions:
+  sonarqube_logs:
+  sonarqube_data:
+  sonarqube_db:  
+######################## For Jenkins
+  jenkins-volume:
+######################## For Nexus
+  nexus-volume:
+######################## For mssql
   #mssql-volume:
+    
