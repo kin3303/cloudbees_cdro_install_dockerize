@@ -52,7 +52,7 @@ services:
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
-      - mysql-volume:/var/lib/mysql
+      - flow-db-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ecdb
       MYSQL_DATABASE: ecdb
@@ -113,7 +113,7 @@ services:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      
+
 ###################################################################################################################
 #  For Sonarqube install
 ###################################################################################################################
@@ -124,10 +124,10 @@ services:
       - sonar.jdbc.password=mypass
       - sonar.jdbc.url=jdbc:postgresql://sonarqubedb:5432/sonarqube
     volumes:
-      - sonarqube_conf:/opt/sonarqube/conf
-      - sonarqube_extensions:/opt/sonarqube/extensions
-      - sonarqube_logs:/opt/sonarqube/logs
-      - sonarqube_data:/opt/sonarqube/data 
+      - sonarqube-conf-volume:/opt/sonarqube/conf
+      - sonarqube-extensions-volume:/opt/sonarqube/extensions
+      - sonarqube-logs-volume:/opt/sonarqube/logs
+      - sonarqube-data-volume:/opt/sonarqube/data 
     ports:
       - 9100:9000
 
@@ -138,7 +138,7 @@ services:
       - POSTGRES_PASSWORD=mypass
       - POSTGRES_DB=sonarqube
     volumes:
-      - sonarqube_db:/var/lib/postgresql/data
+      - sonarqube-db-volume:/var/lib/postgresql/data
 
 ###################################################################################################################
 #  For Jenkins install
@@ -146,7 +146,7 @@ services:
   jenkins:
     image: kin3303/jenkins-docker
     volumes:
-      - jenkins-volume:/var/jenkins_home
+      - jenkins-data-volume:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - TZ=Asia/Seoul 
@@ -159,7 +159,7 @@ services:
   nexus:
     image: sonatype/nexus3
     volumes:
-      - nexus-volume:/nexus-data
+      - nexus-data-volume:/nexus-data
     ports:
       - 9300:8081
       - 9400:5000
@@ -194,7 +194,7 @@ services:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: devagent
     container_name: devagent
-    
+
   qaagent:
     image: kin3303/demoagentdev
     ports:
@@ -205,7 +205,7 @@ services:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: qaagent
     container_name: qaagent
-
+    
   prodagent:
     image: kin3303/demoagentdev
     ports:
@@ -219,16 +219,16 @@ services:
 
 volumes:
 ######################## For mysql
-  mysql-volume:
+  flow-db-volume:
 ######################## For Sonarqube
-  sonarqube_conf:
-  sonarqube_extensions:
-  sonarqube_logs:
-  sonarqube_data:
-  sonarqube_db:  
+  sonarqube-conf-volume:
+  sonarqube-extensions-volume:
+  sonarqube-logs-volume:
+  sonarqube-data-volume:
+  sonarqube-db-volume:  
 ######################## For Jenkins
-  jenkins-volume:
-######################## For Nexus
-  nexus-volume:
+  jenkins-data-volume:
+############ For Nexus
+  nexus-data-volume:
 ######################## For mssql
   #mssql-volume:
