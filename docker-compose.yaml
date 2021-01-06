@@ -139,7 +139,7 @@ services:
       - POSTGRES_DB=sonarqube
     volumes:
       - sonarqube_db:/var/lib/postgresql/data
-	  
+
 ###################################################################################################################
 #  For Jenkins install
 ###################################################################################################################
@@ -152,7 +152,7 @@ services:
       - TZ=Asia/Seoul 
     ports:
       - 9200:8080
-	  
+
 ###################################################################################################################
 #  For Nexus install
 ###################################################################################################################
@@ -163,7 +163,7 @@ services:
     ports:
       - 9300:8081
       - 9400:5000
-      
+
 ###################################################################################################################
 #  For MsSQL Connection Test  
 #   - Need to add connector to '/opt/electriccloud/electriccommander/server/lib' folder of flow container inside.
@@ -205,7 +205,7 @@ services:
       - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
     hostname: qaagent
     container_name: qaagent
-    
+
   prodagent:
     image: kin3303/demoagentdev
     ports:
@@ -232,4 +232,3 @@ volumes:
   nexus-volume:
 ######################## For mssql
   #mssql-volume:
-    
