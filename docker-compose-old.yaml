@@ -43,13 +43,6 @@ x-include:
     volumes:
       - ${PWD}/scripts:/tmp/scripts
       - ${PWD}/data/insight-data:/usr/share/elasticsearch/backup
-      
-  sonar: &sonar
-    image: sonarqube:7.1
-    restart: always
-    ports:
-      - 9000:9000
-      - 9092:9092
 
 services:     
   db:
@@ -59,6 +52,7 @@ services:
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
+      - mysql-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ecdb
       MYSQL_DATABASE: ecdb
@@ -72,7 +66,7 @@ services:
     links:
       - db
       - insight
-      - sonarqube
+#     - sql-server-db
     depends_on:
       - db
     ports:
@@ -116,17 +110,29 @@ services:
     image: portainer/portainer:latest
     command: -H unix:///var/run/docker.sock
     ports:
-      - 9001:9000
+      - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      
-  sonarqube: 
-    <<: *sonar
-    hostname: sonarqube 
-    container_name: sonarqube
 
 ###################################################################################################################
-#  If you don't want to use demo that I made, please delete follow lines.
+#  For MsSQL Connection Test  
+#   - Need to add connector to '/opt/electriccloud/electriccommander/server/lib' folder of flow container inside.
+#   - Need to add volume named mssql-volume
+#   - Need to link with flow service
+###################################################################################################################
+#  sql-server-db:
+#    container_name: sql-server-db
+#    image: microsoft/mssql-server-linux:2017-latest
+#    ports:
+#      - 1433:1433
+#    environment:
+#      - SA_PASSWORD=yourStrong(!)Password
+#      - ACCEPT_EULA=Y
+#    volumes:
+#      - mssql-volume:/var/opt/mssql
+
+###################################################################################################################
+# For Demo Project
 ###################################################################################################################
 #  devagent:
 #    image: kin3303/demoagentdev
@@ -160,3 +166,8 @@ services:
 #      - ${PWD}/data/workspace:/opt/electriccloud/electriccommander/workspace
 #    hostname: prodagent
 #    container_name: prodagent
+
+
+volumes:
+  mysql-volume:
+  #mssql-volume:
