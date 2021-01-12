@@ -115,56 +115,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 ###################################################################################################################
-#  For Sonarqube install
-###################################################################################################################
-  sonarqube:
-    image: sonarqube:7.7-community
-    environment:
-      - sonar.jdbc.username=sonar
-      - sonar.jdbc.password=mypass
-      - sonar.jdbc.url=jdbc:postgresql://sonarqubedb:5432/sonarqube
-    volumes:
-      - sonarqube-conf-volume:/opt/sonarqube/conf
-      - sonarqube-extensions-volume:/opt/sonarqube/extensions
-      - sonarqube-logs-volume:/opt/sonarqube/logs
-      - sonarqube-data-volume:/opt/sonarqube/data 
-    ports:
-      - 9100:9000
-
-  sonarqubedb:
-    image: postgres:12.1
-    environment:
-      - POSTGRES_USER=sonar
-      - POSTGRES_PASSWORD=mypass
-      - POSTGRES_DB=sonarqube
-    volumes:
-      - sonarqube-db-volume:/var/lib/postgresql/data
-
-###################################################################################################################
-#  For Jenkins install
-###################################################################################################################
-  jenkins:
-    image: kin3303/jenkins-docker
-    volumes:
-      - jenkins-data-volume:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - TZ=Asia/Seoul 
-    ports:
-      - 9200:8080
-
-###################################################################################################################
-#  For Nexus install
-###################################################################################################################
-  nexus:
-    image: sonatype/nexus3
-    volumes:
-      - nexus-data-volume:/nexus-data
-    ports:
-      - 9300:8081
-      - 9400:5000
-
-###################################################################################################################
 #  For MsSQL Connection Test  
 #   - Need to add connector to '/opt/electriccloud/electriccommander/server/lib' folder of flow container inside.
 #   - Need to add volume named mssql-volume
@@ -220,15 +170,5 @@ services:
 volumes:
 ######################## For mysql
   flow-db-volume:
-######################## For Sonarqube
-  sonarqube-conf-volume:
-  sonarqube-extensions-volume:
-  sonarqube-logs-volume:
-  sonarqube-data-volume:
-  sonarqube-db-volume:  
-######################## For Jenkins
-  jenkins-data-volume:
-############ For Nexus
-  nexus-data-volume:
 ######################## For mssql
   #mssql-volume:
