@@ -1,0 +1,125 @@
+version: '3.3'
+
+services:
+#####################################################################################################
+## Traefik
+#####################################################################################################
+  traefik:
+    image: traefik:v2.3
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt:/letsencrypt
+      - ./traefik.yaml:/etc/traefik/traefik.yaml
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+
+
+#####################################################################################################
+## Nexus & Docker Registry
+#####################################################################################################
+  nexus:
+    image: sonatype/nexus3
+    volumes:
+      - nexus-volume:/nexus-data
+    labels:
+      - "traefik.enable=true"
+    # Routers
+      # Nexus
+      - "traefik.http.routers.nexus.rule=Host(`nexus.letsgohomenow.com`)"
+      - "traefik.http.routers.nexus.service=nexus"
+      - "traefik.http.routers.nexus.entrypoints=websecure"
+      - "traefik.http.routers.nexus.tls.certresolver=myresolver_nexus" 
+      # Docker Registry
+      - "traefik.http.routers.nexusDocker.rule=Host(`registry.letsgohomenow.com`)"
+      - "traefik.http.routers.nexusDocker.service=nexusDocker"
+      - "traefik.http.routers.nexusDocker.entrypoints=websecure"
+      - "traefik.http.routers.nexusDocker.tls.certresolver=myresolver_registry"
+    # Services
+      # Nexus
+      - "traefik.http.services.nexus.loadbalancer.server.port=8081"
+      # Docker Registry
+      - "traefik.http.services.nexusDocker.loadbalancer.server.port=5000" 
+
+
+#####################################################################################################
+## Sonarqube
+#####################################################################################################
+  db:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=mypass
+      - POSTGRES_DB=sonarqube
+    volumes:
+      - sonarqube_db:/var/lib/postgresql/data
+
+  sonarqube:
+    image: sonarqube:7.7-community
+    environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=mypass
+      - sonar.jdbc.url=jdbc:postgresql://db:5432/sonarqube
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_data:/opt/sonarqube/data
+    labels:
+      - "traefik.enable=true"
+    # Routers
+      - "traefik.http.routers.sonarqube.rule=Host(`sonar.letsgohomenow.com`)"
+      - "traefik.http.routers.sonarqube.service=sonarqube"
+      - "traefik.http.routers.sonarqube.entrypoints=websecure"
+      - "traefik.http.routers.sonarqube.tls.certresolver=myresolver_sonar"
+    # Services
+      - "traefik.http.services.sonarqube.loadbalancer.server.port=9000"
+
+
+#####################################################################################################
+## Jenkins
+#####################################################################################################
+  jenkins:
+    image: kin3303/jenkins-docker
+    volumes:
+      - jenkins-volume:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=Asia/Seoul
+    labels:
+      - "traefik.enable=true"
+    # Routers
+      - "traefik.http.routers.jenkins.rule=Host(`jenkins.letsgohomenow.com`)"
+      - "traefik.http.routers.jenkins.service=jenkins"
+      - "traefik.http.routers.jenkins.entrypoints=websecure"
+      - "traefik.http.routers.jenkins.tls.certresolver=myresolver_jenkins"
+    # Services
+      - "traefik.http.services.jenkins.loadbalancer.server.port=8080"
+
+
+#####################################################################################################
+## Portainer
+#####################################################################################################
+  portainer:
+    image: portainer/portainer:latest
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+        
+volumes:
+  nexus-volume:
+  sonarqube_conf:
+  sonarqube_extensions:
+  sonarqube_logs:
+  sonarqube_data:
+  sonarqube_db:
+  jenkins-volume:
