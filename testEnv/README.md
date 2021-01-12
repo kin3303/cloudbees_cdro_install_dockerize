@@ -343,7 +343,7 @@ spec:
 
 ```console
 $ sudo su
-$ oc login -u ....
+$ oc login -u system:admin
 ..
 
 $ cat <<'EOF' >>checkToken.sh
