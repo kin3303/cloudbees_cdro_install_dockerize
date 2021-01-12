@@ -1,3 +1,86 @@
+## Openshift 설치
+
+```console
+# 레포지토리 업데이트
+$ sudo yum -y update
+$ sudo yum install -y wget
+$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+$ sudo  yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
+
+# Docker 설치 및 실행
+$ sudo  yum install -y  docker-ce docker-ce-cli containerd.io
+$ sudo systemctl start docker
+
+# 사용자 계정을 docker 그룹에 추가
+$ sudo usermod -aG docker $USER
+$ newgrp docker
+
+# 도커 데몬 설정
+$ sudo mkdir /etc/containers
+$ sudo tee /etc/containers/registries.conf<<EOF
+[registries.insecure]
+registries = ['172.30.0.0/16']
+EOF
+$ sudo tee /etc/docker/daemon.json<<EOF
+{
+   "insecure-registries": [
+     "172.30.0.0/16"
+   ]
+}
+EOF
+
+# 구성 편집후 systemd 다시 로드하고 Docker 데몬 재시작 및 부팅시 Docker 시작되도록 설정
+$ sudo systemctl daemon-reload  && \
+ sudo systemctl restart docker  && \
+ sudo systemctl enable docker
+
+# IP forwarding 활성화
+$ echo "net.ipv4.ip_forward = 1" | sudo tee -a /etc/sysctl.conf
+$ sudo sysctl -p
+
+# 방화벽 설정 - Option 1 > 특정 포트만 허용
+$ DOCKER_BRIDGE=`docker network inspect -f "{{range .IPAM.Config }}{{ .Subnet }}{{end}}" bridge`
+$ echo $DOCKER_BRIDGE
+$ sudo firewall-cmd --permanent --new-zone dockerc && \
+sudo firewall-cmd --permanent --zone dockerc --add-source $DOCKER_BRIDGE && \
+sudo firewall-cmd --permanent --zone dockerc --add-port={80,443,8443}/tcp && \
+sudo firewall-cmd --permanent --zone dockerc --add-port={53,8053}/udp && \
+sudo firewall-cmd --reload
+
+# 방화벽 설정 - Option 2 > 방화벽을 그냥 끄기
+$  systemctl stop firewalld
+$ systemctl disable firewalld
+
+# OpenShift 클라이언트 설치
+$ wget https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz  
+$ tar xvf openshift-origin-client-tools*.tar.gz
+$ cd openshift-origin-client*/ 
+$ sudo mv  oc kubectl  /usr/local/bin/ 
+
+
+# OpenShift 클라이언트 유틸리티가 설치되어 있는지 확인
+$ oc version
+
+# Cluster Up - Option 1 > OKD 로컬 클러스터 시작
+$ oc cluster up --routing-suffix=<ServerPublicIP>.xip.io --public-hostname=<ServerPublicIP>.xip.io
+# Cluster Up - Option 2 > 도메인이 있으면 아래 명령 사용
+$ oc cluster up --routing-suffix=<ServerPublicIP>.xip.io  --public-hostname=<ServerPulicDNSName>
+ 
+...
+Creating initial project "myproject" ...
+Server Information ...
+OpenShift server started.
+
+The server is accessible via web console at:
+    https://34.69.214.143.xip.io:8443
+
+You are logged in as:
+    User:     developer
+    Password: <any value>
+
+To login as administrator:
+    oc login -u system:admin
+```
 
 ## Docker 설치
 
