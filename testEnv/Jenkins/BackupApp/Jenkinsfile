@@ -1,0 +1,81 @@
+def selectedOption = "Stop"
+
+pipeline {
+  agent {
+    node {
+      label 'master' 
+    }
+  }
+  tools {
+      oc 'oc'
+  }
+  options {
+    timeout(time: 20, unit: 'MINUTES') 
+  }
+  stages {
+    stage('Backup App') {
+        steps {
+            script {
+                openshift.withCluster(env.CLUSTER_NAME) {
+                    openshift.withProject(env.PROJECT_NAME) {
+
+                        if(openshift.selector("deployment/${env.APP_NAME}-backup").exists() && openshift.selector("svc/${env.APP_NAME}-backup").exists()){
+                            def options = ["Delete backup and continue","Stop"]
+                            timeout(time:24, unit: 'HOURS') {
+                              selectedOption = input(
+                                ok: "ok",
+                                message: "There are still jobs under test before. Do you want to continue?" ,
+                                parameters: [
+                                    choice(choices: options.join('\n'), description: '', name: 'Please choose your decision')
+                                ]
+                                )
+                            }
+                            if("${selectedOption}" != "Stop") {
+                                openshift.selector("deployment/${env.APP_NAME}-backup").delete( '--ignore-not-found' )
+                                openshift.selector("svc/${env.APP_NAME}-backup").delete( '--ignore-not-found' )
+                            } else {
+                                exit(1)
+                            }
+                        }
+                        
+                        if(openshift.selector("deployment/${env.APP_NAME}").exists() && openshift.selector("svc/${env.APP_NAME}").exists()){
+                            def deployment = openshift.selector("deployment/${env.APP_NAME}").object()
+                            deployment.remove('status')
+                            deployment.metadata.remove('annotations')
+                            deployment.metadata.remove('creationTimestamp')
+                            deployment.metadata.remove('generation')
+                            deployment.metadata.remove('resourceVersion')
+                            deployment.metadata.remove('selfLink')
+                            deployment.metadata.remove('uid') 
+                            deployment.spec.remove('revisionHistoryLimit') 
+                            deployment.metadata.name="${env.APP_NAME}-backup"
+                            deployment.metadata.labels['ec-svc'] = "${env.APP_NAME}-backup"
+                            deployment.metadata.labels['ec-track'] = 'stable'
+                            deployment.spec.selector.matchLabels['ec-svc'] = "${env.APP_NAME}-backup"
+                            deployment.spec.selector.matchLabels['ec-track'] = 'stable'
+                            deployment.spec.template.metadata.name = "${env.APP_NAME}-backup"
+                            deployment.spec.template.metadata.labels['ec-svc'] = "${env.APP_NAME}-backup"
+                            deployment.spec.template.metadata.labels['ec-track'] = 'stable'
+                            openshift.apply(deployment)  
+                            deployment = openshift.selector("deployment/${env.APP_NAME}-backup")
+                            deployment.rollout().status()
+
+                            def service = openshift.selector("svc/${env.APP_NAME}").object()
+                            service.remove('status') 
+                            service.metadata.remove('creationTimestamp') 
+                            service.metadata.remove('resourceVersion')
+                            service.metadata.remove('selfLink')
+                            service.metadata.remove('uid') 
+                            service.metadata.remove('labels')
+                            service.spec.remove('clusterIP') 
+                            service.metadata.name="${env.APP_NAME}-backup"
+                            service.spec.selector['ec-svc'] = "${env.APP_NAME}-backup"
+                            openshift.apply(service) 
+                        } 
+                    }
+                }
+            }
+        }
+    }
+  }
+}
