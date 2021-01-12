@@ -82,7 +82,7 @@ To login as administrator:
     oc login -u system:admin
 ```
 
-## Docker 설치
+## Docker 설치 - Openshift 서버에 testEnv 설치하는 경우 생략 가능
 
 - Tested with 24GB memory, 8 cores,  Ubuntu 16.04 LTS  
 
