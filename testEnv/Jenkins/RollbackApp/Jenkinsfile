@@ -1,0 +1,82 @@
+pipeline {
+  agent {
+    node {
+      label 'master' 
+    }
+  }
+  tools {
+      oc 'oc'
+  }
+  options {
+    timeout(time: 20, unit: 'MINUTES') 
+  }
+  stages {
+    stage('Rollback App') {
+        steps {
+            script {
+                openshift.withCluster(env.CLUSTER_NAME) {
+                    openshift.withProject(env.PROJECT_NAME) {
+						if(openshift.selector("deployment/${env.APP_NAME}").exists() && openshift.selector("svc/${env.APP_NAME}").exists()) {
+                            if(openshift.selector("deployment/${env.APP_NAME}-backup").exists() && openshift.selector("svc/${env.APP_NAME}-backup").exists()) {
+                                // 1. Sending all traffic to orgin app
+                                openshift.set("route-backends", "${env.APP_NAME}", "${env.APP_NAME}-backup=100%")
+
+                                // 2. Delete Deployed App
+                                openshift.selector("deployment/${env.APP_NAME}").delete( '--ignore-not-found' )
+                                openshift.selector("svc/${env.APP_NAME}}").delete( '--ignore-not-found' )
+
+                                // 3. Get the manifest of New App and 
+                                // 3. Edit the name and selector information of the New App manifest to be the same as the Origin App
+                                def deployment = openshift.selector("deployment/${env.APP_NAME}-backup").object()
+                                deployment.remove('status')
+                                deployment.metadata.remove('annotations')
+                                deployment.metadata.remove('creationTimestamp')
+                                deployment.metadata.remove('generation')
+                                deployment.metadata.remove('resourceVersion')
+                                deployment.metadata.remove('selfLink')
+                                deployment.metadata.remove('uid') 
+                                deployment.spec.remove('revisionHistoryLimit') 
+                                deployment.metadata.name="${env.APP_NAME}"
+                                deployment.metadata.labels['ec-svc'] = "${env.APP_NAME}"
+                                deployment.metadata.labels['ec-track'] = 'stable'
+                                deployment.spec.selector.matchLabels['ec-svc'] = "${env.APP_NAME}"
+                                deployment.spec.selector.matchLabels['ec-track'] = 'stable'
+                                deployment.spec.template.metadata.name =  "${env.APP_NAME}"
+                                deployment.spec.template.metadata.labels['ec-svc'] = "${env.APP_NAME}"
+                                deployment.spec.template.metadata.labels['ec-track'] = 'stable'
+                                openshift.apply(deployment)  
+                                deployment = openshift.selector("deployment/${env.APP_NAME}")
+                                deployment.rollout().status()
+
+                                def service = openshift.selector("svc/${env.APP_NAME}-backup").object()
+                                service.remove('status') 
+                                service.metadata.remove('creationTimestamp') 
+                                service.metadata.remove('resourceVersion')
+                                service.metadata.remove('selfLink')
+                                service.metadata.remove('uid') 
+                                service.metadata.remove('labels')
+                                service.spec.remove('clusterIP') 
+                                service.metadata.name="${env.APP_NAME}"
+                                service.spec.selector['ec-svc'] = "${env.APP_NAME}"
+                                openshift.apply(service) 
+        
+                                // 4. Sending all Traffic to New App
+                                openshift.set("route-backends", "${env.APP_NAME}", "${env.APP_NAME}=100%")
+
+                                // 5. Delete Backup App
+                                openshift.selector("deployment/${env.APP_NAME}-backup").delete( '--ignore-not-found' ) 
+                                openshift.selector("svc/${env.APP_NAME}-backup").delete( '--ignore-not-found' )
+                            } else {
+                                // Delete all apps
+                                openshift.selector("deployment/${env.APP_NAME}").delete( '--ignore-not-found' )
+                                openshift.selector("svc/${env.APP_NAME}").delete( '--ignore-not-found' )
+                                openshift.selector("route/${env.APP_NAME}").delete( '--ignore-not-found' )
+                            }
+						}
+                    }
+                }
+            }
+        }
+    }    
+  }
+}
