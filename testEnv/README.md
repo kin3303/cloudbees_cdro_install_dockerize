@@ -373,7 +373,7 @@ $ ./checkToken.sh <PROJECT_NAME> <SERVICE_ACCOUNT_NAME>
 ```
   1. Cluster Configuration
     - Add OpenShift Cluster 클릭
-      - Cluster Name : openshift-cluster
+      - Cluster Name : <Openshift 프로젝트 이름>
       - API Server URL : oc login --server=<이 값을 복사> --token=<TOKEN>
       - Disable TLS Verify : 체크
       - Credentials : Add 하여 추가 후 해당 Credential 선택
