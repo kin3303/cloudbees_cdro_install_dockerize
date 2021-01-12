@@ -1,0 +1,34 @@
+
+pipeline {
+  agent {
+    node {
+      label 'master' 
+    }
+  }
+  tools {
+      oc 'oc'
+  }
+  options {
+    timeout(time: 20, unit: 'MINUTES') 
+  }
+  stages {
+    stage('Update App') {
+        steps {
+            script {
+                openshift.withCluster(env.CLUSTER_NAME) {
+                    openshift.withProject(env.PROJECT_NAME) {
+						if( openshift.selector("deployment/${env.APP_NAME}-backup").exists() && openshift.selector("svc/${env.APP_NAME}-backup").exists() && 
+                        openshift.selector("deployment/${env.APP_NAME}-backup").exists() && openshift.selector("svc/${env.APP_NAME}-backup").exists()) {
+                            echo "Adjusting route path.."
+                            openshift.set("route-backends", "${env.APP_NAME}", "${env.APP_NAME}=100%")
+                            echo "Deleting backup app.."
+                            openshift.selector("svc/${env.APP_NAME}-backup").delete( '--ignore-not-found' )
+                            openshift.selector("deployment/${env.APP_NAME}-backup").delete( '--ignore-not-found' )
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+}
