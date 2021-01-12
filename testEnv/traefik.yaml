@@ -1,0 +1,54 @@
+################################################################
+# API and dashboard configuration
+################################################################
+api:
+  # Dashboard
+  #
+  #
+  dashboard: true
+  insecure: true
+################################################################
+# Docker configuration backend
+################################################################
+providers:
+  docker:
+    exposedByDefault: false
+################################################################
+# Traefik Logging
+################################################################
+log:
+  level: INFO
+
+################################################################
+# Entrypoint
+################################################################
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+################################################################
+# Challenge HTTP
+################################################################
+certificatesResolvers:
+  myresolver_nexus:
+    acme:
+      email: kin3303@gmail.com
+      storage: ./letsencrypt/acme_nexus.json
+      tlsChallenge: true
+  myresolver_registry:
+    acme:
+      email: kin3303@gmail.com
+      storage: ./letsencrypt/acme_registry.json
+      tlsChallenge: true
+  myresolver_sonar:
+    acme:
+      email: kin3303@gmail.com
+      storage: ./letsencrypt/acme_sonar.json
+      tlsChallenge: true
+  myresolver_jenkins:
+    acme:
+      email: kin3303@gmail.com
+      storage: ./letsencrypt/acme_jenkins.json
+      tlsChallenge: true
