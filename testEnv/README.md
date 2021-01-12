@@ -202,7 +202,6 @@ To login as administrator:
 1. Openshift 에 External Registry 접근을 위한 Secret 생성
 
 ```console
-
 $ oc login https://web.letsgohomenow.com:8443 --token=WsOQcb8_aOnFO8UJjpb5KNMJtI3YF5TU2qXscxbtKlM
 $ oc project <projectname>
 $ oc create secret docker-registry nexus \
@@ -285,8 +284,13 @@ spec:
  
 ### Step 1. Docker Plugin 설치 및 Repository 연결
 
+- Docker Image 를 Nexus Private Registry 에 Push 하고자 하는 경우 Docker Plugin 설치 및 아래 설정이 필요하다. 
+- Docker Pipeline 사용법은 아래 내용을 참고한다.
+  * https://www.jenkins.io/doc/book/pipeline/docker/
+  * https://docs.cloudbees.com/docs/admin-resources/latest/plugins/docker-workflow
+
 ```
-  1. Docker Pipeline 플러그인 설치
+  1. Docker Pipeline 플러그인을 Jenkins 에 설치
   2. dockerHub 에 로그인하기 위한 Credential 을 Jenkins 에 추가 
       Manage Jenkins -> Manage Credentials -> Provider : Jenkins -> Global credentials  -> Add Credentials (최신버전)
         Kind : Username with password
@@ -312,12 +316,12 @@ spec:
   4. 재시작후 설치된 플러그인에 위 플러그인들이 제대로 들어갔는지 확인
 ```
 
-### Step 3 : Global Tool Configuration 설정
+### Step 3 : oc client tool 설치
 
 - Manage Jenkins => Global Tool Configuration 으로 이동해 아래 설정을 진행
 
-```
-  1. Openshift Client Tools 
+``` 
+  Openshift Client Tools 3.11 을 사용하는 경우
     - Add OpenShift Client Tools 클릭
       - Name : oc
       - Install automatically : 체크
@@ -326,9 +330,43 @@ spec:
       - Openshift About 페이지에서 Openshift 버전 확인 후 https://mirror.openshift.com/pub 에서 알맞은 Client 의 URL 을 복사
       - Download URL for binary archive : https://mirror.openshift.com/pub/openshift-v3/clients/3.11.0-0.32.0/linux/oc.tar.gz
     - Apply 버튼 클릭  
-```
+ 
+  Openshift Client Tools 을 Openshift Console 에서 다운 받은 경우 
+    - Add OpenShift Client Tools 클릭
+      - Name : oc
+      - Tool Directory : oc client 를 복사해 놓은 디렉토리 선택 (ex>/var/jenkins_home/oc-client) 
+``` 
 
-### Step 4 : Openshift Cluster 추가 설정
+### Step 4 : Jenkins 에 Openshift Cluster 등록
+
+- 아래 스크립트를 통해 발급받은 Service Account 에 대한 Token 값을 얻음
+
+```console
+$ sudo su
+$ oc login -u ....
+..
+
+$ cat <<'EOF' >>checkToken.sh
+#!/bin/bash
+
+export projectName=$1
+export serviceAccount=$2
+
+secretName=`oc describe  -n $projectName serviceaccount $serviceAccount | grep Tokens:|awk '{print $2}'`
+TOKEN=$(oc get secret -n $projectName $secretName -o jsonpath='{.data.token}' | base64 -d)
+APISERVER=$(kubectl config view | grep server | cut -f 2- -d ":" | tr -d " ")
+
+echo -e "Openshift API Endpoint: \n$APISERVER\n"
+echo -e "Openshift ProjectName : $projectName\n"
+echo -e "Service Account : $serviceAccount\n"
+echo -e "Bearer token: \n$TOKEN\n"
+EOF
+
+$ chmod +x checkToken.sh
+$ ./checkToken.sh <PROJECT_NAME> <SERVICE_ACCOUNT_NAME>
+... 
+<TOKEN>
+```
 
 - Manage Jenkins => Configure System 으로 이동해 아래 설정을 진행
 
@@ -340,13 +378,8 @@ spec:
       - Disable TLS Verify : 체크
       - Credentials : Add 하여 추가 후 해당 Credential 선택
         - Kind : Openshift Token for Openshift Client Plugin
-        - Token : 로그인 토큰 ( oc whoami -t )
-        - ID : my-user-token
+        - Token : <TOKEN>
+        - ID : <서비스어카운트 이름>
+        - Description : <서비스어카운트 이름>
     - Apply 버튼 클릭 
 ```
-
-
-
-
-
-
