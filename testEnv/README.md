@@ -339,33 +339,30 @@ spec:
 
 ### Step 4 : Jenkins 에 Openshift Cluster 등록
 
-- 아래 스크립트를 통해 발급받은 Service Account 에 대한 Token 값을 얻음
+- 아래 스크립트를 통해 Service Account 를 생성하고 Service Account 에 대한 Token 값을 얻음
 
 ```console
 $ sudo su
 $ oc login -u system:admin
-..
-
-$ cat <<'EOF' >>checkToken.sh
+$ cat <<'EOF' >>tokenGen.sh
 #!/bin/bash
-
 export projectName=$1
 export serviceAccount=$2
-
+oc delete -n $projectName serviceaccount $serviceAccount
+oc create -n $projectName serviceaccount $serviceAccount
+oc adm policy add-cluster-role-to-user edit system:serviceaccount:$projectName:$serviceAccount
+oc adm policy add-cluster-role-to-user cluster-reader system:serviceaccount:$projectName:$serviceAccount
 secretName=`oc describe  -n $projectName serviceaccount $serviceAccount | grep Tokens:|awk '{print $2}'`
 TOKEN=$(oc get secret -n $projectName $secretName -o jsonpath='{.data.token}' | base64 -d)
 APISERVER=$(kubectl config view | grep server | cut -f 2- -d ":" | tr -d " ")
-
 echo -e "Openshift API Endpoint: \n$APISERVER\n"
 echo -e "Openshift ProjectName : $projectName\n"
 echo -e "Service Account : $serviceAccount\n"
 echo -e "Bearer token: \n$TOKEN\n"
 EOF
-
-$ chmod +x checkToken.sh
-$ ./checkToken.sh <PROJECT_NAME> <SERVICE_ACCOUNT_NAME>
-... 
-<TOKEN>
+$ chmod +x cloudbeesCD-Config-Generator.sh
+$ ./tokenGen.sh <프로젝트명> <서비스어카운트명>
+<토큰>
 ```
 
 - Manage Jenkins => Configure System 으로 이동해 아래 설정을 진행
