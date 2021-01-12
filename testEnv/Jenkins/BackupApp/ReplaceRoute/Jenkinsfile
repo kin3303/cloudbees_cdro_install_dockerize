@@ -1,0 +1,35 @@
+pipeline {
+  agent {
+    node {
+      label 'master' 
+    }
+  }
+  tools {
+      oc 'oc'
+  }
+  options {
+    timeout(time: 20, unit: 'MINUTES') 
+  }
+  stages {
+    stage('Update route backends') {
+        steps {
+            script {
+                openshift.withCluster(env.CLUSTER_NAME) {
+                    openshift.withProject(env.PROJECT_NAME) {
+                        if(openshift.selector("deployment/${env.APP_NAME}").exists() && openshift.selector("svc/${env.APP_NAME}").exists() &&
+                           openshift.selector("deployment/${env.APP_NAME}-backup").exists() && openshift.selector("svc/${env.APP_NAME}-backup").exists()) {
+                              if("${env.STAGE}" == "QA") {
+                                  echo "Editing route path for QA.."
+                                  openshift.set("route-backends", "${env.APP_NAME}", "${env.APP_NAME}=100%","${env.APP_NAME}-backup=0%")
+                              } else {
+                                  echo "Editing route path for Prod.."
+                                  openshift.set("route-backends", "${env.APP_NAME}", "${env.APP_NAME}=0%","${env.APP_NAME}-backup=100%")
+                              }
+                        }
+                    }
+                }
+            }
+        }
+    }  
+  }
+}
