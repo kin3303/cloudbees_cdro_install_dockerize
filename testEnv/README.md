@@ -381,5 +381,6 @@ $ ./checkToken.sh <PROJECT_NAME> <SERVICE_ACCOUNT_NAME>
         - Token : <TOKEN>
         - ID : <서비스어카운트 이름>
         - Description : <서비스어카운트 이름>
+        - Default Project : <Openshift 프로젝트 이름>
     - Apply 버튼 클릭 
 ```
