@@ -291,7 +291,7 @@ spec:
 
 ```
   1. Docker Pipeline 플러그인을 Jenkins 에 설치
-  2. dockerHub 에 로그인하기 위한 Credential 을 Jenkins 에 추가 (Docker Hub 를 Registry 로 사용하는 경우)
+  2. (op1) Docker Hub 를 Registry 로 사용하는 경우=> dockerHub 에 로그인하기 위한 Credential 을 Jenkins 에 추가
       Manage Jenkins -> Manage Credentials -> Provider : Jenkins -> Global credentials  -> Add Credentials (최신버전)
         Kind : Username with password
         Scope : Global
@@ -299,7 +299,7 @@ spec:
         Password : dockerHub 패스워드
         ID : docker-hub
         Description : docker-hub
-  2. dockerHub 에 로그인하기 위한 Credential 을 Jenkins 에 추가 (Nexus 를 Registry 로 사용하는 경우)
+  2. (op2) Nexus 를 Registry 로 사용하는 경우 => Nexus 에 로그인하기 위한 Credential 을 Jenkins 에 추가 
       Manage Jenkins -> Manage Credentials -> Provider : Jenkins -> Global credentials  -> Add Credentials (최신버전)
         Kind : Username with password
         Scope : Global
