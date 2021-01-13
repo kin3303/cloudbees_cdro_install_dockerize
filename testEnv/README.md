@@ -336,7 +336,7 @@ spec:
       - Add Openshift Client Tools 클릭
       - "Extract *.zip/*.tar.gz" 선택
       - Openshift About 페이지에서 Openshift 버전 확인 후 https://mirror.openshift.com/pub 에서 알맞은 Client 의 URL 을 복사
-      - Download URL for binary archive : https://mirror.openshift.com/pub/openshift-v3/clients/3.11.0-0.32.0/linux/oc.tar.gz
+      - Download URL for binary archive : https://mirror.openshift.com/pub/openshift-v3/clients/3.11.375-1/linux/oc.tar.gz
     - Apply 버튼 클릭  
  
   Openshift Client Tools 을 Openshift Console 에서 다운 받은 경우 
