@@ -22,7 +22,7 @@
 6. Slack 에 WebHook 만들기
 	1. 자신의 workspace 로 로그인  ->  https://plateerworkspace.slack.com/
 	2. Channels -> alert 만들기
-	3. Apps -> webhook 으로 검색 -> Incoming WebHooks Add -> Post to Channel : alert 
+	    1. Apps -> webhook 으로 검색 -> Incoming WebHooks Add -> Post to Channel : alert 
 	4. Configuration 생성  
 		1. Name : slackcfg
 		2. Endpoint URL : https://hooks.slack.com/services/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
