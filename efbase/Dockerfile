@@ -36,7 +36,7 @@ apt-get install -y --no-install-recommends net-tools iputils-ping curl vim && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/*
 
-RUN addgroup ubuntu
+RUN groupadd ubuntu
 RUN useradd -m -g ubuntu ubuntu
 #RUN echo "ubuntu ALL=(ALL:ALL) ALL" >> /etc/sudoers
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
