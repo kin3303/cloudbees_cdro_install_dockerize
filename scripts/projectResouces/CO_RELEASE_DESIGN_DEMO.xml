@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData version="90" buildLabel="build_main_139827_2019.11.07_06:46:40" buildVersion="9.2.0.139827" passkey="d671432cab324112b451d468dfc795269e5871d4">
+<exportedData version="96" buildLabel="build_main_142654_2020.06.25_02:11:48" buildVersion="10.0.0.142654" passkey="b734f8f6603c3a6ac13414c5b07fbf1a6583446a">
   <exportPath>/projects/CO_RELEASE_DESIGN_DEMO</exportPath>
   <project>
     <projectName>CO_RELEASE_DESIGN_DEMO</projectName>
@@ -20,6 +20,19 @@
         <denyModify>0</denyModify>
         <denyRead>0</denyRead>
         <principalName>admin</principalName>
+        <principalType>user</principalType>
+        <tracked>0</tracked>
+      </aclEntry>
+      <aclEntry>
+        <allowChangePermissions>0</allowChangePermissions>
+        <allowExecute>0</allowExecute>
+        <allowModify>0</allowModify>
+        <allowRead>0</allowRead>
+        <denyChangePermissions>0</denyChangePermissions>
+        <denyExecute>0</denyExecute>
+        <denyModify>0</denyModify>
+        <denyRead>1</denyRead>
+        <principalName>gaitup</principalName>
         <principalType>user</principalType>
         <tracked>0</tracked>
       </aclEntry>
