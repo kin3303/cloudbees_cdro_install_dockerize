@@ -1833,14 +1833,14 @@
       </propertySheet>
     </credential>
     <procedure>
-      <procedureName>test</procedureName>
+      <procedureName>Backup</procedureName>
       <description></description>
       <jobNameTemplate></jobNameTemplate>
-      <resourceName>openshiftAgent</resourceName>
+      <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
       <tracked>1</tracked>
-      <workspaceName>default</workspaceName>
+      <workspaceName></workspaceName>
       <acl>
         <inheriting>1</inheriting>
         <tracked>1</tracked>
@@ -1854,10 +1854,10 @@
         </acl>
       </propertySheet>
       <step>
-        <stepName>test</stepName>
+        <stepName>backup</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>helm help</command>
+        <command>rm -rf /tmp/scripts/CO_WEB_DEMO.xml&#10;rm -rf /tmp/scripts/CO_SIMPLE_ROLLBACK_APP.xml&#10;rm -rf /tmp/scripts/CO_RELEASE_DESIGN_DEMO.xml&#10;rm -rf /tmp/scripts/CO_WEB_DEMO.xml&#10;rm -rf /tmp/scripts/Z_Test.xml&#10;rm -rf /tmp/scripts/DDI.xml&#10;rm -rf /tmp/scripts/Release_Demo_3.0.xml&#10;&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/CO_Functions.xml --path "/projects/CO_Functions"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/DDI.xml --path "/projects/DDI"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/CO_WEB_DEMO.xml --path "/projects/CO_WEB_DEMO"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/CO_SIMPLE_ROLLBACK_APP.xml --path "/projects/CO_SIMPLE_ROLLBACK_APP"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/CO_RELEASE_DESIGN_DEMO.xml --path "/projects/CO_RELEASE_DESIGN_DEMO"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/Demo.xml --path "/projects/Demo"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/CO_WEB_DEMO_20210129.xml --path "/projects/CO_WEB_DEMO_20210129"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/Demo.xml --path "/projects/Demo"  --relocatable 1 --withAcls 1 --withNotifiers 1&#10;/opt/electriccloud/electriccommander/bin/ectool export /tmp/scripts/University.xml --path "/projects/University"  --relocatable 1 --withAcls 1 --withNotifiers 1</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>

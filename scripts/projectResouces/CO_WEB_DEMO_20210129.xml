@@ -9949,7 +9949,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>183</value>
+              <value>209</value>
             </property>
           </propertySheet>
         </property>
@@ -10073,7 +10073,7 @@
       <stage>
         <stageName>Setup</stageName>
         <completed>1</completed>
-        <completionTime>2021-02-08T00:00:17.477Z</completionTime>
+        <completionTime>2021-03-06T00:00:18.477Z</completionTime>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>0c62a430-4fe8-11eb-8cac-0242ac18000c_stage_flow_state</flowStateName>
@@ -16219,7 +16219,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>128</value>
+              <value>154</value>
             </property>
           </propertySheet>
         </property>
@@ -16342,8 +16342,7 @@
       </formalParameter>
       <stage>
         <stageName>Setup</stageName>
-        <completed>1</completed>
-        <completionTime>2021-02-08T00:00:33.775Z</completionTime>
+        <completed>0</completed>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>0c62a430-4fe8-11eb-8cac-0242ac18000c_stage_flow_state</flowStateName>
@@ -16835,8 +16834,7 @@
       </stage>
       <stage>
         <stageName>Build</stageName>
-        <completed>1</completed>
-        <completionTime>2021-02-08T00:01:10.836Z</completionTime>
+        <completed>0</completed>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>0ce65269-4fe8-11eb-8cac-0242ac18000c_stage_flow_state</flowStateName>
@@ -17561,8 +17559,7 @@
       </stage>
       <stage>
         <stageName>Test</stageName>
-        <completed>1</completed>
-        <completionTime>2021-02-08T00:02:00.833Z</completionTime>
+        <completed>0</completed>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>0de04355-4fe8-11eb-8cac-0242ac18000c_stage_flow_state</flowStateName>
@@ -18246,8 +18243,7 @@
       </stage>
       <stage>
         <stageName>Publish</stageName>
-        <completed>1</completed>
-        <completionTime>2021-02-08T00:02:27.905Z</completionTime>
+        <completed>0</completed>
         <completionType>auto</completionType>
         <description></description>
         <flowStateName>0f195f22-4fe8-11eb-8cac-0242ac18000c_stage_flow_state</flowStateName>
@@ -26977,6 +26973,501 @@
         </task>
       </stage>
     </pipeline>
+    <pipeline>
+      <pipelineName>Z_Test</pipelineName>
+      <description></description>
+      <disableMultipleActiveRuns>0</disableMultipleActiveRuns>
+      <disableRestart>0</disableRestart>
+      <overrideWorkspace>0</overrideWorkspace>
+      <pipelineEnabled>1</pipelineEnabled>
+      <skipStageMode>ENABLED</skipStageMode>
+      <tracked>1</tracked>
+      <acl>
+        <inheriting>1</inheriting>
+        <tracked>1</tracked>
+      </acl>
+      <flow>
+        <flowName>fa741fab-7fe3-11eb-9483-0242ac180005_pipelineflow</flowName>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+        </propertySheet>
+        <flowState>
+          <flowStateName>faa9d624-7fe3-11eb-b5eb-0242ac180005_stage_flow_state</flowStateName>
+          <advancedMode>0</advancedMode>
+          <alwaysRun>0</alwaysRun>
+          <colorCode>#00adee</colorCode>
+          <deployerTask>0</deployerTask>
+          <description>stage flow step</description>
+          <flowStateType>task</flowStateType>
+          <index>0</index>
+          <keepOnError>0</keepOnError>
+          <subflow>faa8ebbc-7fe3-11eb-b5eb-0242ac180005_stageflow</subflow>
+          <tracked>1</tracked>
+          <useApproverAcl>0</useApproverAcl>
+          <waitForCompletion>0</waitForCompletion>
+          <waitForPlannedStart>0</waitForPlannedStart>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+        </flowState>
+      </flow>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <property>
+          <propertyName>ec_counters</propertyName>
+          <tracked>1</tracked>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <property>
+              <propertyName>pipelineCounter</propertyName>
+              <expandable>1</expandable>
+              <suppressValueTracking>0</suppressValueTracking>
+              <tracked>1</tracked>
+              <value>7</value>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>ec_stagesToRun</formalParameterName>
+        <expansionDeferred>1</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <stage>
+        <stageName>Stage 1</stageName>
+        <completed>0</completed>
+        <completionType>auto</completionType>
+        <flowStateName>faa9d624-7fe3-11eb-b5eb-0242ac180005_stage_flow_state</flowStateName>
+        <pipelineName>Z_Test</pipelineName>
+        <tracked>1</tracked>
+        <acl>
+          <inheriting>1</inheriting>
+          <tracked>1</tracked>
+        </acl>
+        <flow>
+          <flowName>faa8ebbc-7fe3-11eb-b5eb-0242ac180005_stageflow</flowName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+          <flowState>
+            <flowStateName>16dd8b3c-7fe8-11eb-92db-0242ac180005_task_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description></description>
+            <errorHandling>stopOnError</errorHandling>
+            <flowStateType>task</flowStateType>
+            <index>0</index>
+            <keepOnError>0</keepOnError>
+            <resourceName>DEV1</resourceName>
+            <subpluginKey>EC-Maven</subpluginKey>
+            <subprocedure>runMaven</subprocedure>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <actualParameters>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <property>
+                <propertyName>additionalOptions</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value></value>
+              </property>
+              <property>
+                <propertyName>cmdDebug</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>0</value>
+              </property>
+              <property>
+                <propertyName>cmdErrors</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>0</value>
+              </property>
+              <property>
+                <propertyName>cmdFailFast</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>0</value>
+              </property>
+              <property>
+                <propertyName>cmdFailNever</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>0</value>
+              </property>
+              <property>
+                <propertyName>cmdFailatEnd</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>0</value>
+              </property>
+              <property>
+                <propertyName>envVariables</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value></value>
+              </property>
+              <property>
+                <propertyName>mavenCommand</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>package</value>
+              </property>
+              <property>
+                <propertyName>workingdirectory</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>/DATA/workspace/mvnProject/univers</value>
+              </property>
+            </actualParameters>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </flowState>
+          <flowState>
+            <flowStateName>422f0874-7fec-11eb-8a7b-0242ac180005_task_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description></description>
+            <errorHandling>stopOnError</errorHandling>
+            <flowStateType>task</flowStateType>
+            <index>1</index>
+            <keepOnError>0</keepOnError>
+            <resourceName>DEV1</resourceName>
+            <subpluginKey>EC-Artifact</subpluginKey>
+            <subprocedure>Publish</subprocedure>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <actualParameters>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <property>
+                <propertyName>artifactName</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>com.demo.university:app</value>
+              </property>
+              <property>
+                <propertyName>artifactVersionVersion</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>1.0.1-$[/increment /server/ec_counters/artifactCounter]</value>
+              </property>
+              <property>
+                <propertyName>compress</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>1</value>
+              </property>
+              <property>
+                <propertyName>dependentArtifactVersionList</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value></value>
+              </property>
+              <property>
+                <propertyName>excludePatterns</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value></value>
+              </property>
+              <property>
+                <propertyName>followSymlinks</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>1</value>
+              </property>
+              <property>
+                <propertyName>fromLocation</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>/DATA/workspace/mvnProject/univers/univers-web/target</value>
+              </property>
+              <property>
+                <propertyName>includePatterns</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>*.war</value>
+              </property>
+              <property>
+                <propertyName>repositoryName</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>default</value>
+              </property>
+            </actualParameters>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </flowState>
+          <flowState>
+            <flowStateName>1b203aef-7fe4-11eb-b16c-0242ac180005_task_flow_state</flowStateName>
+            <advancedMode>0</advancedMode>
+            <alwaysRun>0</alwaysRun>
+            <deployerTask>0</deployerTask>
+            <description></description>
+            <environmentName>Dev1</environmentName>
+            <environmentProjectName>University_20210129</environmentProjectName>
+            <errorHandling>stopOnError</errorHandling>
+            <flowStateType>task</flowStateType>
+            <index>2</index>
+            <keepOnError>0</keepOnError>
+            <resourceName></resourceName>
+            <rollingDeployEnabled>0</rollingDeployEnabled>
+            <subapplication>University</subapplication>
+            <subprocess>Deploy</subprocess>
+            <subproject>University_20210129</subproject>
+            <tracked>1</tracked>
+            <useApproverAcl>0</useApproverAcl>
+            <waitForCompletion>0</waitForCompletion>
+            <waitForPlannedStart>0</waitForPlannedStart>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+            <actualParameters>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+              <property>
+                <propertyName>ec_enforceDependencies</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>1</value>
+              </property>
+              <property>
+                <propertyName>ec_smartDeployOption</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>1</value>
+              </property>
+              <property>
+                <propertyName>ec_stageArtifacts</propertyName>
+                <expandable>1</expandable>
+                <suppressValueTracking>0</suppressValueTracking>
+                <tracked>1</tracked>
+                <value>1</value>
+              </property>
+            </actualParameters>
+            <propertySheet>
+              <credentialProtected>0</credentialProtected>
+              <tracked>1</tracked>
+              <acl>
+                <inheriting>1</inheriting>
+                <tracked>1</tracked>
+              </acl>
+            </propertySheet>
+          </flowState>
+        </flow>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+        </propertySheet>
+        <gate>
+          <gateName>faaac089-7fe3-11eb-b5eb-0242ac180005</gateName>
+          <gateType>PRE</gateType>
+          <stageName>Stage 1</stageName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+        </gate>
+        <gate>
+          <gateName>faac472d-7fe3-11eb-b5eb-0242ac180005</gateName>
+          <gateType>POST</gateType>
+          <stageName>Stage 1</stageName>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+        </gate>
+        <task>
+          <taskName>Build</taskName>
+          <allowOutOfOrderRun>0</allowOutOfOrderRun>
+          <description></description>
+          <flowStateName>16dd8b3c-7fe8-11eb-92db-0242ac180005_task_flow_state</flowStateName>
+          <taskEnabled>0</taskEnabled>
+          <taskSkippable>0</taskSkippable>
+          <taskType>PLUGIN</taskType>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+        </task>
+        <task>
+          <taskName>publish</taskName>
+          <allowOutOfOrderRun>0</allowOutOfOrderRun>
+          <description></description>
+          <flowStateName>422f0874-7fec-11eb-8a7b-0242ac180005_task_flow_state</flowStateName>
+          <taskEnabled>0</taskEnabled>
+          <taskSkippable>0</taskSkippable>
+          <taskType>PLUGIN</taskType>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+        </task>
+        <task>
+          <taskName>Deploy_Dev1</taskName>
+          <allowOutOfOrderRun>0</allowOutOfOrderRun>
+          <description></description>
+          <flowStateName>1b203aef-7fe4-11eb-b16c-0242ac180005_task_flow_state</flowStateName>
+          <taskEnabled>1</taskEnabled>
+          <taskProcessType>APPLICATION</taskProcessType>
+          <taskSkippable>0</taskSkippable>
+          <taskType>PROCESS</taskType>
+          <tracked>1</tracked>
+          <acl>
+            <inheriting>1</inheriting>
+            <tracked>1</tracked>
+          </acl>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <acl>
+              <inheriting>1</inheriting>
+              <tracked>1</tracked>
+            </acl>
+          </propertySheet>
+        </task>
+      </stage>
+    </pipeline>
     <release>
       <releaseName>tt</releaseName>
       <archived>0</archived>
@@ -27917,9 +28408,9 @@
                   </acl>
                 </propertySheet>
                 <eventSubscription>
-                  <eventSubscriptionName>user-admin</eventSubscriptionName>
+                  <eventSubscriptionName>group-development</eventSubscriptionName>
+                  <groupName>development</groupName>
                   <tracked>1</tracked>
-                  <userName>admin</userName>
                   <acl>
                     <inheriting>1</inheriting>
                     <tracked>1</tracked>
@@ -27934,9 +28425,9 @@
                   </propertySheet>
                 </eventSubscription>
                 <eventSubscription>
-                  <eventSubscriptionName>group-development</eventSubscriptionName>
-                  <groupName>development</groupName>
+                  <eventSubscriptionName>user-admin</eventSubscriptionName>
                   <tracked>1</tracked>
+                  <userName>admin</userName>
                   <acl>
                     <inheriting>1</inheriting>
                     <tracked>1</tracked>
@@ -29019,7 +29510,7 @@
               <expandable>1</expandable>
               <suppressValueTracking>0</suppressValueTracking>
               <tracked>1</tracked>
-              <value>0</value>
+              <value>3</value>
             </property>
             <property>
               <propertyName>ec_maxRetries</propertyName>
