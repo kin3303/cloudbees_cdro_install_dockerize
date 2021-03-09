@@ -52,7 +52,7 @@ services:
       - ${PWD}/data/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ${PWD}/data/mysql/scripts:/docker-entrypoint-initdb.d
       - ${PWD}/scripts:/tmp/scripts
-      - flow-db-volume:/var/lib/mysql
+      - ${PWD}/data/mysql/db_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ecdb
       MYSQL_DATABASE: ecdb
