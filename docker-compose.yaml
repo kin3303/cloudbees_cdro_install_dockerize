@@ -100,7 +100,9 @@ services:
       - flow    
     hostname: repository
     container_name: repository
-    
+    ports:
+      - 8200:8200
+
   insight:
     <<: *commanderinsight
     hostname: insight
