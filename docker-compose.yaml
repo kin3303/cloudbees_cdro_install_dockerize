@@ -107,6 +107,8 @@ services:
     <<: *commanderinsight
     hostname: insight
     container_name: insight 
+    ports:
+      - 9200:9200
 
   portainer:
     image: portainer/portainer:latest
